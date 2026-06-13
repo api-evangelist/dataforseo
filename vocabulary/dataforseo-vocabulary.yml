@@ -1,0 +1,111 @@
+vocabulary:
+  name: DataForSEO API Vocabulary
+  description: >-
+    Key terms, concepts, and domain vocabulary used across the DataForSEO REST
+    API platform covering SEO, SERP, keyword research, backlinks, domain analytics,
+    on-page SEO, content analysis, business data, app store intelligence, e-commerce,
+    AI optimization, and social media signals.
+  version: "1.0.0"
+  source: https://docs.dataforseo.com
+  baseURL: https://api.dataforseo.com
+
+apis:
+  - key: serp
+    label: SERP API
+    description: Search engine results page data across Google, Bing, YouTube, Yahoo, Baidu, Naver, and Seznam.
+  - key: keywords-data
+    label: Keywords Data API
+    description: Search volume, CPC, and keyword research data from Google Ads, Bing Ads, and Google Trends.
+  - key: backlinks
+    label: Backlinks API
+    description: Real-time backlink data covering referring domains, anchor texts, and link metrics.
+  - key: labs
+    label: DataForSEO Labs API
+    description: Advanced search analytics for keyword research, competitor intelligence, and market analysis.
+  - key: domain-analytics
+    label: Domain Analytics API
+    description: Website overviews including technology detection, traffic estimates, and WHOIS records.
+  - key: on-page
+    label: On-Page API
+    description: On-page SEO auditing covering 100+ parameters including crawl data and page speed.
+  - key: content-analysis
+    label: Content Analysis API
+    description: Brand monitoring, sentiment analysis, and citation tracking across the web.
+  - key: business-data
+    label: Business Data API
+    description: Customer reviews and business information from Google My Business, Trustpilot, TripAdvisor.
+  - key: app-data
+    label: App Data API
+    description: App rankings, reviews, and metadata from Google Play and Apple App Store for ASO.
+  - key: merchant
+    label: Merchant API
+    description: E-commerce product and pricing data from Google Shopping and Amazon.
+  - key: ai-optimization
+    label: AI Optimization API
+    description: Keyword data with LLM-specific metrics for visibility in AI-powered search responses.
+  - key: appendix
+    label: Appendix API
+    description: Reference data including supported languages, locations, search engines, and task IDs.
+
+terms:
+  - term: SERP
+    definition: Search Engine Results Page — the page returned by a search engine for a query.
+  - term: organic
+    definition: Non-paid search results ranked by algorithmic relevance.
+  - term: backlink
+    definition: An inbound hyperlink from one web page to another; a key ranking signal.
+  - term: domain_rank
+    definition: DataForSEO metric estimating a domain's authority based on backlink profile.
+  - term: keyword_difficulty
+    definition: Score (0-100) estimating how hard it is to rank organically for a keyword.
+  - term: search_volume
+    definition: Average monthly number of searches for a keyword in a given market.
+    alias: avg_monthly_searches
+  - term: cpc
+    definition: Cost-Per-Click — the average price advertisers pay per click in paid search auctions.
+  - term: rank_absolute
+    definition: Absolute position of a result on a SERP counting from the top of the page.
+  - term: rank_group
+    definition: Position within a specific SERP element group (e.g., organic, local pack).
+  - term: task_id
+    definition: Unique identifier for an asynchronous DataForSEO task used to retrieve results later.
+  - term: live_endpoint
+    definition: Synchronous endpoint that returns results in a single HTTP call without task queuing.
+  - term: task_post
+    definition: Endpoint that submits an asynchronous task to the DataForSEO processing queue.
+  - term: task_get
+    definition: Endpoint that retrieves results for a previously submitted async task by task_id.
+  - term: tasks_ready
+    definition: Endpoint listing completed async tasks awaiting result retrieval.
+  - term: location_code
+    definition: Numeric code identifying the geographic target for a search query.
+  - term: language_code
+    definition: ISO 639-1 language code specifying the language context for a request.
+  - term: se_type
+    definition: Search engine type specifying the SERP variant (e.g., organic, maps, news, images).
+  - term: tag
+    definition: User-defined label attached to a task for grouping and filtering in bulk operations.
+  - term: pingback_url
+    definition: Webhook URL called by DataForSEO when an async task completes.
+  - term: postback_url
+    definition: URL to which DataForSEO POSTs task results upon completion (alternative to polling).
+  - term: sandbox
+    definition: Non-billable testing environment at sandbox.dataforseo.com returning dummy data.
+  - term: ASO
+    definition: App Store Optimization — improving app visibility and conversion in app store search results.
+  - term: GEO
+    definition: Generative Engine Optimization — optimizing content for visibility in AI-generated search responses.
+  - term: LLM
+    definition: Large Language Model — AI systems used by search engines for generative answers.
+  - term: domain_analytics
+    definition: Aggregate intelligence about a web domain including traffic, technology, and WHOIS.
+  - term: on_page
+    definition: Technical and content factors on a web page affecting search engine rankings.
+  - term: content_analysis
+    definition: Automated analysis of web content for brand mentions, sentiment, and citation tracking.
+  - term: backlinks_spam_score
+    definition: Score estimating likelihood that a backlink is from a low-quality or spammy source.
+  - term: referring_domains
+    definition: Unique domains that contain at least one backlink pointing to a target URL or domain.
+  - term: anchor
+    definition: The visible clickable text of a hyperlink used to characterize the linked page's topic.

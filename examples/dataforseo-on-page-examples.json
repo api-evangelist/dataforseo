@@ -1,0 +1,58 @@
+[
+  {
+    "path": "/v3/on_page/id_list",
+    "method": "POST",
+    "contentType": "application/json",
+    "example": [
+      {
+        "datetime_from": "2026-04-12 04:39:39 +00:00",
+        "datetime_to": "2026-04-14 04:39:39 +00:00",
+        "limit": 100,
+        "offset": 0,
+        "sort": "desc",
+        "include_metadata": true
+      }
+    ]
+  },
+  {
+    "path": "/v3/on_page/errors",
+    "method": "POST",
+    "contentType": "application/json",
+    "example": [
+      {
+        "limit": 10,
+        "offset": 0,
+        "filtered_function": "pingback_url"
+      }
+    ]
+  },
+  {
+    "path": "/v3/on_page/force_stop",
+    "method": "POST",
+    "contentType": "application/json",
+    "example": [
+      {
+        "id": "08121600-1535-0216-0000-37b4c7a34453"
+      },
+      {
+        "id": "08121600-1535-0216-0000-d6a5000b6897"
+      }
+    ]
+  },
+  {
+    "path": "/v3/on_page/task_post",
+    "method": "POST",
+    "contentType": "application/json",
+    "example": [
+      {
+        "target": "dataforseo.com",
+        "max_crawl_pages": 10,
+        "load_resources": true,
+        "enable_javascript": true,
+        "custom_js": "meta = {}; meta.url = document.URL; meta;",
+        "tag": "some_string_123",
+        "pingback_url": "https://your-server.com/pingscript?id=$id&tag=$tag"
+      }
+    ]
+  }
+]

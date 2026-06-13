@@ -1,0 +1,224 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "dfs": "https://dataforseo.com/vocab#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "DataForSEO": "dfs:DataForSEO",
+    "SerpAPI": "dfs:SerpAPI",
+    "KeywordsDataAPI": "dfs:KeywordsDataAPI",
+    "BacklinksAPI": "dfs:BacklinksAPI",
+    "DataForSEOLabsAPI": "dfs:DataForSEOLabsAPI",
+    "DomainAnalyticsAPI": "dfs:DomainAnalyticsAPI",
+    "OnPageAPI": "dfs:OnPageAPI",
+    "ContentAnalysisAPI": "dfs:ContentAnalysisAPI",
+    "BusinessDataAPI": "dfs:BusinessDataAPI",
+    "AppDataAPI": "dfs:AppDataAPI",
+    "MerchantAPI": "dfs:MerchantAPI",
+    "AiOptimizationAPI": "dfs:AiOptimizationAPI",
+    "SocialMediaAPI": "dfs:SocialMediaAPI",
+    "AppendixAPI": "dfs:AppendixAPI",
+
+    "task_id": {
+      "@id": "dfs:taskId",
+      "@type": "xsd:string"
+    },
+    "task_post": "dfs:taskPost",
+    "task_get": "dfs:taskGet",
+    "tasks_ready": "dfs:tasksReady",
+    "live_endpoint": "dfs:liveEndpoint",
+    "pingback_url": {
+      "@id": "dfs:pingbackUrl",
+      "@type": "@id"
+    },
+    "postback_url": {
+      "@id": "dfs:postbackUrl",
+      "@type": "@id"
+    },
+    "tag": "dfs:tag",
+    "priority": "dfs:priority",
+    "se_type": "dfs:seType",
+    "sandbox": "dfs:sandbox",
+
+    "keyword": {
+      "@id": "dfs:keyword",
+      "@type": "xsd:string"
+    },
+    "search_volume": {
+      "@id": "dfs:searchVolume",
+      "@type": "xsd:integer"
+    },
+    "avg_monthly_searches": {
+      "@id": "dfs:avgMonthlySearches",
+      "@type": "xsd:integer"
+    },
+    "cpc": {
+      "@id": "dfs:cpc",
+      "@type": "xsd:decimal"
+    },
+    "competition": {
+      "@id": "dfs:competition",
+      "@type": "xsd:decimal"
+    },
+    "keyword_difficulty": {
+      "@id": "dfs:keywordDifficulty",
+      "@type": "xsd:integer"
+    },
+
+    "rank_absolute": {
+      "@id": "dfs:rankAbsolute",
+      "@type": "xsd:integer"
+    },
+    "rank_group": {
+      "@id": "dfs:rankGroup",
+      "@type": "xsd:integer"
+    },
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "domain": {
+      "@id": "schema:domainIncludes",
+      "@type": "xsd:string"
+    },
+    "title": "schema:name",
+    "description": "schema:description",
+
+    "backlinks_num": {
+      "@id": "dfs:backlinksNum",
+      "@type": "xsd:integer"
+    },
+    "referring_domains": {
+      "@id": "dfs:referringDomains",
+      "@type": "xsd:integer"
+    },
+    "anchor": {
+      "@id": "dfs:anchor",
+      "@type": "xsd:string"
+    },
+    "dofollow": {
+      "@id": "dfs:dofollow",
+      "@type": "xsd:boolean"
+    },
+    "backlinks_spam_score": {
+      "@id": "dfs:backlinksSpamScore",
+      "@type": "xsd:integer"
+    },
+    "domain_rank": {
+      "@id": "dfs:domainRank",
+      "@type": "xsd:integer"
+    },
+
+    "location_code": {
+      "@id": "dfs:locationCode",
+      "@type": "xsd:integer"
+    },
+    "location_name": {
+      "@id": "dfs:locationName",
+      "@type": "xsd:string"
+    },
+    "language_code": {
+      "@id": "dfs:languageCode",
+      "@type": "xsd:string"
+    },
+    "language_name": {
+      "@id": "dfs:languageName",
+      "@type": "xsd:string"
+    },
+
+    "technologies": {
+      "@id": "dfs:technologies",
+      "@type": "dfs:Technology"
+    },
+    "whois": {
+      "@id": "dfs:whois",
+      "@type": "dfs:WhoisRecord"
+    },
+    "traffic_estimate": {
+      "@id": "dfs:trafficEstimate",
+      "@type": "xsd:integer"
+    },
+
+    "rating": {
+      "@id": "schema:ratingValue",
+      "@type": "xsd:decimal"
+    },
+    "reviews_count": {
+      "@id": "dfs:reviewsCount",
+      "@type": "xsd:integer"
+    },
+    "sentiment": {
+      "@id": "dfs:sentiment",
+      "@type": "xsd:string"
+    },
+    "brand_mention": {
+      "@id": "dfs:brandMention",
+      "@type": "xsd:string"
+    },
+
+    "app_id": {
+      "@id": "dfs:appId",
+      "@type": "xsd:string"
+    },
+    "app_name": {
+      "@id": "dfs:appName",
+      "@type": "xsd:string"
+    },
+    "app_rating": {
+      "@id": "dfs:appRating",
+      "@type": "xsd:decimal"
+    },
+    "app_reviews_count": {
+      "@id": "dfs:appReviewsCount",
+      "@type": "xsd:integer"
+    },
+
+    "price": {
+      "@id": "schema:price",
+      "@type": "xsd:decimal"
+    },
+    "currency": {
+      "@id": "schema:priceCurrency",
+      "@type": "xsd:string"
+    },
+    "product_id": {
+      "@id": "dfs:productId",
+      "@type": "xsd:string"
+    },
+
+    "llm_mention": {
+      "@id": "dfs:llmMention",
+      "@type": "xsd:string"
+    },
+    "geo_score": {
+      "@id": "dfs:geoScore",
+      "@type": "xsd:decimal"
+    },
+    "ai_overview": {
+      "@id": "dfs:aiOverview",
+      "@type": "xsd:string"
+    },
+
+    "status_code": {
+      "@id": "dfs:statusCode",
+      "@type": "xsd:integer"
+    },
+    "status_message": {
+      "@id": "dfs:statusMessage",
+      "@type": "xsd:string"
+    },
+    "cost": {
+      "@id": "dfs:cost",
+      "@type": "xsd:decimal"
+    },
+    "time": {
+      "@id": "dfs:time",
+      "@type": "xsd:string"
+    },
+    "datetime": {
+      "@id": "dfs:datetime",
+      "@type": "xsd:dateTime"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "path": "/v3/backlinks/id_list",
+    "method": "POST",
+    "contentType": "application/json",
+    "example": [
+      {
+        "datetime_from": "2026-04-12 04:39:39 +00:00",
+        "datetime_to": "2026-04-14 04:39:39 +00:00",
+        "limit": 100,
+        "offset": 0,
+        "sort": "desc",
+        "include_metadata": true
+      }
+    ]
+  },
+  {
+    "path": "/v3/backlinks/errors",
+    "method": "POST",
+    "contentType": "application/json",
+    "example": [
+      {
+        "limit": 10,
+        "offset": 0,
+        "filtered_function": "backlinks/content_duplicates"
+      }
+    ]
+  },
+  {
+    "path": "/v3/backlinks/summary/live",
+    "method": "POST",
+    "contentType": "application/json",
+    "example": [
+      {
+        "target": "explodingtopics.com",
+        "internal_list_limit": 10,
+        "include_subdomains": true,
+        "backlinks_filters": [
+          "dofollow",
+          "=",
+          true
+        ],
+        "backlinks_status_type": "all"
+      }
+    ]
+  }
+]

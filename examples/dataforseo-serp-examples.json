@@ -1,0 +1,53 @@
+[
+  {
+    "path": "/v3/serp/id_list",
+    "method": "POST",
+    "contentType": "application/json",
+    "example": [
+      {
+        "datetime_from": "2026-04-12 04:39:39 +00:00",
+        "datetime_to": "2026-04-14 04:39:39 +00:00",
+        "limit": 100,
+        "offset": 0,
+        "sort": "desc",
+        "include_metadata": true
+      }
+    ]
+  },
+  {
+    "path": "/v3/serp/errors",
+    "method": "POST",
+    "contentType": "application/json",
+    "example": [
+      {
+        "limit": 10,
+        "offset": 0,
+        "filtered_function": "pingback_url"
+      }
+    ]
+  },
+  {
+    "path": "/v3/serp/screenshot",
+    "method": "POST",
+    "contentType": "application/json",
+    "example": [
+      {
+        "task_id": "06211235-0696-0139-1000-36727fbd3c90",
+        "browser_screen_scale_factor": 0.5
+      }
+    ]
+  },
+  {
+    "path": "/v3/serp/ai_summary",
+    "method": "POST",
+    "contentType": "application/json",
+    "example": [
+      {
+        "task_id": "07031739-1535-0139-0000-9d1e639a5b7d",
+        "prompt": "explain what DataForSEO is",
+        "include_links": true,
+        "fetch_content": true
+      }
+    ]
+  }
+]

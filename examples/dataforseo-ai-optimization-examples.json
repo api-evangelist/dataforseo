@@ -1,0 +1,14 @@
+[
+  {
+    "path": "/v3/ai_optimization/chat_gpt/llm_scraper/task_post",
+    "method": "POST",
+    "contentType": "application/json",
+    "example": [
+      {
+        "language_code": "en",
+        "location_code": 2840,
+        "keyword": "what is chatgpt"
+      }
+    ]
+  }
+]

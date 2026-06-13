@@ -1,0 +1,17 @@
+[
+  {
+    "path": "/v3/content_analysis/id_list",
+    "method": "POST",
+    "contentType": "application/json",
+    "example": [
+      {
+        "datetime_from": "2026-04-12 04:39:39 +00:00",
+        "datetime_to": "2026-04-14 04:39:39 +00:00",
+        "limit": 100,
+        "offset": 0,
+        "sort": "desc",
+        "include_metadata": true
+      }
+    ]
+  }
+]

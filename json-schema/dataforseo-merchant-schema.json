@@ -1,0 +1,4914 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DataForSEO Merchant API Schemas",
+  "definitions": {
+    "MerchantGoogleProductsTaskGetAdvancedResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleProductsTaskGetAdvancedTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleProductsTaskGetAdvancedTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleProductsTaskGetAdvancedResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleProductsTaskGetAdvancedResultInfo": {
+      "type": "object",
+      "properties": {
+        "keyword": {
+          "type": "string",
+          "description": "keyword received in a POST array\nkeyword is returned with decoded %## (plus character \u2018+\u2019 will be decoded to a space character)",
+          "nullable": true
+        },
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "se_domain": {
+          "type": "string",
+          "description": "search engine domain in a POST array",
+          "nullable": true
+        },
+        "location_code": {
+          "type": "integer",
+          "description": "location code in a POST array",
+          "nullable": true
+        },
+        "language_code": {
+          "type": "string",
+          "description": "language code in a POST array",
+          "nullable": true
+        },
+        "check_url": {
+          "type": "string",
+          "description": "direct URL to Google Shopping results\nyou can use it to make sure that we provided accurate results",
+          "nullable": true
+        },
+        "datetime": {
+          "type": "string",
+          "description": "date and time when the result was received\nin the UTC format: \u201cyyyy-mm-dd hh-mm-ss +00:00\u201d\nexample:\n2019-11-15 12:57:46 +00:00",
+          "nullable": true
+        },
+        "spell": {
+          "type": "object",
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/SpellInfo"
+            }
+          ],
+          "description": "autocorrection of the search engine\nif the search engine provided results for a keyword that was corrected, we will specify the keyword corrected by the search engine and the type of autocorrection",
+          "nullable": true
+        },
+        "item_types": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": "types of search results found in Google Shopping SERP\ncontains types of all search results (items) found in the returned SERP\npossible item types:\ngoogle_shopping_sponsored_carousel, google_shopping_paid, google_shopping_serp",
+          "nullable": true
+        },
+        "items_count": {
+          "type": "integer",
+          "description": "the number of results returned in the items array",
+          "format": "int64",
+          "nullable": true
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BaseMerchantGoogleShoppingProductsElementItem"
+              }
+            ],
+            "nullable": true
+          },
+          "description": "additional items present in the element\ncontains a list of related keywords;\nif there are none, equals null",
+          "nullable": true
+        }
+      }
+    },
+    "BaseMerchantGoogleShoppingProductsElementItem": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "rank_group": {
+          "type": "integer",
+          "description": "position within a group of elements with identical type values\npositions of elements with different type values are omitted from rank_group",
+          "nullable": true
+        },
+        "rank_absolute": {
+          "type": "integer",
+          "description": "absolute rank in SERP\nabsolute position among all the elements found in Google Shopping SERP",
+          "nullable": true
+        },
+        "position": {
+          "type": "string",
+          "description": "alignment of the element in SERP\ncan take the following values:\nleft, right",
+          "nullable": true
+        },
+        "xpath": {
+          "type": "string",
+          "description": "XPath of the element",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false,
+      "discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "google_shopping_serp": "#/components/schemas/GoogleShoppingSerpElementItem",
+          "google_shopping_paid": "#/components/schemas/GoogleShoppingPaidElementItem",
+          "google_shopping_sponsored_carousel": "#/components/schemas/GoogleShoppingSponsoredCarouselElementItem",
+          "google_shopping_carousel": "#/components/schemas/GoogleShoppingCarouselElementItem",
+          "related_searches": "#/components/schemas/RelatedSearchesElementItem"
+        }
+      }
+    },
+    "SpellInfo": {
+      "properties": {
+        "keyword": {
+          "type": "string",
+          "description": "keyword obtained as a result of search engine autocorrection\n the results will be provided for the corrected keyword",
+          "nullable": true
+        },
+        "type": {
+          "type": "string",
+          "description": "type of autocorrection\n possible values:\n did_you_mean, showing_results_for, no_results_found_for, including_results_for\n note: Yahoo and Yandex support only the following autocorrection type:\n including_results_for",
+          "nullable": true
+        }
+      }
+    },
+    "BaseResponseTaskInfo": {
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "task identifier\nunique task identifier in our system in the UUID format",
+          "nullable": true
+        },
+        "status_code": {
+          "type": "integer",
+          "description": "status code of the task\ngenerated by DataForSEO, can be within the following range: 10000-60000\nyou can find the full list of the response codes here",
+          "nullable": true
+        },
+        "status_message": {
+          "type": "string",
+          "description": "informational message of the task\nyou can find the full list of general informational messages here",
+          "nullable": true
+        },
+        "time": {
+          "type": "string",
+          "description": "execution time, seconds",
+          "nullable": true
+        },
+        "cost": {
+          "type": "number",
+          "description": "total tasks cost, USD",
+          "format": "double",
+          "nullable": true
+        },
+        "result_count": {
+          "type": "integer",
+          "description": "number of elements in the result array",
+          "format": "int64",
+          "nullable": true
+        },
+        "path": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": "URL path",
+          "nullable": true
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "nullable": true
+          },
+          "description": "contains the same parameters that you specified in the POST request",
+          "nullable": true
+        }
+      }
+    },
+    "BaseResponseInfo": {
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "the current version of the API",
+          "nullable": true
+        },
+        "status_code": {
+          "type": "integer",
+          "description": "general status code\nyou can find the full list of the response codes here",
+          "nullable": true
+        },
+        "status_message": {
+          "type": "string",
+          "description": "general informational message\nyou can find the full list of general informational messages here",
+          "nullable": true
+        },
+        "time": {
+          "type": "string",
+          "description": "total execution time, seconds",
+          "nullable": true
+        },
+        "cost": {
+          "type": "number",
+          "description": "total tasks cost, USD",
+          "format": "double",
+          "nullable": true
+        },
+        "tasks_count": {
+          "type": "integer",
+          "description": "the number of tasks in the tasks array",
+          "format": "int64",
+          "nullable": true
+        },
+        "tasks_error": {
+          "type": "integer",
+          "description": "the number of tasks in the tasks array returned with an error",
+          "format": "int64",
+          "nullable": true
+        }
+      }
+    },
+    "MerchantGoogleSellersAdUrlResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleSellersAdUrlTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleSellersAdUrlTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleSellersAdUrlResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleSellersAdUrlResultInfo": {
+      "type": "object",
+      "properties": {
+        "ad_aclk": {
+          "type": "string",
+          "description": "unique ad click referral parameter",
+          "nullable": true
+        },
+        "ad_url": {
+          "type": "string",
+          "description": "full URL of the advertisement",
+          "nullable": true
+        },
+        "ad_url_redirects": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": "URLs where the link from Google Shopping redirects before reaching a final URL\nincludes up to 10 URLs of the ad\u2019s redirect path to the seller\u2019s ad_url",
+          "nullable": true
+        }
+      }
+    },
+    "MerchantIdListResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantIdListTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantIdListTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantIdListResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantIdListResultInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "id of the task",
+          "nullable": true
+        },
+        "url": {
+          "type": "string",
+          "description": "URL of the task\nURL you used for making an API call",
+          "nullable": true
+        },
+        "datetime_posted": {
+          "type": "string",
+          "description": "date and time when the task was made\nin the UTC format: \u201cyyyy-mm-dd hh-mm-ss +00:00\u201d\nexample:\n2023-01-15 12:57:46 +00:00",
+          "nullable": true
+        },
+        "datetime_done": {
+          "type": "string",
+          "description": "date and time when the task was completed\nin the UTC format: \u201cyyyy-mm-dd hh-mm-ss +00:00\u201d\nexample:\n2023-01-15 12:57:46 +00:00",
+          "nullable": true
+        },
+        "status": {
+          "type": "string",
+          "description": "informational message of the task\nyou can find the full list of general informational messages here",
+          "nullable": true
+        },
+        "cost": {
+          "type": "number",
+          "description": "cost of the task, USD",
+          "nullable": true
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "nullable": true
+          },
+          "description": "contains parameters you specified in the POST request",
+          "nullable": true
+        }
+      }
+    },
+    "MerchantGoogleLanguagesResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleLanguagesTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleLanguagesTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleLanguagesResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleLanguagesResultInfo": {
+      "type": "object",
+      "properties": {
+        "language_name": {
+          "type": "string",
+          "description": "language name",
+          "nullable": true
+        },
+        "language_code": {
+          "type": "string",
+          "description": "language code according to ISO 639-1",
+          "nullable": true
+        }
+      }
+    },
+    "MerchantGoogleSellersTaskPostRequestInfo": {
+      "type": "object",
+      "properties": {
+        "product_id": {
+          "type": "string",
+          "description": "unique product identifier on Google Shopping\nrequired field if data_docid or gid is not specified\nwe recommend specifying product_id together with data_docid and gid for optimal results;\nyou can get this value for a certain product by making a separate request to the Google Shopping Products endpoint\nexample:\n4485466949985702538\nlearn more about the parameter in this help center guide",
+          "nullable": true
+        },
+        "data_docid": {
+          "type": "string",
+          "description": "unique identifier of the SERP data element\nrequired field if product_id or gid is not specified\nwe recommend specifying data_docid together with product_id and gid for optimal results;\nyou can get this value for a certain element by making a separate request to the Google Shopping Products endpoint\nexample:\n13071766526042404278",
+          "nullable": true
+        },
+        "gid": {
+          "type": "string",
+          "description": "global product identifier on Google Shopping\nrequired field if product_id or data_docid is not specified\nwe recommend specifying gid together with product_id and data_docid for optimal results;\nyou can get this value for a certain product by making a separate request to the Google Shopping Products endpoint\nexample:\n4702526954592161872\nlearn more about the parameter in this help center guide",
+          "nullable": true
+        },
+        "pvf": {
+          "type": "string",
+          "description": "product variant filter  on Google Shopping\noptional field\nparameter in Google Shopping URL, setting optional product variant filtration;\nexample:\nEg4iBWNvbG9yKgV3aGl0ZRISIgxwYWNrYWdlIHNpemUqAjE0EgoiBHNpemUqAnhs",
+          "nullable": true
+        },
+        "priority": {
+          "type": "integer",
+          "description": "task priority\noptional field\ncan take the following values:\n1 \u2013 normal execution priority (set by default)\n2 \u2013 high execution priority\nYou will be additionally charged for the tasks with high execution priority.\nThe cost can be calculated on the Pricing page.",
+          "nullable": true
+        },
+        "location_name": {
+          "type": "string",
+          "description": "full name of the location\nrequired field if you don\u2019t specify location_code or location_coordinate\nif you use this field, you don\u2019t need to specify location_code or location_coordinate\nyou can receive the list of available Google Shopping locations with their location_name by making a separate request to the https://api.dataforseo.com/v3/merchant/google/locations\nexample:\nLondon,England,United Kingdom",
+          "nullable": true
+        },
+        "location_code": {
+          "type": "integer",
+          "description": "location code\nrequired field if you don\u2019t specify location_name\u00a0or location_coordinate\nif you use this field, you don\u2019t need to specify location_name or location_coordinate\nyou can receive the list of available Google Shopping locations with their location_code by making a separate request to the https://api.dataforseo.com/v3/merchant/google/locations\nexample:\n2840",
+          "nullable": true
+        },
+        "location_coordinate": {
+          "type": "string",
+          "description": "GPS coordinates of a location\nrequired field if you don\u2019t specify location_name\u00a0or location_code\nif you use this field, you don\u2019t need to specify location_name or location_code\nlocation_coordinate parameter should be specified in the \u201clatitude,longitude,radius\u201d format\nthe maximum number of decimal digits for \u201clatitude\u201d and \u201clongitude\u201d: 7\nthe minimum value for \u201cradius\u201d: 199.9\nexample:\n53.476225,-2.243572,200",
+          "nullable": true
+        },
+        "language_name": {
+          "type": "string",
+          "description": "full name of the language\nrequired field if you don\u2019t specify language_code\nif you use this field, you don\u2019t need to specify language_code\nyou can receive the list of available Google Shopping languages with their language_name by making a separate request to the https://api.dataforseo.com/v3/merchant/google/languages\nexample:\nEnglish",
+          "nullable": true
+        },
+        "language_code": {
+          "type": "string",
+          "description": "language code\nrequired field if you don\u2019t specify language_name\nif you use this field, you don\u2019t need to specify language_name\nyou can receive the list of available Google Shopping languages with their language_code\u00a0by making a separate request to the https://api.dataforseo.com/v3/merchant/google/languages\nexample:\nen",
+          "nullable": true
+        },
+        "depth": {
+          "type": "integer",
+          "description": "parsing depth\noptional field\nnumber of results to be retrieved from Google Shopping SERP\ndefault value: 10\nmax value: 200\nyour account will be billed per each SERP containing up to 10 results;\nsetting depth above 10 may result in additional charges if the search engine returns more than 10 results;\nthe cost can be calculated on the Pricing page",
+          "nullable": true
+        },
+        "se_domain": {
+          "type": "string",
+          "description": "search engine domain\noptional field\nwe choose the relevant search engine domain automatically according to the location and language you specify\nhowever, you can set a custom search engine domain in this field\nexample:\ngoogle.co.uk, google.com.au, google.de, etc.",
+          "nullable": true
+        },
+        "get_shops_on_google": {
+          "type": "boolean",
+          "description": "include \u201cbuy on Google\u201d shops\noptional field\nif set to true, the response will contain the list of sellers that allow to purchase a given product directly on Google\nNote: if set to true, the cost of a task will be doubled",
+          "nullable": true
+        },
+        "additional_specifications": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": "object containing additional url parameters\nyou can get additional information about the product by using the \"additional_specifications object, which you can get by making a separate request to the Google Shopping Products endpoint\nexample:\n\"additional_specifications\": {\n\"eto\": \"16157121050167572763_0\"\n}",
+          "nullable": true
+        },
+        "tag": {
+          "type": "string",
+          "description": "user-defined task identifier\noptional field\nthe character limit is 255\nyou can use this parameter to identify the task and match it with the result\nyou will find the specified tag value in the data object of the response",
+          "nullable": true
+        },
+        "postback_url": {
+          "type": "string",
+          "description": "URL for sending task results\noptional field\nonce the task is completed, we will send a POST request with its results compressed in the gzip format to the postback_url you specified\nyou can use the \u2018$id\u2019 string as a $id variable and \u2018$tag\u2019 as urlencoded $tag variable. We will set the necessary values before sending the request.\nexample:\nhttp://your-server.com/postbackscript?id=$id\nhttp://your-server.com/postbackscript?id=$id&tag=$tag\nNote: special characters in postback_url will be urlencoded;\ni.a., the # character will be encoded into %23\nlearn more on our Help Center",
+          "nullable": true
+        },
+        "postback_data": {
+          "type": "string",
+          "description": "postback_url datatype\noptional field\ncorresponds to the datatype that will be sent to your server\npossible values:\nadvanced",
+          "nullable": true
+        },
+        "pingback_url": {
+          "type": "string",
+          "description": "notification URL of a completed task\noptional field\nwhen a task is completed we will notify you by GET request sent to the URL you have specified\nyou can use the \u2018$id\u2019 string as a $id variable and \u2018$tag\u2019 as urlencoded $tag variable. We will set the necessary values before sending the request.\nexample:\nhttp://your-server.com/pingscript?id=$id\nhttp://your-server.com/pingscript?id=$id&tag=$tag\nNote: special characters in pingback_url will be urlencoded;\ni.a., the # character will be encoded into %23\nlearn more on our Help Center",
+          "nullable": true
+        }
+      },
+      "example": [
+        {
+          "language_code": "en",
+          "location_code": 2840,
+          "product_id": "1113158713975221117"
+        }
+      ]
+    },
+    "MerchantGoogleProductInfoTaskPostRequestInfo": {
+      "type": "object",
+      "properties": {
+        "product_id": {
+          "type": "string",
+          "description": "unique product identifier on Google Shopping\nrequired field if data_docid or gid is not specified\nwe recommend specifying product_id together with data_docid and gid for optimal results;\nyou can get this value for a certain product by making a separate request to the Google Shopping Products endpoint\nexample:\n4485466949985702538\nlearn more about the parameter in this help center guide",
+          "nullable": true
+        },
+        "data_docid": {
+          "type": "string",
+          "description": "unique identifier of the SERP data element\nrequired field if product_id or gid is not specified\nwe recommend specifying data_docid together with product_id and gid for optimal results;\nyou can get this value for a certain element by making a separate request to the Google Shopping Products endpoint\nexample:\n13071766526042404278",
+          "nullable": true
+        },
+        "gid": {
+          "type": "string",
+          "description": "global product identifier on Google Shopping\nrequired field if product_id or data_docid is not specified\nwe recommend specifying gid together with product_id and data_docid for optimal results;\nyou can get this value for a certain product by making a separate request to the Google Shopping Products endpoint\nexample:\n4702526954592161872\nlearn more about the parameter in this help center guide",
+          "nullable": true
+        },
+        "priority": {
+          "type": "integer",
+          "description": "task priority\noptional field\ncan take the following values:\n1 \u2013 normal execution priority (set by default)\n2 \u2013 high execution priority\nYou will be additionally charged for the tasks with high execution priority.\nThe cost can be calculated on the Pricing page.",
+          "nullable": true
+        },
+        "location_name": {
+          "type": "string",
+          "description": "full name of the location\nrequired field if you don\u2019t specify location_code or location_coordinate\nif you use this field, you don\u2019t need to specify location_code or location_coordinate\nyou can receive the list of available Google Shopping locations with their location_name by making a separate request to the https://api.dataforseo.com/v3/merchant/google/locations\nexample:\nLondon,England,United Kingdom",
+          "nullable": true
+        },
+        "location_code": {
+          "type": "integer",
+          "description": "location code\nrequired field if you don\u2019t specify location_name\u00a0or location_coordinate\nif you use this field, you don\u2019t need to specify location_name or location_coordinate\nyou can receive the list of available Google Shopping locations with their location_code by making a separate request to the https://api.dataforseo.com/v3/merchant/google/locations\nexample:\n2840",
+          "nullable": true
+        },
+        "location_coordinate": {
+          "type": "string",
+          "description": "GPS coordinates of a location\nrequired field if you don\u2019t specify location_name\u00a0or location_code\nif you use this field, you don\u2019t need to specify location_name or location_code\nlocation_coordinate parameter should be specified in the \u201clatitude,longitude,radius\u201d format\nthe maximum number of decimal digits for \u201clatitude\u201d and \u201clongitude\u201d: 7\nthe minimum value for \u201cradius\u201d: 199.9\nexample:\n53.476225,-2.243572,200",
+          "nullable": true
+        },
+        "language_name": {
+          "type": "string",
+          "description": "full name of the language\nrequired field if you don\u2019t specify language_code\nif you use this field, you don\u2019t need to specify language_code\nyou can receive the list of available Google Shopping languages with their language_name by making a separate request to the https://api.dataforseo.com/v3/merchant/google/languages\nexample:\nEnglish",
+          "nullable": true
+        },
+        "language_code": {
+          "type": "string",
+          "description": "language code\nrequired field if you don\u2019t specify language_name\nif you use this field, you don\u2019t need to specify language_name\nyou can receive the list of available Google Shopping languages with their language_code\u00a0by making a separate request to the https://api.dataforseo.com/v3/merchant/google/languages\nexample:\nen",
+          "nullable": true
+        },
+        "se_domain": {
+          "type": "string",
+          "description": "search engine domain\noptional field\nwe choose the relevant search engine domain automatically according to the location and language you specify\nhowever, you can set a custom search engine domain in this field\nexample:\ngoogle.co.uk, google.com.au, google.de, etc.",
+          "nullable": true
+        },
+        "tag": {
+          "type": "string",
+          "description": "user-defined task identifier\noptional field\nthe character limit is 255\nyou can use this parameter to identify the task and match it with the result\nyou will find the specified tag value in the data object of the response",
+          "nullable": true
+        },
+        "postback_url": {
+          "type": "string",
+          "description": "URL for sending task results\noptional field\nonce the task is completed, we will send a POST request with its results compressed in the gzip format to the postback_url you specified\nyou can use the \u2018$id\u2019 string as a $id variable and \u2018$tag\u2019 as urlencoded $tag variable. We will set the necessary values before sending the request.\nexample:\nhttp://your-server.com/postbackscript?id=$id\nhttp://your-server.com/postbackscript?id=$id&tag=$tag\nNote: special characters in postback_url will be urlencoded;\ni.a., the # character will be encoded into %23\nlearn more on our Help Center",
+          "nullable": true
+        },
+        "postback_data": {
+          "type": "string",
+          "description": "postback_url datatype\noptional field\ncorresponds to the datatype that will be sent to your server\npossible values:\nadvanced",
+          "nullable": true
+        },
+        "pingback_url": {
+          "type": "string",
+          "description": "notification URL of a completed task\noptional field\nwhen a task is completed we will notify you by GET request sent to the URL you have specified\nyou can use the \u2018$id\u2019 string as a $id variable and \u2018$tag\u2019 as urlencoded $tag variable. We will set the necessary values before sending the request.\nexample:\nhttp://your-server.com/pingscript?id=$id\nhttp://your-server.com/pingscript?id=$id&tag=$tag\nNote: special characters in pingback_url will be urlencoded;\ni.a., the # character will be encoded into %23\nlearn more on our Help Center",
+          "nullable": true
+        }
+      },
+      "example": [
+        {
+          "language_code": "en",
+          "location_code": 2840,
+          "product_id": "1113158713975221117"
+        }
+      ]
+    },
+    "MerchantGoogleProductsTaskPostRequestInfo": {
+      "type": "object",
+      "properties": {
+        "keyword": {
+          "type": "string",
+          "description": "keyword\nrequired field\nyou can specify up to 700 characters in the keyword filed\nall %## will be decoded (plus character \u2018+\u2019 will be decoded to a space character)\nif you need to use the \u201c%\u201d character for your keyword, please specify it as \u201c%25\u201d;\nlearn more about rules and limitations of keyword and keywords fields in DataForSEO APIs in this Help Center article"
+        },
+        "url": {
+          "type": "string",
+          "description": "direct URL of the search query\noptional field\nyou can specify a direct URL and we will sort it out to the necessary fields. Note that this method is the most difficult for our API to process and also requires you to specify the exact language and location in the URL. In most cases, we wouldn\u2019t recommend using this method.\nexample:\nhttps://www.google.com/search?q=fish&hl=en&gl=US&gws_rd=cr&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc",
+          "nullable": true
+        },
+        "priority": {
+          "type": "integer",
+          "description": "task priority\noptional field\ncan take the following values:\n1 \u2013 normal execution priority (set by default)\n2 \u2013 high execution priority\nYou will be additionally charged for the tasks with high execution priority.\nThe cost can be calculated on the Pricing page.",
+          "nullable": true
+        },
+        "location_name": {
+          "type": "string",
+          "description": "full name of the location\nrequired field if you don\u2019t specify location_code or location_coordinate\nif you use this field, you don\u2019t need to specify location_code or location_coordinate\nyou can receive the list of available Google Shopping locations with their location_name by making a separate request to the https://api.dataforseo.com/v3/merchant/google/locations\nexample:\nLondon,England,United Kingdom",
+          "nullable": true
+        },
+        "location_code": {
+          "type": "integer",
+          "description": "location code\nrequired field if you don\u2019t specify location_name\u00a0or location_coordinate\nif you use this field, you don\u2019t need to specify location_name or location_coordinate\nyou can receive the list of available Google Shopping locations with their location_code by making a separate request to the https://api.dataforseo.com/v3/merchant/google/locations\nexample:\n2840",
+          "nullable": true
+        },
+        "location_coordinate": {
+          "type": "string",
+          "description": "GPS coordinates of a location\nrequired field if you don\u2019t specify location_name\u00a0or location_code\nif you use this field, you don\u2019t need to specify location_name or location_code\nlocation_coordinate parameter should be specified in the \u201clatitude,longitude,radius\u201d format\nthe maximum number of decimal digits for \u201clatitude\u201d and \u201clongitude\u201d: 7\nthe minimum value for \u201cradius\u201d: 199.9\nexample:\n53.476225,-2.243572,200",
+          "nullable": true
+        },
+        "language_name": {
+          "type": "string",
+          "description": "full name of the language\nrequired field if you don\u2019t specify language_code\nif you use this field, you don\u2019t need to specify language_code\nyou can receive the list of available Google Shopping languages with their language_name by making a separate request to the https://api.dataforseo.com/v3/merchant/google/languages\nexample:\nEnglish",
+          "nullable": true
+        },
+        "language_code": {
+          "type": "string",
+          "description": "language code\nrequired field if you don\u2019t specify language_name\nif you use this field, you don\u2019t need to specify language_name\nyou can receive the list of available Google Shopping languages with their language_code\u00a0by making a separate request to the https://api.dataforseo.com/v3/merchant/google/languages\nexample:\nen",
+          "nullable": true
+        },
+        "se_domain": {
+          "type": "string",
+          "description": "search engine domain\noptional field\nwe choose the relevant search engine domain automatically according to the location and language you specify\nhowever, you can set a custom search engine domain in this field\nexample:\ngoogle.co.uk, google.com.au, google.de, etc.",
+          "nullable": true
+        },
+        "depth": {
+          "type": "integer",
+          "description": "parsing depth\noptional field\nnumber of results to be retrieved from Google Shopping SERP\ndefault value: 40\nmax value: 120\nYour account will be billed per each SERP containing up to 40 results;\nSetting depth above 40 may result in additional charges if the search engine returns more than 40 results;\nThe cost can be calculated on the Pricing page.",
+          "nullable": true
+        },
+        "max_crawl_pages": {
+          "type": "integer",
+          "description": "page crawl limit\noptional field\nnumber of search results pages to crawl\nmax value: 7\nNote: the max_crawl_pages and depth parameters complement each other;\nlearn more at our help center",
+          "nullable": true
+        },
+        "search_param": {
+          "type": "string",
+          "description": "additional parameters of the search query\noptional field\nyou can use the following search URL parameters for customizing the search;\nexample:\n&tbs=ppr_min:45 \u2013 search for products that cost more than 45 USD;\n&tbs=ppr_max:50 \u2013 search for products that cost less than 50 USD;\n&tbs=p_ord:p \u2013 sort by ascending price;\n&tbs=p_ord:pd \u2013 sort by descending price;\n&tbs=p_ord:rv \u2013 sort by review score;\n&tbs=ppr_max:50,p_ord:rv \u2013 sort by review score with the maximum price of 50 USD.;\n&udm=28 \u2013 use new Google Shopping markup with 40 SERP results returned by default (the cost for one SERP is deducted accordingly); the maximum depth is 200; this parameter must be specified without tbm=shop in the url;\n&shoprs=$value \u2013 specify advanced filtering and sorting in the new Shopping markup; replace $value with a string in protobuf Base64 format; learn more on our help center.\nNote that search_param values will be ignored if any of the following parameters are used: price_min, price_max, sort_by",
+          "nullable": true
+        },
+        "price_min": {
+          "type": "integer",
+          "description": "minimum product price\noptional field\nminimum price of the returned products listed on Google Shopping for the specified query\nexample:\n5\nNote: if you specify price_min, the search_param parameter will be ignored",
+          "nullable": true
+        },
+        "price_max": {
+          "type": "integer",
+          "description": "maximum product price\noptional field\nmaximum price of the returned products listed on Google Shopping for the specified query\nexample:\n100\nNote: if you specify price_max, the search_param parameter will be ignored",
+          "nullable": true
+        },
+        "sort_by": {
+          "type": "string",
+          "description": "results sorting rules\noptional field\nthe following sorting rules are supported:\nreview_score, price_low_to_high, price_high_to_low\nexample:\nsort_by:\"review_score\"\nNote: if you specify sort_by, the search_param parameter will be ignored",
+          "nullable": true
+        },
+        "tag": {
+          "type": "string",
+          "description": "user-defined task identifier\noptional field\nthe character limit is 255\nyou can use this parameter to identify the task and match it with the result\nyou will find the specified tag value in the data object of the response",
+          "nullable": true
+        },
+        "postback_url": {
+          "type": "string",
+          "description": "URL for sending task results\noptional field\nonce the task is completed, we will send a POST request with its results compressed in the gzip format to the postback_url you specified\nyou can use the \u2018$id\u2019 string as a $id variable and \u2018$tag\u2019 as urlencoded $tag variable. We will set the necessary values before sending the request.\nexample:\nhttp://your-server.com/postbackscript?id=$id\nhttp://your-server.com/postbackscript?id=$id&tag=$tag\nNote: special characters in postback_url will be urlencoded;\ni.a., the # character will be encoded into %23\nlearn more on our Help Center",
+          "nullable": true
+        },
+        "postback_data": {
+          "type": "string",
+          "description": "postback_url datatype\nrequired field if you specify postback_url\ncorresponds to the datatype that will be sent to your server\npossible values:\nadvanced, html",
+          "nullable": true
+        },
+        "pingback_url": {
+          "type": "string",
+          "description": "notification URL of a completed task\noptional field\nwhen a task is completed we will notify you by GET request sent to the URL you have specified\nyou can use the \u2018$id\u2019 string as a $id variable and \u2018$tag\u2019 as urlencoded $tag variable. We will set the necessary values before sending the request.\nexample:\nhttp://your-server.com/pingscript?id=$id\nhttp://your-server.com/pingscript?id=$id&tag=$tag\nNote: special characters in pingback_url will be urlencoded;\ni.a., the # character will be encoded into %23\nlearn more on our Help Center",
+          "nullable": true
+        }
+      },
+      "example": [
+        {
+          "language_code": "en",
+          "location_code": 2840,
+          "keyword": "iphone",
+          "price_min": 5
+        }
+      ]
+    },
+    "MerchantAmazonSellersTaskPostRequestInfo": {
+      "type": "object",
+      "properties": {
+        "asin": {
+          "type": "string",
+          "description": "unique product identifier on Amazon\nrequired field\nyou can get this value making a separate request to the Amazon Products endpoint\nnote that there is no full list of possible values as the asin values is a dynamic value assigned by Amazon\nexample:\nB085RFFC9Q\nlearn more about the identifier in this help center guide"
+        },
+        "priority": {
+          "type": "integer",
+          "description": "task priority\noptional field\ncan take the following values:\n1 \u2013 normal execution priority (set by default)\n2 \u2013 high execution priority\nYou will be additionally charged for the tasks with high execution priority.\nThe cost can be calculated on the Pricing page.",
+          "nullable": true
+        },
+        "location_name": {
+          "type": "string",
+          "description": "full name of the location\nrequired field if you don\u2019t specify location_code or location_coordinate\nif you use this field, you don\u2019t need to specify location_code or location_coordinate\nyou can receive the list of available Amazon locations with their location_name by making a separate request to the https://api.dataforseo.com/v3/merchant/amazon/locations\nexample:\nLondon,England,United Kingdom",
+          "nullable": true
+        },
+        "location_code": {
+          "type": "integer",
+          "description": "location code\nrequired field if you don\u2019t specify location_name\u00a0or location_coordinate\nif you use this field, you don\u2019t need to specify location_name or location_coordinate\nyou can receive the list of available Amazon locations with their location_code by making a separate request to the https://api.dataforseo.com/v3/merchant/amazon/locations\nexample:\n2840",
+          "nullable": true
+        },
+        "location_coordinate": {
+          "type": "string",
+          "description": "GPS coordinates of a location\nrequired field if you don\u2019t specify location_name\u00a0or location_code\nif you use this field, you don\u2019t need to specify location_name or location_code\nlocation_coordinate parameter should be specified in the \u201clatitude,longitude,radius\u201d format\nthe maximum number of decimal digits for \u201clatitude\u201d and \u201clongitude\u201d: 7\nthe minimum value for \u201cradius\u201d: 199.9\nexample:\n53.476225,-2.243572,200",
+          "nullable": true
+        },
+        "language_name": {
+          "type": "string",
+          "description": "full name of the language\nrequired field if you don\u2019t specify language_code\nif you use this field, you don\u2019t need to specify language_code\nyou can receive the list of available Amazon languages with their language_name by making a separate request to the https://api.dataforseo.com/v3/merchant/amazon/languages\nexample:\nEnglish (United States)",
+          "nullable": true
+        },
+        "language_code": {
+          "type": "string",
+          "description": "language code\nrequired field if you don\u2019t specify language_name\nif you use this field, you don\u2019t need to specify language_name\nyou can receive the list of available Amazon languages with their language_code\u00a0by making a separate request to the https://api.dataforseo.com/v3/merchant/amazon/languages\nexample:\nen_US",
+          "nullable": true
+        },
+        "se_domain": {
+          "type": "string",
+          "description": "search engine domain\noptional field\nwe choose the relevant search engine domain automatically according to the location and language you specify\nhowever, you can set a custom search engine domain in this field\nexample:\namazon.co.uk, amazon.com.au, amazon.de, etc.",
+          "nullable": true
+        },
+        "tag": {
+          "type": "string",
+          "description": "user-defined task identifier\noptional field\nthe character limit is 255\nyou can use this parameter to identify the task and match it with the result\nyou will find the specified tag value in the data object of the response",
+          "nullable": true
+        },
+        "postback_url": {
+          "type": "string",
+          "description": "URL for sending task results\noptional field\nonce the task is completed, we will send a POST request with its results compressed in the gzip format to the postback_url you specified\nyou can use the \u2018$id\u2019 string as a $id variable and \u2018$tag\u2019 as urlencoded $tag variable. We will set the necessary values before sending the request.\nexample:\nhttp://your-server.com/postbackscript?id=$id\nhttp://your-server.com/postbackscript?id=$id&tag=$tag\nNote: special characters in postback_url will be urlencoded;\ni.a., the # character will be encoded into %23\nlearn more on our Help Center",
+          "nullable": true
+        },
+        "postback_data": {
+          "type": "string",
+          "description": "postback_url datatype\nrequired field if you specify postback_url\ncorresponds to the datatype that will be sent to your server\npossible values:\nadvanced, html",
+          "nullable": true
+        },
+        "pingback_url": {
+          "type": "string",
+          "description": "notification URL of a completed task\noptional field\nwhen a task is completed we will notify you by GET request sent to the URL you have specified\nyou can use the \u2018$id\u2019 string as a $id variable and \u2018$tag\u2019 as urlencoded $tag variable. We will set the necessary values before sending the request.\nexample:\nhttp://your-server.com/pingscript?id=$id\nhttp://your-server.com/pingscript?id=$id&tag=$tag\nNote: special characters in pingback_url will be urlencoded;\ni.a., the # character will be encoded into %23\nlearn more on our Help Center",
+          "nullable": true
+        }
+      },
+      "example": [
+        {
+          "language_code": "en_US",
+          "location_code": 2840,
+          "asin": "B085RFFC9Q"
+        }
+      ]
+    },
+    "MerchantAmazonAsinTasksReadyResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonAsinTasksReadyTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonAsinTasksReadyTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonAsinTasksReadyResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonAsinTasksReadyResultInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "task identifier of the completed task\nunique task identifier in our system in the UUID format",
+          "nullable": true
+        },
+        "se": {
+          "type": "string",
+          "description": "search engine specified when setting the task",
+          "nullable": true
+        },
+        "se_type": {
+          "type": "string",
+          "description": "type of search engine\ncan take the following values: shopping",
+          "nullable": true
+        },
+        "date_posted": {
+          "type": "string",
+          "description": "date when the task was posted (in the UTC format)",
+          "nullable": true
+        },
+        "tag": {
+          "type": "string",
+          "description": "user-defined task identifier",
+          "nullable": true
+        },
+        "endpoint_advanced": {
+          "type": "string",
+          "description": "URL for collecting the results of the Amazon ASIN Advanced task",
+          "nullable": true
+        },
+        "endpoint_html": {
+          "type": "string",
+          "description": "URL for collecting the results of the Amazon ASIN HTML task",
+          "nullable": true
+        }
+      }
+    },
+    "MerchantAmazonAsinTaskGetAdvancedResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonAsinTaskGetAdvancedTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonAsinTaskGetAdvancedTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonAsinTaskGetAdvancedResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonAsinTaskGetAdvancedResultInfo": {
+      "type": "object",
+      "properties": {
+        "asin": {
+          "type": "string",
+          "description": "ASIN received in a POST array\nthe unique product identifier in Amazon (ASIN) received in a POST array\nlearn more about the identified in this help center guide",
+          "nullable": true
+        },
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "se_domain": {
+          "type": "string",
+          "description": "Amazon domain in a POST array",
+          "nullable": true
+        },
+        "location_code": {
+          "type": "integer",
+          "description": "location code in a POST array",
+          "nullable": true
+        },
+        "language_code": {
+          "type": "string",
+          "description": "language code in a POST array",
+          "nullable": true
+        },
+        "check_url": {
+          "type": "string",
+          "description": "direct URL to Amazon results\nyou can use it to make sure that we provided accurate results",
+          "nullable": true
+        },
+        "datetime": {
+          "type": "string",
+          "description": "date and time when the result was received\nin the UTC format: \u201cyyyy-mm-dd hh-mm-ss +00:00\u201d\nexample:\n2019-11-15 12:57:46 +00:00",
+          "nullable": true
+        },
+        "item_types": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": "types of search results found on Amazon\ncontains types of all search results (items) found in the returned SERP\npossible item types:\namazon_product_info",
+          "nullable": true
+        },
+        "items_count": {
+          "type": "integer",
+          "description": "the number of results returned in the items array",
+          "format": "int64",
+          "nullable": true
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AmazonProductInfo"
+              }
+            ],
+            "nullable": true
+          },
+          "description": "Amazon product info items",
+          "nullable": true
+        }
+      }
+    },
+    "AmazonProductInfo": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "rank_group": {
+          "type": "integer",
+          "description": "position within a group of elements with identical type values\npositions of elements with different type values are omitted from rank_group",
+          "nullable": true
+        },
+        "rank_absolute": {
+          "type": "integer",
+          "description": "absolute rank\nabsolute position among all the elements in the response array",
+          "nullable": true
+        },
+        "position": {
+          "type": "string",
+          "description": "the alignment of the element in Amazon SERP\npossible values:\nleft, right",
+          "nullable": true
+        },
+        "xpath": {
+          "type": "string",
+          "description": "the XPath of the element",
+          "nullable": true
+        },
+        "title": {
+          "type": "string",
+          "description": "product title",
+          "nullable": true
+        },
+        "details": {
+          "type": "string",
+          "description": "product specs and other details",
+          "nullable": true
+        },
+        "image_url": {
+          "type": "string",
+          "description": "the URL of the product image",
+          "nullable": true
+        },
+        "author": {
+          "type": "string",
+          "description": "product brand name",
+          "nullable": true
+        },
+        "data_asin": {
+          "type": "string",
+          "description": "ASIN of the product received in a POST array",
+          "nullable": true
+        },
+        "parent_asin": {
+          "type": "string",
+          "description": "parent ASIN of the product",
+          "nullable": true
+        },
+        "product_asins": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": "ASINs of all found product modifications",
+          "nullable": true
+        },
+        "price_from": {
+          "type": "number",
+          "description": "the lower limit of the product price range\nexample:\n49.98",
+          "nullable": true
+        },
+        "price_to": {
+          "type": "number",
+          "description": "the upper limit of the product price range\nexample:\n384.99",
+          "nullable": true
+        },
+        "percentage_discount": {
+          "type": "string",
+          "description": "value of the percentage discount",
+          "nullable": true
+        },
+        "currency": {
+          "type": "string",
+          "description": "currency in the ISO format\nexample:\nUSD",
+          "nullable": true
+        },
+        "is_amazon_choice": {
+          "type": "boolean",
+          "description": "\u201cAmazon\u2019s choice\u201d label\nif the value is true, the product is marked with the \u201cAmazon\u2019s choice\u201d label",
+          "nullable": true
+        },
+        "rating": {
+          "type": "object",
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/RatingElement"
+            }
+          ],
+          "description": "product rating info",
+          "nullable": true
+        },
+        "is_newer_model_available": {
+          "type": "boolean",
+          "description": "indicates whether the newer model of the product is available",
+          "nullable": true
+        },
+        "is_prime_video": {
+          "type": "boolean",
+          "description": "indicates whether a product has an Amazon Prime Video label\nif true, specified product is a part of Amazon Prime Video service",
+          "nullable": true
+        },
+        "applicable_vouchers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AmazonApplicableVouchersItem"
+              }
+            ],
+            "nullable": true
+          },
+          "description": "array of objects containing information about applicable vouchers",
+          "nullable": true
+        },
+        "newer_model": {
+          "type": "object",
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/AmazonProductNewerModelInfo"
+            }
+          ],
+          "description": "information about the newer model of the product",
+          "nullable": true
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ProductCategoryInfo"
+              }
+            ],
+            "nullable": true
+          },
+          "description": "contains related product categories",
+          "nullable": true
+        },
+        "product_information": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BaseMerchantAmazonProductInformationElementItem"
+              }
+            ],
+            "nullable": true
+          },
+          "description": "contains related product information",
+          "nullable": true
+        },
+        "product_images_list": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": "contains URLs for all images of the product displayed on the left side of the main image",
+          "nullable": true
+        },
+        "product_videos_list": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": "contains URLs for all videos of the product displayed on the right side of the main video",
+          "nullable": true
+        },
+        "description": {
+          "type": "string",
+          "description": "contains description of the product",
+          "nullable": true
+        },
+        "is_available": {
+          "type": "boolean",
+          "description": "indicates whether the product is available for ordering\nif the value is true, the product can be ordered",
+          "nullable": true
+        },
+        "top_local_reviews": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AmazonReviewItem"
+              }
+            ],
+            "nullable": true
+          },
+          "description": "array of objects with top reviews from target location",
+          "nullable": true
+        },
+        "top_global_reviews": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AmazonReviewItem"
+              }
+            ],
+            "nullable": true
+          },
+          "description": "array of objects with top reviews from around the world",
+          "nullable": true
+        }
+      }
+    },
+    "RatingElement": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "position": {
+          "type": "string",
+          "description": "the alignment of the element in Google Shopping SERP\npossible values:\nleft, right",
+          "nullable": true
+        },
+        "rating_type": {
+          "type": "string",
+          "description": "the type of rating\nhere you can find the following elements: Max5, Percents, CustomMax",
+          "nullable": true
+        },
+        "value": {
+          "type": "number",
+          "description": "value of the rating",
+          "nullable": true
+        },
+        "votes_count": {
+          "type": "integer",
+          "description": "the amount of feedback",
+          "format": "int64",
+          "nullable": true
+        },
+        "rating_max": {
+          "type": "integer",
+          "description": "the maximum value for a rating_type",
+          "nullable": true
+        }
+      }
+    },
+    "BaseMerchantAmazonProductInformationElementItem": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "section_name": {
+          "type": "string",
+          "description": "name of the section related to product information specified in the contents",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false,
+      "discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "product_information_details_item": "#/components/schemas/ProductInformationProductInformationDetailsItem",
+          "product_information_text_item": "#/components/schemas/ProductInformationProductInformationTextItem",
+          "product_information_extended_item": "#/components/schemas/ProductInformationProductInformationExtendedItem"
+        }
+      }
+    },
+    "AmazonApplicableVouchersItem": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "text": {
+          "type": "string",
+          "description": "text of the voucher",
+          "nullable": true
+        },
+        "fixed_discount": {
+          "type": "number",
+          "description": "value of the fixed discount",
+          "nullable": true
+        },
+        "fixed_discount_currency": {
+          "type": "string",
+          "description": "currency code of the fixed discount",
+          "nullable": true
+        },
+        "percentage_discount": {
+          "type": "number",
+          "description": "value of the percentage discount\nif the discount is fixed, the value will be null",
+          "nullable": true
+        },
+        "important_details": {
+          "type": "string",
+          "description": "important details about the terms of discount vouchers",
+          "nullable": true
+        }
+      }
+    },
+    "AmazonReviewItem": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "rank_group": {
+          "type": "integer",
+          "description": "position within a group of elements with identical type values\npositions of elements with different type values are omitted from rank_group",
+          "nullable": true
+        },
+        "rank_absolute": {
+          "type": "integer",
+          "description": "absolute rank among all the listed reviews\nabsolute position among all reviews on the list",
+          "nullable": true
+        },
+        "position": {
+          "type": "string",
+          "description": "the alignment of the review in SERP\ncan take the following values: right",
+          "nullable": true
+        },
+        "xpath": {
+          "type": "string",
+          "description": "the XPath of the element",
+          "nullable": true
+        },
+        "verified": {
+          "type": "boolean",
+          "description": "indicates whether the review has the \u201cVerified Purchase\u201d mark",
+          "nullable": true
+        },
+        "subtitle": {
+          "type": "string",
+          "description": "subtitle of the review",
+          "nullable": true
+        },
+        "helpful_votes": {
+          "type": "string",
+          "description": "helpful votes count\nnumber of users who clicked on the \u2018Helpful\u201d button under the review text",
+          "nullable": true
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AiModeImagesElementInfo"
+              }
+            ],
+            "nullable": true
+          },
+          "description": "images of the product submitted by the reviewer",
+          "nullable": true
+        },
+        "videos": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/VideoElement"
+              }
+            ],
+            "nullable": true
+          },
+          "description": "videos of the product submitted by the reviewer",
+          "nullable": true
+        },
+        "user_profile": {
+          "type": "object",
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/UserProfileInfo"
+            }
+          ],
+          "description": "user profile of the reviewer",
+          "nullable": true
+        },
+        "title": {
+          "type": "string",
+          "description": "title of the review",
+          "nullable": true
+        },
+        "url": {
+          "type": "string",
+          "description": "URL to the reviewer\u2019s profile",
+          "nullable": true
+        },
+        "review_text": {
+          "type": "string",
+          "description": "content of the review",
+          "nullable": true
+        },
+        "publication_date": {
+          "type": "string",
+          "description": "date and time when the review was published\nin the UTC format: \u201cyyyy-mm-dd hh-mm-ss +00:00\u201d;\nexample:\n2019-11-15 12:57:46 +00:00",
+          "nullable": true
+        },
+        "rating": {
+          "type": "object",
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/RatingInfo"
+            }
+          ],
+          "description": "the rating score submitted by the reviewer",
+          "nullable": true
+        }
+      }
+    },
+    "RatingInfo": {
+      "properties": {
+        "rating_type": {
+          "type": "string",
+          "description": "the type of rating\nhere you can find the following elements: Max5, Percents, CustomMax",
+          "nullable": true
+        },
+        "value": {
+          "type": "number",
+          "description": "the value of the rating",
+          "format": "double",
+          "nullable": true
+        },
+        "votes_count": {
+          "type": "integer",
+          "description": "the amount of feedback",
+          "format": "int64",
+          "nullable": true
+        },
+        "rating_max": {
+          "type": "integer",
+          "description": "the maximum value for a rating_type",
+          "nullable": true
+        }
+      }
+    },
+    "UserProfileInfo": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "the name of the reviewer",
+          "nullable": true
+        },
+        "avatar": {
+          "type": "string",
+          "description": "URL to the profile picture of the reviewer",
+          "nullable": true
+        },
+        "url": {
+          "type": "string",
+          "description": "relevant url",
+          "nullable": true
+        },
+        "reviews_count": {
+          "type": "integer",
+          "description": "total number of reviews submitted by the reviewer",
+          "format": "int64",
+          "nullable": true
+        },
+        "locations": {
+          "type": "string",
+          "description": "country of the reviewer",
+          "nullable": true
+        }
+      }
+    },
+    "AiModeImagesElementInfo": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "alt": {
+          "type": "string",
+          "description": "alt tag of the image",
+          "nullable": true
+        },
+        "url": {
+          "type": "string",
+          "description": "URL link",
+          "nullable": true
+        },
+        "image_url": {
+          "type": "string",
+          "description": "URL of the image\nthe URL leading to the image on the original resource or DataForSEO storage (in case the original source is not available)",
+          "nullable": true
+        }
+      }
+    },
+    "VideoElement": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "source": {
+          "type": "string",
+          "description": "URL to the video source",
+          "nullable": true
+        },
+        "preview": {
+          "type": "string",
+          "description": "URL to the video preview image",
+          "nullable": true
+        },
+        "title": {
+          "type": "string",
+          "description": "title of the row",
+          "nullable": true
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "date and time when the result was published\nin the UTC format: \u201cyyyy-mm-dd hh-mm-ss +00:00\u201d\nexample:\n2019-11-15 12:57:46 +00:00",
+          "nullable": true
+        },
+        "url": {
+          "type": "string",
+          "description": "URL of element",
+          "nullable": true
+        }
+      }
+    },
+    "ProductCategoryInfo": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "type": "string",
+          "description": "product category name",
+          "nullable": true
+        },
+        "url": {
+          "type": "string",
+          "description": "product category URL\nindicates the browse path on Amazon with the unique browse node ID (product category ID on Amazon)",
+          "nullable": true
+        }
+      }
+    },
+    "AmazonProductNewerModelInfo": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "product title",
+          "nullable": true
+        },
+        "newer_model_asin": {
+          "type": "string",
+          "description": "ASIN of the newer product model",
+          "nullable": true
+        }
+      }
+    },
+    "MerchantAmazonAsinTaskGetHtmlResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonAsinTaskGetHtmlTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonAsinTaskGetHtmlTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonAsinTaskGetHtmlResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonAsinTaskGetHtmlResultInfo": {
+      "type": "object",
+      "properties": {
+        "product_id": {
+          "type": "string",
+          "description": "ASIN received in a POST array",
+          "nullable": true
+        },
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "se_domain": {
+          "type": "string",
+          "description": "search engine domain in a POST array",
+          "nullable": true
+        },
+        "location_code": {
+          "type": "integer",
+          "description": "location code in a POST array",
+          "nullable": true
+        },
+        "language_code": {
+          "type": "string",
+          "description": "language code in a POST array",
+          "nullable": true
+        },
+        "datetime": {
+          "type": "string",
+          "description": "date and time when the result was received\nin the UTC format: \u201cyyyy-mm-dd hh-mm-ss +00:00\u201d\nexample:\n2019-11-15 12:57:46 +00:00",
+          "nullable": true
+        },
+        "items_count": {
+          "type": "integer",
+          "description": "the number of results returned in the items array",
+          "format": "int64",
+          "nullable": true
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/HtmlItemInfo"
+              }
+            ],
+            "nullable": true
+          },
+          "description": "HTML pages and related data",
+          "nullable": true
+        }
+      }
+    },
+    "HtmlItemInfo": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "description": "serial number of the returned HTML page",
+          "nullable": true
+        },
+        "date": {
+          "type": "string",
+          "description": "date and time when the HTML page was scanned\nin the UTC format: \u201cyyyy-mm-dd hh-mm-ss +00:00\u201d\nexample:\n2019-11-15 12:57:46 +00:00",
+          "nullable": true
+        },
+        "html": {
+          "type": "string",
+          "description": "HTML\u00a0page",
+          "nullable": true
+        }
+      }
+    },
+    "MerchantAmazonProductsTasksReadyResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonProductsTasksReadyTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonProductsTasksReadyTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonProductsTasksReadyResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonProductsTasksReadyResultInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "task identifier of the completed task\nunique task identifier in our system in the UUID format",
+          "nullable": true
+        },
+        "se": {
+          "type": "string",
+          "description": "search engine specified when setting the task",
+          "nullable": true
+        },
+        "se_type": {
+          "type": "string",
+          "description": "type of search engine\ncan take the following values: organic",
+          "nullable": true
+        },
+        "date_posted": {
+          "type": "string",
+          "description": "date when the task was posted (in the UTC format)",
+          "nullable": true
+        },
+        "tag": {
+          "type": "string",
+          "description": "user-defined task identifier",
+          "nullable": true
+        },
+        "endpoint_advanced": {
+          "type": "string",
+          "description": "URL for collecting the results of the Amazon Products Advanced task",
+          "nullable": true
+        },
+        "endpoint_html": {
+          "type": "string",
+          "description": "URL for collecting the results of the Amazon Products HTML task",
+          "nullable": true
+        }
+      }
+    },
+    "MerchantAmazonLanguagesResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonLanguagesTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonLanguagesTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonLanguagesResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonLanguagesResultInfo": {
+      "type": "object",
+      "properties": {
+        "language_name": {
+          "type": "string",
+          "description": "language name",
+          "nullable": true
+        },
+        "language_code": {
+          "type": "string",
+          "description": "language code according to ISO 639-1",
+          "nullable": true
+        }
+      }
+    },
+    "MerchantAmazonSellersTaskPostResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonSellersTaskPostTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonSellersTaskPostTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "object",
+              "description": "array of results\nin this case, the value will be null",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonProductsTaskGetHtmlResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonProductsTaskGetHtmlTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonProductsTaskGetHtmlTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonProductsTaskGetHtmlResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonProductsTaskGetHtmlResultInfo": {
+      "type": "object",
+      "properties": {
+        "keyword": {
+          "type": "string",
+          "description": "keyword received in a POST array\nkeyword is returned with decoded %## (plus character \u2018+\u2019 will be decoded to a space character)",
+          "nullable": true
+        },
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "se_domain": {
+          "type": "string",
+          "description": "search engine domain in a POST array",
+          "nullable": true
+        },
+        "location_code": {
+          "type": "integer",
+          "description": "location code in a POST array",
+          "nullable": true
+        },
+        "language_code": {
+          "type": "string",
+          "description": "language code in a POST array",
+          "nullable": true
+        },
+        "datetime": {
+          "type": "string",
+          "description": "date and time when the result was received\nin the UTC format: \u201cyyyy-mm-dd hh-mm-ss +00:00\u201d\nexample:\n2019-11-15 12:57:46 +00:00",
+          "nullable": true
+        },
+        "items_count": {
+          "type": "integer",
+          "description": "the number of results returned in the items array",
+          "format": "int64",
+          "nullable": true
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/HtmlItemInfo"
+              }
+            ],
+            "nullable": true
+          },
+          "description": "HTML pages and related data",
+          "nullable": true
+        }
+      }
+    },
+    "MerchantGoogleProductInfoTaskGetAdvancedResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleProductInfoTaskGetAdvancedTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleProductInfoTaskGetAdvancedTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleProductInfoTaskGetAdvancedResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleProductInfoTaskGetAdvancedResultInfo": {
+      "type": "object",
+      "properties": {
+        "product_id": {
+          "type": "string",
+          "description": "product ID in a POST array\nlearn more about the parameter in this help center guide",
+          "nullable": true
+        },
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "se_domain": {
+          "type": "string",
+          "description": "search engine domain in a POST array",
+          "nullable": true
+        },
+        "location_code": {
+          "type": "integer",
+          "description": "location code in a POST array",
+          "nullable": true
+        },
+        "language_code": {
+          "type": "string",
+          "description": "language code in a POST array",
+          "nullable": true
+        },
+        "check_url": {
+          "type": "string",
+          "description": "direct URL to search engine results\nyou can use it to make sure that we provided accurate results",
+          "nullable": true
+        },
+        "datetime": {
+          "type": "string",
+          "description": "date and time when the result was received\nin the format: \u201cyear-month-date:minutes:UTC_difference_hours:UTC_difference_minutes\u201d\nexample:\n2019-11-15 12:57:46 +00:00",
+          "nullable": true
+        },
+        "item_types": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": "types of items found on the product specification page\npossible item types:\nproduct_info_element",
+          "nullable": true
+        },
+        "items_count": {
+          "type": "integer",
+          "description": "the number of results returned in the items array",
+          "format": "int64",
+          "nullable": true
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ProductInfoElement"
+              }
+            ],
+            "nullable": true
+          },
+          "description": "items on the product page\ncontains all product attributes and related data listed on the product page",
+          "nullable": true
+        }
+      }
+    },
+    "ProductInfoElement": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "rank_group": {
+          "type": "integer",
+          "description": "position within a group of elements with identical type values\npositions of elements with different type values are omitted from rank_group",
+          "nullable": true
+        },
+        "rank_absolute": {
+          "type": "integer",
+          "description": "absolute rank on the product specification page\nabsolute position among all the elements found on the product specification page",
+          "nullable": true
+        },
+        "position": {
+          "type": "string",
+          "description": "alignment of the element on the product specification page\ncan take the following values:\nright, left",
+          "nullable": true
+        },
+        "product_id": {
+          "type": "string",
+          "description": "product_id received in a POST array\nilearn more about the parameter in this help center guide",
+          "nullable": true
+        },
+        "title": {
+          "type": "string",
+          "description": "title of the product",
+          "nullable": true
+        },
+        "description": {
+          "type": "string",
+          "description": "description of the product",
+          "nullable": true
+        },
+        "url": {
+          "type": "string",
+          "description": "product url\nurl of the product on Google Shopping",
+          "nullable": true
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": "product images\ncontains urls to product images",
+          "nullable": true
+        },
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": "product features\ncontains snippets with the description of product features",
+          "nullable": true
+        },
+        "rating": {
+          "type": "object",
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/RatingElement"
+            }
+          ],
+          "description": "product rating \nthe popularity rate based on reviews",
+          "nullable": true
+        },
+        "seller_reviews_count": {
+          "type": "integer",
+          "description": "number of seller reviews\nnumber of reviews on the product seller\u2019s account",
+          "format": "int64",
+          "nullable": true
+        },
+        "data_docid": {
+          "type": "string",
+          "description": "unique identifier of the SERP data element\nnote that there is no full list of possible values as the data_docid is a dynamic value assigned by Google\nexample:\n17363035694596624076",
+          "nullable": true
+        },
+        "gid": {
+          "type": "string",
+          "description": "global product identifier on Google Shopping\nnote that there is no full list of possible values as the gid is a dynamic value assigned by Google\nif there are no values, you will get null\nexample:\n4702526954592161872\nlearn more about gid in this help center guide",
+          "nullable": true
+        },
+        "specifications": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ShoppingSpecification"
+              }
+            ],
+            "nullable": true
+          },
+          "description": "product specifications\ncontains all product attributes and related data listed on the product specification page",
+          "nullable": true
+        },
+        "sellers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ProductSeller"
+              }
+            ],
+            "nullable": true
+          },
+          "description": "sellers of the product\nnumber of reviews on the product seller\u2019s account",
+          "nullable": true
+        },
+        "variations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ProductVariation"
+              }
+            ],
+            "nullable": true
+          },
+          "description": "variations of the product\ncontains brief information about different product variations",
+          "nullable": true
+        }
+      }
+    },
+    "ProductSeller": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "title": {
+          "type": "string",
+          "description": "product title",
+          "nullable": true
+        },
+        "url": {
+          "type": "string",
+          "description": "seller url\nurl of the page where the product is sold",
+          "nullable": true
+        },
+        "seller_rating": {
+          "type": "object",
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/RatingElement"
+            }
+          ],
+          "description": "rating of the seller",
+          "nullable": true
+        },
+        "seller_review_count": {
+          "type": "integer",
+          "description": "number of seller reviews\nnumber of reviews on the product seller\u2019s account",
+          "nullable": true
+        },
+        "price": {
+          "type": "object",
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/PriceInfo"
+            }
+          ],
+          "description": "product price\nproduct price details on the seller\u2019s website",
+          "nullable": true
+        },
+        "delivery_info": {
+          "type": "object",
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/DeliveryInfo"
+            }
+          ],
+          "description": "delivery information\nproduct delivery information",
+          "nullable": true
+        },
+        "product_availability": {
+          "type": "string",
+          "description": "product availability information\ncan take the following values: in_stock, limited_stock, out_of_stock, backordered, pre_order_available, on_display_to_order",
+          "nullable": true
+        }
+      }
+    },
+    "PriceInfo": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "number",
+          "description": "current price\nindicates the current price of the product or service featured in the result",
+          "format": "double",
+          "nullable": true
+        },
+        "regular": {
+          "type": "number",
+          "description": "regular price\nindicates the regular price of the product or service with no discounts applied",
+          "format": "double",
+          "nullable": true
+        },
+        "max_value": {
+          "type": "number",
+          "description": "the maximum price\nthe maximum price of the product or service as indicated in the result",
+          "format": "double",
+          "nullable": true
+        },
+        "currency": {
+          "type": "string",
+          "description": "currency of the listed price\nISO code of the currency applied to the price",
+          "nullable": true
+        },
+        "is_price_range": {
+          "type": "boolean",
+          "description": "price is provided as a range\nindicates whether a price is provided in a range",
+          "nullable": true
+        },
+        "displayed_price": {
+          "type": "string",
+          "description": "price string in the result\nraw price string as provided in the result",
+          "nullable": true
+        }
+      }
+    },
+    "DeliveryInfo": {
+      "type": "object",
+      "properties": {
+        "delivery_message": {
+          "type": "string",
+          "description": "delivery information\nmessage accompanying the delivery information as posted by the seller",
+          "nullable": true
+        },
+        "delivery_price": {
+          "type": "object",
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/PriceInfo"
+            }
+          ],
+          "description": "price for the delivery\nprice of the delivery based on the location you specified in the POST request;\nif free delivery is available, the value is null",
+          "nullable": true
+        }
+      }
+    },
+    "ProductVariation": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "product_id": {
+          "type": "string",
+          "description": "product ID in a POST array\nlearn more about the parameter in this help center guide",
+          "nullable": true
+        },
+        "gid": {
+          "type": "string",
+          "description": "GID ID in a POST array\nlearn more about the parameter in this help center guide",
+          "nullable": true
+        },
+        "data_docid": {
+          "type": "string",
+          "description": "unique identifier of the SERP data element in the POST array",
+          "nullable": true
+        },
+        "pvf": {
+          "type": "string",
+          "description": "product variation filter\nused in the product variation URL as the identifier of the specific product variation",
+          "nullable": true
+        },
+        "title": {
+          "type": "string",
+          "description": "name of the product seller",
+          "nullable": true
+        },
+        "url": {
+          "type": "string",
+          "description": "product variation URL on Google Shopping",
+          "nullable": true
+        },
+        "variation_category": {
+          "type": "string",
+          "description": "category of the product variation\nexample: \"Storage Capacity\"",
+          "nullable": true
+        }
+      }
+    },
+    "ShoppingSpecification": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "block_name": {
+          "type": "string",
+          "description": "name of the block of product attributes\nindicates the name of the product specification section in which the related element is listed",
+          "nullable": true
+        },
+        "specification_name": {
+          "type": "string",
+          "description": "product attribute\nattribute name of the product data specification",
+          "nullable": true
+        },
+        "specification_value": {
+          "type": "string",
+          "description": "content of the specification",
+          "nullable": true
+        }
+      }
+    },
+    "MerchantGoogleProductsTasksReadyResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleProductsTasksReadyTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleProductsTasksReadyTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleProductsTasksReadyResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleProductsTasksReadyResultInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "task identifier of the completed task\nunique task identifier in our system in the UUID format",
+          "nullable": true
+        },
+        "se": {
+          "type": "string",
+          "description": "search engine specified when setting the task",
+          "nullable": true
+        },
+        "se_type": {
+          "type": "string",
+          "description": "type of search engine\nexample: products",
+          "nullable": true
+        },
+        "date_posted": {
+          "type": "string",
+          "description": "date when the task was posted (in the UTC format)",
+          "nullable": true
+        },
+        "tag": {
+          "type": "string",
+          "description": "user-defined task identifier",
+          "nullable": true
+        },
+        "endpoint_advanced": {
+          "type": "string",
+          "description": "URL for collecting the results of Google Shopping Products Advanced task",
+          "nullable": true
+        },
+        "endpoint_html": {
+          "type": "string",
+          "description": "URL for collecting the results of Google Shopping Products HTML task",
+          "nullable": true
+        }
+      }
+    },
+    "MerchantAmazonLocationsCountryResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonLocationsCountryTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonLocationsCountryTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonLocationsCountryResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonLocationsCountryResultInfo": {
+      "type": "object",
+      "properties": {
+        "location_code": {
+          "type": "integer",
+          "description": "location code",
+          "nullable": true
+        },
+        "location_name": {
+          "type": "string",
+          "description": "full name of the location",
+          "nullable": true
+        },
+        "location_name_parent": {
+          "type": "string",
+          "description": "the name of the superordinate location\nexample:\n\"location_code\": 9041134,\n\"location_name\": \"90290,California,United States\",\n\"location_name_parent\": \"California,United States\"",
+          "nullable": true
+        },
+        "country_iso_code": {
+          "type": "string",
+          "description": "ISO country code of the location",
+          "nullable": true
+        },
+        "location_type": {
+          "type": "string",
+          "description": "location type",
+          "nullable": true
+        }
+      }
+    },
+    "MerchantIdListRequestInfo": {
+      "type": "object",
+      "properties": {
+        "datetime_from": {
+          "type": "string",
+          "description": "start time for filtering results\nrequired field\nif include_metadata is set to true, maximum value: a month from current datetime;\nif include_metadata is set to false, maximum value: six months from current datetime;\nmust be specified in the UTC format: \u201cyyyy-mm-dd hh-mm-ss +00:00\u201d\nexample:\n2023-01-15 12:57:46 +00:00"
+        },
+        "datetime_to": {
+          "type": "string",
+          "description": "finish time for filtering results\nrequired field\nmaximum value: current datetime;\nmust be specified in the UTC format: \u201cyyyy-mm-dd hh-mm-ss +00:00\u201d\nexample:\n2023-01-31 13:57:46 +00:00"
+        },
+        "limit": {
+          "type": "integer",
+          "description": "the maximum number of returned task IDs\noptional field\ndefault value: 1000\nmaximum value: 1000",
+          "nullable": true
+        },
+        "offset": {
+          "type": "integer",
+          "description": "offset in the results array of returned task IDs\noptional field\ndefault value: 0\nif you specify the 10 value, the first ten tasks in the results array will be omitted",
+          "nullable": true
+        },
+        "sort": {
+          "type": "string",
+          "description": "sorting by task execution time\noptional field\npossible values: \"asc\", \"desc\"\ndefault value: \"asc\"",
+          "nullable": true
+        },
+        "include_metadata": {
+          "type": "boolean",
+          "description": "include task metadata in the respond\noptional field\ndefault value: false",
+          "nullable": true
+        }
+      },
+      "example": [
+        {
+          "datetime_from": "2026-04-12 04:39:39 +00:00",
+          "datetime_to": "2026-04-14 04:39:39 +00:00",
+          "limit": 100,
+          "offset": 0,
+          "sort": "desc",
+          "include_metadata": true
+        }
+      ]
+    },
+    "MerchantGoogleLocationsResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleLocationsTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleLocationsTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleLocationsResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleLocationsResultInfo": {
+      "type": "object",
+      "properties": {
+        "location_code": {
+          "type": "integer",
+          "description": "location code",
+          "nullable": true
+        },
+        "location_name": {
+          "type": "string",
+          "description": "full name of the location",
+          "nullable": true
+        },
+        "location_name_parent": {
+          "type": "string",
+          "description": "the name of the superordinate location\nexample:\n\"location_name\": \"Arkansas,United States\",\n\"location_name_parent\": \"United States\"",
+          "nullable": true
+        },
+        "country_iso_code": {
+          "type": "string",
+          "description": "ISO country code of the location",
+          "nullable": true
+        },
+        "location_type": {
+          "type": "string",
+          "description": "location type",
+          "nullable": true
+        }
+      }
+    },
+    "MerchantTasksReadyResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantTasksReadyTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantTasksReadyTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantTasksReadyResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantTasksReadyResultInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "task identifier of the completed task\nunique task identifier in our system in the UUID format",
+          "nullable": true
+        },
+        "se": {
+          "type": "string",
+          "description": "search engine specified when setting the task",
+          "nullable": true
+        },
+        "se_type": {
+          "type": "string",
+          "description": "type of search engine",
+          "nullable": true
+        },
+        "date_posted": {
+          "type": "string",
+          "description": "date when the task was posted (in the UTC format)",
+          "nullable": true
+        },
+        "tag": {
+          "type": "string",
+          "description": "user-defined task identifier",
+          "nullable": true
+        },
+        "endpoint_advanced": {
+          "type": "string",
+          "description": "URL for collecting the results of Amazon Sellers Advanced task",
+          "nullable": true
+        },
+        "endpoint_html": {
+          "type": "string",
+          "description": "URL for collecting the results of Amazon Sellers HTML task",
+          "nullable": true
+        }
+      }
+    },
+    "MerchantAmazonProductsTaskPostRequestInfo": {
+      "type": "object",
+      "properties": {
+        "keyword": {
+          "type": "string",
+          "description": "keyword\nrequired field\nyou can specify up to 700 characters in this field\nall %## will be decoded (plus character \u2018+\u2019 will be decoded to a space character)\nif you need to use the \u201c%\u201d character for your keyword, please specify it as \u201c%25\u201d;\nlearn more about rules and limitations of keyword and keywords fields in DataForSEO APIs in this Help Center article"
+        },
+        "url": {
+          "type": "string",
+          "description": "direct URL of the search query\noptional field\nyou can specify a direct URL and we will sort it out to the necessary fields. Note that this method is the most difficult for our API to process and also requires you to specify the exact language and location in the URL. In most cases, we wouldn\u2019t recommend using this method.\nexample:\nhttps://www.amazon.com/s/?field-keywords=shoes&language=en_US",
+          "nullable": true
+        },
+        "priority": {
+          "type": "integer",
+          "description": "task priority\noptional field\ncan take the following values:\n1 \u2013 normal execution priority (set by default)\n2 \u2013 high execution priority\nYou will be additionally charged for the tasks with high execution priority.\nThe cost can be calculated on the Pricing page.",
+          "nullable": true
+        },
+        "location_name": {
+          "type": "string",
+          "description": "full name of search engine location\nrequired field if you don\u2019t specify location_code or location_coordinate\nif you use this field, you don\u2019t need to specify location_code or location_coordinate\nyou can receive the list of available locations with their location_name parameters by making a separate request to the https://api.dataforseo.com/v3/merchant/amazon/locations\nexample:\nHA1,England,United Kingdom",
+          "nullable": true
+        },
+        "location_code": {
+          "type": "integer",
+          "description": "search engine location code\nrequired field if you don\u2019t specify location_name\u00a0or location_coordinate\nif you use this field, you don\u2019t need to specify location_name or location_coordinate\nyou can receive the list of available locations with their location_code parameters by making a separate request to the\nhttps://api.dataforseo.com/v3/merchant/amazon/locations\nexample:\n9045969",
+          "nullable": true
+        },
+        "location_coordinate": {
+          "type": "string",
+          "description": "GPS coordinates of a location\nrequired field if you don\u2019t specify location_name\u00a0or location_code\nif you use this field, you don\u2019t need to specify location_name or location_code\nlocation_coordinate parameter should be specified in the \u201clatitude,longitude,radius\u201d format\nthe maximum number of decimal digits for \u201clatitude\u201d and \u201clongitude\u201d: 7\nthe minimum value for \u201cradius\u201d: 199.9\nexample:\n53.476225,-2.243572,200",
+          "nullable": true
+        },
+        "language_name": {
+          "type": "string",
+          "description": "full name of search engine language\nrequired field if you don\u2019t specify language_code\nif you use this field, you don\u2019t need to specify language_code\nyou can receive the list of available languages with their language_name parameters by making a separate request to the\nhttps://api.dataforseo.com/v3/merchant/amazon/languages\nexample:\nEnglish (United Kingdom)",
+          "nullable": true
+        },
+        "language_code": {
+          "type": "string",
+          "description": "search engine language code\nrequired field if you don\u2019t specify language_name\nif you use this field, you don\u2019t need to specify language_name\nyou can receive the list of available languages with their language_code\u00a0parameters by making a separate request to the https://api.dataforseo.com/v3/merchant/amazon/languages\nexample:\nen_GB",
+          "nullable": true
+        },
+        "se_domain": {
+          "type": "string",
+          "description": "search engine domain\noptional field\nwe choose the relevant search engine domain automatically according to the location and language you specify\nhowever, you can set a custom search engine domain in this field\nexample:\namazon.com, amazon.co.uk, amazon.fr, etc.",
+          "nullable": true
+        },
+        "depth": {
+          "type": "integer",
+          "description": "parsing depth\noptional field\nnumber of results to be retrieved from the Amazon results page\ndefault value: 100\nmax value: 700\nYour account will be billed per each SERP containing up to 100 results;\nSetting depth above 100 may result in additional charges if the search engine returns more than 100 results;\nThe cost can be calculated on the Pricing page.",
+          "nullable": true
+        },
+        "max_crawl_pages": {
+          "type": "integer",
+          "description": "page crawl limit\noptional field\nnumber of search results pages to crawl\nmax value: 7\nNote: the max_crawl_pages and depth parameters complement each other;\nlearn more at our help center",
+          "nullable": true
+        },
+        "department": {
+          "type": "string",
+          "description": "amazon product department\noptional field\nspecify one of the following amazon departments for extracting product listings:\n\"Arts & Crafts\", \"Automotive\", \"Baby\", \"Beauty & Personal Care\", \"Books\", \"Computers\", \"Digital Music\", \"Electronics\", \"Kindle Store\", \"Prime Video\", \"Women's Fashion\", \"Men's Fashion\", \"Girls' Fashion\", \"Boys' Fashion\", \"Deals\", \"Health & Household\", \"Home & Kitchen\", \"Industrial & Scientific\", \"Luggage\", \"Movies & TV\", \"Music, CDs & Vinyl\", \"Pet Supplies\", \"Software\", \"Sports & Outdoors\", \"Tools & Home Improvement\", \"Toys & Games\", \"Video Games\"",
+          "nullable": true
+        },
+        "search_param": {
+          "type": "string",
+          "description": "additional parameters of the search query\noptional field\nyou can use the following Amazon search URL parameters for customizing the search\nexample:\n&low-price=52 \u2013 search for products that cost more than 52 USD;\n&high-price=45 \u2013 search for products that cost less than 45 USD;\n&sort=relevancerank \u2013 sort results by relevance;\n&sort=featured-rank \u2013 sort results by featured products;\n&sort=price-asc-rank \u2013 sort by ascending price;\n&sort=price-desc-rank \u2013 sort by descending price;\n&sort=review-rank \u2013 sort by the average customer reviews value;\n&sort=date-desc-rank \u2013 sort by the newest arrival\nNote that search_param values will be ignored if any of the following parameters is used: price_min, price_max, sort_by",
+          "nullable": true
+        },
+        "price_min": {
+          "type": "integer",
+          "description": "minimum product price\noptional field\nminimum price of the returned products listed on Amazon for the specified query\nexample:\n5\nNote: if you specify price_min, the search_param parameter will be ignored",
+          "nullable": true
+        },
+        "price_max": {
+          "type": "integer",
+          "description": "maximum product price\noptional field\nmaximum price of the returned products listed on Amazon for the specified query\nexample:\n100\nNote: if you specify price_max, the search_param parameter will be ignored",
+          "nullable": true
+        },
+        "sort_by": {
+          "type": "string",
+          "description": "results sorting rules\noptional field\nthe following sorting rules are supported:\nrelevance, price_low_to_high, price_high_to_low, featured, avg_customer_review, newest_arrival\nexample:\nsort_by:\"relevance\"\nNote: if you specify sort_by, the search_param parameter will be ignored",
+          "nullable": true
+        },
+        "tag": {
+          "type": "string",
+          "description": "user-defined task identifier\noptional field\nthe character limit is 255\nyou can use this parameter to identify the task and match it with the result\nyou will find the specified tag value in the data object of the response",
+          "nullable": true
+        },
+        "postback_url": {
+          "type": "string",
+          "description": "URL for sending task results\noptional field\nonce the task is completed, we will send a POST request with its results compressed in the gzip format to the postback_url you specified\nyou can use the \u2018$id\u2019 string as a $id variable and \u2018$tag\u2019 as urlencoded $tag variable. We will set the necessary values before sending the request.\nexample:\nhttp://your-server.com/postbackscript?id=$id\nhttp://your-server.com/postbackscript?id=$id&tag=$tag\nNote: special characters in postback_url will be urlencoded;\ni.a., the # character will be encoded into %23\nlearn more on our Help Center",
+          "nullable": true
+        },
+        "postback_data": {
+          "type": "string",
+          "description": "postback_url datatype\nrequired field if you specify postback_url\ncorresponds to the datatype that will be sent to your server\npossible values:\nadvanced, html",
+          "nullable": true
+        },
+        "pingback_url": {
+          "type": "string",
+          "description": "notification URL of a completed task\noptional field\nwhen a task is completed we will notify you by GET request sent to the URL you have specified\nyou can use the \u2018$id\u2019 string as a $id variable and \u2018$tag\u2019 as urlencoded $tag variable. We will set the necessary values before sending the request.\nexample:\nhttp://your-server.com/pingscript?id=$id\nhttp://your-server.com/pingscript?id=$id&tag=$tag\nNote: special characters in pingback_url will be urlencoded;\ni.a., the # character will be encoded into %23\nlearn more on our Help Center",
+          "nullable": true
+        }
+      },
+      "example": [
+        {
+          "language_code": "en_US",
+          "location_code": 2840,
+          "keyword": "shoes"
+        }
+      ]
+    },
+    "MerchantAmazonProductsTaskGetAdvancedResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonProductsTaskGetAdvancedTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonProductsTaskGetAdvancedTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonProductsTaskGetAdvancedResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonProductsTaskGetAdvancedResultInfo": {
+      "type": "object",
+      "properties": {
+        "keyword": {
+          "type": "string",
+          "description": "keyword received in a POST array\nkeyword is returned with decoded %## (plus character \u2018+\u2019 will be decoded to a space character)",
+          "nullable": true
+        },
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "se_domain": {
+          "type": "string",
+          "description": "search engine domain in a POST array",
+          "nullable": true
+        },
+        "location_code": {
+          "type": "integer",
+          "description": "location code in a POST array",
+          "nullable": true
+        },
+        "language_code": {
+          "type": "string",
+          "description": "language code in a POST array",
+          "nullable": true
+        },
+        "check_url": {
+          "type": "string",
+          "description": "direct URL to Amazon results\nyou can use it to make sure that we provided accurate results",
+          "nullable": true
+        },
+        "datetime": {
+          "type": "string",
+          "description": "date and time when the result was received\nin the UTC format: \u201cyyyy-mm-dd hh-mm-ss +00:00\u201d\nexample:\n2019-11-15 12:57:46 +00:00",
+          "nullable": true
+        },
+        "spell": {
+          "type": "object",
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/SpellInfo"
+            }
+          ],
+          "description": "autocorrection of the search engine\nif the search engine provided results for a keyword that was corrected, we will specify the keyword corrected by the search engine and the type of autocorrection",
+          "nullable": true
+        },
+        "item_types": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": "types of search results found in Amazon SERP\ncontains types of all search results (items) found in the returned SERP\npossible item types:\namazon_serp, amazon_paid, editorial_recommendations, top_rated_from_our_brands, related_searches",
+          "nullable": true
+        },
+        "se_results_count": {
+          "type": "integer",
+          "description": "search engine results count",
+          "format": "int64",
+          "nullable": true
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": "amazon product departments and subcategories",
+          "nullable": true
+        },
+        "items_count": {
+          "type": "integer",
+          "description": "the number of results returned in the items array",
+          "format": "int64",
+          "nullable": true
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BaseMerchantAmazonElementItem"
+              }
+            ],
+            "nullable": true
+          },
+          "description": "Amazon product items within the editorial_recommendations element",
+          "nullable": true
+        }
+      }
+    },
+    "BaseMerchantAmazonElementItem": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "rank_group": {
+          "type": "integer",
+          "description": "position within a group of elements with identical type values\npositions of elements with different type values are omitted from rank_group",
+          "nullable": true
+        },
+        "rank_absolute": {
+          "type": "integer",
+          "description": "absolute rank in SERP\nabsolute position among all the elements found in Amazon SERP",
+          "nullable": true
+        },
+        "xpath": {
+          "type": "string",
+          "description": "the XPath of the element",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false,
+      "discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "amazon_paid": "#/components/schemas/MerchantAmazonPaidSerpElementItem",
+          "amazon_serp": "#/components/schemas/MerchantAmazonSerpSerpElementItem",
+          "editorial_recommendations": "#/components/schemas/MerchantEditorialRecommendationsSerpElementItem",
+          "related_searches": "#/components/schemas/MerchantRelatedSearchesSerpElementItem",
+          "top_rated_from_our_brands": "#/components/schemas/MerchantTopRatedFromOurBrandsSerpElementItem"
+        }
+      }
+    },
+    "MerchantAmazonLocationsResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonLocationsTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonLocationsTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonLocationsResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonLocationsResultInfo": {
+      "type": "object",
+      "properties": {
+        "location_code": {
+          "type": "integer",
+          "description": "location code",
+          "nullable": true
+        },
+        "location_name": {
+          "type": "string",
+          "description": "full name of the location",
+          "nullable": true
+        },
+        "location_name_parent": {
+          "type": "string",
+          "description": "the name of the superordinate location\nexample:\n\"location_code\": 9041134,\n\"location_name\": \"90290,California,United States\",\n\"location_name_parent\": \"California,United States\"",
+          "nullable": true
+        },
+        "country_iso_code": {
+          "type": "string",
+          "description": "ISO country code of the location",
+          "nullable": true
+        },
+        "location_type": {
+          "type": "string",
+          "description": "location type",
+          "nullable": true
+        }
+      }
+    },
+    "MerchantAmazonAsinTaskPostResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonAsinTaskPostTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonAsinTaskPostTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "object",
+              "description": "array of results\nin this case, the value will be null",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleLocationsCountryResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleLocationsCountryTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleLocationsCountryTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleLocationsCountryResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleLocationsCountryResultInfo": {
+      "type": "object",
+      "properties": {
+        "location_code": {
+          "type": "integer",
+          "description": "location code",
+          "nullable": true
+        },
+        "location_name": {
+          "type": "string",
+          "description": "full name of the location",
+          "nullable": true
+        },
+        "location_name_parent": {
+          "type": "string",
+          "description": "the name of the superordinate location\nexample:\n\"location_name\": \"Arkansas,United States\",\n\"location_name_parent\": \"United States\"",
+          "nullable": true
+        },
+        "country_iso_code": {
+          "type": "string",
+          "description": "ISO country code of the location",
+          "nullable": true
+        },
+        "location_type": {
+          "type": "string",
+          "description": "location type",
+          "nullable": true
+        }
+      }
+    },
+    "MerchantGoogleSellersTaskGetAdvancedResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleSellersTaskGetAdvancedTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleSellersTaskGetAdvancedTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleSellersTaskGetAdvancedResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleSellersTaskGetAdvancedResultInfo": {
+      "type": "object",
+      "properties": {
+        "product_id": {
+          "type": "string",
+          "description": "product_id received in a POST array\nlearn more about the parameter in this help center guide",
+          "nullable": true
+        },
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "se_domain": {
+          "type": "string",
+          "description": "search engine domain in a POST array",
+          "nullable": true
+        },
+        "location_code": {
+          "type": "integer",
+          "description": "location code in a POST array",
+          "nullable": true
+        },
+        "language_code": {
+          "type": "string",
+          "description": "language code in a POST array",
+          "nullable": true
+        },
+        "check_url": {
+          "type": "string",
+          "description": "direct URL to Google Shopping results\nyou can use it to make sure that we provided accurate results",
+          "nullable": true
+        },
+        "datetime": {
+          "type": "string",
+          "description": "date and time when the result was received\nin the UTC format: \u201cyyyy-mm-dd hh-mm-ss +00:00\u201d\nexample:\n2019-11-15 12:57:46 +00:00",
+          "nullable": true
+        },
+        "title": {
+          "type": "string",
+          "description": "title of the product",
+          "nullable": true
+        },
+        "url": {
+          "type": "string",
+          "description": "URL to the product page",
+          "nullable": true
+        },
+        "image_url": {
+          "type": "string",
+          "description": "URL to the product image",
+          "nullable": true
+        },
+        "rating": {
+          "type": "object",
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/RatingInfo"
+            }
+          ],
+          "description": "product rating\nthe product popularity rate based on product reviews",
+          "nullable": true
+        },
+        "item_types": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": "types of search results found in Google Shopping SERP\ncontains types of all search results (items) found in the returned SERP\npossible item types:\nshops_list, buy_on_google",
+          "nullable": true
+        },
+        "items_count": {
+          "type": "integer",
+          "description": "the number of results returned in the items array",
+          "format": "int64",
+          "nullable": true
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BaseMerchantGoogleShoppingSellersElementItem"
+              }
+            ],
+            "nullable": true
+          },
+          "description": "items in SERP",
+          "nullable": true
+        }
+      }
+    },
+    "BaseMerchantGoogleShoppingSellersElementItem": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "rank_group": {
+          "type": "integer",
+          "description": "position within a group of elements with identical type values\npositions of elements with different type values are omitted from rank_group",
+          "nullable": true
+        },
+        "rank_absolute": {
+          "type": "integer",
+          "description": "absolute rank in SERP\nabsolute position among all the elements found in Google Shopping SERP",
+          "nullable": true
+        },
+        "position": {
+          "type": "string",
+          "description": "the alignment of the element in Google Shopping SERP\npossible values:\nleft, right",
+          "nullable": true
+        },
+        "xpath": {
+          "type": "string",
+          "description": "XPath of the element",
+          "nullable": true
+        },
+        "domain": {
+          "type": "string",
+          "description": "domain in SERP",
+          "nullable": true
+        },
+        "title": {
+          "type": "string",
+          "description": "product title",
+          "nullable": true
+        },
+        "url": {
+          "type": "string",
+          "description": "Google Shopping URL forwarding to the product page on the seller\u2019s website\nif you want to obtain a URL of the advertisement forwarding to the product page on the seller\u2019s website, please refer to the Google Shopping Sellers Ad URL endpoint",
+          "nullable": true
+        },
+        "details": {
+          "type": "string",
+          "description": "details and special offers\nif there are no details, the value will be null",
+          "nullable": true
+        },
+        "base_price": {
+          "type": "number",
+          "description": "product price without tax and shipping",
+          "nullable": true
+        },
+        "tax": {
+          "type": "number",
+          "description": "the amount of tax\ntax is specified as the actual amount of money, not as the percentage",
+          "nullable": true
+        },
+        "shipping_price": {
+          "type": "number",
+          "description": "product shipping price",
+          "nullable": true
+        },
+        "total_price": {
+          "type": "number",
+          "description": "product price including tax and shipping",
+          "format": "int64",
+          "nullable": true
+        },
+        "currency": {
+          "type": "string",
+          "description": "currency in the ISO format\nexample:\nUSD",
+          "nullable": true
+        },
+        "seller_name": {
+          "type": "string",
+          "description": "name of the seller\nthe name of the company that placed a corresponding product on Google Shopping",
+          "nullable": true
+        },
+        "shop_ad_aclk": {
+          "type": "string",
+          "description": "unique ad click referral parameter\nusing this parameter you can get a URL of the advertisement in Google Shopping Sellers Ad URL",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false,
+      "discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "shops_list": "#/components/schemas/GoogleShoppingSellersShopsListElementItem",
+          "buy_on_google": "#/components/schemas/GoogleShoppingSellersBuyOnGoogleElementItem"
+        }
+      }
+    },
+    "MerchantGoogleProductsTaskPostResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleProductsTaskPostTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleProductsTaskPostTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "object",
+              "description": "array of results\nin this case, the value will be null",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonSellersTaskGetHtmlResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonSellersTaskGetHtmlTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonSellersTaskGetHtmlTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonSellersTaskGetHtmlResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonSellersTaskGetHtmlResultInfo": {
+      "type": "object",
+      "properties": {
+        "asin": {
+          "type": "string",
+          "description": "ASIN received in a POST array",
+          "nullable": true
+        },
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "se_domain": {
+          "type": "string",
+          "description": "search engine domain in a POST array",
+          "nullable": true
+        },
+        "location_code": {
+          "type": "integer",
+          "description": "location code in a POST array",
+          "nullable": true
+        },
+        "language_code": {
+          "type": "string",
+          "description": "language code in a POST array",
+          "nullable": true
+        },
+        "datetime": {
+          "type": "string",
+          "description": "date and time when the result was received\nin the UTC format: \u201cyyyy-mm-dd hh-mm-ss +00:00\u201d\nexample:\n2019-11-15 12:57:46 +00:00",
+          "nullable": true
+        },
+        "items_count": {
+          "type": "integer",
+          "description": "the number of results returned in the items array",
+          "format": "int64",
+          "nullable": true
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/HtmlItemInfo"
+              }
+            ],
+            "nullable": true
+          },
+          "description": "elements of search results found on Amazon",
+          "nullable": true
+        }
+      }
+    },
+    "MerchantGoogleProductInfoTasksReadyResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleProductInfoTasksReadyTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleProductInfoTasksReadyTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleProductInfoTasksReadyResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleProductInfoTasksReadyResultInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "task identifier of the completed task\nunique task identifier in our system in the UUID format",
+          "nullable": true
+        },
+        "se": {
+          "type": "string",
+          "description": "search engine specified when setting the task",
+          "nullable": true
+        },
+        "se_type": {
+          "type": "string",
+          "description": "type of search engine\ncan take the following values: shopping_specifications",
+          "nullable": true
+        },
+        "date_posted": {
+          "type": "string",
+          "description": "date when the task was posted (in the UTC format)",
+          "nullable": true
+        },
+        "tag": {
+          "type": "string",
+          "description": "user-defined task identifier",
+          "nullable": true
+        },
+        "endpoint_advanced": {
+          "type": "string",
+          "description": "URL for collecting the results of the Google Shopping Product Specifications Advanced task",
+          "nullable": true
+        },
+        "endpoint_html": {
+          "type": "string",
+          "description": "URL for collecting the results of the Google Shopping Product Specifications HTML task\nnote: HTML is not available for this endpoint, the value will be null",
+          "nullable": true
+        }
+      }
+    },
+    "MerchantGoogleSellersTaskPostResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleSellersTaskPostTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleSellersTaskPostTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "object",
+              "description": "array of results\nin this case, the value will be null",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleSellersTasksReadyResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleSellersTasksReadyTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleSellersTasksReadyTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleSellersTasksReadyResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleSellersTasksReadyResultInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "task identifier of the completed task\nunique task identifier in our system in the UUID format",
+          "nullable": true
+        },
+        "se": {
+          "type": "string",
+          "description": "search engine specified when setting the task",
+          "nullable": true
+        },
+        "se_type": {
+          "type": "string",
+          "description": "type of search engine\ncan take the following values: shopping",
+          "nullable": true
+        },
+        "date_posted": {
+          "type": "string",
+          "description": "date when the task was posted (in the UTC format)",
+          "nullable": true
+        },
+        "tag": {
+          "type": "string",
+          "description": "user-defined task identifier",
+          "nullable": true
+        },
+        "endpoint_advanced": {
+          "type": "string",
+          "description": "URL for collecting the results of Google Shopping Sellers Advanced task",
+          "nullable": true
+        },
+        "endpoint_html": {
+          "type": "string",
+          "description": "URL for collecting the results of Google Shopping Sellers HTML task",
+          "nullable": true
+        }
+      }
+    },
+    "MerchantAmazonAsinTaskPostRequestInfo": {
+      "type": "object",
+      "properties": {
+        "asin": {
+          "type": "string",
+          "description": "product ID\nrequired field\nunique product identifier (ASIN) in Amazon\nyou can receive the asin parameter by making a separate request to the Amazon Products endpoint"
+        },
+        "priority": {
+          "type": "integer",
+          "description": "task priority\noptional field\ncan take the following values:\n1 \u2013 normal execution priority (set by default)\n2 \u2013 high execution priority\nYou will be additionally charged for the tasks with high execution priority.\nThe cost can be calculated on the Pricing page.",
+          "nullable": true
+        },
+        "location_name": {
+          "type": "string",
+          "description": "full name of search engine location\nrequired field if you don\u2019t specify location_code or location_coordinate\nif you use this field, you don\u2019t need to specify location_code or location_coordinate\nyou can receive the list of available locations with their location_name parameters by making a separate request to the https://api.dataforseo.com/v3/merchant/amazon/locations\nexample:\nHA1,England,United Kingdom",
+          "nullable": true
+        },
+        "location_code": {
+          "type": "integer",
+          "description": "search engine location code\nrequired field if you don\u2019t specify location_name\u00a0or location_coordinate\nif you use this field, you don\u2019t need to specify location_name or location_coordinate\nyou can receive the list of available locations with their location_code parameters by making a separate request to the\nhttps://api.dataforseo.com/v3/merchant/amazon/locations\nexample:\n9045969",
+          "nullable": true
+        },
+        "location_coordinate": {
+          "type": "string",
+          "description": "GPS coordinates of a location\nrequired field if you don\u2019t specify location_name\u00a0or location_code\nif you use this field, you don\u2019t need to specify location_name or location_code\nlocation_coordinate parameter should be specified in the \u201clatitude,longitude,radius\u201d format\nthe maximum number of decimal digits for \u201clatitude\u201d and \u201clongitude\u201d: 7\nthe minimum value for \u201cradius\u201d: 199.9\nexample:\n53.476225,-2.243572,200",
+          "nullable": true
+        },
+        "language_name": {
+          "type": "string",
+          "description": "full name of search engine language\nrequired field if you don\u2019t specify language_code\nif you use this field, you don\u2019t need to specify language_code\nyou can receive the list of available languages with their language_name parameters by making a separate request to the\nhttps://api.dataforseo.com/v3/merchant/amazon/languages\nexample:\nEnglish (United Kingdom)",
+          "nullable": true
+        },
+        "language_code": {
+          "type": "string",
+          "description": "search engine language code\nrequired field if you don\u2019t specify language_name\nif you use this field, you don\u2019t need to specify language_name\nyou can receive the list of available languages with their language_code\u00a0parameters by making a separate request to the https://api.dataforseo.com/v3/merchant/amazon/languages\nexample:\nen_GB",
+          "nullable": true
+        },
+        "se_domain": {
+          "type": "string",
+          "description": "search engine domain\noptional field\nwe choose the relevant search engine domain automatically according to the location and language you specify\nhowever, you can set a custom search engine domain in this field\nexample:\namazon.com, amazon.co.uk, amazon.fr, etc.",
+          "nullable": true
+        },
+        "tag": {
+          "type": "string",
+          "description": "user-defined task identifier\noptional field\nthe character limit is 255\nyou can use this parameter to identify the task and match it with the result\nyou will find the specified tag value in the data object of the response",
+          "nullable": true
+        },
+        "postback_url": {
+          "type": "string",
+          "description": "URL for sending task results\noptional field\nonce the task is completed, we will send a POST request with its results compressed in the gzip format to the postback_url you specified\nyou can use the \u2018$id\u2019 string as a $id variable and \u2018$tag\u2019 as urlencoded $tag variable. We will set the necessary values before sending the request.\nexample:\nhttp://your-server.com/postbackscript?id=$id\nhttp://your-server.com/postbackscript?id=$id&tag=$tag\nNote: special characters in postback_url will be urlencoded;\ni.a., the # character will be encoded into %23\nlearn more on our Help Center",
+          "nullable": true
+        },
+        "postback_data": {
+          "type": "string",
+          "description": "postback_url datatype\nrequired field if you specify postback_url\ncorresponds to the datatype that will be sent to your server\npossible values:\nadvanced, html",
+          "nullable": true
+        },
+        "pingback_url": {
+          "type": "string",
+          "description": "notification URL of a completed task\noptional field\nwhen a task is completed we will notify you by GET request sent to the URL you have specified\nyou can use the \u2018$id\u2019 string as a $id variable and \u2018$tag\u2019 as urlencoded $tag variable. We will set the necessary values before sending the request.\nexample:\nhttp://your-server.com/pingscript?id=$id\nhttp://your-server.com/pingscript?id=$id&tag=$tag\nNote: special characters in pingback_url will be urlencoded;\ni.a., the # character will be encoded into %23\nlearn more on our Help Center",
+          "nullable": true
+        }
+      },
+      "example": [
+        {
+          "language_code": "en_US",
+          "location_code": 2840,
+          "asin": "B0756FCPPN"
+        }
+      ]
+    },
+    "MerchantAmazonSellersTasksReadyResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonSellersTasksReadyTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonSellersTasksReadyTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonSellersTasksReadyResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonSellersTasksReadyResultInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "task identifier of the completed task\nunique task identifier in our system in the UUID format",
+          "nullable": true
+        },
+        "se": {
+          "type": "string",
+          "description": "search engine specified when setting the task",
+          "nullable": true
+        },
+        "se_type": {
+          "type": "string",
+          "description": "type of search engine",
+          "nullable": true
+        },
+        "date_posted": {
+          "type": "string",
+          "description": "date when the task was posted (in the UTC format)",
+          "nullable": true
+        },
+        "tag": {
+          "type": "string",
+          "description": "user-defined task identifier",
+          "nullable": true
+        },
+        "endpoint_advanced": {
+          "type": "string",
+          "description": "URL for collecting the results of Amazon Sellers Advanced task",
+          "nullable": true
+        },
+        "endpoint_html": {
+          "type": "string",
+          "description": "URL for collecting the results of Amazon Sellers HTML task",
+          "nullable": true
+        }
+      }
+    },
+    "MerchantGoogleProductInfoTaskPostResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleProductInfoTaskPostTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleProductInfoTaskPostTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "object",
+              "description": "array of results\nin this case, the value will be null",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantErrorsResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantErrorsTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantErrorsTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantErrorsResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantErrorsResultInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "id of the task",
+          "nullable": true
+        },
+        "datetime": {
+          "type": "string",
+          "description": "date and time when an error occurred\nin the UTC format: \u201cyyyy-mm-dd hh-mm-ss +00:00\u201d\nexample:\n2019-11-15 12:57:46 +00:00",
+          "nullable": true
+        },
+        "function": {
+          "type": "string",
+          "description": "corresponding API function",
+          "nullable": true
+        },
+        "error_code": {
+          "type": "integer",
+          "description": "error code",
+          "nullable": true
+        },
+        "error_message": {
+          "type": "string",
+          "description": "error message or error URL\nerror message (see full list) or URL that caused an error",
+          "nullable": true
+        },
+        "http_url": {
+          "type": "string",
+          "description": "URL that caused an error\nURL you used for making an API call or pingback/postback URL",
+          "nullable": true
+        },
+        "http_method": {
+          "type": "string",
+          "description": "HTTP method",
+          "nullable": true
+        },
+        "http_code": {
+          "type": "integer",
+          "description": "HTTP status code",
+          "nullable": true
+        },
+        "http_time": {
+          "type": "number",
+          "description": "time taken by HTTP request\nfor tasks set with a pingback/postback, this field will show the time it took your server to respond",
+          "nullable": true
+        },
+        "http_response": {
+          "type": "string",
+          "description": "HTTP response\nserver response",
+          "nullable": true
+        }
+      }
+    },
+    "MerchantAmazonProductsTaskPostResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonProductsTaskPostTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonProductsTaskPostTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "object",
+              "description": "array of results\nin this case, the value will be null",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonSellersTaskGetAdvancedResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonSellersTaskGetAdvancedTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonSellersTaskGetAdvancedTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantAmazonSellersTaskGetAdvancedResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantAmazonSellersTaskGetAdvancedResultInfo": {
+      "type": "object",
+      "properties": {
+        "asin": {
+          "type": "string",
+          "description": "asin received in a POST array\nlearn more about ASINs in this help center guide",
+          "nullable": true
+        },
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "se_domain": {
+          "type": "string",
+          "description": "search engine domain received in a POST array",
+          "nullable": true
+        },
+        "location_code": {
+          "type": "integer",
+          "description": "location code received in a POST array",
+          "nullable": true
+        },
+        "language_code": {
+          "type": "string",
+          "description": "language code received in a POST array",
+          "nullable": true
+        },
+        "check_url": {
+          "type": "string",
+          "description": "direct URL to Amazon results\nyou can use it to make sure the provided results are accurate",
+          "nullable": true
+        },
+        "datetime": {
+          "type": "string",
+          "description": "date and time when the result was received\nin the UTC format: \u201cyyyy-mm-dd hh-mm-ss +00:00\u201d\nexample:\n2019-11-15 12:57:46 +00:00",
+          "nullable": true
+        },
+        "title": {
+          "type": "string",
+          "description": "product title\ntitle of the product relevant to the asin received in a POST array",
+          "nullable": true
+        },
+        "image": {
+          "type": "string",
+          "description": "product image url\nimage URL of the product relevant to the asin received in a POST array",
+          "nullable": true
+        },
+        "item_types": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": "types of search results found in Amazon Sellers SERP\ncontains types of all search results (items) found in the returned SERP\npossible item types:\namazon_seller_main_item, amazon_seller_item",
+          "nullable": true
+        },
+        "items_count": {
+          "type": "integer",
+          "description": "the number of results returned in the items array",
+          "format": "int64",
+          "nullable": true
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BaseMerchantAmazonSellersElementItem"
+              }
+            ],
+            "nullable": true
+          },
+          "description": "items in SERP",
+          "nullable": true
+        }
+      }
+    },
+    "BaseMerchantAmazonSellersElementItem": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "rank_group": {
+          "type": "integer",
+          "description": "position within a group of elements with identical type values\npositions of elements with different type values are omitted from rank_group",
+          "nullable": true
+        },
+        "rank_absolute": {
+          "type": "integer",
+          "description": "absolute rank in SERP\nabsolute position among all the elements found in Amazon Sellers SERP",
+          "nullable": true
+        },
+        "position": {
+          "type": "string",
+          "description": "alignment of the element in SERP\npossible values:\nleft, right",
+          "nullable": true
+        },
+        "xpath": {
+          "type": "string",
+          "description": "XPath of the element",
+          "nullable": true
+        },
+        "seller_name": {
+          "type": "string",
+          "description": "business name of the seller",
+          "nullable": true
+        },
+        "seller_url": {
+          "type": "string",
+          "description": "url forwarding to the seller\u2019s page on Amazon",
+          "nullable": true
+        },
+        "ships_from": {
+          "type": "string",
+          "description": "sender company name",
+          "nullable": true
+        },
+        "price": {
+          "type": "object",
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/PriceInfo"
+            }
+          ],
+          "description": "product pricing details\nif there are no details, the value will be null",
+          "nullable": true
+        },
+        "percentage_discount": {
+          "type": "number",
+          "description": "value of the percentage discount",
+          "nullable": true
+        },
+        "applicable_vouchers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AmazonApplicableVouchersItem"
+              }
+            ],
+            "nullable": true
+          },
+          "description": "array of objects containing information about applicable vouchers",
+          "nullable": true
+        },
+        "rating": {
+          "type": "object",
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/RatingElement"
+            }
+          ],
+          "description": "seller rating details\nseller popularity rate based on customer reviews",
+          "nullable": true
+        },
+        "condition": {
+          "type": "string",
+          "description": "product condition\ncondition of the product offered by the seller",
+          "nullable": true
+        },
+        "condition_description": {
+          "type": "string",
+          "description": "product condition details\nexpanded details on the condition of the product offered by the seller",
+          "nullable": true
+        },
+        "delivery_info": {
+          "type": "object",
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/AmazonDeliveryInfo"
+            }
+          ],
+          "description": "delivery information\ndelivery information including free and fast delivery date ranges",
+          "nullable": true
+        }
+      },
+      "additionalProperties": false,
+      "discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "amazon_seller_main_item": "#/components/schemas/MerchantAmazonSellerMainItemSerpElementItem",
+          "amazon_seller_item": "#/components/schemas/MerchantAmazonSellerItemSerpElementItem"
+        }
+      }
+    },
+    "AmazonDeliveryInfo": {
+      "type": "object",
+      "properties": {
+        "delivery_message": {
+          "type": "string",
+          "description": "message accompanying the delivery information as posted by the seller",
+          "nullable": true
+        },
+        "delivery_date_from": {
+          "type": "string",
+          "description": "the earliest date when the product can be shipped",
+          "nullable": true
+        },
+        "delivery_date_to": {
+          "type": "string",
+          "description": "the latest date when the product can be delivered",
+          "nullable": true
+        },
+        "fastest_delivery_date_from": {
+          "type": "string",
+          "description": "the earliest date when the product can be delivered with a fast delivery option",
+          "nullable": true
+        },
+        "fastest_delivery_date_to": {
+          "type": "string",
+          "description": "the latest date when the product can be delivered with a fast delivery option",
+          "nullable": true
+        },
+        "delivery_price": {
+          "type": "object",
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/PriceInfo"
+            }
+          ],
+          "description": "price for the delivery\nprice of the delivery based on the location you specified in the POST request;\nif free delivery is available, the value is null",
+          "nullable": true
+        }
+      }
+    },
+    "MerchantGoogleProductsTaskGetHtmlResponseInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleProductsTaskGetHtmlTaskInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of tasks",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleProductsTaskGetHtmlTaskInfo": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BaseResponseTaskInfo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/MerchantGoogleProductsTaskGetHtmlResultInfo"
+                  }
+                ],
+                "nullable": true
+              },
+              "description": "array of results",
+              "nullable": true
+            }
+          }
+        }
+      ]
+    },
+    "MerchantGoogleProductsTaskGetHtmlResultInfo": {
+      "type": "object",
+      "properties": {
+        "keyword": {
+          "type": "string",
+          "description": "keyword received in a POST array\nkeyword is returned with decoded %## (plus character \u2018+\u2019 will be decoded to a space character)",
+          "nullable": true
+        },
+        "type": {
+          "type": "string",
+          "description": "type of element",
+          "nullable": true
+        },
+        "se_domain": {
+          "type": "string",
+          "description": "search engine domain in a POST array",
+          "nullable": true
+        },
+        "location_code": {
+          "type": "integer",
+          "description": "location code in a POST array",
+          "nullable": true
+        },
+        "language_code": {
+          "type": "string",
+          "description": "language code in a POST array",
+          "nullable": true
+        },
+        "datetime": {
+          "type": "string",
+          "description": "date and time when the result was received\nin the UTC format: \u201cyyyy-mm-dd hh-mm-ss +00:00\u201d\nexample:\n2019-11-15 12:57:46 +00:00",
+          "nullable": true
+        },
+        "items_count": {
+          "type": "integer",
+          "description": "the number of results returned in the items array",
+          "format": "int64",
+          "nullable": true
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/HtmlItemInfo"
+              }
+            ],
+            "nullable": true
+          },
+          "description": "elements of search results found on Google Shopping",
+          "nullable": true
+        }
+      }
+    },
+    "MerchantErrorsRequestInfo": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "integer",
+          "description": "the maximum number of returned tasks that responded with an error\noptional field\ndefault value: 1000\nmaximum value: 1000",
+          "nullable": true
+        },
+        "offset": {
+          "type": "integer",
+          "description": "offset in the results array of returned tasks\noptional field\ndefault value: 0\nif you specify the 10 value, the first ten tasks in the results array will be omitted and the data will be provided for the successive tasks",
+          "nullable": true
+        },
+        "filtered_function": {
+          "type": "string",
+          "description": "return tasks with a certain function\nuse this field to obtain a list of tasks that returned an error filtered by a certain function\nyou can filter the results by the values you receive in the function fields of the API response\ni.e., once you receive unfiltered results, you can call this API again to filter them by function\nexample: sellers/ad_url, postback_url, pingback_url",
+          "nullable": true
+        },
+        "datetime_from": {
+          "type": "string",
+          "description": "start time for filtering results\noptional field\nallows filtering results by the datetime parameter within the range of the last 7 days;\nmust be specified in the UTC format: \u201cyyyy-mm-dd hh-mm-ss +00:00\u201d\nexample:\n2021-11-15 12:57:46 +00:00",
+          "nullable": true
+        },
+        "datetime_to": {
+          "type": "string",
+          "description": "finish time for filtering results\noptional field\nallows filtering results by the datetime parameter within the range of the last 7 days;\nmust be specified in the UTC format: \u201cyyyy-mm-dd hh-mm-ss +00:00\u201d\nexample:\n2021-11-15 13:57:46 +00:00",
+          "nullable": true
+        }
+      },
+      "example": [
+        {
+          "limit": 10,
+          "offset": 0,
+          "filtered_function": "pingback_url"
+        }
+      ]
+    }
+  }
+}
