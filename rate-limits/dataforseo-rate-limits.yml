@@ -1,0 +1,67 @@
+specificationVersion: '0.1'
+id: dataforseo-rate-limits
+name: DataForSEO Rate Limits
+description: >-
+  DataForSEO enforces per-account rate limits on API call frequency. Rate limit
+  information is returned in HTTP response headers for each request. The maximum
+  throughput across the platform is 2,000 API calls per minute per account.
+url: https://docs.dataforseo.com
+
+globalLimits:
+
+  - id: max-calls-per-minute
+    name: Maximum API Calls Per Minute
+    limit: 2000
+    unit: requests per minute
+    scope: account
+    notes: >-
+      Applies globally across all DataForSEO API endpoints. Exceeding this
+      limit will result in throttled or rejected requests.
+
+responseHeaders:
+  - header: X-RateLimit-Limit
+    description: The maximum number of requests allowed in the current rate limit window.
+  - header: X-RateLimit-Remaining
+    description: The number of requests remaining in the current rate limit window.
+
+queueBehavior:
+
+  - queue: standard-queue
+    processingModel: asynchronous-batch
+    description: >-
+      Tasks are submitted and polled for results. Rate limits apply to task
+      submission, not to result retrieval. Average processing time is 5 minutes.
+
+  - queue: priority-queue
+    processingModel: asynchronous-priority
+    description: >-
+      Higher-priority batch queue with approximately 1-minute turnaround.
+      Same submission rate limits apply.
+
+  - queue: live-mode
+    processingModel: synchronous
+    description: >-
+      Synchronous requests returning results within 6 seconds. Stricter
+      per-second concurrency constraints may apply; consult support for
+      high-throughput live scenarios.
+
+dataRetention:
+  - resultType: Standard and Priority Queue results
+    retentionPeriod: 30 days
+    notes: Stored results can be retrieved multiple times within the retention window.
+  - resultType: Live Mode results
+    retentionPeriod: not stored
+    notes: Results are returned inline; no server-side storage.
+  - resultType: HTML results
+    retentionPeriod: 7 days
+
+apiExplorer:
+  rateLimited: true
+  notes: >-
+    The API Playground (API Explorer) has its own request rate limits and
+    requires account creation for unlimited access.
+
+notes:
+  - Rate limits may vary by endpoint; consult individual endpoint documentation for specifics.
+  - Contact DataForSEO support to discuss elevated rate limit tiers for high-volume enterprise use cases.
+  - Rate limit information is subject to change; always refer to https://docs.dataforseo.com for current values.

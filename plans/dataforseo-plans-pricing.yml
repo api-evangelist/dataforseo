@@ -1,0 +1,89 @@
+specificationVersion: '0.1'
+id: dataforseo-plans-pricing
+name: DataForSEO Plans and Pricing
+description: >-
+  DataForSEO operates on a pay-as-you-go model with no monthly subscription
+  fees. Users prepay a minimum balance of $50 and are charged per API call
+  consumed. Three speed-tier queues are available for SERP and most other APIs,
+  allowing teams to trade latency for cost.
+url: https://dataforseo.com/pricing
+
+model: pay-as-you-go
+
+minimumDeposit:
+  amount: 50
+  currency: USD
+  notes: Required to activate an account and begin making API calls.
+
+queues:
+
+  - id: standard-queue
+    name: Standard Queue
+    description: >-
+      Tasks are processed in batch mode with an average turnaround of
+      approximately 5 minutes. Lowest cost per SERP.
+    pricingUnit: per SERP (10 results)
+    priceUSD: 0.0006
+    latency: ~5 minutes average
+    additionalSERPCostMultiplier: 0.75
+    notes: Each additional page of results costs 75% of the base per-SERP price.
+
+  - id: priority-queue
+    name: Priority Queue
+    description: >-
+      Tasks processed with higher priority; results typically returned within
+      approximately 1 minute.
+    pricingUnit: per SERP (10 results)
+    priceUSD: 0.0012
+    latency: ~1 minute average
+    additionalSERPCostMultiplier: 0.75
+
+  - id: live-mode
+    name: Live Mode
+    description: >-
+      Real-time results delivered within approximately 6 seconds. Highest cost
+      per SERP; suitable for interactive applications requiring immediate data.
+    pricingUnit: per SERP (10 results)
+    priceUSD: 0.002
+    latency: ~6 seconds
+    additionalSERPCostMultiplier: 0.75
+
+volumePricing:
+  - queue: standard-queue
+    unit: 1,000,000 SERPs
+    totalUSD: 600
+  - queue: priority-queue
+    unit: 1,000,000 SERPs
+    totalUSD: 1200
+  - queue: live-mode
+    unit: 1,000,000 SERPs
+    totalUSD: 2000
+
+apiEndpointPricing:
+
+  - api: Keywords Data API
+    priceFrom: 0.05
+    pricingUnit: per 1,000 keywords
+
+  - api: Backlinks API
+    priceFrom: 0.025
+    pricingUnit: per task
+
+  - api: On-Page API
+    priceFrom: 0.0125
+    pricingUnit: per page crawled
+
+  - api: AI Summary Endpoint
+    priceFixed: 0.01
+    pricingUnit: per task
+
+freeOptions:
+  - type: Trial
+    description: Free unlimited trial available for new accounts via the API Playground.
+  - type: Sandbox
+    description: Sandbox environment for integration testing without consuming paid credits.
+
+notes:
+  - Prices listed are approximate and subject to change; consult dataforseo.com/pricing for current rates.
+  - Dashboard tools are available to monitor usage, set spending limits, and control budgets.
+  - No contracts or commitments; balance rolls over and does not expire.

@@ -1,0 +1,297 @@
+aid: dataforseo
+name: DataForSEO
+description: >-
+  DataForSEO is an SEO data platform offering REST APIs for SERP results,
+  keyword data, backlink analysis, on-page audits, domain analytics, and
+  competitor research across 100+ search engines. It provides pay-as-you-go
+  access to structured SEO and digital marketing data for software developers,
+  agencies, and enterprise teams.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/dataforseo/refs/heads/main/apis.yml
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+tags:
+  - SEO
+  - SERP
+  - Keywords
+  - Backlinks
+  - Domain Analytics
+  - On-Page SEO
+  - Competitor Research
+  - Search Engines
+  - Content Analysis
+  - E-Commerce
+  - App Store
+  - Business Data
+  - AI Optimization
+  - Social Media
+
+apis:
+
+  - name: DataForSEO SERP API
+    description: >-
+      Provides comprehensive and accurate reflection of search engine results
+      pages across Google, Bing, YouTube, Yahoo, Baidu, Naver, and Seznam,
+      including organic, images, news, maps, datasets, and AI-mode endpoints.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://dataforseo.com/apis/serp-api
+    baseURL: https://api.dataforseo.com
+    tags:
+      - SERP
+      - Search Engines
+      - Google
+      - Bing
+      - YouTube
+    properties:
+      - type: Documentation
+        url: https://docs.dataforseo.com/v3/serp/overview/
+      - type: OpenAPI
+        url: https://github.com/dataforseo/OpenApiDocumentation
+
+  - name: DataForSEO Keywords Data API
+    description: >-
+      Returns search volume, impressions, CPC, and keyword research data from
+      Google Ads, Bing Ads, and Google Trends for competitive keyword analysis
+      and paid search intelligence.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://dataforseo.com/apis/keywords-data-api
+    baseURL: https://api.dataforseo.com
+    tags:
+      - Keywords
+      - Google Ads
+      - Bing Ads
+      - Google Trends
+      - Search Volume
+    properties:
+      - type: Documentation
+        url: https://docs.dataforseo.com/v3/keywords_data/overview/
+      - type: OpenAPI
+        url: https://github.com/dataforseo/OpenApiDocumentation
+
+  - name: DataForSEO Backlinks API
+    description: >-
+      Provides real-time structured backlink data on virtually any domain,
+      subdomain, or page on the web via nine dedicated endpoints covering
+      referring domains, anchor texts, and link metrics.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://dataforseo.com/apis/backlinks-api
+    baseURL: https://api.dataforseo.com
+    tags:
+      - Backlinks
+      - Link Analysis
+      - Referring Domains
+    properties:
+      - type: Documentation
+        url: https://docs.dataforseo.com/v3/backlinks/overview/
+      - type: OpenAPI
+        url: https://github.com/dataforseo/OpenApiDocumentation
+
+  - name: DataForSEO Labs API
+    description: >-
+      Comprehensive source for advanced search analytics including keyword
+      research, market-specific analysis, and competitor intelligence across
+      multiple search engines and geographic markets.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://dataforseo.com/apis/dataforseo-labs-api
+    baseURL: https://api.dataforseo.com
+    tags:
+      - Competitor Research
+      - Keyword Research
+      - Market Analysis
+    properties:
+      - type: Documentation
+        url: https://docs.dataforseo.com/v3/dataforseo_labs/overview/
+      - type: OpenAPI
+        url: https://github.com/dataforseo/OpenApiDocumentation
+
+  - name: DataForSEO Domain Analytics API
+    description: >-
+      Offers a 360-degree overview of any website including technologies used,
+      traffic estimates, and WHOIS records for competitive domain research and
+      technology intelligence.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://dataforseo.com/apis/domain-analytics-api
+    baseURL: https://api.dataforseo.com
+    tags:
+      - Domain Analytics
+      - WHOIS
+      - Technology Detection
+      - Traffic
+    properties:
+      - type: Documentation
+        url: https://docs.dataforseo.com/v3/domain_analytics/overview/
+      - type: OpenAPI
+        url: https://github.com/dataforseo/OpenApiDocumentation
+
+  - name: DataForSEO On-Page API
+    description: >-
+      Analyzes websites for 100+ advanced on-page SEO parameters including
+      internal links, duplicate content detection, page speed metrics, and
+      technical crawl data for comprehensive site audits.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://dataforseo.com/apis/on-page-api
+    baseURL: https://api.dataforseo.com
+    tags:
+      - On-Page SEO
+      - Site Audit
+      - Page Speed
+      - Technical SEO
+    properties:
+      - type: Documentation
+        url: https://docs.dataforseo.com/v3/on_page/overview/
+      - type: OpenAPI
+        url: https://github.com/dataforseo/OpenApiDocumentation
+
+  - name: DataForSEO Content Analysis API
+    description: >-
+      Provides brand monitoring, sentiment analysis, and citation tracking
+      capabilities to measure content performance and brand presence across
+      the web.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://dataforseo.com/apis/content-analysis-api
+    baseURL: https://api.dataforseo.com
+    tags:
+      - Content Analysis
+      - Brand Monitoring
+      - Sentiment Analysis
+    properties:
+      - type: Documentation
+        url: https://docs.dataforseo.com/v3/content_analysis/overview/
+      - type: OpenAPI
+        url: https://github.com/dataforseo/OpenApiDocumentation
+
+  - name: DataForSEO Business Data API
+    description: >-
+      Collects structured data on customer reviews and business information from
+      Google My Business, Trustpilot, TripAdvisor, and other major review
+      platforms.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://dataforseo.com/apis/business-data-api
+    baseURL: https://api.dataforseo.com
+    tags:
+      - Business Data
+      - Reviews
+      - Google My Business
+      - Trustpilot
+    properties:
+      - type: Documentation
+        url: https://docs.dataforseo.com/v3/business_data/overview/
+      - type: OpenAPI
+        url: https://github.com/dataforseo/OpenApiDocumentation
+
+  - name: DataForSEO App Data API
+    description: >-
+      Supplies in-depth app data from Google Play and the Apple App Store
+      including rankings, reviews, app metadata, and category performance for
+      ASO intelligence.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://dataforseo.com/apis/app-data-api
+    baseURL: https://api.dataforseo.com
+    tags:
+      - App Store
+      - Google Play
+      - ASO
+      - Mobile Apps
+    properties:
+      - type: Documentation
+        url: https://docs.dataforseo.com/v3/app_data/overview/
+      - type: OpenAPI
+        url: https://github.com/dataforseo/OpenApiDocumentation
+
+  - name: DataForSEO Merchant API
+    description: >-
+      Powers e-commerce analytics with product and pricing data from Google
+      Shopping and Amazon for competitive pricing intelligence and product
+      visibility research.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://dataforseo.com/apis/merchant-api
+    baseURL: https://api.dataforseo.com
+    tags:
+      - E-Commerce
+      - Google Shopping
+      - Amazon
+      - Pricing Intelligence
+    properties:
+      - type: Documentation
+        url: https://docs.dataforseo.com/v3/merchant/overview/
+      - type: OpenAPI
+        url: https://github.com/dataforseo/OpenApiDocumentation
+
+  - name: DataForSEO AI Optimization API
+    description: >-
+      Provides keyword data enriched with LLM-specific metrics for AI search
+      optimization, including LLM mentions tracking and generative engine
+      optimization data to measure visibility in AI-powered search responses.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://dataforseo.com/apis/ai-optimization-data-api
+    baseURL: https://api.dataforseo.com
+    tags:
+      - AI Optimization
+      - LLM
+      - Generative Search
+      - GEO
+    properties:
+      - type: Documentation
+        url: https://docs.dataforseo.com/v3/ai_overview/
+      - type: OpenAPI
+        url: https://github.com/dataforseo/OpenApiDocumentation
+
+  - name: DataForSEO Social Media API
+    description: >-
+      Returns social engagement data including Pinterest pins and Facebook
+      interaction counts for any given webpage, enabling social signal analysis
+      as part of broader SEO research.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://dataforseo.com/apis/social-media-api
+    baseURL: https://api.dataforseo.com
+    tags:
+      - Social Media
+      - Pinterest
+      - Facebook
+      - Social Signals
+    properties:
+      - type: Documentation
+        url: https://docs.dataforseo.com/v3/business_data/social_media/overview/
+      - type: OpenAPI
+        url: https://github.com/dataforseo/OpenApiDocumentation
+
+common:
+
+  - type: Website
+    url: https://dataforseo.com
+
+  - type: Documentation
+    url: https://docs.dataforseo.com
+
+  - type: GitHubOrg
+    url: https://github.com/dataforseo
+
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/dataforseo
+
+  - type: Blog
+    url: https://dataforseo.com/blog
+
+  - type: Pricing
+    url: https://dataforseo.com/pricing
+
+  - type: StatusPage
+    url: https://status.dataforseo.com
+
+  - type: X
+    url: https://x.com/dataforseo
+
+  - type: Plans
+    url: plans/dataforseo-plans-pricing.yml
+
+  - type: RateLimits
+    url: rate-limits/dataforseo-rate-limits.yml
+
+  - type: FinOps
+    url: finops/dataforseo-finops.yml
+
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

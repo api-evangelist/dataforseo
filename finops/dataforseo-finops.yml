@@ -1,0 +1,145 @@
+specificationVersion: '1.0'
+framework: FinOps Framework
+focusVersion: '1.0'
+id: dataforseo-finops
+name: DataForSEO FinOps Profile
+description: >-
+  FinOps FOCUS-aligned cost and usage profile for DataForSEO API consumption.
+  DataForSEO's pay-as-you-go model maps cleanly to FOCUS concepts: charges are
+  usage-based, billed against a prepaid balance, and attributable to discrete
+  API tasks and queues.
+url: https://dataforseo.com/pricing
+
+provider:
+  name: DataForSEO
+  website: https://dataforseo.com
+  billingModel: prepaid-credit
+  currency: USD
+  minimumDeposit: 50
+  invoicingCycle: consumption-based
+  notes: >-
+    DataForSEO does not issue monthly invoices; costs are deducted from the
+    prepaid balance in real time as tasks are completed. Balance does not expire.
+
+focusMapping:
+
+  - focusConcept: ChargeType
+    value: Usage
+    notes: All DataForSEO charges are usage-based (per-task consumption).
+
+  - focusConcept: ServiceName
+    examples:
+      - SERP API
+      - Keywords Data API
+      - Backlinks API
+      - DataForSEO Labs API
+      - Domain Analytics API
+      - On-Page API
+      - Content Analysis API
+      - Business Data API
+      - App Data API
+      - Merchant API
+      - AI Optimization API
+      - Social Media API
+
+  - focusConcept: SKU / PricingUnit
+    examples:
+      - id: serp-standard
+        label: SERP Standard Queue
+        unit: per SERP (10 results)
+        unitPrice: 0.0006
+        currency: USD
+      - id: serp-priority
+        label: SERP Priority Queue
+        unit: per SERP (10 results)
+        unitPrice: 0.0012
+        currency: USD
+      - id: serp-live
+        label: SERP Live Mode
+        unit: per SERP (10 results)
+        unitPrice: 0.002
+        currency: USD
+      - id: keywords-data
+        label: Keywords Data API
+        unit: per 1,000 keywords
+        unitPriceFrom: 0.05
+        currency: USD
+      - id: backlinks
+        label: Backlinks API
+        unit: per task
+        unitPriceFrom: 0.025
+        currency: USD
+      - id: on-page
+        label: On-Page API
+        unit: per page crawled
+        unitPriceFrom: 0.0125
+        currency: USD
+      - id: ai-summary
+        label: AI Summary Endpoint
+        unit: per task
+        unitPrice: 0.01
+        currency: USD
+
+  - focusConcept: ResourceId
+    notes: >-
+      Each API task returns a unique task_id that can serve as the FOCUS
+      ResourceId for cost attribution and chargeback purposes.
+
+  - focusConcept: Tags / Labels
+    recommendedTags:
+      - key: api_name
+        description: Name of the DataForSEO API (e.g., serp, backlinks, on_page)
+      - key: queue_type
+        description: Processing queue used (standard, priority, live)
+      - key: project
+        description: Internal project or client for chargeback attribution
+      - key: environment
+        description: Environment (production, staging, development)
+
+costOptimizationRecommendations:
+
+  - id: queue-selection
+    name: Match Queue to Latency Requirements
+    description: >-
+      Use the Standard Queue ($0.0006/SERP) for batch and non-time-sensitive
+      workloads. Reserve the Priority Queue or Live Mode for interactive
+      user-facing features to avoid unnecessary cost premium.
+    potentialSavings: up to 70% vs Live Mode for equivalent volume
+
+  - id: result-caching
+    name: Cache API Results Within Retention Window
+    description: >-
+      Standard and Priority Queue results are stored for 30 days. Retrieve
+      cached results instead of re-issuing tasks for the same queries within
+      the retention window.
+    potentialSavings: eliminates duplicate task charges
+
+  - id: rate-limit-monitoring
+    name: Monitor Rate Limit Headers
+    description: >-
+      Track X-RateLimit-Remaining headers to avoid wasted retries and ensure
+      efficient use of the 2,000 calls/minute ceiling.
+
+  - id: budget-controls
+    name: Use Dashboard Spending Limits
+    description: >-
+      Set per-account spending limits in the DataForSEO dashboard to prevent
+      runaway costs during development or misconfigured batch jobs.
+
+  - id: sandbox-testing
+    name: Use Sandbox for Development
+    description: >-
+      Run integration tests against the free sandbox environment to avoid
+      consuming paid credits during development and CI pipelines.
+    potentialSavings: eliminates all development-phase charges
+
+budgetTracking:
+  dashboardURL: https://app.dataforseo.com
+  usageReportingAvailable: true
+  spendingLimitsAvailable: true
+  alertsAvailable: true
+
+notes:
+  - Prices are subject to change; validate against https://dataforseo.com/pricing before budget planning.
+  - FOCUS ResourceId mapping via task_id enables per-task cost attribution in FinOps platforms.
+  - No egress or data transfer fees are documented; charges are purely per-task.
