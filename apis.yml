@@ -259,6 +259,10 @@ apis:
 
 common:
 
+  - type: DomainSecurity
+    url: security/dataforseo-domain-security.yml
+  - type: Authentication
+    url: authentication/dataforseo-authentication.yml
   - type: Website
     url: https://dataforseo.com
 

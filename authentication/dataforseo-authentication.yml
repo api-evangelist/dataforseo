@@ -1,0 +1,21 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/dataforseo-ai-optimization-openapi.yml, openapi/dataforseo-app-data-openapi.yml,
+  openapi/dataforseo-appendix-openapi.yml, openapi/dataforseo-business-data-openapi.yml, openapi/dataforseo-keywords-data-openapi.yml,
+  openapi/dataforseo-labs-openapi.yml, openapi/dataforseo-merchant-openapi.yml, openapi/dataforseo-serp-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  sources:
+  - openapi/dataforseo-ai-optimization-openapi.yml
+  - openapi/dataforseo-app-data-openapi.yml
+  - openapi/dataforseo-appendix-openapi.yml
+  - openapi/dataforseo-business-data-openapi.yml
+  - openapi/dataforseo-keywords-data-openapi.yml
+  - openapi/dataforseo-labs-openapi.yml
+  - openapi/dataforseo-merchant-openapi.yml
+  - openapi/dataforseo-serp-openapi.yml
