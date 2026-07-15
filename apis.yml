@@ -259,6 +259,8 @@ apis:
 
 common:
 
+  - type: AgenticAccess
+    url: agentic-access/dataforseo-agentic-access.yml
   - type: DomainSecurity
     url: security/dataforseo-domain-security.yml
   - type: Authentication

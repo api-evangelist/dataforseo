@@ -1,0 +1,5960 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/dataforseo-ai-optimization-openapi.yml, openapi/dataforseo-app-data-openapi.yml,
+  openapi/dataforseo-appendix-openapi.yml, openapi/dataforseo-business-data-openapi.yml, openapi/dataforseo-keywords-data-openapi.yml,
+  openapi/dataforseo-labs-openapi.yml, openapi/dataforseo-merchant-openapi.yml, openapi/dataforseo-serp-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 475
+  by_action_class:
+    connected: 277
+    acting: 198
+  by_consequence:
+    read: 277
+    write: 195
+    safety-critical: 2
+    physical: 1
+  human_in_the_loop_required: 2
+operations:
+- path: /v3/ai_optimization/chat_gpt/llm_scraper/locations
+  method: get
+  operationId: ChatGptLlmScraperLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/chat_gpt/llm_scraper/locations/{country}
+  method: get
+  operationId: ChatGptLlmScraperLocationsCountry
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/chat_gpt/llm_scraper/languages
+  method: get
+  operationId: ChatGptLlmScraperLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/chat_gpt/llm_scraper/task_post
+  method: post
+  operationId: ChatGptLlmScraperTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/ai_optimization/chat_gpt/llm_scraper/tasks_ready
+  method: get
+  operationId: ChatGptLlmScraperTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/chat_gpt/llm_scraper/task_get/advanced/{id}
+  method: get
+  operationId: ChatGptLlmScraperTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/chat_gpt/llm_scraper/task_get/html/{id}
+  method: get
+  operationId: ChatGptLlmScraperTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/chat_gpt/llm_scraper/live/advanced
+  method: post
+  operationId: ChatGptLlmScraperLiveAdvanced
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/ai_optimization/chat_gpt/llm_scraper/live/html
+  method: post
+  operationId: ChatGptLlmScraperLiveHtml
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/ai_optimization/llm_mentions/locations_and_languages
+  method: get
+  operationId: LlmMentionsLocationsAndLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/llm_mentions/available_filters
+  method: get
+  operationId: LlmMentionsAvailableFilters
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/llm_mentions/search/live
+  method: post
+  operationId: LlmMentionsSearchLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/ai_optimization/llm_mentions/top_pages/live
+  method: post
+  operationId: LlmMentionsTopPagesLive
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /v3/ai_optimization/llm_mentions/top_domains/live
+  method: post
+  operationId: LlmMentionsTopDomainsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /v3/ai_optimization/llm_mentions/aggregated_metrics/live
+  method: post
+  operationId: LlmMentionsAggregatedMetricsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/ai_optimization/llm_mentions/cross_aggregated_metrics/live
+  method: post
+  operationId: LlmMentionsCrossAggregatedMetricsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/ai_optimization/chat_gpt/llm_responses/models
+  method: get
+  operationId: ChatGptLlmResponsesModels
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/chat_gpt/llm_responses/live
+  method: post
+  operationId: ChatGptLlmResponsesLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/ai_optimization/chat_gpt/llm_responses/task_post
+  method: post
+  operationId: ChatGptLlmResponsesTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/ai_optimization/chat_gpt/llm_responses/tasks_ready
+  method: get
+  operationId: ChatGptLlmResponsesTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/chat_gpt/llm_responses/task_get/{id}
+  method: get
+  operationId: ChatGptLlmResponsesTaskGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/claude/llm_responses/models
+  method: get
+  operationId: ClaudeLlmResponsesModels
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/claude/llm_responses/live
+  method: post
+  operationId: ClaudeLlmResponsesLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/ai_optimization/claude/llm_responses/task_post
+  method: post
+  operationId: ClaudeLlmResponsesTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/ai_optimization/claude/llm_responses/tasks_ready
+  method: get
+  operationId: ClaudeLlmResponsesTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/claude/llm_responses/task_get/{id}
+  method: get
+  operationId: ClaudeLlmResponsesTaskGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/gemini/llm_responses/models
+  method: get
+  operationId: GeminiLlmResponsesModels
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/gemini/llm_responses/task_post
+  method: post
+  operationId: GeminiLlmResponsesTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/ai_optimization/gemini/llm_responses/tasks_ready
+  method: get
+  operationId: GeminiLlmResponsesTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/gemini/llm_responses/task_get/{id}
+  method: get
+  operationId: GeminiLlmResponsesTaskGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/gemini/llm_responses/live
+  method: post
+  operationId: GeminiLlmResponsesLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/ai_optimization/gemini/llm_scraper/locations
+  method: get
+  operationId: GeminiLlmScraperLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/gemini/llm_scraper/languages
+  method: get
+  operationId: GeminiLlmScraperLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/gemini/llm_scraper/task_post
+  method: post
+  operationId: GeminiLlmScraperTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/ai_optimization/gemini/llm_scraper/tasks_ready
+  method: get
+  operationId: GeminiLlmScraperTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/gemini/llm_scraper/task_get/advanced/{id}
+  method: get
+  operationId: GeminiLlmScraperTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/gemini/llm_scraper/task_get/html/{id}
+  method: get
+  operationId: GeminiLlmScraperTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/gemini/llm_scraper/live/advanced
+  method: post
+  operationId: GeminiLlmScraperLiveAdvanced
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/ai_optimization/gemini/llm_scraper/live/html
+  method: post
+  operationId: GeminiLlmScraperLiveHtml
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/ai_optimization/perplexity/llm_responses/models
+  method: get
+  operationId: PerplexityLlmResponsesModels
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/perplexity/llm_responses/live
+  method: post
+  operationId: PerplexityLlmResponsesLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/ai_optimization/ai_keyword_data/available_filters
+  method: get
+  operationId: AiKeywordDataAvailableFilters
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/ai_keyword_data/locations_and_languages
+  method: get
+  operationId: AiKeywordDataLocationsAndLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/ai_optimization/ai_keyword_data/keywords_search_volume/live
+  method: post
+  operationId: AiKeywordDataKeywordsSearchVolumeLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/app_data/id_list
+  method: post
+  operationId: AppDataIdList
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/app_data/errors
+  method: post
+  operationId: AppDataErrors
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/app_data/google/categories
+  method: get
+  operationId: GoogleCategories
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/google/locations
+  method: get
+  operationId: AppDataGoogleLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/google/locations/{country}
+  method: get
+  operationId: AppDataGoogleLocationsCountry
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/google/languages
+  method: get
+  operationId: AppDataGoogleLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/google/app_searches/task_post
+  method: post
+  operationId: GoogleAppSearchesTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/app_data/google/app_searches/tasks_ready
+  method: get
+  operationId: GoogleAppSearchesTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/tasks_ready
+  method: get
+  operationId: AppDataTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/google/app_searches/task_get/advanced/{id}
+  method: get
+  operationId: GoogleAppSearchesTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/google/app_searches/task_get/html/{id}
+  method: get
+  operationId: GoogleAppSearchesTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/google/app_list/task_post
+  method: post
+  operationId: GoogleAppListTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/app_data/google/app_list/tasks_ready
+  method: get
+  operationId: GoogleAppListTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/google/app_list/task_get/advanced/{id}
+  method: get
+  operationId: GoogleAppListTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/google/app_list/task_get/html/{id}
+  method: get
+  operationId: GoogleAppListTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/google/app_info/task_post
+  method: post
+  operationId: GoogleAppInfoTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/app_data/google/app_info/tasks_ready
+  method: get
+  operationId: GoogleAppInfoTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/google/app_info/task_get/advanced/{id}
+  method: get
+  operationId: GoogleAppInfoTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/google/app_info/task_get/html/{id}
+  method: get
+  operationId: GoogleAppInfoTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/google/app_reviews/task_post
+  method: post
+  operationId: GoogleAppReviewsTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/app_data/google/app_reviews/tasks_ready
+  method: get
+  operationId: GoogleAppReviewsTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/google/app_reviews/task_get/advanced/{id}
+  method: get
+  operationId: GoogleAppReviewsTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/google/app_reviews/task_get/html/{id}
+  method: get
+  operationId: GoogleAppReviewsTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/google/app_listings/categories
+  method: get
+  operationId: GoogleAppListingsCategories
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/google/app_listings/search/live
+  method: post
+  operationId: GoogleAppListingsSearchLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/app_data/apple/categories
+  method: get
+  operationId: AppleCategories
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/apple/locations
+  method: get
+  operationId: AppleLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/apple/languages
+  method: get
+  operationId: AppleLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/apple/app_searches/task_post
+  method: post
+  operationId: AppleAppSearchesTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/app_data/apple/app_searches/tasks_ready
+  method: get
+  operationId: AppleAppSearchesTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/apple/app_searches/task_get/advanced/{id}
+  method: get
+  operationId: AppleAppSearchesTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/apple/app_info/task_post
+  method: post
+  operationId: AppleAppInfoTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/app_data/apple/app_info/tasks_ready
+  method: get
+  operationId: AppleAppInfoTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/apple/app_info/task_get/advanced/{id}
+  method: get
+  operationId: AppleAppInfoTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/apple/app_list/task_post
+  method: post
+  operationId: AppleAppListTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/app_data/apple/app_list/tasks_ready
+  method: get
+  operationId: AppleAppListTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/apple/app_list/task_get/advanced/{id}
+  method: get
+  operationId: AppleAppListTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/apple/app_reviews/task_post
+  method: post
+  operationId: AppleAppReviewsTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/app_data/apple/app_reviews/tasks_ready
+  method: get
+  operationId: AppleAppReviewsTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/apple/app_reviews/task_get/advanced/{id}
+  method: get
+  operationId: AppleAppReviewsTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/apple/app_listings/categories
+  method: get
+  operationId: AppleAppListingsCategories
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/app_data/apple/app_listings/search/live
+  method: post
+  operationId: AppleAppListingsSearchLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/appendix/user_data
+  method: get
+  operationId: UserData
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/appendix/errors
+  method: get
+  operationId: Errors
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/appendix/webhook_resend
+  method: post
+  operationId: WebhookResend
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/appendix/status
+  method: get
+  operationId: AppendixStatus
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/id_list
+  method: post
+  operationId: BusinessDataIdList
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/business_data/errors
+  method: post
+  operationId: BusinessDataErrors
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/business_data/business_listings/locations
+  method: get
+  operationId: BusinessListingsLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/business_listings/categories
+  method: get
+  operationId: BusinessListingsCategories
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/business_listings/available_filters
+  method: get
+  operationId: BusinessListingsAvailableFilters
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/business_listings/search/live
+  method: post
+  operationId: BusinessListingsSearchLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/business_data/business_listings/categories_aggregation/live
+  method: post
+  operationId: BusinessListingsCategoriesAggregationLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/business_data/google/locations
+  method: get
+  operationId: BusinessDataGoogleLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/google/locations/{country}
+  method: get
+  operationId: BusinessDataGoogleLocationsCountry
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/google/languages
+  method: get
+  operationId: BusinessDataGoogleLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/google/my_business_info/task_post
+  method: post
+  operationId: GoogleMyBusinessInfoTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/business_data/google/my_business_info/tasks_ready
+  method: get
+  operationId: GoogleMyBusinessInfoTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/tasks_ready
+  method: get
+  operationId: BusinessDataTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/google/my_business_info/task_get/{id}
+  method: get
+  operationId: GoogleMyBusinessInfoTaskGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/google/my_business_info/live
+  method: post
+  operationId: GoogleMyBusinessInfoLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/business_data/google/my_business_updates/task_post
+  method: post
+  operationId: GoogleMyBusinessUpdatesTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/business_data/google/my_business_updates/tasks_ready
+  method: get
+  operationId: GoogleMyBusinessUpdatesTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/google/my_business_updates/task_get/{id}
+  method: get
+  operationId: GoogleMyBusinessUpdatesTaskGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/google/hotel_searches/task_post
+  method: post
+  operationId: GoogleHotelSearchesTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/business_data/google/hotel_searches/tasks_ready
+  method: get
+  operationId: GoogleHotelSearchesTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/google/hotel_searches/task_get/{id}
+  method: get
+  operationId: GoogleHotelSearchesTaskGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/google/hotel_searches/live
+  method: post
+  operationId: GoogleHotelSearchesLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/business_data/google/hotel_info/task_post
+  method: post
+  operationId: GoogleHotelInfoTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/business_data/google/hotel_info/tasks_ready
+  method: get
+  operationId: GoogleHotelInfoTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/google/hotel_info/task_get/advanced/{id}
+  method: get
+  operationId: GoogleHotelInfoTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/google/hotel_info/task_get/html/{id}
+  method: get
+  operationId: GoogleHotelInfoTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/google/hotel_info/live/advanced
+  method: post
+  operationId: GoogleHotelInfoLiveAdvanced
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/business_data/google/hotel_info/live/html
+  method: post
+  operationId: GoogleHotelInfoLiveHtml
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/business_data/google/reviews/task_post
+  method: post
+  operationId: GoogleReviewsTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/business_data/google/reviews/tasks_ready
+  method: get
+  operationId: GoogleReviewsTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/google/reviews/task_get/{id}
+  method: get
+  operationId: GoogleReviewsTaskGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/google/extended_reviews/task_post
+  method: post
+  operationId: GoogleExtendedReviewsTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/business_data/google/extended_reviews/tasks_ready
+  method: get
+  operationId: GoogleExtendedReviewsTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/google/extended_reviews/task_get/{id}
+  method: get
+  operationId: GoogleExtendedReviewsTaskGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/google/questions_and_answers/task_post
+  method: post
+  operationId: GoogleQuestionsAndAnswersTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/business_data/google/questions_and_answers/tasks_ready
+  method: get
+  operationId: GoogleQuestionsAndAnswersTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/google/questions_and_answers/task_get/{id}
+  method: get
+  operationId: GoogleQuestionsAndAnswersTaskGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/google/questions_and_answers/live
+  method: post
+  operationId: GoogleQuestionsAndAnswersLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/business_data/trustpilot/search/task_post
+  method: post
+  operationId: TrustpilotSearchTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/business_data/trustpilot/search/tasks_ready
+  method: get
+  operationId: TrustpilotSearchTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/trustpilot/search/task_get/{id}
+  method: get
+  operationId: TrustpilotSearchTaskGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/trustpilot/reviews/task_post
+  method: post
+  operationId: TrustpilotReviewsTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/business_data/trustpilot/reviews/tasks_ready
+  method: get
+  operationId: TrustpilotReviewsTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/trustpilot/reviews/task_get/{id}
+  method: get
+  operationId: TrustpilotReviewsTaskGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/tripadvisor/locations
+  method: get
+  operationId: TripadvisorLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/tripadvisor/locations/{country}
+  method: get
+  operationId: TripadvisorLocationsCountry
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/tripadvisor/languages
+  method: get
+  operationId: TripadvisorLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/tripadvisor/search/task_post
+  method: post
+  operationId: TripadvisorSearchTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/business_data/tripadvisor/search/tasks_ready
+  method: get
+  operationId: TripadvisorSearchTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/tripadvisor/search/task_get/{id}
+  method: get
+  operationId: TripadvisorSearchTaskGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/tripadvisor/reviews/task_post
+  method: post
+  operationId: TripadvisorReviewsTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/business_data/tripadvisor/reviews/tasks_ready
+  method: get
+  operationId: TripadvisorReviewsTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/tripadvisor/reviews/task_get/{id}
+  method: get
+  operationId: TripadvisorReviewsTaskGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/business_data/social_media/pinterest/live
+  method: post
+  operationId: SocialMediaPinterestLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/business_data/social_media/reddit/live
+  method: post
+  operationId: SocialMediaRedditLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/id_list
+  method: post
+  operationId: KeywordsDataIdList
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/errors
+  method: post
+  operationId: KeywordsDataErrors
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/google_ads/status
+  method: get
+  operationId: GoogleAdsStatus
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/google_ads/locations
+  method: get
+  operationId: GoogleAdsLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/google_ads/locations/{country}
+  method: get
+  operationId: GoogleAdsLocationsCountry
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/google_ads/languages
+  method: get
+  operationId: GoogleAdsLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/google_ads/search_volume/task_post
+  method: post
+  operationId: GoogleAdsSearchVolumeTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/google_ads/search_volume/tasks_ready
+  method: get
+  operationId: GoogleAdsSearchVolumeTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/google_ads/search_volume/task_get/{id}
+  method: get
+  operationId: GoogleAdsSearchVolumeTaskGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/google_ads/search_volume/live
+  method: post
+  operationId: GoogleAdsSearchVolumeLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/google_ads/keywords_for_site/task_post
+  method: post
+  operationId: GoogleAdsKeywordsForSiteTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/google_ads/keywords_for_site/tasks_ready
+  method: get
+  operationId: GoogleAdsKeywordsForSiteTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/google_ads/keywords_for_site/task_get/{id}
+  method: get
+  operationId: GoogleAdsKeywordsForSiteTaskGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/google_ads/keywords_for_site/live
+  method: post
+  operationId: GoogleAdsKeywordsForSiteLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/google_ads/keywords_for_keywords/task_post
+  method: post
+  operationId: GoogleAdsKeywordsForKeywordsTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/google_ads/keywords_for_keywords/tasks_ready
+  method: get
+  operationId: GoogleAdsKeywordsForKeywordsTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/google_ads/keywords_for_keywords/task_get/{id}
+  method: get
+  operationId: GoogleAdsKeywordsForKeywordsTaskGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/google_ads/keywords_for_keywords/live
+  method: post
+  operationId: GoogleAdsKeywordsForKeywordsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/google_ads/ad_traffic_by_keywords/task_post
+  method: post
+  operationId: GoogleAdsAdTrafficByKeywordsTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/google_ads/ad_traffic_by_keywords/tasks_ready
+  method: get
+  operationId: GoogleAdsAdTrafficByKeywordsTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/google_ads/ad_traffic_by_keywords/task_get/{id}
+  method: get
+  operationId: GoogleAdsAdTrafficByKeywordsTaskGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/google_ads/ad_traffic_by_keywords/live
+  method: post
+  operationId: GoogleAdsAdTrafficByKeywordsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/google_trends/locations
+  method: get
+  operationId: GoogleTrendsLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/google_trends/locations/{country}
+  method: get
+  operationId: GoogleTrendsLocationsCountry
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/google_trends/languages
+  method: get
+  operationId: GoogleTrendsLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/google_trends/categories
+  method: get
+  operationId: GoogleTrendsCategories
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/google_trends/explore/task_post
+  method: post
+  operationId: GoogleTrendsExploreTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/google_trends/explore/tasks_ready
+  method: get
+  operationId: GoogleTrendsExploreTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/google_trends/explore/task_get/{id}
+  method: get
+  operationId: GoogleTrendsExploreTaskGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/google_trends/explore/live
+  method: post
+  operationId: GoogleTrendsExploreLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/dataforseo_trends/locations
+  method: get
+  operationId: DataforseoTrendsLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/dataforseo_trends/locations/{country}
+  method: get
+  operationId: DataforseoTrendsLocationsCountry
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/dataforseo_trends/explore/live
+  method: post
+  operationId: DataforseoTrendsExploreLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/dataforseo_trends/subregion_interests/live
+  method: post
+  operationId: DataforseoTrendsSubregionInterestsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/dataforseo_trends/demography/live
+  method: post
+  operationId: DataforseoTrendsDemographyLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/dataforseo_trends/merged_data/live
+  method: post
+  operationId: DataforseoTrendsMergedDataLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/bing/locations
+  method: get
+  operationId: KeywordsDataBingLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/bing/languages
+  method: get
+  operationId: KeywordsDataBingLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/bing/search_volume/task_post
+  method: post
+  operationId: BingSearchVolumeTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/bing/search_volume/tasks_ready
+  method: get
+  operationId: BingSearchVolumeTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/bing/search_volume/task_get/{id}
+  method: get
+  operationId: BingSearchVolumeTaskGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/bing/search_volume/live
+  method: post
+  operationId: BingSearchVolumeLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/bing/audience_estimation/job_functions
+  method: get
+  operationId: BingAudienceEstimationJobFunctions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/bing/audience_estimation/industries
+  method: get
+  operationId: BingAudienceEstimationIndustries
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/bing/audience_estimation/task_post
+  method: post
+  operationId: BingAudienceEstimationTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/bing/audience_estimation/tasks_ready
+  method: get
+  operationId: BingAudienceEstimationTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/bing/audience_estimation/task_get/{id}
+  method: get
+  operationId: BingAudienceEstimationTaskGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/bing/audience_estimation/live
+  method: post
+  operationId: BingAudienceEstimationLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/bing/keywords_for_site/task_post
+  method: post
+  operationId: BingKeywordsForSiteTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/bing/keywords_for_site/tasks_ready
+  method: get
+  operationId: BingKeywordsForSiteTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/bing/keywords_for_site/task_get/{id}
+  method: get
+  operationId: BingKeywordsForSiteTaskGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/bing/keywords_for_site/live
+  method: post
+  operationId: BingKeywordsForSiteLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/bing/keywords_for_keywords/task_post
+  method: post
+  operationId: BingKeywordsForKeywordsTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/bing/keywords_for_keywords/tasks_ready
+  method: get
+  operationId: BingKeywordsForKeywordsTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/bing/keywords_for_keywords/task_get/{id}
+  method: get
+  operationId: BingKeywordsForKeywordsTaskGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/bing/keywords_for_keywords/live
+  method: post
+  operationId: BingKeywordsForKeywordsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/bing/keyword_performance/locations_and_languages
+  method: get
+  operationId: BingKeywordPerformanceLocationsAndLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/bing/keyword_performance/task_post
+  method: post
+  operationId: BingKeywordPerformanceTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/bing/keyword_performance/tasks_ready
+  method: get
+  operationId: BingKeywordPerformanceTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/bing/keyword_performance/task_get/{id}
+  method: get
+  operationId: BingKeywordPerformanceTaskGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/bing/keyword_performance/live
+  method: post
+  operationId: BingKeywordPerformanceLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/bing/search_volume_history/locations_and_languages
+  method: get
+  operationId: BingSearchVolumeHistoryLocationsAndLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/bing/search_volume_history/task_post
+  method: post
+  operationId: BingSearchVolumeHistoryTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/bing/search_volume_history/tasks_ready
+  method: get
+  operationId: BingSearchVolumeHistoryTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/bing/search_volume_history/task_get/{id}
+  method: get
+  operationId: BingSearchVolumeHistoryTaskGet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/bing/search_volume_history/live
+  method: post
+  operationId: BingSearchVolumeHistoryLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/clickstream_data/locations_and_languages
+  method: get
+  operationId: ClickstreamDataLocationsAndLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/keywords_data/clickstream_data/dataforseo_search_volume/live
+  method: post
+  operationId: ClickstreamDataDataforseoSearchVolumeLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/clickstream_data/global_search_volume/live
+  method: post
+  operationId: ClickstreamDataGlobalSearchVolumeLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/keywords_data/clickstream_data/bulk_search_volume/live
+  method: post
+  operationId: ClickstreamDataBulkSearchVolumeLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/id_list
+  method: post
+  operationId: DataforseoLabsIdList
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/status
+  method: get
+  operationId: Status
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/dataforseo_labs/errors
+  method: post
+  operationId: DataforseoLabsErrors
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/available_filters
+  method: get
+  operationId: AvailableFilters
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/dataforseo_labs/locations_and_languages
+  method: get
+  operationId: LocationsAndLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/dataforseo_labs/categories
+  method: get
+  operationId: Categories
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/dataforseo_labs/google/available_history
+  method: get
+  operationId: GoogleAvailableHistory
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/dataforseo_labs/google/keywords_for_site/live
+  method: post
+  operationId: GoogleKeywordsForSiteLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/related_keywords/live
+  method: post
+  operationId: GoogleRelatedKeywordsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/keyword_suggestions/live
+  method: post
+  operationId: GoogleKeywordSuggestionsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/keyword_ideas/live
+  method: post
+  operationId: GoogleKeywordIdeasLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/bulk_keyword_difficulty/live
+  method: post
+  operationId: GoogleBulkKeywordDifficultyLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/search_intent/live
+  method: post
+  operationId: GoogleSearchIntentLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/categories_for_keywords/languages
+  method: get
+  operationId: GoogleCategoriesForKeywordsLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/dataforseo_labs/google/categories_for_domain/live
+  method: post
+  operationId: GoogleCategoriesForDomainLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/categories_for_keywords/live
+  method: post
+  operationId: GoogleCategoriesForKeywordsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/keywords_for_categories/live
+  method: post
+  operationId: GoogleKeywordsForCategoriesLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/domain_metrics_by_categories/live
+  method: post
+  operationId: GoogleDomainMetricsByCategoriesLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/top_searches/live
+  method: post
+  operationId: GoogleTopSearchesLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/ranked_keywords/live
+  method: post
+  operationId: GoogleRankedKeywordsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/serp_competitors/live
+  method: post
+  operationId: GoogleSerpCompetitorsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/competitors_domain/live
+  method: post
+  operationId: GoogleCompetitorsDomainLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/domain_intersection/live
+  method: post
+  operationId: GoogleDomainIntersectionLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/subdomains/live
+  method: post
+  operationId: GoogleSubdomainsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/relevant_pages/live
+  method: post
+  operationId: GoogleRelevantPagesLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/domain_rank_overview/live
+  method: post
+  operationId: GoogleDomainRankOverviewLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/historical_serps/live
+  method: post
+  operationId: GoogleHistoricalSerpsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/historical_rank_overview/live
+  method: post
+  operationId: GoogleHistoricalRankOverviewLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/page_intersection/live
+  method: post
+  operationId: GooglePageIntersectionLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/bulk_traffic_estimation/live
+  method: post
+  operationId: GoogleBulkTrafficEstimationLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/historical_bulk_traffic_estimation/live
+  method: post
+  operationId: GoogleHistoricalBulkTrafficEstimationLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/historical_keyword_data/live
+  method: post
+  operationId: GoogleHistoricalKeywordDataLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/keyword_overview/live
+  method: post
+  operationId: GoogleKeywordOverviewLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/amazon/bulk_search_volume/live
+  method: post
+  operationId: AmazonBulkSearchVolumeLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/amazon/related_keywords/live
+  method: post
+  operationId: AmazonRelatedKeywordsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/amazon/ranked_keywords/live
+  method: post
+  operationId: AmazonRankedKeywordsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/amazon/product_rank_overview/live
+  method: post
+  operationId: AmazonProductRankOverviewLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/amazon/product_competitors/live
+  method: post
+  operationId: AmazonProductCompetitorsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/amazon/product_keyword_intersections/live
+  method: post
+  operationId: AmazonProductKeywordIntersectionsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/bulk_app_metrics/live
+  method: post
+  operationId: GoogleBulkAppMetricsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/keywords_for_app/live
+  method: post
+  operationId: GoogleKeywordsForAppLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/app_competitors/live
+  method: post
+  operationId: GoogleAppCompetitorsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/google/app_intersection/live
+  method: post
+  operationId: GoogleAppIntersectionLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/apple/bulk_app_metrics/live
+  method: post
+  operationId: AppleBulkAppMetricsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/apple/keywords_for_app/live
+  method: post
+  operationId: AppleKeywordsForAppLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/apple/app_competitors/live
+  method: post
+  operationId: AppleAppCompetitorsLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/dataforseo_labs/apple/app_intersection/live
+  method: post
+  operationId: AppleAppIntersectionLive
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/merchant/id_list
+  method: post
+  operationId: MerchantIdList
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/merchant/errors
+  method: post
+  operationId: MerchantErrors
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/merchant/google/languages
+  method: get
+  operationId: MerchantGoogleLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/merchant/google/locations
+  method: get
+  operationId: MerchantGoogleLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/merchant/google/locations/{country}
+  method: get
+  operationId: MerchantGoogleLocationsCountry
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/merchant/google/products/task_post
+  method: post
+  operationId: GoogleProductsTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/merchant/google/products/tasks_ready
+  method: get
+  operationId: GoogleProductsTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/merchant/tasks_ready
+  method: get
+  operationId: MerchantTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/merchant/google/products/task_get/advanced/{id}
+  method: get
+  operationId: GoogleProductsTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/merchant/google/products/task_get/html/{id}
+  method: get
+  operationId: GoogleProductsTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/merchant/google/sellers/task_post
+  method: post
+  operationId: GoogleSellersTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/merchant/google/sellers/tasks_ready
+  method: get
+  operationId: GoogleSellersTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/merchant/google/sellers/task_get/advanced/{id}
+  method: get
+  operationId: GoogleSellersTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/merchant/google/product_info/task_post
+  method: post
+  operationId: GoogleProductInfoTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/merchant/google/product_info/tasks_ready
+  method: get
+  operationId: GoogleProductInfoTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/merchant/google/product_info/task_get/advanced/{id}
+  method: get
+  operationId: GoogleProductInfoTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/merchant/google/sellers/ad_url/{shop_ad_aclk}
+  method: get
+  operationId: GoogleSellersAdUrl
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/merchant/amazon/locations
+  method: get
+  operationId: AmazonLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/merchant/amazon/locations/{country}
+  method: get
+  operationId: AmazonLocationsCountry
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/merchant/amazon/languages
+  method: get
+  operationId: AmazonLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/merchant/amazon/products/task_post
+  method: post
+  operationId: AmazonProductsTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/merchant/amazon/products/tasks_ready
+  method: get
+  operationId: AmazonProductsTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/merchant/amazon/products/task_get/advanced/{id}
+  method: get
+  operationId: AmazonProductsTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/merchant/amazon/products/task_get/html/{id}
+  method: get
+  operationId: AmazonProductsTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/merchant/amazon/asin/task_post
+  method: post
+  operationId: AmazonAsinTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/merchant/amazon/asin/tasks_ready
+  method: get
+  operationId: AmazonAsinTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/merchant/amazon/asin/task_get/advanced/{id}
+  method: get
+  operationId: AmazonAsinTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/merchant/amazon/asin/task_get/html/{id}
+  method: get
+  operationId: AmazonAsinTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/merchant/amazon/sellers/task_post
+  method: post
+  operationId: AmazonSellersTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/merchant/amazon/sellers/tasks_ready
+  method: get
+  operationId: AmazonSellersTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/merchant/amazon/sellers/task_get/advanced/{id}
+  method: get
+  operationId: AmazonSellersTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/merchant/amazon/sellers/task_get/html/{id}
+  method: get
+  operationId: AmazonSellersTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/id_list
+  method: post
+  operationId: IdList
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/errors
+  method: post
+  operationId: Errors
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/screenshot
+  method: post
+  operationId: Screenshot
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/ai_summary
+  method: post
+  operationId: AiSummary
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/locations
+  method: get
+  operationId: GoogleLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/locations/{country}
+  method: get
+  operationId: GoogleLocationsCountry
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/languages
+  method: get
+  operationId: GoogleLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/organic/task_post
+  method: post
+  operationId: GoogleOrganicTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/organic/tasks_ready
+  method: get
+  operationId: GoogleOrganicTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/tasks_ready
+  method: get
+  operationId: TasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/organic/tasks_fixed
+  method: get
+  operationId: GoogleOrganicTasksFixed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/organic/task_get/regular/{id}
+  method: get
+  operationId: GoogleOrganicTaskGetRegular
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/organic/task_get/advanced/{id}
+  method: get
+  operationId: GoogleOrganicTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/organic/task_get/html/{id}
+  method: get
+  operationId: GoogleOrganicTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/organic/live/regular
+  method: post
+  operationId: GoogleOrganicLiveRegular
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/organic/live/advanced
+  method: post
+  operationId: GoogleOrganicLiveAdvanced
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/organic/live/html
+  method: post
+  operationId: GoogleOrganicLiveHtml
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/ai_mode/languages
+  method: get
+  operationId: GoogleAiModeLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/ai_mode/task_post
+  method: post
+  operationId: GoogleAiModeTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/ai_mode/tasks_ready
+  method: get
+  operationId: GoogleAiModeTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/ai_mode/tasks_fixed
+  method: get
+  operationId: GoogleAiModeTasksFixed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/ai_mode/task_get/advanced/{id}
+  method: get
+  operationId: GoogleAiModeTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/ai_mode/task_get/html/{id}
+  method: get
+  operationId: GoogleAiModeTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/ai_mode/live/advanced
+  method: post
+  operationId: GoogleAiModeLiveAdvanced
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/ai_mode/live/html
+  method: post
+  operationId: GoogleAiModeLiveHtml
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/maps/task_post
+  method: post
+  operationId: GoogleMapsTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/maps/tasks_ready
+  method: get
+  operationId: GoogleMapsTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/maps/tasks_fixed
+  method: get
+  operationId: GoogleMapsTasksFixed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/maps/task_get/advanced/{id}
+  method: get
+  operationId: GoogleMapsTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/maps/live/advanced
+  method: post
+  operationId: GoogleMapsLiveAdvanced
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/local_finder/task_post
+  method: post
+  operationId: GoogleLocalFinderTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/local_finder/tasks_ready
+  method: get
+  operationId: GoogleLocalFinderTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/local_finder/tasks_fixed
+  method: get
+  operationId: GoogleLocalFinderTasksFixed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/local_finder/task_get/advanced/{id}
+  method: get
+  operationId: GoogleLocalFinderTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/local_finder/task_get/html/{id}
+  method: get
+  operationId: GoogleLocalFinderTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/local_finder/live/advanced
+  method: post
+  operationId: GoogleLocalFinderLiveAdvanced
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/local_finder/live/html
+  method: post
+  operationId: GoogleLocalFinderLiveHtml
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/news/task_post
+  method: post
+  operationId: GoogleNewsTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/news/tasks_ready
+  method: get
+  operationId: GoogleNewsTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/news/tasks_fixed
+  method: get
+  operationId: GoogleNewsTasksFixed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/news/task_get/advanced/{id}
+  method: get
+  operationId: GoogleNewsTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/news/task_get/html/{id}
+  method: get
+  operationId: GoogleNewsTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/news/live/advanced
+  method: post
+  operationId: GoogleNewsLiveAdvanced
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/news/live/html
+  method: post
+  operationId: GoogleNewsLiveHtml
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/events/task_post
+  method: post
+  operationId: GoogleEventsTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/events/tasks_ready
+  method: get
+  operationId: GoogleEventsTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/events/tasks_fixed
+  method: get
+  operationId: GoogleEventsTasksFixed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/events/task_get/advanced/{id}
+  method: get
+  operationId: GoogleEventsTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/events/live/advanced
+  method: post
+  operationId: GoogleEventsLiveAdvanced
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/images/task_post
+  method: post
+  operationId: GoogleImagesTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/images/tasks_ready
+  method: get
+  operationId: GoogleImagesTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/images/tasks_fixed
+  method: get
+  operationId: GoogleImagesTasksFixed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/images/task_get/advanced/{id}
+  method: get
+  operationId: GoogleImagesTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/images/task_get/html/{id}
+  method: get
+  operationId: GoogleImagesTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/images/live/advanced
+  method: post
+  operationId: GoogleImagesLiveAdvanced
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/images/live/html
+  method: post
+  operationId: GoogleImagesLiveHtml
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/search_by_image/task_post
+  method: post
+  operationId: GoogleSearchByImageTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/search_by_image/tasks_ready
+  method: get
+  operationId: GoogleSearchByImageTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/search_by_image/tasks_fixed
+  method: get
+  operationId: GoogleSearchByImageTasksFixed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/search_by_image/task_get/advanced/{id}
+  method: get
+  operationId: GoogleSearchByImageTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/jobs/task_post
+  method: post
+  operationId: GoogleJobsTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/jobs/tasks_ready
+  method: get
+  operationId: GoogleJobsTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/jobs/tasks_fixed
+  method: get
+  operationId: GoogleJobsTasksFixed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/jobs/task_get/advanced/{id}
+  method: get
+  operationId: GoogleJobsTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/jobs/task_get/html/{id}
+  method: get
+  operationId: GoogleJobsTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/autocomplete/task_post
+  method: post
+  operationId: GoogleAutocompleteTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/autocomplete/tasks_ready
+  method: get
+  operationId: GoogleAutocompleteTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/autocomplete/tasks_fixed
+  method: get
+  operationId: GoogleAutocompleteTasksFixed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/autocomplete/task_get/advanced/{id}
+  method: get
+  operationId: GoogleAutocompleteTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/autocomplete/live/advanced
+  method: post
+  operationId: GoogleAutocompleteLiveAdvanced
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/dataset_search/task_post
+  method: post
+  operationId: GoogleDatasetSearchTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/dataset_search/tasks_ready
+  method: get
+  operationId: GoogleDatasetSearchTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/dataset_search/tasks_fixed
+  method: get
+  operationId: GoogleDatasetSearchTasksFixed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/dataset_search/task_get/advanced/{id}
+  method: get
+  operationId: GoogleDatasetSearchTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/dataset_search/live/advanced
+  method: post
+  operationId: GoogleDatasetSearchLiveAdvanced
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/dataset_info/task_post
+  method: post
+  operationId: GoogleDatasetInfoTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/dataset_info/tasks_ready
+  method: get
+  operationId: GoogleDatasetInfoTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/dataset_info/tasks_fixed
+  method: get
+  operationId: GoogleDatasetInfoTasksFixed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/dataset_info/task_get/advanced/{id}
+  method: get
+  operationId: GoogleDatasetInfoTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/dataset_info/live/advanced
+  method: post
+  operationId: GoogleDatasetInfoLiveAdvanced
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/ads_advertisers/locations
+  method: get
+  operationId: GoogleAdsAdvertisersLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/ads_advertisers/task_post
+  method: post
+  operationId: GoogleAdsAdvertisersTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/ads_advertisers/tasks_ready
+  method: get
+  operationId: GoogleAdsAdvertisersTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/ads_advertisers/task_get/advanced/{id}
+  method: get
+  operationId: GoogleAdsAdvertisersTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/ads_search/locations
+  method: get
+  operationId: GoogleAdsSearchLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/ads_search/task_post
+  method: post
+  operationId: GoogleAdsSearchTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/ads_search/tasks_ready
+  method: get
+  operationId: GoogleAdsSearchTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/ads_search/task_get/advanced/{id}
+  method: get
+  operationId: GoogleAdsSearchTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/bing/locations
+  method: get
+  operationId: BingLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/bing/locations/{country}
+  method: get
+  operationId: BingLocationsCountry
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/bing/languages
+  method: get
+  operationId: BingLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/bing/organic/task_post
+  method: post
+  operationId: BingOrganicTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/bing/organic/tasks_ready
+  method: get
+  operationId: BingOrganicTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/bing/organic/tasks_fixed
+  method: get
+  operationId: BingOrganicTasksFixed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/bing/organic/task_get/regular/{id}
+  method: get
+  operationId: BingOrganicTaskGetRegular
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/bing/organic/task_get/advanced/{id}
+  method: get
+  operationId: BingOrganicTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/bing/organic/task_get/html/{id}
+  method: get
+  operationId: BingOrganicTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/bing/organic/live/regular
+  method: post
+  operationId: BingOrganicLiveRegular
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/bing/organic/live/advanced
+  method: post
+  operationId: BingOrganicLiveAdvanced
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/bing/organic/live/html
+  method: post
+  operationId: BingOrganicLiveHtml
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/youtube/locations
+  method: get
+  operationId: YoutubeLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/youtube/locations/{country}
+  method: get
+  operationId: YoutubeLocationsCountry
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/youtube/languages
+  method: get
+  operationId: YoutubeLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/youtube/video_info/task_post
+  method: post
+  operationId: YoutubeVideoInfoTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/youtube/video_info/tasks_ready
+  method: get
+  operationId: YoutubeVideoInfoTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/youtube/video_info/tasks_fixed
+  method: get
+  operationId: YoutubeVideoInfoTasksFixed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/youtube/video_info/task_get/advanced/{id}
+  method: get
+  operationId: YoutubeVideoInfoTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/youtube/video_info/live/advanced
+  method: post
+  operationId: YoutubeVideoInfoLiveAdvanced
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/youtube/organic/task_post
+  method: post
+  operationId: YoutubeOrganicTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/youtube/organic/tasks_ready
+  method: get
+  operationId: YoutubeOrganicTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/youtube/organic/tasks_fixed
+  method: get
+  operationId: YoutubeOrganicTasksFixed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/youtube/organic/task_get/advanced/{id}
+  method: get
+  operationId: YoutubeOrganicTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/youtube/organic/live/advanced
+  method: post
+  operationId: YoutubeOrganicLiveAdvanced
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/youtube/video_subtitles/task_post
+  method: post
+  operationId: YoutubeVideoSubtitlesTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/youtube/video_subtitles/tasks_ready
+  method: get
+  operationId: YoutubeVideoSubtitlesTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/youtube/video_subtitles/tasks_fixed
+  method: get
+  operationId: YoutubeVideoSubtitlesTasksFixed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/youtube/video_subtitles/task_get/advanced/{id}
+  method: get
+  operationId: YoutubeVideoSubtitlesTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/youtube/video_subtitles/live/advanced
+  method: post
+  operationId: YoutubeVideoSubtitlesLiveAdvanced
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/youtube/video_comments/task_post
+  method: post
+  operationId: YoutubeVideoCommentsTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/youtube/video_comments/tasks_ready
+  method: get
+  operationId: YoutubeVideoCommentsTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/youtube/video_comments/tasks_fixed
+  method: get
+  operationId: YoutubeVideoCommentsTasksFixed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/youtube/video_comments/task_get/advanced/{id}
+  method: get
+  operationId: YoutubeVideoCommentsTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/youtube/video_comments/live/advanced
+  method: post
+  operationId: YoutubeVideoCommentsLiveAdvanced
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/yahoo/locations
+  method: get
+  operationId: YahooLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/yahoo/locations/{country}
+  method: get
+  operationId: YahooLocationsCountry
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/yahoo/languages
+  method: get
+  operationId: YahooLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/yahoo/organic/task_post
+  method: post
+  operationId: YahooOrganicTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/yahoo/organic/tasks_ready
+  method: get
+  operationId: YahooOrganicTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/yahoo/organic/tasks_fixed
+  method: get
+  operationId: YahooOrganicTasksFixed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/yahoo/organic/task_get/regular/{id}
+  method: get
+  operationId: YahooOrganicTaskGetRegular
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/yahoo/organic/task_get/advanced/{id}
+  method: get
+  operationId: YahooOrganicTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/yahoo/organic/task_get/html/{id}
+  method: get
+  operationId: YahooOrganicTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/yahoo/organic/live/regular
+  method: post
+  operationId: YahooOrganicLiveRegular
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/yahoo/organic/live/advanced
+  method: post
+  operationId: YahooOrganicLiveAdvanced
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/yahoo/organic/live/html
+  method: post
+  operationId: YahooOrganicLiveHtml
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/baidu/locations
+  method: get
+  operationId: BaiduLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/baidu/locations/{country}
+  method: get
+  operationId: BaiduLocationsCountry
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/baidu/languages
+  method: get
+  operationId: BaiduLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/baidu/organic/task_post
+  method: post
+  operationId: BaiduOrganicTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/baidu/organic/tasks_ready
+  method: get
+  operationId: BaiduOrganicTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/baidu/organic/tasks_fixed
+  method: get
+  operationId: BaiduOrganicTasksFixed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/baidu/organic/task_get/regular/{id}
+  method: get
+  operationId: BaiduOrganicTaskGetRegular
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/baidu/organic/task_get/advanced/{id}
+  method: get
+  operationId: BaiduOrganicTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/baidu/organic/task_get/html/{id}
+  method: get
+  operationId: BaiduOrganicTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/naver/organic/task_post
+  method: post
+  operationId: NaverOrganicTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/naver/organic/tasks_ready
+  method: get
+  operationId: NaverOrganicTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/naver/organic/tasks_fixed
+  method: get
+  operationId: NaverOrganicTasksFixed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/naver/organic/task_get/regular/{id}
+  method: get
+  operationId: NaverOrganicTaskGetRegular
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/naver/organic/task_get/advanced/{id}
+  method: get
+  operationId: NaverOrganicTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/naver/organic/task_get/html/{id}
+  method: get
+  operationId: NaverOrganicTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/seznam/locations
+  method: get
+  operationId: SeznamLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/seznam/locations/{country}
+  method: get
+  operationId: SeznamLocationsCountry
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/seznam/languages
+  method: get
+  operationId: SeznamLanguages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/seznam/organic/task_post
+  method: post
+  operationId: SeznamOrganicTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/seznam/organic/tasks_ready
+  method: get
+  operationId: SeznamOrganicTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/seznam/organic/tasks_fixed
+  method: get
+  operationId: SeznamOrganicTasksFixed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/seznam/organic/task_get/regular/{id}
+  method: get
+  operationId: SeznamOrganicTaskGetRegular
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/seznam/organic/task_get/advanced/{id}
+  method: get
+  operationId: SeznamOrganicTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/seznam/organic/task_get/html/{id}
+  method: get
+  operationId: SeznamOrganicTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/finance_explore/task_post
+  method: post
+  operationId: GoogleFinanceExploreTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/finance_explore/tasks_ready
+  method: get
+  operationId: GoogleFinanceExploreTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/finance_explore/task_get/advanced/{id}
+  method: get
+  operationId: GoogleFinanceExploreTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/finance_explore/task_get/html/{id}
+  method: get
+  operationId: GoogleFinanceExploreTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/finance_explore/live/advanced
+  method: post
+  operationId: GoogleFinanceExploreLiveAdvanced
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/finance_explore/live/html
+  method: post
+  operationId: GoogleFinanceExploreLiveHtml
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/finance_markets/task_post
+  method: post
+  operationId: GoogleFinanceMarketsTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/finance_markets/tasks_ready
+  method: get
+  operationId: GoogleFinanceMarketsTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/finance_markets/task_get/advanced/{id}
+  method: get
+  operationId: GoogleFinanceMarketsTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/finance_markets/task_get/html/{id}
+  method: get
+  operationId: GoogleFinanceMarketsTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/finance_markets/live/advanced
+  method: post
+  operationId: GoogleFinanceMarketsLiveAdvanced
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/finance_markets/live/html
+  method: post
+  operationId: GoogleFinanceMarketsLiveHtml
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/finance_quote/task_post
+  method: post
+  operationId: GoogleFinanceQuoteTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/finance_quote/tasks_ready
+  method: get
+  operationId: GoogleFinanceQuoteTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/finance_quote/task_get/advanced/{id}
+  method: get
+  operationId: GoogleFinanceQuoteTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/finance_quote/task_get/html/{id}
+  method: get
+  operationId: GoogleFinanceQuoteTaskGetHtml
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/finance_quote/live/advanced
+  method: post
+  operationId: GoogleFinanceQuoteLiveAdvanced
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/finance_quote/live/html
+  method: post
+  operationId: GoogleFinanceQuoteLiveHtml
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/finance_ticker_search/task_post
+  method: post
+  operationId: GoogleFinanceTickerSearchTaskPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/serp/google/finance_ticker_search/tasks_ready
+  method: get
+  operationId: GoogleFinanceTickerSearchTasksReady
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/finance_ticker_search/task_get/advanced/{id}
+  method: get
+  operationId: GoogleFinanceTickerSearchTaskGetAdvanced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v3/serp/google/finance_ticker_search/live/advanced
+  method: post
+  operationId: GoogleFinanceTickerSearchLiveAdvanced
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
