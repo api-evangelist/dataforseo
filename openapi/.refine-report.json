@@ -1,0 +1,46 @@
+{
+  "provider": "dataforseo",
+  "sources": [
+    "dataforseo-aioptimization-api-openapi.yml",
+    "dataforseo-appdata-api-openapi.yml",
+    "dataforseo-appendix-api-openapi.yml",
+    "dataforseo-backlinks-openapi.yml",
+    "dataforseo-businessdata-api-openapi.yml",
+    "dataforseo-content-analysis-openapi.yml",
+    "dataforseo-dataforseolabs-api-openapi.yml",
+    "dataforseo-domain-analytics-openapi.yml",
+    "dataforseo-keywordsdata-api-openapi.yml",
+    "dataforseo-merchant-api-openapi.yml",
+    "dataforseo-on-page-openapi.yml",
+    "dataforseo-serp-api-openapi.yml"
+  ],
+  "outputs": [
+    "dataforseo-aioptimization-api-openapi.yml",
+    "dataforseo-appdata-api-openapi.yml",
+    "dataforseo-appendix-api-openapi.yml",
+    "dataforseo-backlinks-api-openapi.yml",
+    "dataforseo-businessdata-api-openapi.yml",
+    "dataforseo-contentanalysis-api-openapi.yml",
+    "dataforseo-dataforseolabs-api-openapi.yml",
+    "dataforseo-domainanalytics-api-openapi.yml",
+    "dataforseo-keywordsdata-api-openapi.yml",
+    "dataforseo-merchant-api-openapi.yml",
+    "dataforseo-onpage-api-openapi.yml",
+    "dataforseo-serp-api-openapi.yml"
+  ],
+  "archived": [
+    "archived openapi/dataforseo-backlinks-openapi.yml",
+    "archived openapi/dataforseo-content-analysis-openapi.yml",
+    "archived openapi/dataforseo-domain-analytics-openapi.yml",
+    "archived openapi/dataforseo-on-page-openapi.yml"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "dataforseo-backlinks-openapi.yml: declared missing tag: Backlinks",
+    "dataforseo-content-analysis-openapi.yml: declared missing tag: ContentAnalysis",
+    "dataforseo-domain-analytics-openapi.yml: declared missing tag: DomainAnalytics",
+    "dataforseo-on-page-openapi.yml: declared missing tag: OnPage"
+  ],
+  "skipped": []
+}
