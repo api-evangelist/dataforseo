@@ -1,11 +1,9 @@
 aid: dataforseo
 name: DataForSEO
-description: >-
-  DataForSEO is an SEO data platform offering REST APIs for SERP results,
-  keyword data, backlink analysis, on-page audits, domain analytics, and
-  competitor research across 100+ search engines. It provides pay-as-you-go
-  access to structured SEO and digital marketing data for software developers,
-  agencies, and enterprise teams.
+description: DataForSEO is an SEO data platform offering REST APIs for SERP results, keyword data, backlink
+  analysis, on-page audits, domain analytics, and competitor research across 100+ search engines. It provides
+  pay-as-you-go access to structured SEO and digital marketing data for software developers, agencies,
+  and enterprise teams.
 type: Index
 accessModel:
   pricing: unknown
@@ -22,29 +20,28 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dataforseo.png
 url: https://raw.githubusercontent.com/api-evangelist/dataforseo/refs/heads/main/apis.yml
 created: '2026-06-13'
-modified: '2026-06-13'
+modified: '2026-08-13'
 specificationVersion: '0.19'
 tags:
-  - SEO
-  - SERP
-  - Keywords
-  - Backlinks
-  - Domain Analytics
-  - On-Page SEO
-  - Competitor Research
-  - Search Engines
-  - Content Analysis
-  - E-Commerce
-  - App Store
-  - Business Data
-  - AI Optimization
-  - Social Media
-
+- SEO
+- SERP
+- Keywords
+- Backlinks
+- Domain Analytics
+- On-Page SEO
+- Competitor Research
+- Search Engines
+- Content Analysis
+- E-Commerce
+- App Store
+- Business Data
+- AI Optimization
+- Social Media
 apis:
 - aid: dataforseo:dataforseo-aioptimization-api
   name: DataForSEO AiOptimization API
   description: The AiOptimization API from DataForSEO — 44 operation(s) for aioptimization.
-  humanURL: https://dataforseo.com/apis/serp-api
+  humanURL: https://dataforseo.com/apis/ai-optimization-api
   baseURL: https://api.dataforseo.com
   tags:
   - AiOptimization
@@ -52,33 +49,19 @@ apis:
   - type: OpenAPI
     url: openapi/dataforseo-aioptimization-api-openapi.yml
   - type: Documentation
-    url: https://docs.dataforseo.com/v3/serp/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/keywords_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/backlinks/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/dataforseo_labs/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/domain_analytics/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/on_page/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/content_analysis/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/business_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/app_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/merchant/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/ai_overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/business_data/social_media/overview/
+    url: https://docs.dataforseo.com/v3/ai_optimization/overview/
+  - type: APIReference
+    url: https://docs.dataforseo.com/v3/ai_optimization/overview/
+  - type: Overlay
+    url: overlays/dataforseo-aioptimization-overlay.yaml
+  - type: Examples
+    url: examples/dataforseo-ai-optimization-examples.json
+  - type: JSONSchema
+    url: json-schema/dataforseo-ai-optimization-schema.json
 - aid: dataforseo:dataforseo-appdata-api
   name: DataForSEO AppData API
   description: The AppData API from DataForSEO — 42 operation(s) for appdata.
-  humanURL: https://dataforseo.com/apis/serp-api
+  humanURL: https://dataforseo.com/apis/app-data-api
   baseURL: https://api.dataforseo.com
   tags:
   - AppData
@@ -86,33 +69,19 @@ apis:
   - type: OpenAPI
     url: openapi/dataforseo-appdata-api-openapi.yml
   - type: Documentation
-    url: https://docs.dataforseo.com/v3/serp/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/keywords_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/backlinks/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/dataforseo_labs/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/domain_analytics/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/on_page/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/content_analysis/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/business_data/overview/
-  - type: Documentation
     url: https://docs.dataforseo.com/v3/app_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/merchant/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/ai_overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/business_data/social_media/overview/
+  - type: APIReference
+    url: https://docs.dataforseo.com/v3/app_data/overview/
+  - type: Overlay
+    url: overlays/dataforseo-appdata-overlay.yaml
+  - type: Examples
+    url: examples/dataforseo-app-data-examples.json
+  - type: JSONSchema
+    url: json-schema/dataforseo-app-data-schema.json
 - aid: dataforseo:dataforseo-appendix-api
   name: DataForSEO Appendix API
   description: The Appendix API from DataForSEO — 4 operation(s) for appendix.
-  humanURL: https://dataforseo.com/apis/serp-api
+  humanURL: https://dataforseo.com/apis
   baseURL: https://api.dataforseo.com
   tags:
   - Appendix
@@ -120,33 +89,19 @@ apis:
   - type: OpenAPI
     url: openapi/dataforseo-appendix-api-openapi.yml
   - type: Documentation
-    url: https://docs.dataforseo.com/v3/serp/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/keywords_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/backlinks/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/dataforseo_labs/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/domain_analytics/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/on_page/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/content_analysis/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/business_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/app_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/merchant/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/ai_overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/business_data/social_media/overview/
+    url: https://docs.dataforseo.com/v3/appendix/user_data/
+  - type: APIReference
+    url: https://docs.dataforseo.com/v3/appendix/user_data/
+  - type: Overlay
+    url: overlays/dataforseo-appendix-overlay.yaml
+  - type: Examples
+    url: examples/dataforseo-appendix-examples.json
+  - type: JSONSchema
+    url: json-schema/dataforseo-appendix-schema.json
 - aid: dataforseo:dataforseo-backlinks-api
   name: DataForSEO Backlinks API
   description: The Backlinks API from DataForSEO — 24 operation(s) for backlinks.
-  humanURL: https://dataforseo.com/apis/serp-api
+  humanURL: https://dataforseo.com/apis/backlinks-api
   baseURL: https://api.dataforseo.com
   tags:
   - Backlinks
@@ -154,33 +109,19 @@ apis:
   - type: OpenAPI
     url: openapi/dataforseo-backlinks-api-openapi.yml
   - type: Documentation
-    url: https://docs.dataforseo.com/v3/serp/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/keywords_data/overview/
-  - type: Documentation
     url: https://docs.dataforseo.com/v3/backlinks/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/dataforseo_labs/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/domain_analytics/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/on_page/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/content_analysis/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/business_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/app_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/merchant/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/ai_overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/business_data/social_media/overview/
+  - type: APIReference
+    url: https://docs.dataforseo.com/v3/backlinks/overview/
+  - type: Overlay
+    url: overlays/dataforseo-backlinks-overlay.yaml
+  - type: Examples
+    url: examples/dataforseo-backlinks-examples.json
+  - type: JSONSchema
+    url: json-schema/dataforseo-backlinks-schema.json
 - aid: dataforseo:dataforseo-businessdata-api
   name: DataForSEO BusinessData API
   description: The BusinessData API from DataForSEO — 55 operation(s) for businessdata.
-  humanURL: https://dataforseo.com/apis/serp-api
+  humanURL: https://dataforseo.com/apis/business-data-api
   baseURL: https://api.dataforseo.com
   tags:
   - BusinessData
@@ -188,33 +129,19 @@ apis:
   - type: OpenAPI
     url: openapi/dataforseo-businessdata-api-openapi.yml
   - type: Documentation
-    url: https://docs.dataforseo.com/v3/serp/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/keywords_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/backlinks/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/dataforseo_labs/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/domain_analytics/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/on_page/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/content_analysis/overview/
-  - type: Documentation
     url: https://docs.dataforseo.com/v3/business_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/app_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/merchant/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/ai_overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/business_data/social_media/overview/
+  - type: APIReference
+    url: https://docs.dataforseo.com/v3/business_data/overview/
+  - type: Overlay
+    url: overlays/dataforseo-businessdata-overlay.yaml
+  - type: Examples
+    url: examples/dataforseo-business-data-examples.json
+  - type: JSONSchema
+    url: json-schema/dataforseo-business-data-schema.json
 - aid: dataforseo:dataforseo-contentanalysis-api
   name: DataForSEO ContentAnalysis API
   description: The ContentAnalysis API from DataForSEO — 11 operation(s) for contentanalysis.
-  humanURL: https://dataforseo.com/apis/serp-api
+  humanURL: https://dataforseo.com/apis/content-analysis-api
   baseURL: https://api.dataforseo.com
   tags:
   - ContentAnalysis
@@ -222,33 +149,19 @@ apis:
   - type: OpenAPI
     url: openapi/dataforseo-contentanalysis-api-openapi.yml
   - type: Documentation
-    url: https://docs.dataforseo.com/v3/serp/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/keywords_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/backlinks/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/dataforseo_labs/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/domain_analytics/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/on_page/overview/
-  - type: Documentation
     url: https://docs.dataforseo.com/v3/content_analysis/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/business_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/app_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/merchant/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/ai_overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/business_data/social_media/overview/
+  - type: APIReference
+    url: https://docs.dataforseo.com/v3/content_analysis/overview/
+  - type: Overlay
+    url: overlays/dataforseo-contentanalysis-overlay.yaml
+  - type: Examples
+    url: examples/dataforseo-content-analysis-examples.json
+  - type: JSONSchema
+    url: json-schema/dataforseo-content-analysis-schema.json
 - aid: dataforseo:dataforseo-dataforseolabs-api
   name: DataForSEO DataforseoLabs API
   description: The DataforseoLabs API from DataForSEO — 47 operation(s) for dataforseolabs.
-  humanURL: https://dataforseo.com/apis/serp-api
+  humanURL: https://dataforseo.com/apis/dataforseo-labs-api
   baseURL: https://api.dataforseo.com
   tags:
   - DataforseoLabs
@@ -256,33 +169,19 @@ apis:
   - type: OpenAPI
     url: openapi/dataforseo-dataforseolabs-api-openapi.yml
   - type: Documentation
-    url: https://docs.dataforseo.com/v3/serp/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/keywords_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/backlinks/overview/
-  - type: Documentation
     url: https://docs.dataforseo.com/v3/dataforseo_labs/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/domain_analytics/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/on_page/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/content_analysis/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/business_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/app_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/merchant/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/ai_overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/business_data/social_media/overview/
+  - type: APIReference
+    url: https://docs.dataforseo.com/v3/dataforseo_labs/overview/
+  - type: Overlay
+    url: overlays/dataforseo-dataforseolabs-overlay.yaml
+  - type: Examples
+    url: examples/dataforseo-labs-examples.json
+  - type: JSONSchema
+    url: json-schema/dataforseo-labs-schema.json
 - aid: dataforseo:dataforseo-domainanalytics-api
   name: DataForSEO DomainAnalytics API
   description: The DomainAnalytics API from DataForSEO — 14 operation(s) for domainanalytics.
-  humanURL: https://dataforseo.com/apis/serp-api
+  humanURL: https://dataforseo.com/apis/domain-analytics-api
   baseURL: https://api.dataforseo.com
   tags:
   - DomainAnalytics
@@ -290,33 +189,19 @@ apis:
   - type: OpenAPI
     url: openapi/dataforseo-domainanalytics-api-openapi.yml
   - type: Documentation
-    url: https://docs.dataforseo.com/v3/serp/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/keywords_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/backlinks/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/dataforseo_labs/overview/
-  - type: Documentation
     url: https://docs.dataforseo.com/v3/domain_analytics/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/on_page/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/content_analysis/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/business_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/app_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/merchant/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/ai_overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/business_data/social_media/overview/
+  - type: APIReference
+    url: https://docs.dataforseo.com/v3/domain_analytics/overview/
+  - type: Overlay
+    url: overlays/dataforseo-domainanalytics-overlay.yaml
+  - type: Examples
+    url: examples/dataforseo-domain-analytics-examples.json
+  - type: JSONSchema
+    url: json-schema/dataforseo-domain-analytics-schema.json
 - aid: dataforseo:dataforseo-keywordsdata-api
   name: DataForSEO KeywordsData API
   description: The KeywordsData API from DataForSEO — 70 operation(s) for keywordsdata.
-  humanURL: https://dataforseo.com/apis/serp-api
+  humanURL: https://dataforseo.com/apis/keyword-data-api
   baseURL: https://api.dataforseo.com
   tags:
   - KeywordsData
@@ -324,33 +209,19 @@ apis:
   - type: OpenAPI
     url: openapi/dataforseo-keywordsdata-api-openapi.yml
   - type: Documentation
-    url: https://docs.dataforseo.com/v3/serp/overview/
-  - type: Documentation
     url: https://docs.dataforseo.com/v3/keywords_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/backlinks/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/dataforseo_labs/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/domain_analytics/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/on_page/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/content_analysis/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/business_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/app_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/merchant/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/ai_overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/business_data/social_media/overview/
+  - type: APIReference
+    url: https://docs.dataforseo.com/v3/keywords_data/overview/
+  - type: Overlay
+    url: overlays/dataforseo-keywordsdata-overlay.yaml
+  - type: Examples
+    url: examples/dataforseo-keywords-data-examples.json
+  - type: JSONSchema
+    url: json-schema/dataforseo-keywords-data-schema.json
 - aid: dataforseo:dataforseo-merchant-api
   name: DataForSEO Merchant API
   description: The Merchant API from DataForSEO — 32 operation(s) for merchant.
-  humanURL: https://dataforseo.com/apis/serp-api
+  humanURL: https://dataforseo.com/apis/merchant-api
   baseURL: https://api.dataforseo.com
   tags:
   - Merchant
@@ -358,33 +229,19 @@ apis:
   - type: OpenAPI
     url: openapi/dataforseo-merchant-api-openapi.yml
   - type: Documentation
-    url: https://docs.dataforseo.com/v3/serp/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/keywords_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/backlinks/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/dataforseo_labs/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/domain_analytics/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/on_page/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/content_analysis/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/business_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/app_data/overview/
-  - type: Documentation
     url: https://docs.dataforseo.com/v3/merchant/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/ai_overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/business_data/social_media/overview/
+  - type: APIReference
+    url: https://docs.dataforseo.com/v3/merchant/overview/
+  - type: Overlay
+    url: overlays/dataforseo-merchant-overlay.yaml
+  - type: Examples
+    url: examples/dataforseo-merchant-examples.json
+  - type: JSONSchema
+    url: json-schema/dataforseo-merchant-schema.json
 - aid: dataforseo:dataforseo-onpage-api
   name: DataForSEO OnPage API
   description: The OnPage API from DataForSEO — 30 operation(s) for onpage.
-  humanURL: https://dataforseo.com/apis/serp-api
+  humanURL: https://dataforseo.com/apis/on-page-api
   baseURL: https://api.dataforseo.com
   tags:
   - OnPage
@@ -392,29 +249,15 @@ apis:
   - type: OpenAPI
     url: openapi/dataforseo-onpage-api-openapi.yml
   - type: Documentation
-    url: https://docs.dataforseo.com/v3/serp/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/keywords_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/backlinks/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/dataforseo_labs/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/domain_analytics/overview/
-  - type: Documentation
     url: https://docs.dataforseo.com/v3/on_page/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/content_analysis/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/business_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/app_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/merchant/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/ai_overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/business_data/social_media/overview/
+  - type: APIReference
+    url: https://docs.dataforseo.com/v3/on_page/overview/
+  - type: Overlay
+    url: overlays/dataforseo-onpage-overlay.yaml
+  - type: Examples
+    url: examples/dataforseo-on-page-examples.json
+  - type: JSONSchema
+    url: json-schema/dataforseo-on-page-schema.json
 - aid: dataforseo:dataforseo-serp-api
   name: DataForSEO Serp API
   description: The Serp API from DataForSEO — 181 operation(s) for serp.
@@ -427,69 +270,113 @@ apis:
     url: openapi/dataforseo-serp-api-openapi.yml
   - type: Documentation
     url: https://docs.dataforseo.com/v3/serp/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/keywords_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/backlinks/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/dataforseo_labs/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/domain_analytics/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/on_page/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/content_analysis/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/business_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/app_data/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/merchant/overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/ai_overview/
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/business_data/social_media/overview/
+  - type: APIReference
+    url: https://docs.dataforseo.com/v3/serp/overview/
+  - type: Overlay
+    url: overlays/dataforseo-serp-overlay.yaml
+  - type: Examples
+    url: examples/dataforseo-serp-examples.json
+  - type: JSONSchema
+    url: json-schema/dataforseo-serp-schema.json
 common:
-
-  - type: AgenticAccess
-    url: agentic-access/dataforseo-agentic-access.yml
-  - type: DomainSecurity
-    url: security/dataforseo-domain-security.yml
-  - type: Authentication
-    url: authentication/dataforseo-authentication.yml
-  - type: Website
-    url: https://dataforseo.com
-
-  - type: Documentation
-    url: https://docs.dataforseo.com
-
-  - type: GitHubOrg
-    url: https://github.com/dataforseo
-
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/dataforseo
-
-  - type: Blog
-    url: https://dataforseo.com/blog
-
-  - type: Pricing
-    url: https://dataforseo.com/pricing
-
-  - type: StatusPage
-    url: https://status.dataforseo.com
-
-  - type: X
-    url: https://x.com/dataforseo
-
-  - type: Plans
-    url: plans/dataforseo-plans-pricing.yml
-
-  - type: RateLimits
-    url: rate-limits/dataforseo-rate-limits.yml
-
-  - type: FinOps
-    url: finops/dataforseo-finops.yml
-
+- type: AgenticAccess
+  url: agentic-access/dataforseo-agentic-access.yml
+- type: DomainSecurity
+  url: security/dataforseo-domain-security.yml
+- type: Authentication
+  url: authentication/dataforseo-authentication.yml
+- type: Website
+  url: https://dataforseo.com
+- type: Documentation
+  url: https://docs.dataforseo.com
+- type: GitHubOrg
+  url: https://github.com/dataforseo
+- type: LinkedIn
+  url: https://www.linkedin.com/company/dataforseo
+- type: Blog
+  url: https://dataforseo.com/blog
+- type: Pricing
+  url: https://dataforseo.com/pricing
+- type: StatusPage
+  url: https://status.dataforseo.com
+- type: X
+  url: https://x.com/dataforseo
+- type: Plans
+  url: plans/dataforseo-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/dataforseo-rate-limits.yml
+- type: FinOps
+  url: finops/dataforseo-finops.yml
+- type: DeveloperPortal
+  url: https://dataforseo.com/apis
+- type: APIReference
+  url: https://docs.dataforseo.com/v3/
+- type: GettingStarted
+  url: https://dataforseo.com/blog/a-kickstart-guide-to-using-dataforseo-apis
+- type: Support
+  url: https://dataforseo.com/help-center
+- type: GitHubOrganization
+  url: https://github.com/dataforseo
+- type: SignUp
+  url: https://app.dataforseo.com/register
+- type: Login
+  url: https://app.dataforseo.com/login
+- type: TermsOfService
+  url: https://dataforseo.com/terms-of-service/
+- type: PrivacyPolicy
+  url: https://dataforseo.com/privacy-policy/
+- type: Postman
+  url: https://documenter.getpostman.com/view/55275669/2sBXwmRYr2
+- type: ChangeLog
+  url: https://dataforseo.com/updates
+- type: Compliance
+  url: https://dataforseo.com/wp-content/uploads/2021/12/27001_DATAFORSEO-.pdf
+  name: ISO/IEC 27001:2022 certificate
+- type: Packages
+  url: packages/dataforseo-packages.yml
+- type: SDKs
+  url: packages/dataforseo-packages.yml
+- type: WellKnown
+  url: well-known/dataforseo-well-known.yml
+- type: MCPServer
+  url: mcp/dataforseo-mcp.yml
+- type: ToolCrosswalk
+  url: mcp/dataforseo-tool-crosswalk.yml
+- type: LLMsTxt
+  url: llms/dataforseo-llms.txt
+- type: Conformance
+  url: conformance/dataforseo-conformance.yml
+- type: ErrorCatalog
+  url: errors/dataforseo-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/dataforseo-lifecycle.yml
+- type: OAuthScopes
+  url: scopes/dataforseo-scopes.yml
+- type: Sandbox
+  url: sandbox/dataforseo-sandbox.yml
+- type: Conventions
+  url: conventions/dataforseo-conventions.yml
+- type: ChangeLog
+  url: changelog/dataforseo-changelog.yml
+- type: CLI
+  url: cli/dataforseo-cli.yml
+- type: DataModel
+  url: data-model/dataforseo-data-model.yml
+- type: Webhooks
+  url: asyncapi/dataforseo-webhooks.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Vocabulary
+  url: vocabulary/dataforseo-vocabulary.yml
+- type: Rules
+  url: rules/dataforseo-jsonschema-spectral-rules.yml
+- type: JSONLD
+  url: json-ld/dataforseo-context.jsonld
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-08-13'
+  status: enriched
+  artifacts_added: 35
+  pass: local-v1
