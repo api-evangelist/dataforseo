@@ -1,0 +1,105 @@
+generated: '2026-08-13'
+method: searched
+source: https://github.com/dataforseo/mcp-server-typescript (README, "CLI (optional)")
+name: dataforseo-mcp-server
+official: true
+repository: https://github.com/dataforseo/mcp-server-typescript
+package: https://www.npmjs.com/package/dataforseo-mcp-server
+version: 3.0.0
+published: '2026-08-11'
+
+summary: >-
+  DataForSEO ships one npm binary that is both an MCP server and a CLI. The
+  binary defaults to MCP Streamable HTTP; it switches to CLI mode when the first
+  argument is `docs` or `request`, or when --cli / --help / --version is passed.
+  The CLI is thin by design — it exposes documentation browsing and a single
+  authenticated request passthrough — but it means the whole 554-operation REST
+  surface is callable from a shell without writing a client.
+
+install:
+  - method: npx
+    command: npx -y dataforseo-mcp-server@latest
+  - method: npm
+    command: npm install -g dataforseo-mcp-server
+  - method: local-clone
+    command: npx .
+    note: From a built local clone of the repo.
+
+authentication:
+  required: true
+  type: http-basic
+  env:
+    - DATAFORSEO_LOGIN
+    - DATAFORSEO_PASSWORD
+  aliases:
+    DATAFORSEO_LOGIN: DATAFORSEO_USERNAME
+  note: >-
+    OAuth is not used on the CLI or the stdio transport — env credentials are
+    required. Get them at https://app.dataforseo.com/api-access.
+
+commands:
+
+  - group: docs
+    description: Browse the DataForSEO API documentation.
+    commands:
+      - command: dataforseo-mcp-server docs index
+        description: Fetch the full API documentation index.
+      - command: dataforseo-mcp-server docs index --section "SERP API"
+        description: Filter the index by API section.
+      - command: dataforseo-mcp-server docs index --list-sections
+        description: List available documentation sections.
+      - command: dataforseo-mcp-server docs search <url>
+        description: >-
+          Fetch documentation for an endpoint by path or full docs URL (cURL
+          example only by default).
+      - command: dataforseo-mcp-server docs search <url> --need-code-example
+        description: Include PHP, Node.js, Python and C# code examples.
+
+  - group: request
+    description: Make an authenticated DataForSEO API request.
+    commands:
+      - command: dataforseo-mcp-server request -X <method> -p <path>
+        description: >-
+          Call any v3 endpoint. Uses the `.ai` (AI-optimized) response path by
+          default; --no-ai-mode disables that.
+      - command: dataforseo-mcp-server request -X POST -p <path> --param k=v
+        description: Recommended form — build the request body from repeated --param flags.
+      - command: dataforseo-mcp-server request -X POST -p <path> -d '<json>'
+        description: Pass the JSON body directly.
+
+examples:
+  - description: Browse SERP API endpoints
+    command: npx dataforseo-mcp-server docs index --section "SERP API"
+  - description: Read endpoint documentation
+    command: npx dataforseo-mcp-server docs search serp/google/organic/live/regular
+  - description: Documentation with multi-language code examples
+    command: npx dataforseo-mcp-server docs search backlinks/referring_networks/live --need-code-example
+  - description: Live Google organic SERP request
+    command: >-
+      npx dataforseo-mcp-server request -X POST -p /v3/serp/google/organic/live/regular
+      --param keyword=dataforseo --param language_code=en --param location_code=2840
+
+flags:
+  - flag: --mode stdio
+    description: Run as an MCP stdio server instead of the CLI or HTTP server.
+  - flag: --cli
+    description: Force CLI mode.
+  - flag: --cache-dir <path>
+    description: Override the documentation cache directory (CLI `docs` commands).
+  - flag: --docs-cache-dir <path>
+    description: Same, for MCP server startup args.
+  - flag: --configuration <file>
+    description: Load a field configuration that trims api_request/request responses to selected fields.
+
+caching:
+  documentation_ttl: 24 hours
+  default_dirs:
+    windows: '%LOCALAPPDATA%\dataforseo-mcp-server\docs-cache'
+    macos: ~/Library/Caches/dataforseo-mcp-server/docs-cache
+    linux: ~/.cache/dataforseo-mcp-server/docs-cache
+
+related:
+  - type: mcp
+    url: mcp/dataforseo-mcp.yml
+  - type: packages
+    url: packages/dataforseo-packages.yml

@@ -1,0 +1,666 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DataForSEO AiOptimization Merchant API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Merchant",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "MerchantIdList",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/merchant/id_list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint is designed to provide you with a list of IDs and metadata for all Merchant tasks created within the specified time period, including both successful and uncompleted tasks.\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/id_list/?bash'"
+        },
+        {
+          "info": {
+            "name": "MerchantErrors",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/merchant/errors",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "By calling this endpoint you will receive information about the Merchant API tasks that returned an error within the past 7 days.\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/errors/?bash'"
+        },
+        {
+          "info": {
+            "name": "MerchantGoogleLanguages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/merchant/google/languages",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You will receive the list of supported Google Shopping languages by calling this API.\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/google/languages/?bash'"
+        },
+        {
+          "info": {
+            "name": "MerchantGoogleLocations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/merchant/google/locations",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "for more info please visit 'https://docs.dataforseo.com/v3/merchant/google/locations/?bash'"
+        },
+        {
+          "info": {
+            "name": "MerchantGoogleLocationsCountry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/merchant/google/locations/:country",
+            "params": [
+              {
+                "name": "country",
+                "value": "us",
+                "type": "path",
+                "description": "country ISO code\noptional field\nspecify the ISO code if you want to filter the list of locations by country\nexample:\nus"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "for more info please visit 'https://docs.dataforseo.com/v3/merchant/google/locations/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleProductsTaskPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/merchant/google/products/task_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Google Shopping Products endpoint will provide you with the list of products found on Google Shopping for the specified query. The results include product title, description in Google Shopping SERP, product rank, price, reviews and rating as well as the related domain.\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/google/products/task_post/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleProductsTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/merchant/google/products/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "The ‘Tasks Ready’ endpoint is designed to provide you with the list of completed tasks, which haven’t been collected yet. If you use the Standard method without specifying the postback_url, you can receive the list of id for all completed tasks using this endpoint. Then, you can collect the results using the ‘Task GET’ endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/google/products/tasks_ready/?bash'"
+        },
+        {
+          "info": {
+            "name": "MerchantTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/merchant/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "The ‘Tasks Ready’ endpoint is designed to provide you with the list of completed tasks, which haven’t been collected yet. If you use the Standard method without specifying the postback_url, you can receive the list of id for all completed tasks using this endpoint. Then, you can collect the results using the ‘Task GET’ endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/google/products/tasks_ready/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleProductsTaskGetAdvanced",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/merchant/google/products/task_get/advanced/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifier\nunique task identifier in our system in the UUID format\nyou will be able to use it within 30 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Description of the fields for sending a request:\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/google/products/task_get/advanced/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleProductsTaskGetHtml",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/merchant/google/products/task_get/html/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifier\nunique task identifier in our system in the UUID format\nyou will be able to use it within 7 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Description of the fields for sending a request:\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/google/products/task_get/html/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleSellersTaskPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/merchant/google/sellers/task_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Google Shopping Sellers endpoint will provide you with the list of top 10 sellers that listed the specified product on Google Shopping. The provided data for each seller includes related product base and total price, shipment and purchase details and special offers. The results are specific to the selected location (see the List of Locations) and language (see the List of Languages) settings.\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/google/sellers/task_post/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleSellersTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/merchant/google/sellers/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "The ‘Tasks Ready’ endpoint is designed to provide you with the list of completed tasks, which haven’t been collected yet. If you use the Standard method without specifying the postback_url, you can receive the list of id for all completed tasks using this endpoint. Then, you can collect the results using the ‘Task GET’ endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/google/sellers/tasks_ready/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleSellersTaskGetAdvanced",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/merchant/google/sellers/task_get/advanced/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifier\nunique task identifier in our system in the UUID format\nyou will be able to use it within 30 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Description of the fields for sending a request:\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/google/sellers/task_get/advanced/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleProductInfoTaskPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/merchant/google/product_info/task_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint provides data on a product listed on Google Shopping, including product description, images, rating, variations, specifications and sellers. In order to set a task, you have to specify one of the following fields:  product_id, data_docid, or gid.\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/google/product_info/task_post/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleProductInfoTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/merchant/google/product_info/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "The ‘Tasks Ready’ endpoint is designed to provide you with the list of completed tasks, which haven’t been collected yet. If you use the Standard method without specifying the postback_url, you can receive the list of id for all completed tasks using this endpoint. Then, you can collect the results using the ‘Task GET’ endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/google/product_info/tasks_ready/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleProductInfoTaskGetAdvanced",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/merchant/google/product_info/task_get/advanced/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifier\nunique task identifier in our system in the UUID format\nyou will be able to use it within 30 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Description of the fields for sending a request:\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/google/product_info/task_get/advanced/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleSellersAdUrl",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/merchant/google/sellers/ad_url/:shop_ad_aclk",
+            "params": [
+              {
+                "name": "shop_ad_aclk",
+                "value": "DChcSEwiSl5TKpbPoAhVFmdUKHfa_B_wYABADGgJ3cw&sig",
+                "type": "path",
+                "description": "unique ad click referral parameter\nyou can obtain this parameter with Google Shopping Products or Google Shopping Sellers"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Google Shopping Sellers Ad URL is designed to provide you with a full URL of the advertisement containing all additional parameters set by the seller.\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/google/sellers/ad_url/?bash'"
+        },
+        {
+          "info": {
+            "name": "AmazonLocations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/merchant/amazon/locations",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You will receive the list of supported Amazon locations by this API call. You can filter the list of locations by country when setting a task.\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/amazon/locations/?bash'"
+        },
+        {
+          "info": {
+            "name": "AmazonLocationsCountry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/merchant/amazon/locations/:country",
+            "params": [
+              {
+                "name": "country",
+                "value": "us",
+                "type": "path",
+                "description": "country ISO code\noptional field\nspecify the ISO code if you want to filter the list of locations by country\nexample:\nus"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You will receive the list of supported Amazon locations by this API call. You can filter the list of locations by country when setting a task.\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/amazon/locations/?bash'"
+        },
+        {
+          "info": {
+            "name": "AmazonLanguages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/merchant/amazon/languages",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You will receive the list of supported Amazon languages by calling this API.\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/amazon/languages/?bash'"
+        },
+        {
+          "info": {
+            "name": "AmazonProductsTaskPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/merchant/amazon/products/task_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint provides results from Amazon product listings according to the specified keyword (product name), location, and language parameters.\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/amazon/products/task_post/?bash'"
+        },
+        {
+          "info": {
+            "name": "AmazonProductsTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/merchant/amazon/products/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "The ‘Tasks Ready’ endpoint is designed to provide you with the list of completed tasks, which haven’t been collected yet. If you use the Standard method without specifying the postback_url, you can receive the list of id for all completed tasks using this endpoint. Then, you can collect the results using the ‘Task GET’ endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/amazon/products/tasks_ready/?bash'"
+        },
+        {
+          "info": {
+            "name": "AmazonProductsTaskGetAdvanced",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/merchant/amazon/products/task_get/advanced/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifier\nunique task identifier in our system in the UUID format\nyou will be able to use it within 30 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Description of the fields for sending a request:\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/amazon/products/task_get/advanced/?bash'"
+        },
+        {
+          "info": {
+            "name": "AmazonProductsTaskGetHtml",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/merchant/amazon/products/task_get/html/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifier\nunique task identifier in our system in the UUID format\nyou will be able to use it within 7 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Description of the fields for sending a request:\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/amazon/products/task_get/html/?bash'"
+        },
+        {
+          "info": {
+            "name": "AmazonAsinTaskPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/merchant/amazon/asin/task_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with a full list of ASINs assigned to different modifications of a product.\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/amazon/asin/task_post/?bash'"
+        },
+        {
+          "info": {
+            "name": "AmazonAsinTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/merchant/amazon/asin/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "The ‘Tasks Ready’ endpoint is designed to provide you with the list of completed tasks, which haven’t been collected yet. If you use the Standard method without specifying the postback_url, you can receive the list of id for all completed tasks using this endpoint. Then, you can collect the results using the ‘Task GET’ endpoints.\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/amazon/asin/tasks_ready/?bash'"
+        },
+        {
+          "info": {
+            "name": "AmazonAsinTaskGetAdvanced",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/merchant/amazon/asin/task_get/advanced/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifier\nunique task identifier in our system in the UUID format\nyou will be able to use it within 30 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with information about the product and ASINs of all its modifications listed on Amazon.\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/amazon/asin/task_get/advanced/?bash'"
+        },
+        {
+          "info": {
+            "name": "AmazonAsinTaskGetHtml",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/merchant/amazon/asin/task_get/html/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifier\nunique task identifier in our system in the UUID format\nyou will be able to use it within 7 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Description of the fields for sending a request:\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/amazon/asin/task_get/html/?bash'"
+        },
+        {
+          "info": {
+            "name": "AmazonSellersTaskPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/merchant/amazon/sellers/task_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint provides a list of sellers of the specified product on Amazon. The data provided for each seller includes related product condition, pricing, shipment, and rating details.\nThe results are specific to the selected location (see the List of Locations) and language (see the List of Languages) settings.\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/amazon/sellers/task_post/?bash'"
+        },
+        {
+          "info": {
+            "name": "AmazonSellersTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/merchant/amazon/sellers/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "The ‘Tasks Ready’ endpoint is designed to provide you with the list of completed tasks, which haven’t been collected yet. If you use the Standard method without specifying the postback_url, you can receive the list of id for all completed tasks using this endpoint. Then, you can collect the results using the ‘Task GET’ endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/amazon/sellers/tasks_ready/?bash'"
+        },
+        {
+          "info": {
+            "name": "AmazonSellersTaskGetAdvanced",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/merchant/amazon/sellers/task_get/advanced/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifier\nunique task identifier in our system in the UUID format\nyou will be able to use it within 30 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint provides a list of sellers of the specified product on Amazon. The data provided for each seller includes related product condition, pricing, shipment, and rating details.\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/amazon/sellers/task_get/advanced/?bash'"
+        },
+        {
+          "info": {
+            "name": "AmazonSellersTaskGetHtml",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/merchant/amazon/sellers/task_get/html/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifier\nunique task identifier in our system in the UUID format\nyou will be able to use it within 7 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Description of the fields for sending a request:\nfor more info please visit 'https://docs.dataforseo.com/v3/merchant/amazon/sellers/task_get/html/?bash'"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

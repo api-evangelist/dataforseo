@@ -1,0 +1,106 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://github.com/dataforseo/claude-skills (provider-published, saved
+  verbatim) plus skills generated from openapi/ and the artifacts in this repo
+
+skills:
+
+  - file: dataforseo-amazon-competitor-auditor.md
+    name: Amazon Competitor Auditor
+    description: >-
+      Pulls the top 10 organic competing Amazon products for an ASIN or keyword,
+      ranks them by price, rating, review count and demand signals, identifies
+      the category winners and why, and ends with strategic recommendations.
+    method: searched
+    official: true
+    source: https://github.com/dataforseo/claude-skills/blob/master/skills/amazon-competitor-auditor/SKILL.md
+    api: mcp/dataforseo-mcp.yml
+    surface: mcp
+    tools:
+      - mcp__dataforseo__merchant_amazon_products_live_advanced
+      - mcp__dataforseo__merchant_amazon_asin_live_advanced
+      - mcp__dataforseo__merchant_amazon_locations
+    note: >-
+      Saved verbatim from DataForSEO's own repo. It targets the DEPRECATED v2 MCP
+      server's per-endpoint tool names; the current v3 server exposes only
+      docs_index, docs_list_sections, docs_search and api_request. See
+      mcp/dataforseo-tool-crosswalk.yml.
+
+  - file: dataforseo-pricing-strategy.md
+    name: Pricing Strategy
+    description: >-
+      For a given ASIN, pulls every seller offering the product, identifies the
+      Buy Box winner and their fulfillment method, maps the price range across
+      New and Used conditions, and recommends a target price with a positioning
+      rationale.
+    method: searched
+    official: true
+    source: https://github.com/dataforseo/claude-skills/blob/master/skills/pricing-strategy/SKILL.md
+    api: mcp/dataforseo-mcp.yml
+    surface: mcp
+    tools:
+      - mcp__dataforseo__merchant_amazon_sellers_live_advanced
+      - mcp__dataforseo__merchant_amazon_asin_live_advanced
+      - mcp__dataforseo__merchant_amazon_locations
+    note: Same v2/v3 tool-name caveat as above.
+
+  - file: dataforseo-serp-task-lifecycle.md
+    name: SERP task lifecycle
+    description: >-
+      Post, await, collect and recover a Google organic SERP task on the Standard
+      queue, including the HTTP-200-always envelope, the webhook vs polling
+      choice, the billable-retry trap and when to use Live instead.
+    method: generated
+    official: false
+    api: openapi/dataforseo-serp-api-openapi.yml
+    surface: rest
+    operations:
+      - GoogleOrganicTaskPost
+      - GoogleOrganicTasksReady
+      - GoogleOrganicTaskGetRegular
+      - GoogleOrganicTaskGetAdvanced
+      - GoogleOrganicLiveRegular
+      - GoogleOrganicLiveAdvanced
+      - Errors
+      - IdList
+      - WebhookResend
+
+  - file: dataforseo-onpage-site-audit.md
+    name: OnPage site audit
+    description: >-
+      Start a technical SEO crawl, wait on it, and pull the summary, per-page
+      checks, broken links, redirect chains, non-indexable pages, duplicate tags
+      and content, plus a Lighthouse performance audit — all against one crawl id.
+    method: generated
+    official: false
+    api: openapi/dataforseo-onpage-api-openapi.yml
+    surface: rest
+    operations:
+      - TaskPost
+      - OnPageTasksReady
+      - Summary
+      - Pages
+      - Links
+      - RedirectChains
+      - NonIndexable
+      - DuplicateTags
+      - DuplicateContent
+      - Resources
+      - InstantPages
+      - LighthouseLiveJson
+      - ForceStop
+      - OnPageAvailableFilters
+      - OnPageErrors
+
+related_provider_skills:
+  - name: dataforseo-toolkit-skill
+    url: https://github.com/dataforseo/dataforseo-toolkit-skill
+    note: >-
+      A DataForSEO skill for Openclaw (SKILL.md + scripts/) in the provider's
+      GitHub org. Not mirrored here — it is packaged for a different agent
+      runtime.
+
+grounding_note: >-
+  Every operationId in the generated skills was verified to exist verbatim in the
+  named spec under openapi/ before it was written. None were invented.

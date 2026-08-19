@@ -1,0 +1,1374 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DataForSEO AiOptimization KeywordsData API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "KeywordsData",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "KeywordsDataIdList",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/id_list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint is designed to provide you with a list of IDs and metadata for all Keywords Data tasks created within the specified time period, including both successful and uncompleted tasks.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/id_list/?bash'"
+        },
+        {
+          "info": {
+            "name": "KeywordsDataErrors",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/errors",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "By calling this endpoint you will receive information about the Keywords Data API tasks that returned an error within the past 7 days.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/errors/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleAdsStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_ads/status",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "By calling this endpoint, you will know if Google updated keyword data for the previous month. Generally, Google updates keyword data in the middle of the month. So, if Google updated its data in October, you would be able to see the actual search volume, cost-per-click, competition, and other metrics for September. If Google didn’t update its data in October, the latest information would be available for August.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_ads"
+        },
+        {
+          "info": {
+            "name": "GoogleAdsLocations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_ads/locations",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "We use Google Geographical Targeting. You can refer to Google Ads Target Types page to review the full list of possible location types. With Keywords Data API, you can select any location type supported by Google, except for “Okrug”.\nPostal Codes can be used to set a task, albeit API response will not return data for such tasks.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_ads/locations/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleAdsLocationsCountry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_ads/locations/:country",
+            "params": [
+              {
+                "name": "country",
+                "value": "us",
+                "type": "path",
+                "description": "country ISO code\noptional field\nspecify the ISO code if you want to filter the list of locations by country\nexample:\nus"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "We use Google Geographical Targeting. You can refer to Google Ads Target Types page to review the full list of possible location types. With Keywords Data API, you can select any location type supported by Google, except for “Okrug”.\nPostal Codes can be used to set a task, albeit API response will not return data for such tasks.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_ads/locations/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleAdsLanguages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_ads/languages",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "By calling this API you will receive the list of languages supported by Keywords Data API.\n‌\n‌‌As a response of the API server, you will receive JSON-encoded data containing a tasks array with the information about available languages.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_ads/languages/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleAdsSearchVolumeTaskPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_ads/search_volume/task_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Note that Google Ads Keywords Data API is based on the latest version of the Google Ads API that has replaced legacy Google AdWords API. If you’re using DataForSEO Google AdWords API, you need to upgrade to DataForSEO Google Ads API.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_ads/search_volume/task_post/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleAdsSearchVolumeTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_ads/search_volume/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint is designed to provide you with a list of completed tasks, which haven’t been collected yet. If you use the Standard method without specifying the postback_url, you can receive the list of id for all completed tasks using this endpoint. Then, you can collect the results using the ‘Task GET’ endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_ads/search_volume/tasks_ready/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleAdsSearchVolumeTaskGet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_ads/search_volume/task_get/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifier\nunique task identifier in our system in the UUID format\nyou will be able to use it within 30 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Note that Google Ads Keywords Data API is based on the latest version of the Google Ads API that has replaced legacy Google AdWords API. If you’re using DataForSEO Google AdWords API, you need to upgrade to DataForSEO Google Ads API.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_ads/search_volume/task_get/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleAdsSearchVolumeLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_ads/search_volume/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Note that Google Ads Keywords Data API is based on the latest version of the Google Ads API that has replaced legacy Google AdWords API. If you’re using DataForSEO Google AdWords API, you need to upgrade to DataForSEO Google Ads API.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_ads/search_volume/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleAdsKeywordsForSiteTaskPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_ads/keywords_for_site/task_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "for more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_ads/keywords_for_site/task_post/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleAdsKeywordsForSiteTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_ads/keywords_for_site/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint is designed to provide you with a list of completed tasks, which haven’t been collected yet. If you use the Standard method without specifying the postback_url, you can receive the list of id for all completed tasks using this endpoint. Then, you can collect the results using the ‘Task GET’ endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_ads/keywords_for_site/tasks_ready/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleAdsKeywordsForSiteTaskGet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_ads/keywords_for_site/task_get/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifier\nunique task identifier in our system in the UUID format\nyou will be able to use it within 30 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Note that Google Ads Keywords Data API is based on the latest version of the Google Ads API that has replaced legacy Google AdWords API. If you’re using DataForSEO Google AdWords API, you need to upgrade to DataForSEO Google Ads API.\n‌‌\nThis endpoint will provide you with a list of keywords relevant to the specified domain along with their bids, search volumes for the last month, search volume trends for the last year (for estimating search volume dynamics), and competition levels.\nfor more info"
+        },
+        {
+          "info": {
+            "name": "GoogleAdsKeywordsForSiteLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_ads/keywords_for_site/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Note that Google Ads Keywords Data API is based on the latest version of the Google Ads API that has replaced legacy Google AdWords API. If you’re using DataForSEO Google AdWords API, you need to upgrade to DataForSEO Google Ads API.\n‌‌\nThis endpoint will provide you with a list of keywords relevant to the specified domain along with their bids, search volumes for the last month, search volume trends for the last year (for estimating search volume dynamics), and competition levels.\nfor more info"
+        },
+        {
+          "info": {
+            "name": "GoogleAdsKeywordsForKeywordsTaskPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_ads/keywords_for_keywords/task_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Note that Google Ads Keywords Data API is based on the latest version of the Google Ads API that has replaced legacy Google AdWords API. If you’re using DataForSEO Google AdWords API, you need to upgrade to DataForSEO Google Ads API.\n‌‌\nThis endpoint will provide relevant keywords for the specified terms. Set up to 20 keywords in the keywords array and get keyword suggestions from Google Ads. You can get up to 20,000 keyword suggestions with all essential keyword data in response to one request."
+        },
+        {
+          "info": {
+            "name": "GoogleAdsKeywordsForKeywordsTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_ads/keywords_for_keywords/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint is designed to provide you with a list of completed tasks, which haven’t been collected yet. If you use the Standard method without specifying the postback_url, you can receive the list of id for all completed tasks using this endpoint. Then, you can collect the results using the ‘Task GET’ endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_ads/keywords_for_keywords/tasks_ready/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleAdsKeywordsForKeywordsTaskGet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_ads/keywords_for_keywords/task_get/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifier\nunique task identifier in our system in the UUID format\nyou will be able to use it within 30 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Note that Google Ads Keywords Data API is based on the latest version of the Google Ads API that has replaced legacy Google AdWords API. If you’re using DataForSEO Google AdWords API, you need to upgrade to DataForSEO Google Ads API.\n‌\nThis endpoint will select relevant keywords for the specified terms. Set up to 20 keywords and get the results, which are suggested by Google Ads for your query.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_ads/keywords_for_keywo"
+        },
+        {
+          "info": {
+            "name": "GoogleAdsKeywordsForKeywordsLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_ads/keywords_for_keywords/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Note that Google Ads Keywords Data API is based on the latest version of the Google Ads API that has replaced legacy Google AdWords API. If you’re using DataForSEO Google AdWords API, you need to upgrade to DataForSEO Google Ads API.\n‌‌\nThis endpoint will provide relevant keywords for the specified terms. Set up to 20 keywords in the keywords array and get keyword suggestions from Google Ads.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_ads/keywords_for_keyword"
+        },
+        {
+          "info": {
+            "name": "GoogleAdsAdTrafficByKeywordsTaskPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_ads/ad_traffic_by_keywords/task_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "for more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_ads/ad_traffic_by_keywords/task_post/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleAdsAdTrafficByKeywordsTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_ads/ad_traffic_by_keywords/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint is designed to provide you with a list of completed tasks, which haven’t been collected yet. If you use the Standard method without specifying the postback_url, you can receive the list of id for all completed tasks using this endpoint. Then, you can collect the results using the ‘Task GET’ endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_ads/ad_traffic_by_keywords/tasks_ready/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleAdsAdTrafficByKeywordsTaskGet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_ads/ad_traffic_by_keywords/task_get/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifier\nunique task identifier in our system in the UUID format\nyou will be able to use it within 30 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "for more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_ads/ad_traffic_by_keywords/task_get/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleAdsAdTrafficByKeywordsLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_ads/ad_traffic_by_keywords/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "for more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_ads/ad_traffic_by_keywords/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleTrendsLocations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_trends/locations",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "for more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_trends/locations/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleTrendsLocationsCountry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_trends/locations/:country",
+            "params": [
+              {
+                "name": "country",
+                "value": "us",
+                "type": "path",
+                "description": "country ISO code\noptional field\nspecify the ISO code if you want to filter the list of locations by country\nexample:\nus"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "for more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_trends/locations/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleTrendsLanguages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_trends/languages",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "By calling this API you will receive the list of languages supported by Google Trends API.\n‌\n‌‌As a response of the API server, you will receive JSON-encoded data containing a tasks array with the information about available languages.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_trends/languages/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleTrendsCategories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_trends/categories",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "By calling this API you will receive the list of categories supported by Google Trends API.\n‌\n‌‌As a response of the API server, you will receive JSON-encoded data containing a tasks array with the information about available categories.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_trends/categories/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleTrendsExploreTaskPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_trends/explore/task_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with the keyword popularity data from the ‘Explore’ feature of Google Trends. You can check keyword trends for Google Search, Google News, Google Images, Google Shopping, and YouTube.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_trends/explore/task_post/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleTrendsExploreTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_trends/explore/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint is designed to provide you with a list of completed tasks, which haven’t been collected yet. If you use the Standard method without specifying the postback_url, you can receive the list of id for all completed tasks using this endpoint. Then, you can collect the results using the ‘Task GET’ endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_trends/explore/tasks_ready/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleTrendsExploreTaskGet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_trends/explore/task_get/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifier\nunique task identifier in our system in the UUID format\nyou will be able to use it within 30 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "for more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_trends/explore/task_get/?bash'"
+        },
+        {
+          "info": {
+            "name": "GoogleTrendsExploreLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/google_trends/explore/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with the keyword popularity data from the ‘Explore’ feature of Google Trends. You can check keyword trends for Google Search, Google News, Google Images, Google Shopping, and YouTube.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/google_trends/explore/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "DataforseoTrendsLocations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/dataforseo_trends/locations",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You will receive the list of DataForSEO Trends locations by calling this API. You can filter the list of locations by country when setting a task. Please note that the minimum geographic scope supported for the DataForSEO Trends API is country level.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/dataforseo_trends/locations/?bash'"
+        },
+        {
+          "info": {
+            "name": "DataforseoTrendsLocationsCountry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/dataforseo_trends/locations/:country",
+            "params": [
+              {
+                "name": "country",
+                "value": "us",
+                "type": "path",
+                "description": "country ISO code\noptional field\nspecify the ISO code if you want to filter the list of locations by country\nexample:\nus"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You will receive the list of DataForSEO Trends locations by calling this API. You can filter the list of locations by country when setting a task. Please note that the minimum geographic scope supported for the DataForSEO Trends API is country level.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/dataforseo_trends/locations/?bash'"
+        },
+        {
+          "info": {
+            "name": "DataforseoTrendsExploreLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/dataforseo_trends/explore/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with the keyword popularity data from DataForSEO Trends. You can check keyword trends for Google Search, Google News, and Google Shopping.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/dataforseo_trends/explore/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "DataforseoTrendsSubregionInterestsLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/dataforseo_trends/subregion_interests/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with location-specific keyword popularity data from DataForSEO Trends. You can check keyword trends for Google Search, Google News, and Google Shopping.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/dataforseo_trends/subregion_interests/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "DataforseoTrendsDemographyLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/dataforseo_trends/demography/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with the demographic breakdown (by age and gender) of keyword popularity per each specified term based on DataForSEO Trends data. You can check keyword trends for Google Search, Google News, and Google Shopping.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/dataforseo_trends/demography/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "DataforseoTrendsMergedDataLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/dataforseo_trends/merged_data/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with the keyword popularity data from DataForSEO Trends. In addition to keyword popularity rate over the given time range, you will get location-specific keyword popularity data, and a demographic breakdown of keyword popularity per each specified term along with comparative values.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/dataforseo_trends/merged_data/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "KeywordsDataBingLocations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/locations",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "By calling this API you will receive the list of locations supported in Bing Ads API.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/locations/?bash'"
+        },
+        {
+          "info": {
+            "name": "KeywordsDataBingLanguages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/languages",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "By calling this API you will receive the list of languages supported by Bing Ads API.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/languages/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingSearchVolumeTaskPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/search_volume/task_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with search volume data for the last month, search volume trend for up to 24 past months (that will let you estimate search volume dynamics), current cost-per-click and competition values for paid search.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/search_volume/task_post/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingSearchVolumeTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/search_volume/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint is designed to provide you with the list of completed tasks, which haven’t been collected yet. If you use the Standard method without specifying the postback_url, you can receive the list of id for all completed tasks using this endpoint. Then, you can collect the results using the ‘Task GET’ endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/search_volume/tasks_ready/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingSearchVolumeTaskGet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/search_volume/task_get/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifier\nunique task identifier in our system in the UUID format\nyou will be able to use it within 30 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "for more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/search_volume/task_get/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingSearchVolumeLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/search_volume/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with search volume data for the last month, search volume trend for up to 24 past months (that will let you estimate search volume dynamics), current cost-per-click and competition values for paid search.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/search_volume/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingAudienceEstimationJobFunctions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/audience_estimation/job_functions",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "By calling this API you will receive the list of job functions with job_function_id supported by Bing Ads Audience Estimation endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/audience_estimation/job_functions/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingAudienceEstimationIndustries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/audience_estimation/industries",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "By calling this API you will receive the list of industries with industry_id supported by Bing Ads Audience Estimation endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/audience_estimation/industries/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingAudienceEstimationTaskPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/audience_estimation/task_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint provides estimated audience size for an ad campaign based on specified targeting criteria. It returns data on the total estimated audience, such as suggested bid and budget for an ad campaign and estimated engagement metrics.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/audience_estimation/task_post/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingAudienceEstimationTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/audience_estimation/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint is designed to provide you with the list of completed tasks, which haven’t been collected yet. If you use the Standard method without specifying the postback_url, you can receive the list of id for all completed tasks using this endpoint. Then, you can collect the results using the ‘Task GET’ endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/audience_estimation/tasks_ready/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingAudienceEstimationTaskGet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/audience_estimation/task_get/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifier\nunique task identifier in our system in the UUID format\nyou will be able to use it within 30 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "for more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/audience_estimation/task_get/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingAudienceEstimationLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/audience_estimation/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint provides estimated audience size for an ad campaign based on specified targeting criteria. It returns data on the total estimated audience, such as suggested bid and budget for an ad campaign and estimated engagement metrics.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/audience_estimation/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingKeywordsForSiteTaskPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/keywords_for_site/task_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with a list of keywords relevant to the specified website along with their search volume for the last month, search volume trend for up to 24 past months (for estimating search volume dynamics), current cost-per-click and competition level for paid search. The maximum number of returned keywords is 3000.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/keywords_for_site/task_post/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingKeywordsForSiteTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/keywords_for_site/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint is designed to provide you with the list of completed tasks, which haven’t been collected yet. If you use the Standard method without specifying the postback_url, you can receive the list of id for all completed tasks using this endpoint. Then, you can collect the results using the ‘Task GET’ endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/keywords_for_site/tasks_ready/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingKeywordsForSiteTaskGet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/keywords_for_site/task_get/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifier\nunique task identifier in our system in the UUID format\nyou will be able to use it within 30 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with a list of keywords relevant to the specified website along with their search volume for the last month, search volume trend for the last year (for estimating search volume dynamics), current cost-per-click and competition level for paid search. The maximum number of returned keywords is 3000.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/keywords_for_site/task_get/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingKeywordsForSiteLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/keywords_for_site/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with a list of keywords relevant to the specified URL along with their search volume for the last month, search volume trend for up to 24 past months (for estimating search volume dynamics), current cost-per-click and competition values for paid search. The maximum number of returned keywords is 3000.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/keywords_for_site/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingKeywordsForKeywordsTaskPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/keywords_for_keywords/task_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will select relevant keywords for the specified terms. Set up to 200 keywords and get the results, which are suggested by Bing Ads for your query. You can get up to 3000 keyword suggestions using this function.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/keywords_for_keywords/task_post/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingKeywordsForKeywordsTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/keywords_for_keywords/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint is designed to provide you with the list of completed tasks, which haven’t been collected yet. If you use the Standard method without specifying the postback_url, you can receive the list of id for all completed tasks using this endpoint. Then, you can collect the results using the ‘Task GET’ endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/keywords_for_keywords/tasks_ready/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingKeywordsForKeywordsTaskGet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/keywords_for_keywords/task_get/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifier\nunique task identifier in our system in the UUID format\nyou will be able to use it within 30 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will select relevant keywords for the specified terms. Set up to 200 keywords and get the results, which are suggested by Bing Ads for your query. You can get up to 3000 keyword suggestions using this function.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/keywords_for_keywords/task_get/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingKeywordsForKeywordsLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/keywords_for_keywords/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will select the relevant keywords for the specified ones. Set up to 200 keywords and get the results, which are suggested by Bing Ads for your query. You can get up to 3000 keyword suggestions using this function.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/keywords_for_keywords/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingKeywordPerformanceLocationsAndLanguages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/keyword_performance/locations_and_languages",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Using this endpoint you can get the full list of locations and languages supported in Keyword Performance endpoints of Bing Keywords Data API.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/keyword_performance/locations_and_languages/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingKeywordPerformanceTaskPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/keyword_performance/task_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You can receive a set of keyword performance stats for a group of keywords depending on the specified match type, location and language parameters. Ad position, clicks, impressions, and other keyword metrics are aggregated for the last month for one or all of the following device types: mobile, desktop, tablet.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/keyword_performance/task_post/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingKeywordPerformanceTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/keyword_performance/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint is designed to provide you with the list of completed tasks, which haven’t been collected yet. If you use the Standard method without specifying the postback_url, you can receive the list of id for all completed tasks using this endpoint. Then, you can collect the results using the ‘Task GET’ endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/keyword_performance/tasks_ready/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingKeywordPerformanceTaskGet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/keyword_performance/task_get/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifier\nunique task identifier in our system in the UUID format\nyou will be able to use it within 30 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You can receive a set of keyword performance stats for a group of keywords depending on the specified match type, location and language parameters. Ad position, clicks, impressions, and other keyword metrics are aggregated for the last month for one or all of the following device types: mobile, desktop, tablet.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/keyword_performance/task_get/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingKeywordPerformanceLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/keyword_performance/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You can receive a set of keyword performance stats for a group of keywords depending on the specified match type, location and language parameters. Ad position, clicks, impressions, and other keyword metrics are aggregated for the last month for one or all of the following device types: mobile, desktop, tablet.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/keyword_performance/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingSearchVolumeHistoryLocationsAndLanguages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/search_volume_history/locations_and_languages",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "By calling this API you will receive the list of locations and languages supported by Bing ‘Search Volume History’ endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/search_volume_history/locations_and_languages/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingSearchVolumeHistoryTaskPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/search_volume_history/task_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with historical search volume data for up to 1000 keywords in one request. You can get search volume for keywords in monthly, weekly, or daily format and specify the device type.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/search_volume_history/task_post/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingSearchVolumeHistoryTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/search_volume_history/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint is designed to provide you with the list of completed tasks, which haven’t been collected yet. If you use the Standard method without specifying the postback_url, you can receive the list of id for all completed tasks using this endpoint. Then, you can collect the results using the ‘Task GET’ endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/search_volume_history/tasks_ready/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingSearchVolumeHistoryTaskGet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/search_volume_history/task_get/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifier\nunique task identifier in our system in the UUID format\nyou will be able to use it within 30 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "for more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/search_volume_history/task_get/?bash'"
+        },
+        {
+          "info": {
+            "name": "BingSearchVolumeHistoryLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/bing/search_volume_history/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with historical search volume data for up to 1000 keywords in one request. You can get search volume for keywords in monthly, weekly, or daily format and specify the device type.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/bing/search_volume_history/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "ClickstreamDataLocationsAndLanguages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/keywords_data/clickstream_data/locations_and_languages",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Using this endpoint you can get the full list of locations and languages supported in DataForSEO Clickstream Data API.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/clickstream_data/locations_and_languages/?bash'"
+        },
+        {
+          "info": {
+            "name": "ClickstreamDataDataforseoSearchVolumeLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/clickstream_data/dataforseo_search_volume/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "for more info please visit 'https://docs.dataforseo.com/v3/keywords_data/clickstream_data/dataforseo_search_volume/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "ClickstreamDataGlobalSearchVolumeLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/clickstream_data/global_search_volume/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": " \nThe Clickstream Global Search Volume endpoint of DataForSEO Keywords Data API is designed to provide clickstream-based search volume data for up to 1000 keywords in a single Live request. What’s more, it offers geographical distribution of clickstream search volume values across all available locations.\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/clickstream_data/global_search_volume/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "ClickstreamDataBulkSearchVolumeLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/keywords_data/clickstream_data/bulk_search_volume/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": " \nThe Bulk Clickstream Search Volume endpoint of DataForSEO Keywords Data API is designed to provide clickstream-based search volume data for up to 1000 keywords in a single Live request. What’s more, it offers historical search volume values for up to 12 months (depending on keywords, location, and language parameters).\nfor more info please visit 'https://docs.dataforseo.com/v3/keywords_data/clickstream_data/bulk_search_volume/live/?bash'"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

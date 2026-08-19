@@ -1,0 +1,1575 @@
+{
+  "item": [
+    {
+      "id": "e1810b32-3699-4263-ac4b-b1705dad246c",
+      "name": "DomainAnalytics",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fc3e446a-8110-434c-a203-1f8d6f49dc5d",
+          "name": "Domain Analytics Id List",
+          "request": {
+            "name": "Domain Analytics Id List",
+            "description": {
+              "content": "This endpoint is designed to provide you with a list of IDs and metadata for all Domain Analytics tasks created within the specified time period, including both successful and uncompleted tasks.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/id_list/?bash'",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "domain_analytics",
+                "id_list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"datetime_from\": \"<string>\",\n    \"datetime_to\": \"<string>\",\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"sort\": \"<string>\",\n    \"include_metadata\": \"<boolean>\"\n  },\n  {\n    \"datetime_from\": \"<string>\",\n    \"datetime_to\": \"<string>\",\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"sort\": \"<string>\",\n    \"include_metadata\": \"<boolean>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ffd06866-594f-4b1f-a535-d4eb2f88104c",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "domain_analytics",
+                    "id_list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"datetime_from\": \"2026-04-12 04:39:39 +00:00\",\n    \"datetime_to\": \"2026-04-14 04:39:39 +00:00\",\n    \"limit\": 100,\n    \"offset\": 0,\n    \"sort\": \"desc\",\n    \"include_metadata\": true\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"status_code\": 2600,\n  \"status_message\": \"string\",\n  \"time\": \"string\",\n  \"cost\": 2297.3211471649447,\n  \"tasks_count\": 1727,\n  \"tasks_error\": 2381,\n  \"tasks\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d4cc7559-411e-4355-8c2e-35bf301f86e1",
+          "name": "Domain Analytics Errors",
+          "request": {
+            "name": "Domain Analytics Errors",
+            "description": {
+              "content": "By calling this endpoint you will receive information about the Domain Analytics API tasks that returned an error within the past 7 days.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/errors/?bash'",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "domain_analytics",
+                "errors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"filtered_function\": \"<string>\",\n    \"datetime_from\": \"<string>\",\n    \"datetime_to\": \"<string>\"\n  },\n  {\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"filtered_function\": \"<string>\",\n    \"datetime_from\": \"<string>\",\n    \"datetime_to\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b76682b1-4550-42e6-8475-d3338b8a79a5",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "domain_analytics",
+                    "errors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"limit\": 10,\n    \"offset\": 0,\n    \"filtered_function\": \"pingback_url\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"status_code\": 2600,\n  \"status_message\": \"string\",\n  \"time\": \"string\",\n  \"cost\": 2297.3211471649447,\n  \"tasks_count\": 1727,\n  \"tasks_error\": 2381,\n  \"tasks\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "411d4749-4f4f-4e97-9aaf-bfe17a3a55b8",
+          "name": "Technologies Available Filters",
+          "request": {
+            "name": "Technologies Available Filters",
+            "description": {
+              "content": "Here you will find all the necessary information about filters that can be used with Domain Analytics Technologies API endpoints.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/technologies/filters/?bash'",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "domain_analytics",
+                "technologies",
+                "available_filters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e790ff7a-6710-4144-91e6-afb82b00b3c1",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "domain_analytics",
+                    "technologies",
+                    "available_filters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"status_code\": 8969,\n  \"status_message\": \"string\",\n  \"time\": \"string\",\n  \"cost\": 3460.993436684464,\n  \"tasks_count\": 6389,\n  \"tasks_error\": 5875,\n  \"tasks\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "21483252-e6c4-49cc-974d-ac50a882f7ae",
+          "name": "Technologies Locations",
+          "request": {
+            "name": "Technologies Locations",
+            "description": {
+              "content": "You will receive the list of locations by this API call.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/technologies/locations/?bash'",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "domain_analytics",
+                "technologies",
+                "locations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2bb9ef9a-8043-4380-8886-3cbe0216e324",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "domain_analytics",
+                    "technologies",
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"status_code\": 2600,\n  \"status_message\": \"string\",\n  \"time\": \"string\",\n  \"cost\": 2297.3211471649447,\n  \"tasks_count\": 1727,\n  \"tasks_error\": 2381,\n  \"tasks\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "91c2f430-cacc-4bd2-ab97-afea11f1b5f0",
+          "name": "Technologies Languages",
+          "request": {
+            "name": "Technologies Languages",
+            "description": {
+              "content": "You will receive the list of languages by calling this API.\n \nAs a response of the API server, you will receive JSON-encoded data containing a tasks array with the information specific to the set tasks.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/technologies/languages/?bash'",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "domain_analytics",
+                "technologies",
+                "languages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6fb4b6bd-f0e2-4797-8bbd-a0e2ce02458f",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "domain_analytics",
+                    "technologies",
+                    "languages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"status_code\": 2600,\n  \"status_message\": \"string\",\n  \"time\": \"string\",\n  \"cost\": 2297.3211471649447,\n  \"tasks_count\": 1727,\n  \"tasks_error\": 2381,\n  \"tasks\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d24fc551-9204-4796-973c-6c9a888ee4e4",
+          "name": "Technologies Technologies",
+          "request": {
+            "name": "Technologies Technologies",
+            "description": {
+              "content": "This endpoint will provide you with the full list of available technologies structured by technology groups and categories each particular technology belongs to.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/technologies/technologies/?bash'",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "domain_analytics",
+                "technologies",
+                "technologies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1566aa2e-0a55-44d7-82a5-28f87e09b3dd",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "domain_analytics",
+                    "technologies",
+                    "technologies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"status_code\": 2600,\n  \"status_message\": \"string\",\n  \"time\": \"string\",\n  \"cost\": 2297.3211471649447,\n  \"tasks_count\": 1727,\n  \"tasks_error\": 2381,\n  \"tasks\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b94d1bed-67b2-43a5-888e-36a152877df2",
+          "name": "Technologies Aggregation Technologies Live",
+          "request": {
+            "name": "Technologies Aggregation Technologies Live",
+            "description": {
+              "content": "The Aggregation Technologies endpoint will provide you with a list of the most popular technologies websites use alongside the technologies you specify. Alternatively, you can specify technology categories or groups to obtain wider stats.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/technologies/aggregation_technologies/live/?bash'",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "domain_analytics",
+                "technologies",
+                "aggregation_technologies",
+                "live"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"group\": \"<string>\",\n    \"category\": \"<string>\",\n    \"technology\": \"<string>\",\n    \"keyword\": \"<string>\",\n    \"mode\": \"<string>\",\n    \"filters\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"order_by\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"internal_groups_list_limit\": \"<integer>\",\n    \"internal_categories_list_limit\": \"<integer>\",\n    \"internal_technologies_list_limit\": \"<integer>\",\n    \"internal_list_limit\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"tag\": \"<string>\"\n  },\n  {\n    \"group\": \"<string>\",\n    \"category\": \"<string>\",\n    \"technology\": \"<string>\",\n    \"keyword\": \"<string>\",\n    \"mode\": \"<string>\",\n    \"filters\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"order_by\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"internal_groups_list_limit\": \"<integer>\",\n    \"internal_categories_list_limit\": \"<integer>\",\n    \"internal_technologies_list_limit\": \"<integer>\",\n    \"internal_list_limit\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"tag\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6f215928-c195-47bd-8756-8d7e0ceb00ce",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "domain_analytics",
+                    "technologies",
+                    "aggregation_technologies",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"group\": \"<string>\",\n    \"category\": \"<string>\",\n    \"technology\": \"<string>\",\n    \"keyword\": \"<string>\",\n    \"mode\": \"<string>\",\n    \"filters\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"order_by\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"internal_groups_list_limit\": \"<integer>\",\n    \"internal_categories_list_limit\": \"<integer>\",\n    \"internal_technologies_list_limit\": \"<integer>\",\n    \"internal_list_limit\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"tag\": \"<string>\"\n  },\n  {\n    \"group\": \"<string>\",\n    \"category\": \"<string>\",\n    \"technology\": \"<string>\",\n    \"keyword\": \"<string>\",\n    \"mode\": \"<string>\",\n    \"filters\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"order_by\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"internal_groups_list_limit\": \"<integer>\",\n    \"internal_categories_list_limit\": \"<integer>\",\n    \"internal_technologies_list_limit\": \"<integer>\",\n    \"internal_list_limit\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"tag\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"status_code\": 2600,\n  \"status_message\": \"string\",\n  \"time\": \"string\",\n  \"cost\": 2297.3211471649447,\n  \"tasks_count\": 1727,\n  \"tasks_error\": 2381,\n  \"tasks\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "99f8d054-3f91-4361-9d6b-36f9dd09bfda",
+          "name": "Technologies Technologies Summary Live",
+          "request": {
+            "name": "Technologies Technologies Summary Live",
+            "description": {
+              "content": "The Technologies Summary endpoint will provide you with the number of domains across different countries and languages that use the specified technology names, technology groups, or technology categories.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/technologies/technologies_summary/live/?bash'",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "domain_analytics",
+                "technologies",
+                "technologies_summary",
+                "live"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"technology_paths\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"groups\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"categories\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"technologies\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mode\": \"<string>\",\n    \"filters\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"internal_list_limit\": \"<integer>\",\n    \"tag\": \"<string>\"\n  },\n  {\n    \"technology_paths\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"groups\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"categories\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"technologies\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mode\": \"<string>\",\n    \"filters\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"internal_list_limit\": \"<integer>\",\n    \"tag\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "72755fbe-f75a-4749-b3b6-59f0c5f9d965",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "domain_analytics",
+                    "technologies",
+                    "technologies_summary",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"technology_paths\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"groups\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"categories\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"technologies\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mode\": \"<string>\",\n    \"filters\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"internal_list_limit\": \"<integer>\",\n    \"tag\": \"<string>\"\n  },\n  {\n    \"technology_paths\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"groups\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"categories\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"technologies\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mode\": \"<string>\",\n    \"filters\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"internal_list_limit\": \"<integer>\",\n    \"tag\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"status_code\": 2600,\n  \"status_message\": \"string\",\n  \"time\": \"string\",\n  \"cost\": 2297.3211471649447,\n  \"tasks_count\": 1727,\n  \"tasks_error\": 2381,\n  \"tasks\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fae37fb2-9145-493a-833d-f8978d2ecc1f",
+          "name": "Technologies Technology Stats Live",
+          "request": {
+            "name": "Technologies Technology Stats Live",
+            "description": {
+              "content": "The Technology Stats endpoint will provide you with historical data on the number of domains across different countries and languages that use the specified technology.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/technologies/technology_stats/live/?bash'",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "domain_analytics",
+                "technologies",
+                "technology_stats",
+                "live"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"technology\": \"<string>\",\n    \"date_from\": \"<string>\",\n    \"date_to\": \"<string>\",\n    \"tag\": \"<string>\"\n  },\n  {\n    \"technology\": \"<string>\",\n    \"date_from\": \"<string>\",\n    \"date_to\": \"<string>\",\n    \"tag\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4728516d-b806-4ecb-8e10-0a24764d26de",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "domain_analytics",
+                    "technologies",
+                    "technology_stats",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"technology\": \"jQuery\",\n    \"date_from\": \"2026-01-15\",\n    \"date_to\": \"2026-03-15\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"status_code\": 2600,\n  \"status_message\": \"string\",\n  \"time\": \"string\",\n  \"cost\": 2297.3211471649447,\n  \"tasks_count\": 1727,\n  \"tasks_error\": 2381,\n  \"tasks\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d4a3e581-e64d-48ee-b175-837b402d1643",
+          "name": "Technologies Domains By Technology Live",
+          "request": {
+            "name": "Technologies Domains By Technology Live",
+            "description": {
+              "content": "This endpoint provides domains based on the technology they use. In addition to the list of domains, you will also get their technology profiles, the country and language they belong to, and other related data.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/technologies/domains_by_technology/live/?bash'",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "domain_analytics",
+                "technologies",
+                "domains_by_technology",
+                "live"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"technology_paths\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"groups\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"categories\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"technologies\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mode\": \"<string>\",\n    \"filters\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"order_by\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"offset_token\": \"<string>\"\n  },\n  {\n    \"technology_paths\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"groups\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"categories\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"technologies\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mode\": \"<string>\",\n    \"filters\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"order_by\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"offset_token\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7c39b1fc-7c45-4325-8ca8-14fb61facc1c",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "domain_analytics",
+                    "technologies",
+                    "domains_by_technology",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"technology_paths\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"groups\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"categories\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"technologies\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mode\": \"<string>\",\n    \"filters\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"order_by\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"offset_token\": \"<string>\"\n  },\n  {\n    \"technology_paths\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"groups\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"categories\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"technologies\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mode\": \"<string>\",\n    \"filters\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"order_by\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"offset_token\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"status_code\": 2600,\n  \"status_message\": \"string\",\n  \"time\": \"string\",\n  \"cost\": 2297.3211471649447,\n  \"tasks_count\": 1727,\n  \"tasks_error\": 2381,\n  \"tasks\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "56962397-d40f-44cc-8a4a-22153f002e91",
+          "name": "Technologies Domains By Html Terms Live",
+          "request": {
+            "name": "Technologies Domains By Html Terms Live",
+            "description": {
+              "content": "This endpoint provides domains based on the HTML terms they use on their homepage. In addition to the list of domains, you will also get their technology profiles, the country and language they belong to, and other related data.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/technologies/domains_by_html_terms/live/?bash'",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "domain_analytics",
+                "technologies",
+                "domains_by_html_terms",
+                "live"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"search_terms\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mode\": \"<string>\",\n    \"filters\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"order_by\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"offset_token\": \"<string>\"\n  },\n  {\n    \"search_terms\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mode\": \"<string>\",\n    \"filters\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"order_by\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"offset_token\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2c2516c8-cfdb-4691-ad13-fb1f1050abb6",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "domain_analytics",
+                    "technologies",
+                    "domains_by_html_terms",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"search_terms\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mode\": \"<string>\",\n    \"filters\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"order_by\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"offset_token\": \"<string>\"\n  },\n  {\n    \"search_terms\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"keywords\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"mode\": \"<string>\",\n    \"filters\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"order_by\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"offset_token\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"status_code\": 2600,\n  \"status_message\": \"string\",\n  \"time\": \"string\",\n  \"cost\": 2297.3211471649447,\n  \"tasks_count\": 1727,\n  \"tasks_error\": 2381,\n  \"tasks\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e94ef5a-bc54-42ba-b9e6-2a1e2763dde4",
+          "name": "Technologies Domain Technologies Live",
+          "request": {
+            "name": "Technologies Domain Technologies Live",
+            "description": {
+              "content": "Using this endpoint you will get a list of technologies used in a particular domain.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/technologies/domain_technologies/live/?bash'",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "domain_analytics",
+                "technologies",
+                "domain_technologies",
+                "live"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"target\": \"<string>\"\n  },\n  {\n    \"target\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "446c5139-a80e-4dbe-9bb3-5602ec2de34d",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "domain_analytics",
+                    "technologies",
+                    "domain_technologies",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"target\": \"dataforseo.com\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"status_code\": 2600,\n  \"status_message\": \"string\",\n  \"time\": \"string\",\n  \"cost\": 2297.3211471649447,\n  \"tasks_count\": 1727,\n  \"tasks_error\": 2381,\n  \"tasks\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c724d18-9db2-4110-9038-96f860e4d9af",
+          "name": "Whois Available Filters",
+          "request": {
+            "name": "Whois Available Filters",
+            "description": {
+              "content": "Here you will find all the necessary information about filters that can be used with Domain Analytics Whois API.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/whois/filters/?bash'",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "domain_analytics",
+                "whois",
+                "available_filters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4b548cc2-6768-4b6b-9bc7-8b765affd02d",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "domain_analytics",
+                    "whois",
+                    "available_filters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"status_code\": 8969,\n  \"status_message\": \"string\",\n  \"time\": \"string\",\n  \"cost\": 3460.993436684464,\n  \"tasks_count\": 6389,\n  \"tasks_error\": 5875,\n  \"tasks\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "faef19b9-ae90-4399-a1ba-3e82413ce585",
+          "name": "Whois Overview Live",
+          "request": {
+            "name": "Whois Overview Live",
+            "description": {
+              "content": "This endpoint will provide you with Whois data enriched with backlink stats, and ranking and traffic info from organic and paid search results. Using this endpoint you will be able to get all these data for the domains matching the parameters you specify in the request.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/whois/overview/live/?bash'",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "domain_analytics",
+                "whois",
+                "overview",
+                "live"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"offset_token\": \"<string>\",\n    \"filters\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"order_by\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tag\": \"<string>\"\n  },\n  {\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"offset_token\": \"<string>\",\n    \"filters\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"order_by\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tag\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0e5dce50-bad5-44de-b875-d328a9e9790b",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "domain_analytics",
+                    "whois",
+                    "overview",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"offset_token\": \"<string>\",\n    \"filters\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"order_by\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tag\": \"<string>\"\n  },\n  {\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"offset_token\": \"<string>\",\n    \"filters\": [\n      \"<object>\",\n      \"<object>\"\n    ],\n    \"order_by\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tag\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"status_code\": 2600,\n  \"status_message\": \"string\",\n  \"time\": \"string\",\n  \"cost\": 2297.3211471649447,\n  \"tasks_count\": 1727,\n  \"tasks_error\": 2381,\n  \"tasks\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.dataforseo.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a3eff508-4c99-4ea8-904c-91c8de53c63c",
+    "name": "DataForSEO AiOptimization DomainAnalytics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "DataForSEO API is the starting point on your journey towards building powerful SEO software. With DataForSEO you can get all the data you need to build an efficient application while also saving your time and budget. DataForSEO API is using the REST technology for interchanging data between your application and our service. The data exchange is made through the widely used HTTP protocol, which allows applying our API to almost all programming languages.",
+      "type": "text/plain"
+    }
+  }
+}

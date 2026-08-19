@@ -1,0 +1,150 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://docs.dataforseo.com/v3/ (Client libraries section), plus registry
+  metadata endpoints: registry.npmjs.org, pypi.org/pypi/<pkg>/json,
+  api.nuget.org, repo.packagist.org, api.github.com
+notes: >-
+  DataForSEO publishes officially supported client libraries for TypeScript,
+  Python, C#, and Java, plus an official MCP server / CLI on npm and an official
+  n8n community node. The Java client is NOT published to Maven Central — a
+  search of search.maven.org for "dataforseo" returns 0 artifacts (probed
+  2026-08-13) — so it is consumed from source/GitHub tags only. The PHP client
+  the docs recommend first is authored by a community maintainer (jovixv /
+  Vitaliy Lyabakh) and published under his own Packagist namespace, so it is
+  recorded as official: false with the docs endorsement noted.
+
+packages:
+
+  - language: typescript
+    registry: npm
+    name: dataforseo-client
+    url: https://www.npmjs.com/package/dataforseo-client
+    install: npm install dataforseo-client
+    source_code: https://github.com/dataforseo/TypeScriptClient
+    official: true
+    version: 2.1.3
+    published: '2026-08-12'
+
+  - language: python
+    registry: pypi
+    name: dataforseo-client
+    url: https://pypi.org/project/dataforseo-client/
+    install: pip install dataforseo-client
+    source_code: https://github.com/dataforseo/PythonClient
+    official: true
+    version: 2.1.3
+    published: '2026-08-11'
+
+  - language: csharp
+    registry: nuget
+    name: DataForSeo.Client
+    url: https://www.nuget.org/packages/DataForSeo.Client
+    install: dotnet add package DataForSeo.Client
+    source_code: https://github.com/dataforseo/CSharpClient
+    official: true
+    version: 2.1.3
+    published: '2026-08-11'
+
+  - language: java
+    registry: github
+    name: dataforseo/JavaClient
+    url: https://github.com/dataforseo/JavaClient
+    install: null
+    source_code: https://github.com/dataforseo/JavaClient
+    official: true
+    version: v2.1.3
+    published: null
+    note: >-
+      Not published to Maven Central (search.maven.org solrsearch for
+      "dataforseo" returned numFound=0 on 2026-08-13) and the repo publishes no
+      GitHub Releases, so no dated registry record exists. Version read from the
+      latest git tag (v2.1.3), which matches the 2.1.3 line shipped on npm,
+      PyPI and NuGet. Consumers must build from source or vendor the client.
+
+  - language: typescript
+    registry: npm
+    name: dataforseo-mcp-server
+    url: https://www.npmjs.com/package/dataforseo-mcp-server
+    install: npx -y dataforseo-mcp-server@latest
+    source_code: https://github.com/dataforseo/mcp-server-typescript
+    official: true
+    version: 3.0.0
+    published: '2026-08-11'
+    note: >-
+      Dual-purpose binary: MCP server (Streamable HTTP by default, stdio with
+      --mode stdio) and a `docs`/`request` CLI. See mcp/dataforseo-mcp.yml and
+      cli/dataforseo-cli.yml.
+
+  - language: typescript
+    registry: npm
+    name: n8n-nodes-dataforseo
+    url: https://www.npmjs.com/package/n8n-nodes-dataforseo
+    install: npm install n8n-nodes-dataforseo
+    source_code: https://github.com/dataforseo/n8n-nodes-dataforseo
+    official: true
+    version: 1.6.2
+    published: '2026-04-21'
+    note: Official n8n community node maintained in the DataForSEO GitHub org.
+
+  - language: php
+    registry: packagist
+    name: jovix/dataforseo-clientv3
+    url: https://packagist.org/packages/jovix/dataforseo-clientv3
+    install: composer require jovix/dataforseo-clientv3
+    source_code: https://github.com/jovixv/DFSClient-v3
+    official: false
+    version: v1.2.18
+    published: '2026-07-30'
+    note: >-
+      DataForSEO's own docs list this as the "Recommended: officially supported
+      PHP Client", but it is authored and published by Vitaliy Lyabakh (jovixv)
+      under his own Packagist namespace rather than by DataForSEO, so it is
+      recorded as community-maintained with a first-party endorsement.
+
+  - language: python
+    registry: cdn
+    name: python_Client.zip
+    url: https://cdn.dataforseo.com/v3/examples/python/python_Client.zip
+    install: null
+    official: true
+    version: null
+    published: null
+    note: >-
+      "Python Simple Rest Client" distributed as an unpinned zip from the
+      DataForSEO CDN. The URL floats to whatever is current — there is no
+      version in the path and no registry metadata endpoint — so a consumer
+      cannot tell which build they downloaded.
+
+  - language: php
+    registry: cdn
+    name: php_RestClient.zip
+    url: https://cdn.dataforseo.com/v3/examples/php/php_RestClient.zip
+    install: null
+    official: false
+    version: null
+    published: null
+    note: >-
+      "PHP Simple Rest Client" (author Fabio Agostinho Boris) distributed as an
+      unpinned zip from the DataForSEO CDN; no version in the URL and no
+      registry metadata to query.
+
+code_examples:
+  - language: php
+    url: https://cdn.dataforseo.com/v3/examples/php/dataforseo_xmpl_v3_php.zip
+  - language: python
+    url: https://cdn.dataforseo.com/v3/examples/python/dataforseo_xmpl_v3_python.zip
+  - language: csharp
+    url: https://cdn.dataforseo.com/v3/examples/csharp/dataforseo_xmpl_v3_csharp.zip
+  - language: postman
+    url: https://cdn.dataforseo.com/v3/examples/dataforseo_xmpl_v3_postman.zip
+
+postman:
+  documenter: https://documenter.getpostman.com/view/55275669/2sBXwmRYr2
+  collection_download: https://cdn.dataforseo.com/v3/examples/dataforseo_xmpl_v3_postman.zip
+
+summary:
+  total: 9
+  official: 6
+  languages: [typescript, python, csharp, java, php]
+  registries: [npm, pypi, nuget, packagist, github, cdn]

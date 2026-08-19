@@ -1,0 +1,602 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DataForSEO AiOptimization OnPage API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OnPage",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "OnPageIdList",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/on_page/id_list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint is designed to provide you with a list of IDs and metadata for all On-Page tasks created within the specified time period, including both successful and uncompleted tasks.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/id_list/?bash'"
+        },
+        {
+          "info": {
+            "name": "OnPageErrors",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/on_page/errors",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "By calling this endpoint you will receive information about the OnPage API tasks that returned an error within the past 7 days.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/errors/?bash'"
+        },
+        {
+          "info": {
+            "name": "ForceStop",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/on_page/force_stop",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint is designed to force stop the crawl process of websites you specified in a task. The execution of all the tasks associated with the IDs indicated in your request to this endpoint will be stopped. You will still be able to obtain the data on pages that have been scanned until the crawling process was stopped.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/force_stop/?bash'"
+        },
+        {
+          "info": {
+            "name": "OnPageAvailableFilters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/on_page/available_filters",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "OnPage API supports plenty of customizable crawling parameters that allow you to adapt the extraction of website data to your requirements and modify the thresholds for various performance indicators.\n‌‌\nHere you will find all the necessary information about filters and thresholds that can be used with DataForSEO OnPage API endpoints.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/filters_and_thresholds/?bash'"
+        },
+        {
+          "info": {
+            "name": "TaskPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/on_page/task_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "OnPage API checks websites for 60+ customizable on-page parameters defines and displays all found flaws and opportunities for optimization so that you can easily fix them. It checks meta tags, duplicate content, image tags, response codes, and other parameters on every page. You can find the full list of OnPage API check-up parameters in the Pages section.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/task_post/?bash'"
+        },
+        {
+          "info": {
+            "name": "OnPageTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/on_page/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "The ‘Tasks Ready’ endpoint is designed to provide you with a list of completed tasks, which results haven’t been collected yet.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page-tasks_ready/?bash'"
+        },
+        {
+          "info": {
+            "name": "Summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/on_page/summary/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifier\nrequired field\nyou can get this ID in the response of the Task POST endpoint\nexample:\n“07131248-1535-0216-1000-17384017ad04”"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Using this function, you can get the overall information on a website as well as drill down into exact on-page issues of a website that has been scanned. As a result, you will know what functions to use for receiving detailed data for each of the found issues.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/summary/?bash'"
+        },
+        {
+          "info": {
+            "name": "Pages",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/on_page/pages",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint returns a list of crawled pages with on-page check-ups and other metrics related to the page performance.\nUsing this function you will get page-specific data with detailed information on how well your pages are optimized for search.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/pages/?bash'"
+        },
+        {
+          "info": {
+            "name": "PagesByResource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/on_page/pages_by_resource",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will return the list of pages where a specific resource is located. Using this function you will also get the data related to the pages that contain a specified resource.\nYou can get the URL of a resource using the Resources endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/page_by_resource/?bash'"
+        },
+        {
+          "info": {
+            "name": "Resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/on_page/resources",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with a list of resources, including images, scripts, stylesheets, and broken elements.\nYou will get a detailed overview of every resource found on the crawled pages.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/resources/?bash'"
+        },
+        {
+          "info": {
+            "name": "DuplicateTags",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/on_page/duplicate_tags",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint returns a list of pages that contain duplicate title or description tags. The response also contains data related to page performance.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/duplicate_tags/?bash'"
+        },
+        {
+          "info": {
+            "name": "DuplicateContent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/on_page/duplicate_content",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint returns a list of pages that have content similar to the page specified in the request. The response also contains data related to page performance and the similarity index that indicates how similar the compared pages are.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/duplicate_content/?bash'"
+        },
+        {
+          "info": {
+            "name": "Links",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/on_page/links",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with a list of internal and external links detected on a target website.\nThe following link types are supported:\nanchor – links that point to a specific portion of a webpage;\nimage – links that point to an image;\ncanonical – links that point to a canonical page;\nmeta – links with meta http-equiv=refresh ;\nalternate – links with link rel=\"alternate\" pointing to an alternative version of a webpage ;\nredirect – links with redirect status.\nfor more info please visit 'h"
+        },
+        {
+          "info": {
+            "name": "RedirectChains",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/on_page/redirect_chains",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Redirect chains occur when there are at least two redirects between the initial URL and the destination URL. For example, if page A redirects to page B which redirects to page C, such a series of redirects is considered a redirect chain. Sometimes, if page B redirects back to page A, the redirect chain becomes closed and is considered a redirect loop.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/redirect_chains/?bash'"
+        },
+        {
+          "info": {
+            "name": "NonIndexable",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/on_page/non_indexable",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint returns a list of pages that are blocked from being indexed by Google and other search engines through robots.txt, HTTP headers, or meta tags settings.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/non_indexable/?bash'"
+        },
+        {
+          "info": {
+            "name": "Waterfall",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/on_page/waterfall",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint is designed to provide you with the page speed insights. Using this function you can get detailed information about the page loading time, time to secure connection, the time it takes to load page resources, and so on.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/waterfall/?bash'"
+        },
+        {
+          "info": {
+            "name": "KeywordDensity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/on_page/keyword_density",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with keyword density and keyword frequency data for terms appearing on the specified website or web page. You can filter and sort the data that will be retrieved with this API call.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/keyword_density/?bash'"
+        },
+        {
+          "info": {
+            "name": "Microdata",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/on_page/microdata",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint is designed to validate structured JSON-LD data and Microdata. Using this function you will obtain microdata available on the specified page of the target website and detailed results of its validation.\nTo use this endpoint, set the validate_micromarkup parameter to true in the POST request to OnPage API.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/microdata/?bash'"
+        },
+        {
+          "info": {
+            "name": "RawHtml",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/on_page/raw_html",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint returns the HTML of a page you indicate in the request.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/raw_html/?bash'"
+        },
+        {
+          "info": {
+            "name": "PageScreenshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/on_page/page_screenshot",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Using this endpoint, you can capture a full high-quality screenshot of any webpage. In this way, you can review the target page as the DataForSEO crawler and Googlebot see it.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/page_screenshot/?bash'"
+        },
+        {
+          "info": {
+            "name": "ContentParsing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/on_page/content_parsing",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint allows parsing the content on any page you specify and will return the structured content of the target page, including link URLs, anchors, headings, and textual content.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/content_parsing/?bash'"
+        },
+        {
+          "info": {
+            "name": "ContentParsingLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/on_page/content_parsing/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint allows parsing the content on any page you specify and will return the structured content of the target page, including link URLs, anchors, headings, and textual content.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/content_parsing/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "InstantPages",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/on_page/instant_pages",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Using this function you will get page-specific data with detailed information on how well a particular page is optimized for organic search.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/instant_pages/?bash'"
+        },
+        {
+          "info": {
+            "name": "LighthouseLanguages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/on_page/lighthouse/languages",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You will receive the list of languages by calling this API.\n \nAs a response of the API server, you will receive JSON-encoded data containing a tasks array with the information specific to the set tasks.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/lighthouse/languages/?bash'"
+        },
+        {
+          "info": {
+            "name": "LighthouseAudits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/on_page/lighthouse/audits",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "The OnPage Lighthouse API is based on Google’s open-source Lighthouse project and provides data on the quality of web pages.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/lighthouse/audits/?bash'"
+        },
+        {
+          "info": {
+            "name": "LighthouseVersions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/on_page/lighthouse/versions",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "OnPage Lighthouse API is based on Google’s open-source Lighthouse project and provides data on the quality of web pages.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/lighthouse/versions/?bash'"
+        },
+        {
+          "info": {
+            "name": "LighthouseTaskPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/on_page/lighthouse/task_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "The OnPage Lighthouse API is based on Google’s open-source Lighthouse project for measuring the quality of web pages and web apps.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/lighthouse/task_post/?bash'"
+        },
+        {
+          "info": {
+            "name": "LighthouseTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/on_page/lighthouse/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "The ‘Tasks Ready’ endpoint is designed to provide you with the list of completed tasks, which haven’t been collected yet. If you use the Standard method without specifying the postback_url, you can receive the list of id for all completed tasks using this endpoint. Then, you can collect the results using the ‘Task GET’ endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/lighthouse/tasks_ready/?bash'"
+        },
+        {
+          "info": {
+            "name": "LighthouseTaskGetJson",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/on_page/lighthouse/task_get/json/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifier\nrequired field\nyou can get this ID in the response of the Task POST endpoint\nexample:\n“07131248-1535-0216-1000-17384017ad04”"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "The OnPage Lighthouse API is based on Google’s open-source Lighthouse project for measuring the quality of web pages and web apps. This endpoint will provide you with the results of Lighthouse Audit. Use the id received in the response of your Task POST request to get the results. The response will include data about all categories and audits specified in the Task POST. By default, the response will include all available data about the webpage including its performance, accessibility, progressiv"
+        },
+        {
+          "info": {
+            "name": "LighthouseLiveJson",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/on_page/lighthouse/live/json",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "The OnPage Lighthouse API is based on Google’s open-source Lighthouse project for measuring the quality of web pages and web apps.\nfor more info please visit 'https://docs.dataforseo.com/v3/on_page/lighthouse/live/json/?bash'"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

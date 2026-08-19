@@ -1,0 +1,156 @@
+generated: '2026-08-13'
+method: derived
+source: openapi/*.yml (12 documents, 554 operations, 2,293 component schemas)
+docs: https://docs.dataforseo.com/v3/
+
+summary: >-
+  DataForSEO has no customer-owned resource graph. There are no Customer,
+  Account, Project or Subscription entities to create, read, update or delete —
+  the only durable object a caller owns is a Task, and everything else is a
+  read-only projection of scraped third-party data (search engines, app stores,
+  marketplaces, review platforms). The data model is therefore one universal
+  four-level envelope repeated 554 times with a different leaf payload, rather
+  than an entity-relationship graph. Naming is mechanically consistent, which
+  makes it navigable: for any endpoint X there is an XRequestInfo,
+  XResponseInfo, XTaskInfo and XResultInfo.
+
+envelope:
+  levels:
+    - level: 1
+      entity: Response
+      schema: BaseResponseInfo
+      fields: [version, status_code, status_message, time, cost, tasks_count, tasks_error]
+      relationship: has_many Task (via `tasks`)
+    - level: 2
+      entity: Task
+      schema: '<Endpoint>TaskInfo'
+      fields: [id, status_code, status_message, time, cost, result_count, path, data, result]
+      identity: {field: id, type: UUID}
+      relationship: has_many Result (via `result`)
+    - level: 3
+      entity: Result
+      schema: '<Endpoint>ResultInfo'
+      relationship: has_many Item (via `items`)
+      note: >-
+        Carries the query context that produced the payload — commonly
+        keyword, se_domain, location_code, language_code, check_url, datetime,
+        items_count and total_count.
+    - level: 4
+      entity: Item
+      schema: "<Feature>Element / <Feature>SerpItem / <Feature>ItemInfo"
+      note: >-
+        The polymorphic leaf. SERP items are discriminated by a `type` field
+        (organic, paid, featured_snippet, local_pack, people_also_ask, ...), so
+        a consumer must branch on `type` rather than assume a shape.
+
+core_entities:
+
+  - name: Task
+    durable: true
+    identity: id (UUID, client-suppliable)
+    lifecycle: [posted, in_queue, ready, collected, expired]
+    lifecycle_codes: {handed: 40601, in_queue: 40602, ok: 20000, created: 20100, expired: 40403}
+    retention: 30 days (7 days for HTML results; Live results are not stored)
+    created_by: '<Family>TaskPost operations'
+    listed_by: '<Family>IdList operations'
+    fetched_by: '<Family>TaskGet operations'
+    relationships:
+      - {type: has_many, target: Result, via: result}
+      - {type: belongs_to, target: Account, via: authenticated credentials}
+    note: >-
+      The only object with a server-side lifetime. Uniqueness of `id` is scoped
+      per client, per search engine, per search type and per function (errors
+      40001-40004).
+
+  - name: Account
+    durable: true
+    identity: API login
+    read_by: {operationId: UserData, path: GET /v3/appendix/user_data, spec: openapi/dataforseo-appendix-api-openapi.yml}
+    fields_note: >-
+      Balance, rates, limits and price list. There is no write surface — account
+      state is managed in the dashboard at app.dataforseo.com, not through the API.
+    relationships:
+      - {type: has_many, target: Task, via: authenticated credentials}
+
+  - name: Location
+    durable: false
+    read_by: '<Family>Locations / LocationsCountry operations (e.g. AmazonLocations, GET /v3/merchant/amazon/locations)'
+    identity: location_code (integer) or location_name (string)
+    note: >-
+      A reference dimension every task request accepts. Stale location codes are
+      rejected with status_code 40505.
+
+  - name: Language
+    durable: false
+    read_by: '<Family>Languages operations'
+    identity: language_code (string) or language_name (string)
+
+projections:
+  note: >-
+    These are read-only views of external data. They have no ids in DataForSEO's
+    namespace — they carry the FOREIGN key of the source platform, which is what
+    makes cross-API joins possible.
+  entities:
+    - {name: SERP, key: keyword + se_domain + location_code + language_code, spec: openapi/dataforseo-serp-api-openapi.yml}
+    - {name: Keyword, key: keyword + location_code + language_code, spec: openapi/dataforseo-keywordsdata-api-openapi.yml}
+    - {name: Domain, key: target (domain), spec: openapi/dataforseo-domainanalytics-api-openapi.yml}
+    - {name: Backlink, key: url_from + url_to, spec: openapi/dataforseo-backlinks-api-openapi.yml}
+    - {name: Page, key: url + crawl task id, spec: openapi/dataforseo-onpage-api-openapi.yml}
+    - {name: Product, key: ASIN (Amazon) / product_id (Google Shopping), spec: openapi/dataforseo-merchant-api-openapi.yml}
+    - {name: App, key: app_id, spec: openapi/dataforseo-appdata-api-openapi.yml}
+    - {name: BusinessListing, key: cid / place_id, spec: openapi/dataforseo-businessdata-api-openapi.yml}
+    - {name: LLMResponse, key: prompt + model, spec: openapi/dataforseo-aioptimization-api-openapi.yml}
+    - {name: ContentMention, key: keyword + domain, spec: openapi/dataforseo-contentanalysis-api-openapi.yml}
+    - {name: RankedKeyword, key: target + location_code + language_code, spec: openapi/dataforseo-dataforseolabs-api-openapi.yml}
+
+relationships:
+  - {from: Response, to: Task, type: has_many, via: tasks}
+  - {from: Task, to: Result, type: has_many, via: result}
+  - {from: Result, to: Item, type: has_many, via: items}
+  - {from: Task, to: Account, type: belongs_to, via: authenticated credentials}
+  - {from: Task, to: Location, type: has_one, via: location_code}
+  - {from: Task, to: Language, type: has_one, via: language_code}
+  - {from: SERP, to: Domain, type: has_many, via: domain (per organic item)}
+  - {from: Domain, to: RankedKeyword, type: has_many, via: target}
+  - {from: Domain, to: Backlink, type: has_many, via: url_to}
+  - {from: Page, to: Domain, type: belongs_to, via: url}
+  - {from: Product, to: BusinessListing, type: relates_to, via: seller}
+
+join_keys:
+  detail: >-
+    Cross-API joins are done on the source platform's identifiers, not on
+    DataForSEO ids. The practical join set is: domain/target (SERP <-> Labs <->
+    Backlinks <-> Domain Analytics <-> OnPage), keyword + location_code +
+    language_code (SERP <-> Keywords Data <-> Labs), ASIN (Merchant Amazon <->
+    App Data reviews), app_id (App Data), and cid/place_id (Business Data).
+
+schema_scale:
+  total_component_schemas: 2293
+  by_spec:
+    - {spec: openapi/dataforseo-serp-api-openapi.yml, schemas: 626}
+    - {spec: openapi/dataforseo-keywordsdata-api-openapi.yml, schemas: 257}
+    - {spec: openapi/dataforseo-dataforseolabs-api-openapi.yml, schemas: 250}
+    - {spec: openapi/dataforseo-businessdata-api-openapi.yml, schemas: 228}
+    - {spec: openapi/dataforseo-aioptimization-api-openapi.yml, schemas: 173}
+    - {spec: openapi/dataforseo-onpage-api-openapi.yml, schemas: 156}
+    - {spec: openapi/dataforseo-appdata-api-openapi.yml, schemas: 146}
+    - {spec: openapi/dataforseo-backlinks-api-openapi.yml, schemas: 124}
+    - {spec: openapi/dataforseo-merchant-api-openapi.yml, schemas: 124}
+    - {spec: openapi/dataforseo-appendix-api-openapi.yml, schemas: 96}
+    - {spec: openapi/dataforseo-domainanalytics-api-openapi.yml, schemas: 63}
+    - {spec: openapi/dataforseo-contentanalysis-api-openapi.yml, schemas: 50}
+
+naming_convention:
+  request: <Family><Endpoint>RequestInfo
+  response: <Family><Endpoint>ResponseInfo
+  task: <Family><Endpoint>TaskInfo
+  result: <Family><Endpoint>ResultInfo
+  item: <Feature>Element | <Feature>SerpItem | <Feature>ItemInfo
+  note: >-
+    Held consistently across all 12 specs, so schema names are predictable from
+    the operationId. This is the single most useful property of the model for an
+    agent: given operationId `GoogleOrganicLiveAdvanced` the response schema is
+    `SerpGoogleOrganicLiveAdvancedResponseInfo`.
+
+json_schema_extracts: json-schema/
+vocabulary: vocabulary/dataforseo-vocabulary.yml

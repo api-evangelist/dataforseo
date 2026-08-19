@@ -1,0 +1,144 @@
+generated: '2026-08-13'
+method: searched
+status: published
+source: >-
+  https://github.com/dataforseo/mcp-server-typescript (README),
+  https://www.npmjs.com/package/dataforseo-mcp-server, and live probes of
+  https://mcp.dataforseo.com and https://data.dataforseo.com
+
+deployment:
+  mode: both
+  endpoint: https://mcp.dataforseo.com/mcp
+  install: npx -y dataforseo-mcp-server@latest
+  package: https://www.npmjs.com/package/dataforseo-mcp-server
+  auth: oauth
+  verified: probed
+
+server:
+  name: dataforseo
+  transport: streamable-http
+  url: https://mcp.dataforseo.com/mcp
+  repository: https://github.com/dataforseo/mcp-server-typescript
+  package_version: 3.0.0
+  package_published: '2026-08-11'
+  local_default_port: 3000
+  stdio_flag: --mode stdio
+
+x-evidence:
+  - probe: POST https://mcp.dataforseo.com/mcp {"jsonrpc":"2.0","id":1,"method":"tools/list"}
+    fetched: '2026-08-13'
+    http_status: 401
+    body: '{"error":"invalid auth","error_description":"invalid auth"}'
+    reading: >-
+      The hosted server is live and reachable but tools/list is auth-gated, so
+      the tool schemas below come from the provider README rather than live
+      introspection.
+  - probe: GET https://mcp.dataforseo.com/.well-known/oauth-protected-resource
+    fetched: '2026-08-13'
+    http_status: 200
+    body: >-
+      {"resource":"https://mcp.dataforseo.com","authorization_servers":["https://data.dataforseo.com"],"bearer_methods_supported":["header"]}
+  - probe: GET https://mcp.dataforseo.com/.well-known/oauth-protected-resource/mcp
+    fetched: '2026-08-13'
+    http_status: 200
+  - probe: GET https://data.dataforseo.com/.well-known/oauth-authorization-server
+    fetched: '2026-08-13'
+    http_status: 200
+    reading: RFC 8414 metadata; PKCE S256, dynamic client registration, scopes api + profile.
+
+defects:
+  - id: documented-remote-endpoint-404
+    severity: high
+    detail: >-
+      The README's MCP client config block names the remote server as
+      https://data.dataforseo.com/v3/mcp. That URL returns HTTP 404 with
+      {"message":"The route v3/mcp could not be found."} (probed 2026-08-13), as
+      do /v3/http, /mcp and /http on that host. The endpoint that actually
+      answers MCP is https://mcp.dataforseo.com/mcp, which returns a proper
+      401 invalid-auth JSON-RPC rejection and serves RFC 9728 protected-resource
+      metadata. An agent following the published config cannot connect.
+    documented: https://data.dataforseo.com/v3/mcp
+    working: https://mcp.dataforseo.com/mcp
+
+authentication:
+  primary:
+    type: oauth2
+    authorization_server: https://data.dataforseo.com
+    authorization_endpoint: https://data.dataforseo.com/oauth/authorize
+    token_endpoint: https://data.dataforseo.com/oauth/token
+    registration_endpoint: https://data.dataforseo.com/oauth/clients/register
+    revocation_endpoint: https://data.dataforseo.com/oauth/tokens/revoke
+    pkce: [S256]
+    scopes: [api, profile]
+    bearer_methods_supported: [header]
+    note: Default for the HTTP transport; discovered via RFC 9728 + RFC 8414 metadata.
+  fallback:
+    type: http-basic
+    env: [DATAFORSEO_LOGIN, DATAFORSEO_PASSWORD]
+    aliases: [DATAFORSEO_USERNAME]
+    note: >-
+      Required for the CLI and the stdio transport (OAuth is not used on stdio).
+      On HTTP it is used when no Authorization header is present. Credentials
+      come from https://app.dataforseo.com/api-access.
+
+transports:
+  - id: streamable-http
+    default: true
+    paths: [POST /mcp, POST /http]
+    metadata_paths:
+      - /.well-known/oauth-protected-resource
+      - /.well-known/oauth-protected-resource/mcp
+      - /.well-known/oauth-protected-resource/http
+  - id: stdio
+    default: false
+    invocation: npx dataforseo-mcp-server --mode stdio
+    auth: env credentials only
+
+tools:
+  - name: docs_index
+    title: Docs Index
+    description: Fetch documentation index, optionally filtered by section (24h cache).
+    category: documentation
+  - name: docs_list_sections
+    title: Docs List Sections
+    description: Return available documentation section names.
+    category: documentation
+  - name: docs_search
+    title: Docs Search
+    description: >-
+      Fetch documentation from a documentation URL; needCodeExample returns PHP,
+      Node.js, Python and C# examples. 24h cache.
+    category: documentation
+  - name: api_request
+    title: API Request
+    description: >-
+      Make an authenticated DataForSEO API request. Uses .ai response paths by
+      default; the request body is passed as `data` (JSON object or array).
+    category: passthrough
+
+tool_source: >-
+  https://github.com/dataforseo/mcp-server-typescript README "MCP Tools" table.
+  Live tools/list is auth-gated (401), so per-tool inputSchema was not observed
+  and is not recorded here — it requires authenticated introspection.
+
+deprecated_servers:
+  - name: dataforseo (v2)
+    repository: https://github.com/dataforseo/mcp-server-typescript-deprecated
+    status: deprecated
+    note: >-
+      The v2 server exposed one MCP tool per DataForSEO endpoint (e.g.
+      merchant_amazon_products_live_advanced, merchant_amazon_asin_live_advanced,
+      merchant_amazon_sellers_live_advanced, merchant_amazon_locations). v3
+      collapses that surface into a single generic api_request tool plus three
+      documentation tools. DataForSEO's own published Claude skills
+      (github.com/dataforseo/claude-skills, mirrored in skills/) still call the
+      v2 per-endpoint tool names, so those skills target the deprecated server.
+
+related:
+  - type: cli
+    url: cli/dataforseo-cli.yml
+    note: The same npm binary is also a CLI (`docs`, `request`).
+  - type: crosswalk
+    url: mcp/dataforseo-tool-crosswalk.yml
+  - type: scopes
+    url: scopes/dataforseo-scopes.yml

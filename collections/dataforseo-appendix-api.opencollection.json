@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DataForSEO AiOptimization Appendix API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Appendix",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "UserData",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/appendix/user_data",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You will receive detailed information about your API usage, prices, spending and other account details by calling this API.\nfor more info please visit 'https://docs.dataforseo.com/v3/appendix/user_data/?bash'"
+        },
+        {
+          "info": {
+            "name": "Errors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/appendix/errors",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint returns a list of possible DataForSEO API errors and general status codes. Below you will find a list of HTTP response codes and internal messages. We recommend storing the data connected to error codes in your application log and designing a necessary system for handling related exceptional or error conditions.\nfor more info please visit 'https://docs.dataforseo.com/v3/appendix/errors/?bash'"
+        },
+        {
+          "info": {
+            "name": "WebhookResend",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/appendix/webhook_resend",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Using this endpoint you can resend webhooks (pingbacks and postbacks) for up to 100 specified tasks.\nNote: Your account will not be double-charged for resending a webhook.\nfor more info please visit 'https://docs.dataforseo.com/v3/appendix/webhook_resend/?bash'"
+        },
+        {
+          "info": {
+            "name": "AppendixStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/appendix/status",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "By calling this API you will receive detailed information about the current status of all our APIs and endpoints. You will also get a full issue description if a problem occurs.\nfor more info please visit 'https://docs.dataforseo.com/v3/appendix/status/?bash'"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,163 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://docs.dataforseo.com/v3/auth/, https://docs.dataforseo.com/v3/appendix/errors/,
+  https://data.dataforseo.com/.well-known/oauth-authorization-server,
+  https://mcp.dataforseo.com/.well-known/oauth-protected-resource,
+  https://dataforseo.com/wp-content/uploads/2021/12/27001_DATAFORSEO-.pdf,
+  https://dataforseo.com/privacy-policy/, and openapi/*.yml
+
+standards:
+
+  - id: openapi-3.0
+    conforms: true
+    evidence: >-
+      12 documents under openapi/ declare openapi 3.0.1, and DataForSEO publishes
+      the combined source spec itself at
+      github.com/dataforseo/OpenApiDocumentation/openapi_specification.yaml
+      (570 operations).
+
+  - id: rest
+    conforms: partial
+    evidence: >-
+      HTTP + JSON over /v3/ paths, but the model is task/RPC-oriented (POST-heavy,
+      action verbs in the path such as task_post / tasks_ready / task_get) rather
+      than resource-oriented, and nearly all responses are HTTP 200 regardless of
+      outcome.
+
+  - id: http-basic-auth
+    conforms: true
+    evidence: >-
+      RFC 7617 Basic on every request; WWW-Authenticate: Basic realm="DataForSEO
+      REST API" observed live on a 401 (2026-08-13). Single securityScheme
+      `basicAuth` across all 12 specs.
+
+  - id: oauth2
+    conforms: true
+    scope: MCP surface only
+    evidence: >-
+      Authorization Code + PKCE (S256) with refresh tokens, advertised at
+      https://data.dataforseo.com/.well-known/oauth-authorization-server. Not
+      available on the REST API.
+
+  - id: rfc8414-oauth-authorization-server-metadata
+    conforms: true
+    evidence: 200 JSON metadata document at data.dataforseo.com; saved to well-known/.
+
+  - id: rfc9728-oauth-protected-resource-metadata
+    conforms: true
+    evidence: >-
+      200 at both /.well-known/oauth-protected-resource and
+      /.well-known/oauth-protected-resource/mcp on mcp.dataforseo.com, naming
+      data.dataforseo.com as the authorization server.
+
+  - id: rfc7591-dynamic-client-registration
+    conforms: true
+    evidence: registration_endpoint https://data.dataforseo.com/oauth/clients/register
+
+  - id: rfc7009-token-revocation
+    conforms: true
+    evidence: revocation_endpoint https://data.dataforseo.com/oauth/tokens/revoke
+
+  - id: rfc7636-pkce
+    conforms: true
+    evidence: code_challenge_methods_supported ["S256"]
+
+  - id: mcp
+    conforms: true
+    evidence: >-
+      Hosted Streamable HTTP MCP server at https://mcp.dataforseo.com/mcp
+      (live, OAuth-gated) plus an official npm server/CLI
+      (dataforseo-mcp-server 3.0.0). See mcp/dataforseo-mcp.yml.
+
+  - id: llms-txt
+    conforms: true
+    evidence: >-
+      https://dataforseo.com/llms.txt returns 200 text/plain, 221,828 bytes,
+      correctly shaped (H1, blockquote summary, sectioned link lists with .md
+      documentation URLs). Saved verbatim to llms/dataforseo-llms.txt.
+
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: >-
+      No application/problem+json anywhere in the 12 specs. Errors use a
+      proprietary numeric status_code/status_message envelope returned with
+      HTTP 200. See errors/dataforseo-problem-types.yml.
+
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: >-
+      No /.well-known/security.txt on any host; dataforseo.com returns 403 for
+      the entire /.well-known/ directory.
+
+  - id: rfc8594-sunset-header
+    conforms: false
+    evidence: No Sunset/Deprecation header support or deprecation policy is documented.
+
+  - id: rfc7807-idempotency-key
+    conforms: false
+    evidence: >-
+      No idempotency key of any kind. "idempoten" does not appear in the docs,
+      the error reference, the MCP README, or any of the 554 operations.
+
+  - id: a2a
+    conforms: false
+    evidence: >-
+      No agent card at /.well-known/agent-card.json or /.well-known/agent.json on
+      any of the six probed hosts.
+
+  - id: asyncapi
+    conforms: false
+    evidence: >-
+      No AsyncAPI document published, though a real webhook surface exists
+      (postback_url / pingback_url + /v3/appendix/webhook_resend). Captured in
+      asyncapi/dataforseo-webhooks.yml as a webhook catalog.
+
+  - id: json-schema
+    conforms: true
+    evidence: >-
+      2,293 component schemas across the 12 specs; JSON Schema extracts already
+      captured under json-schema/.
+
+  - id: iso-27001
+    conforms: true
+    certified: true
+    version: 'ISO/IEC 27001:2022'
+    certificate:
+      url: https://dataforseo.com/wp-content/uploads/2021/12/27001_DATAFORSEO-.pdf
+      http_status: 200
+      content_type: application/pdf
+      entity: DATAFORSEO OÜ, Tallinn, Estonia (Registration Code 14502291)
+      scope: computer programming activities
+      certification_body: DP CERTSYSTEMS (EUROCERT SYSTEM registry)
+      certificate_number: ECS.UA.02.5183
+      issued: '2025-10-21'
+      expires: '2027-11-12'
+      annual_approval_through: '2026-11-12'
+      verified: >-
+        Certificate PDF fetched and text-extracted 2026-08-13; linked from the
+        "Legal information" block in the dataforseo.com footer.
+
+  - id: gdpr
+    conforms: true
+    evidence: >-
+      https://dataforseo.com/privacy-policy/ incorporates a DataForSEO Data
+      Processing Agreement (DPA) that applies when the GDPR applies to the
+      customer's use of the services.
+
+  - id: soc2
+    conforms: false
+    evidence: No SOC 2 report or attestation is published.
+
+  - id: pci-dss
+    conforms: false
+    evidence: Not applicable — DataForSEO is not a payments provider.
+
+compliance_summary:
+  published_certifications: ['ISO/IEC 27001:2022']
+  published_programs: [GDPR / DPA]
+  trust_center: false
+  trust_center_note: >-
+    No trust.dataforseo.com (connection failed) and no /security or /compliance
+    page. The ISO 27001 certificate PDF in the footer is the entire published
+    compliance surface.

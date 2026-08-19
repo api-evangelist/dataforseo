@@ -1,0 +1,862 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DataForSEO AiOptimization API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AiOptimization",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "ChatGptLlmScraperLocations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/chat_gpt/llm_scraper/locations",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You will receive the list of locations by this API call. You can filter the list of locations by country when setting a task.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/chat_gpt/llm_scraper/locations/?bash'"
+        },
+        {
+          "info": {
+            "name": "ChatGptLlmScraperLocationsCountry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/chat_gpt/llm_scraper/locations/:country",
+            "params": [
+              {
+                "name": "country",
+                "value": "us",
+                "type": "path",
+                "description": "country ISO codeoptional fieldspecify the ISO code if you want to filter the list of locations by countryexample:us"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You will receive the list of locations by this API call. You can filter the list of locations by country when setting a task.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/chat_gpt/llm_scraper/locations/?bash'"
+        },
+        {
+          "info": {
+            "name": "ChatGptLlmScraperLanguages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/chat_gpt/llm_scraper/languages",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You will receive the list of languages by calling this API.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/chat_gpt/llm_scraper/languages/?bash'"
+        },
+        {
+          "info": {
+            "name": "ChatGptLlmScraperTaskPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/chat_gpt/llm_scraper/task_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "ChatGPT LLM Scraper API provides results from ChatGPT searches. The results are specific to the selected location (see the List of Locations) and language (see the List of Languages) parameters.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/chat_gpt/llm_scraper/task_post/?bash'"
+        },
+        {
+          "info": {
+            "name": "ChatGptLlmScraperTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/chat_gpt/llm_scraper/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "The ‘Tasks Ready’ endpoint is designed to provide you with the list of completed tasks, which haven’t been collected yet. If you use the Standard method without specifying the postback_url, you can receive the list of id for all completed tasks using this endpoint. Then, you can collect the results using the ‘Task GET’ endpoint.\nLearn more about task completion and obtaining a list of completed tasks in this help center article.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optim"
+        },
+        {
+          "info": {
+            "name": "ChatGptLlmScraperTaskGetAdvanced",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/chat_gpt/llm_scraper/task_get/advanced/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifiera universally unique identifier (UUID)unique task identifier in our systemyou will be able to use it within 30 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Description of the fields for sending a request:\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/chat_gpt/llm_scraper/task_get/advanced/?bash'"
+        },
+        {
+          "info": {
+            "name": "ChatGptLlmScraperTaskGetHtml",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/chat_gpt/llm_scraper/task_get/html/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifierunique task identifier in our system in the UUID formatyou will be able to use it within 7 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Description of the fields for sending a request:\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/chat_gpt/llm_scraper/task_get/html/?bash'"
+        },
+        {
+          "info": {
+            "name": "ChatGptLlmScraperLiveAdvanced",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/chat_gpt/llm_scraper/live/advanced",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Live ChatGPT LLM Scraper endpoint provides results from ChatGPT searches. The results are specific to the selected location (see the List of Locations) and language (see the List of Languages) parameters.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/chat_gpt/llm_scraper/live/advanced/'"
+        },
+        {
+          "info": {
+            "name": "ChatGptLlmScraperLiveHtml",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/chat_gpt/llm_scraper/live/html",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Live ChatGPT LLM Scraper API HTML provides a raw HTML page of the results for the specified keyword, language, and location.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/chat_gpt/llm_scraper/live/html/'"
+        },
+        {
+          "info": {
+            "name": "LlmMentionsLocationsAndLanguages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/llm_mentions/locations_and_languages",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Using this endpoint you can get the full list of locations and languages supported in AI Optimization LLM Mentions API.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/llm_mentions/locations_and_languages/'"
+        },
+        {
+          "info": {
+            "name": "LlmMentionsAvailableFilters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/llm_mentions/available_filters",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Here you will find all the necessary information about filters that can be used with AI Optimization LLM Mentions API endpoints.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/llm_mentions/filters/'"
+        },
+        {
+          "info": {
+            "name": "LlmMentionsSearchLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/llm_mentions/search/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Live LLM Mentions Search endpoint provides mention data and related metrics from AI searches. The results are specific to the selected platform (google for Google’s  AI Overview or chat_gpt for ChatGPT), as well as location and language parameters (see the List of Locations & Languages).\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/llm_mentions/search/live/'"
+        },
+        {
+          "info": {
+            "name": "LlmMentionsTopPagesLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/llm_mentions/top_pages/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Live LLM Mentions Top Pages endpoint provides aggregated LLM mentions metrics grouped by the most frequently mentioned pages for the specified target. The results are specific to the selected platform (google for Google’s  AI Overview or chat_gpt for ChatGPT), location and language parameters (see the List of Locations & Languages).\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/llm_mentions/top_pages/live/'"
+        },
+        {
+          "info": {
+            "name": "LlmMentionsTopDomainsLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/llm_mentions/top_domains/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Live LLM Mentions Top Domains endpoint provides aggregated LLM mentions metrics grouped by the most frequently mentioned domains for the specified target. The results are specific to the selected platform (google for Google’s  AI Overview or chat_gpt for ChatGPT), location and language parameters (see the List of Locations & Languages).\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/llm_mentions/top_domains/live/'"
+        },
+        {
+          "info": {
+            "name": "LlmMentionsAggregatedMetricsLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/llm_mentions/aggregated_metrics/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Live LLM Mentions endpoint provides aggregated metrics for mentions of the keywords or domains specified in the target array of the request. The results are specific to the selected platform (google for Google’s  AI Overview or chat_gpt for ChatGPT), location and language parameters (see the List of Locations & Languages).\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/llm_mentions/aggregated_metrics/live/'"
+        },
+        {
+          "info": {
+            "name": "LlmMentionsCrossAggregatedMetricsLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/llm_mentions/cross_aggregated_metrics/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Live LLM Mentions endpoint provides aggregated metrics grouped by custom keys for mentions of the keywords or domains specified in the target array of the request. Each item in the results array corresponds to the specified target. The results are specific to the selected platform (google for Google’s  AI Overview or chat_gpt for ChatGPT), location and language parameters (see the List of Locations & Languages).\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/llm_menti"
+        },
+        {
+          "info": {
+            "name": "ChatGptLlmResponsesModels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/chat_gpt/llm_responses/models",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You will receive the list of available Chat GPT AI models by calling this API.\n \nAs a response of the API server, you will receive JSON-encoded data containing a tasks array with the information specific to the set tasks.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/chat_gpt/llm_responses/models/'"
+        },
+        {
+          "info": {
+            "name": "ChatGptLlmResponsesLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/chat_gpt/llm_responses/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Live ChatGPT LLM Responses endpoint allows you to retrieve structured responses from a specific ChatGPT AI model, based on the input parameters.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/chat_gpt/llm_responses/live/'"
+        },
+        {
+          "info": {
+            "name": "ChatGptLlmResponsesTaskPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/chat_gpt/llm_responses/task_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "ChatGPT LLM Responses endpoint allows you to retrieve structured responses from a specific ChatGPT model, based on the input parameters.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/chat_gpt/llm_responses/task_post/'"
+        },
+        {
+          "info": {
+            "name": "ChatGptLlmResponsesTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/chat_gpt/llm_responses/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint is designed to provide you with a list of completed tasks, which haven’t been collected yet. If you use the Standard method without specifying the postback_url, you can receive the list of id for all completed tasks using this endpoint. Then, you can collect the results using the ‘Task GET’ endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/chat_gpt/llm_responses/tasks_ready/'"
+        },
+        {
+          "info": {
+            "name": "ChatGptLlmResponsesTaskGet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/chat_gpt/llm_responses/task_get/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifierunique task identifier in our system in the UUID formatyou will be able to use it within 30 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Chat GPT LLM Responses endpoint allows you to retrieve structured responses from a specific Chat GPT model, based on the input parameters.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/chat_gpt/llm_responses/task_get/'"
+        },
+        {
+          "info": {
+            "name": "ClaudeLlmResponsesModels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/claude/llm_responses/models",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You will receive the list of available Claude AI models by calling this API.\n \nAs a response of the API server, you will receive JSON-encoded data containing a tasks array with the information specific to the set tasks.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/claude/llm_responses/models/'"
+        },
+        {
+          "info": {
+            "name": "ClaudeLlmResponsesLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/claude/llm_responses/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Live Claude LLM Responses endpoint allows you to retrieve structured responses from a specific Claude model, based on the input parameters.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/claude/llm_responses/live/'"
+        },
+        {
+          "info": {
+            "name": "ClaudeLlmResponsesTaskPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/claude/llm_responses/task_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Claude LLM Responses endpoint allows you to retrieve structured responses from a specific Claude model, based on the input parameters.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/claude/llm_responses/task_post/'"
+        },
+        {
+          "info": {
+            "name": "ClaudeLlmResponsesTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/claude/llm_responses/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint is designed to provide you with a list of completed tasks, which haven’t been collected yet. If you use the Standard method without specifying the postback_url, you can receive the list of id for all completed tasks using this endpoint. Then, you can collect the results using the ‘Task GET’ endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/claude/llm_responses/tasks_ready/'"
+        },
+        {
+          "info": {
+            "name": "ClaudeLlmResponsesTaskGet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/claude/llm_responses/task_get/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifierunique task identifier in our system in the UUID formatyou will be able to use it within 30 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Claude LLM Responses endpoint allows you to retrieve structured responses from a specific Claude model, based on the input parameters.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/claude/llm_responses/task_get/'"
+        },
+        {
+          "info": {
+            "name": "GeminiLlmResponsesModels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/gemini/llm_responses/models",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You will receive the list of available Gemini AI models by calling this API.\n \nAs a response of the API server, you will receive JSON-encoded data containing a tasks array with the information specific to the set tasks.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/gemini/llm_responses/models/'"
+        },
+        {
+          "info": {
+            "name": "GeminiLlmResponsesTaskPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/gemini/llm_responses/task_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Gemini LLM Responses endpoint allows you to retrieve structured responses from a specific Gemini model, based on the input parameters.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/gemini/llm_responses/task_post/'"
+        },
+        {
+          "info": {
+            "name": "GeminiLlmResponsesTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/gemini/llm_responses/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint is designed to provide you with a list of completed tasks, which haven’t been collected yet. If you use the Standard method without specifying the postback_url, you can receive the list of id for all completed tasks using this endpoint. Then, you can collect the results using the ‘Task GET’ endpoint.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/gemini/llm_responses/tasks_ready/'"
+        },
+        {
+          "info": {
+            "name": "GeminiLlmResponsesTaskGet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/gemini/llm_responses/task_get/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifierunique task identifier in our system in the UUID formatyou will be able to use it within 30 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Gemini LLM Responses endpoint allows you to retrieve structured responses from a specific Gemini model, based on the input parameters.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/gemini/llm_responses/task_get/'"
+        },
+        {
+          "info": {
+            "name": "GeminiLlmResponsesLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/gemini/llm_responses/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Live Gemini LLM Responses endpoint allows you to retrieve structured responses from a specific Gemini AI model, based on the input parameters.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/gemini/llm_responses/live/'"
+        },
+        {
+          "info": {
+            "name": "GeminiLlmScraperLocations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/gemini/llm_scraper/locations",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You will receive the list of locations by this API call. You can filter the list of locations by country when setting a task.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/gemini/llm_scraper/locations/?bash'"
+        },
+        {
+          "info": {
+            "name": "GeminiLlmScraperLanguages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/gemini/llm_scraper/languages",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You will receive the list of languages by calling this API.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/gemini/llm_scraper/languages/?bash'"
+        },
+        {
+          "info": {
+            "name": "GeminiLlmScraperTaskPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/gemini/llm_scraper/task_post",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Gemini LLM Scraper API provides structured results from Gemini. The results are specific to the selected location (see the List of Locations) and language (see the List of Languages), and keyword.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/gemini/llm_scraper/task_post/?bash'"
+        },
+        {
+          "info": {
+            "name": "GeminiLlmScraperTasksReady",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/gemini/llm_scraper/tasks_ready",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "The ‘Tasks Ready’ endpoint is designed to provide you with the list of completed tasks, which haven’t been collected yet. If you use the Standard method without specifying the postback_url, you can receive the list of id for all completed tasks using this endpoint. Then, you can collect the results using the ‘Task GET’ endpoint.\nLearn more about task completion and obtaining a list of completed tasks in this help center article.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optim"
+        },
+        {
+          "info": {
+            "name": "GeminiLlmScraperTaskGetAdvanced",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/gemini/llm_scraper/task_get/advanced/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifiera universally unique identifier (UUID)unique task identifier in our systemyou will be able to use it within 30 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Description of the fields for sending a request:\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/gemini/llm_scraper/task_get/advanced/?bash'"
+        },
+        {
+          "info": {
+            "name": "GeminiLlmScraperTaskGetHtml",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/gemini/llm_scraper/task_get/html/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path",
+                "description": "task identifierunique task identifier in our system in the UUID formatyou will be able to use it within 7 days to request the results of the task at any time"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Description of the fields for sending a request:\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/gemini/llm_scraper/task_get/html/?bash'"
+        },
+        {
+          "info": {
+            "name": "GeminiLlmScraperLiveAdvanced",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/gemini/llm_scraper/live/advanced",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Live Gemini LLM Scraper endpoint provides structured results from Gemini. The results are specific to the selected location (see the List of Locations), language (see the List of Languages), and keyword.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/gemini/llm_scraper/live/advanced/'"
+        },
+        {
+          "info": {
+            "name": "GeminiLlmScraperLiveHtml",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/gemini/llm_scraper/live/html",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Live Gemini LLM Scraper API HTML provides a raw HTML page of the results for the specified keyword, language (see the List of Languages), and location (see the List of Locations).\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/gemini/llm_scraper/live/html/'"
+        },
+        {
+          "info": {
+            "name": "PerplexityLlmResponsesModels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/perplexity/llm_responses/models",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You will receive the list of available Perplexity AI models by calling this API.\n \nAs a response of the API server, you will receive JSON-encoded data containing a tasks array with the information specific to the set tasks.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/perplexity/llm_responses/models/'"
+        },
+        {
+          "info": {
+            "name": "PerplexityLlmResponsesLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/perplexity/llm_responses/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Live Perplexity LLM Responses endpoint allows you to retrieve structured responses from a specific Perplexity AI model, based on the input parameters.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/perplexity/llm_responses/live/'"
+        },
+        {
+          "info": {
+            "name": "AiKeywordDataAvailableFilters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/ai_keyword_data/available_filters",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Here you will find all the necessary information about filters that can be used with AI Keyword Data API endpoints.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/ai_keyword_data/available_filters'"
+        },
+        {
+          "info": {
+            "name": "AiKeywordDataLocationsAndLanguages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/ai_keyword_data/locations_and_languages",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Using this endpoint you can get the full list of locations and languages supported in AI Keyword Data API.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/ai_keyword_data/locations_and_languages'"
+        },
+        {
+          "info": {
+            "name": "AiKeywordDataKeywordsSearchVolumeLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/ai_optimization/ai_keyword_data/keywords_search_volume/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint provides search volume data for your target keywords, reflecting their estimated usage in AI tools.\nfor more info please visit 'https://docs.dataforseo.com/v3/ai_optimization/ai_keyword_data/keywords_search_volume/live'"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

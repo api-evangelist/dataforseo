@@ -1,0 +1,429 @@
+{
+  "item": [
+    {
+      "id": "c7036361-406e-4437-8c55-29e517abf0cf",
+      "name": "Appendix",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fc094fc7-606c-4769-84a5-a514aaf5d693",
+          "name": "User Data",
+          "request": {
+            "name": "User Data",
+            "description": {
+              "content": "You will receive detailed information about your API usage, prices, spending and other account details by calling this API.\nfor more info please visit 'https://docs.dataforseo.com/v3/appendix/user_data/?bash'",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "appendix",
+                "user_data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9b639668-2a51-4008-b2eb-3dcd24108745",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "appendix",
+                    "user_data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"status_code\": 7688,\n  \"status_message\": \"string\",\n  \"time\": \"string\",\n  \"cost\": 7492.683990622546,\n  \"tasks_count\": 7121,\n  \"tasks_error\": 7635,\n  \"tasks\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "633058e4-0250-4b91-bc51-7c347fd4564a",
+          "name": "Errors",
+          "request": {
+            "name": "Errors",
+            "description": {
+              "content": "This endpoint returns a list of possible DataForSEO API errors and general status codes. Below you will find a list of HTTP response codes and internal messages. We recommend storing the data connected to error codes in your application log and designing a necessary system for handling related exceptional or error conditions.\nfor more info please visit 'https://docs.dataforseo.com/v3/appendix/errors/?bash'",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "appendix",
+                "errors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "39206561-92b0-4b69-b774-41a74f1adcdb",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "appendix",
+                    "errors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"status_code\": 7688,\n  \"status_message\": \"string\",\n  \"time\": \"string\",\n  \"cost\": 7492.683990622546,\n  \"tasks_count\": 7121,\n  \"tasks_error\": 7635,\n  \"tasks\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9a69fd99-6704-4020-958f-704ca0f93082",
+          "name": "Webhook Resend",
+          "request": {
+            "name": "Webhook Resend",
+            "description": {
+              "content": "Using this endpoint you can resend webhooks (pingbacks and postbacks) for up to 100 specified tasks.\nNote: Your account will not be double-charged for resending a webhook.\nfor more info please visit 'https://docs.dataforseo.com/v3/appendix/webhook_resend/?bash'",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "appendix",
+                "webhook_resend"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"id\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c3454f8f-19b7-473d-ae86-672fad0205bf",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "appendix",
+                    "webhook_resend"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {}\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"status_code\": 2445,\n  \"status_message\": \"string\",\n  \"time\": \"string\",\n  \"cost\": 1337.4531916014132,\n  \"tasks_count\": 2343,\n  \"tasks_error\": 881,\n  \"tasks\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": {}\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe27b4bc-1a7c-464c-ac69-a02b6e7e24d2",
+          "name": "Appendix Status",
+          "request": {
+            "name": "Appendix Status",
+            "description": {
+              "content": "By calling this API you will receive detailed information about the current status of all our APIs and endpoints. You will also get a full issue description if a problem occurs.\nfor more info please visit 'https://docs.dataforseo.com/v3/appendix/status/?bash'",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "appendix",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "43a34041-3f82-4119-b956-798f108ca50f",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "appendix",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": \"string\",\n  \"status_code\": 7688,\n  \"status_message\": \"string\",\n  \"time\": \"string\",\n  \"cost\": 7492.683990622546,\n  \"tasks_count\": 7121,\n  \"tasks_error\": 7635,\n  \"tasks\": [\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_code\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"status_message\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"time\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"cost\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result_count\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"path\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"data\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"result\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.dataforseo.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4fd797b4-888d-4d36-a4da-400224bb2ec3",
+    "name": "DataForSEO AiOptimization Appendix API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "DataForSEO API is the starting point on your journey towards building powerful SEO software. With DataForSEO you can get all the data you need to build an efficient application while also saving your time and budget. DataForSEO API is using the REST technology for interchanging data between your application and our service. The data exchange is made through the widely used HTTP protocol, which allows applying our API to almost all programming languages.",
+      "type": "text/plain"
+    }
+  }
+}

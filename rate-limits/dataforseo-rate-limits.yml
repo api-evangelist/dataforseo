@@ -1,4 +1,9 @@
 specificationVersion: '0.1'
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://docs.dataforseo.com/v3/appendix/errors/,
+  https://docs.dataforseo.com/v3/appendix/sandbox/
 id: dataforseo-rate-limits
 name: DataForSEO Rate Limits
 description: >-
@@ -19,10 +24,31 @@ globalLimits:
       limit will result in throttled or rejected requests.
 
 responseHeaders:
-  - header: X-RateLimit-Limit
-    description: The maximum number of requests allowed in the current rate limit window.
-  - header: X-RateLimit-Remaining
-    description: The number of requests remaining in the current rate limit window.
+  observed: []
+  observedNote: >-
+    CORRECTED 2026-08-13. An earlier round of this file asserted X-RateLimit-Limit
+    and X-RateLimit-Remaining response headers. A live probe of
+    api.dataforseo.com (POST /v3/appendix/user_data, unauthenticated, 2026-08-13)
+    returned NO RateLimit-* or X-RateLimit-* headers of any kind — the response
+    carried only Server, Date, Content-Type, Content-Length, Connection, the CORS
+    Access-Control-* set and WWW-Authenticate. DataForSEO's documentation does not
+    describe rate-limit headers either. Recorded as absent rather than asserted.
+
+exhaustionSignal:
+  transport: response body, not headers
+  httpStatus: 200
+  statusCode: 40202
+  statusMessage: the rate-limit per minute has been exceeded.
+  detail: >-
+    Throttling is signalled by the numeric status_code inside an HTTP 200
+    envelope. An agent watching HTTP status or RateLimit-* headers will never see
+    it. There is no Retry-After header and no 429.
+  relatedCodes:
+    - {code: 40209, meaning: 'too many simultaneous queries (max 30 concurrent per user)'}
+    - {code: 40203, meaning: 'cost limit exceeded (dashboard-configured spend cap)'}
+    - {code: 40205, meaning: duplicate task limit per hour exceeded}
+    - {code: 40206, meaning: duplicate task limit per day exceeded}
+    - {code: 40210, meaning: 'insufficient funds (also HTTP 402)'}
 
 queueBehavior:
 

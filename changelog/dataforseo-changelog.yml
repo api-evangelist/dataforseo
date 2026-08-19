@@ -1,0 +1,154 @@
+generated: '2026-08-13'
+method: searched
+source: https://dataforseo.com/updates
+url: https://dataforseo.com/updates
+scheme: dated-product-updates
+current_version: v3
+observed: '2026-08-13'
+
+format_note: >-
+  The Updates feed renders relative ages ("7 days ago", "1 months ago") rather
+  than dates in the listing markup, and there is no dated RSS feed
+  (/updates/feed returns a comments feed whose lastBuildDate is 2023-11-22).
+  Where an exact date could be read from the post's own og:updated_time meta tag
+  it is recorded in `date`; otherwise `date` is null and `age_at_observation`
+  carries the provider's own relative wording. Dates stated inside a post body
+  are recorded in `effective_date`.
+
+categories:
+  - Announcement
+  - Improvement
+  - Databases
+  - SERP API
+  - Keyword Data API
+  - Domain Analytics API
+  - DataForSEO Labs API
+  - Business Data API
+  - Merchant API
+  - On-Page API
+  - Backlinks API
+  - App Data API
+  - Content Analysis API
+  - Content Generation API
+  - Third-Party Integrations
+  - AI Optimization API
+
+entries:
+
+  - title: Shopping IDs and URLs in Google's Popular Products Element
+    url: https://dataforseo.com/update/shopping-ids-and-urls-in-googles-popular-products-element
+    date: '2026-08-06'
+    age_at_observation: 7 days ago
+    categories: [SERP API]
+    breaking: false
+    additions: true
+    highlights: >-
+      Google SERP API now returns product URLs, domains and Google Shopping
+      identifiers in the Popular Products element, on both Task GET and Live
+      Advanced responses.
+
+  - title: App Subtitles in App Store Databases and API
+    url: https://dataforseo.com/update/app-subtitles-in-app-store-databases-and-api
+    date: null
+    age_at_observation: 10 days ago
+    categories: [App Data API, Databases]
+    breaking: false
+    additions: true
+    highlights: New `subtitle` field on Apple App Store listings in the App Data API and databases.
+
+  - title: Paid Ads in AI Mode SERP API
+    url: https://dataforseo.com/update/ads-in-ai-mode-serp-api
+    date: null
+    age_at_observation: 14 days ago
+    categories: [SERP API]
+    breaking: false
+    additions: true
+    highlights: >-
+      AI Mode SERP API now returns paid ad elements appearing inside
+      Google AI-generated responses.
+
+  - title: Service Details in Google My Business Info API
+    url: https://dataforseo.com/update/service-details-in-google-my-business-info-api
+    date: null
+    age_at_observation: 15 days ago
+    categories: [Business Data API]
+    breaking: false
+    additions: true
+    highlights: Google Business Profile service details exposed at scale via the GMB Info API.
+
+  - title: More Detailed Source Annotations in LLM Responses API
+    url: https://dataforseo.com/update/more-detailed-source-annotations-in-llm-responses-api
+    date: null
+    age_at_observation: 16 days ago
+    categories: [AI Optimization API]
+    breaking: false
+    additions: true
+    highlights: >-
+      Text-level source annotations for ChatGPT and Gemini responses in the LLM
+      Responses API.
+
+  - title: Extended LLM Mentions API Release
+    url: https://dataforseo.com/update/extended-llm-mentions-api-release
+    date: '2026-07-07'
+    age_at_observation: 1 months ago
+    categories: [AI Optimization API, Announcement]
+    breaking: false
+    additions: true
+    highlights: >-
+      Updated LLM Mentions API: improved performance, new reporting options,
+      historical data, and dedicated Lite endpoint versions.
+
+  - title: Pricing Update in DataForSEO APIs
+    url: https://dataforseo.com/update/pricing-update-in-dataforseo-apis
+    date: '2026-07-01'
+    effective_date: '2026-07-01'
+    age_at_observation: 1 months ago
+    categories: [Announcement]
+    breaking: true
+    additions: false
+    highlights: >-
+      Adjusted rates across selected APIs and cancellation of monthly
+      subscriptions — all endpoints moved to pay-as-you-go. A commercial
+      breaking change; see plans/dataforseo-plans-pricing.yml.
+
+  - title: Default Depth Update in App Store Reviews API
+    url: https://dataforseo.com/update/default-depth-update-in-app-store-reviews-api
+    date: null
+    effective_date: '2026-06-30'
+    age_at_observation: 1 months ago
+    categories: [App Data API]
+    breaking: true
+    additions: false
+    highlights: >-
+      Default value of the `depth` parameter in the Apple App Store Reviews API
+      changed from 50 to 25. A silent behaviour change for any caller that
+      omitted `depth`; no deprecation header or sunset window accompanied it.
+
+  - title: Live Endpoints in Amazon Merchant API
+    url: https://dataforseo.com/update/live-endpoints-in-amazon-merchant-api
+    date: null
+    age_at_observation: 2 months ago
+    categories: [Merchant API]
+    breaking: false
+    additions: true
+    highlights: >-
+      Live mode added to the Amazon Merchant API for real-time access. These are
+      the endpoints missing from the openapi/ snapshot in this repo — see
+      lifecycle/dataforseo-lifecycle.yml spec_drift.
+
+  - title: Ad Results Support in LLM Scraper API
+    url: https://dataforseo.com/update/ad-results-support-in-llm-scraper-api
+    date: null
+    age_at_observation: 2 months ago
+    categories: [AI Optimization API]
+    breaking: false
+    additions: true
+    highlights: >-
+      The ChatGPT LLM Scraper now returns sponsored ad results appearing within
+      ChatGPT responses.
+
+window:
+  entries_captured: 10
+  oldest_captured_age: 2 months
+  pagination: https://dataforseo.com/updates/page/2
+  note: Recent window only; the live Updates feed is the source of truth.

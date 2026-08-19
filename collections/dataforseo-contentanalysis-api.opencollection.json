@@ -1,0 +1,222 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DataForSEO AiOptimization ContentAnalysis API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ContentAnalysis",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "ContentAnalysisIdList",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/content_analysis/id_list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint is designed to provide you with a list of IDs and metadata for all Content Analysis tasks created within the specified time period, including both successful and uncompleted tasks.\nfor more info please visit 'https://docs.dataforseo.com/v3/content_analysis/id_list/?bash'"
+        },
+        {
+          "info": {
+            "name": "ContentAnalysisAvailableFilters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/content_analysis/available_filters",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Here you will find all the necessary information about filters that can be used with Content Analysis API endpoints.\nfor more info please visit 'https://docs.dataforseo.com/v3/content_analysis/filters/?bash'"
+        },
+        {
+          "info": {
+            "name": "Locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/content_analysis/locations",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You will receive the list of locations by this API call.\nfor more info please visit 'https://docs.dataforseo.com/v3/content_analysis/locations/?bash'"
+        },
+        {
+          "info": {
+            "name": "Languages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/content_analysis/languages",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You will receive the list of languages by calling this API.\n \nAs a response of the API server, you will receive JSON-encoded data containing a tasks array with the information specific to the set tasks.\nfor more info please visit 'https://docs.dataforseo.com/v3/content_analysis/languages/?bash'"
+        },
+        {
+          "info": {
+            "name": "ContentAnalysisCategories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/content_analysis/categories",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "We use Google product and service categories. This endpoint will provide you with the full list of available categories.\nYou can also download the CSV file by this link.\nfor more info please visit 'https://docs.dataforseo.com/v3/content_analysis/categories/?bash'"
+        },
+        {
+          "info": {
+            "name": "SearchLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/content_analysis/search/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with detailed citation data available for the target keyword.\nfor more info please visit 'https://docs.dataforseo.com/v3/content_analysis/search/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "ContentAnalysisSummaryLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/content_analysis/summary/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with an overview of citation data available for the target keyword.\nfor more info please visit 'https://docs.dataforseo.com/v3/content_analysis/summary/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "SentimentAnalysisLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/content_analysis/sentiment_analysis/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with sentiment analysis data for the citations available for the target keyword.\nfor more info please visit 'https://docs.dataforseo.com/v3/content_analysis/sentiment_analysis/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "RatingDistributionLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/content_analysis/rating_distribution/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with rating distribution data for the keyword and other parameters specified in the request.\nfor more info please visit 'https://docs.dataforseo.com/v3/content_analysis/rating_distribution/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "PhraseTrendsLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/content_analysis/phrase_trends/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with data on all citations of the target keyword for the indicated date range.\nfor more info please visit 'https://docs.dataforseo.com/v3/content_analysis/phrase_trends/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "CategoryTrendsLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/content_analysis/category_trends/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with data on all citations in the target category for the indicated date range.\nfor more info please visit 'https://docs.dataforseo.com/v3/content_analysis/category_trends/live/?bash'"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

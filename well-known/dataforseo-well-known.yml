@@ -1,0 +1,121 @@
+generated: '2026-08-13'
+method: probed
+source: live GET of /.well-known/* on every DataForSEO host in apis.yml + OpenAPI servers[]
+summary: >-
+  Three real /.well-known documents are served, all of them on the MCP/OAuth
+  side of the platform: an RFC 8414 OAuth 2.0 Authorization Server metadata
+  document at data.dataforseo.com, and two RFC 9728 OAuth 2.0 Protected
+  Resource metadata documents at mcp.dataforseo.com. The marketing site
+  (dataforseo.com) answers 403 from nginx for every /.well-known/* path — the
+  whole directory is blocked at the edge, not merely absent — so there is no
+  security.txt and no api-catalog. The REST API host (api.dataforseo.com)
+  answers 401 for every path because HTTP Basic is enforced before routing.
+  No agent card was found on any host.
+
+hosts:
+
+  - host: https://data.dataforseo.com
+    role: OAuth authorization server for the MCP surface
+    documents:
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        content_type: application/json
+        file: dataforseo-oauth-authorization-server.json
+        spec: RFC 8414
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/security.txt
+        status: 404
+
+  - host: https://mcp.dataforseo.com
+    role: hosted remote MCP server
+    documents:
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        content_type: application/json
+        file: dataforseo-oauth-protected-resource.json
+        spec: RFC 9728
+      - path: /.well-known/oauth-protected-resource/mcp
+        status: 200
+        content_type: application/json
+        file: dataforseo-oauth-protected-resource-mcp.json
+        spec: RFC 9728
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+
+  - host: https://api.dataforseo.com
+    role: REST API host
+    note: >-
+      Every path returns 401 with WWW-Authenticate: Basic realm="DataForSEO REST
+      API". HTTP Basic is enforced ahead of routing, so a 401 here is not
+      evidence that the document exists.
+    documents:
+      - {path: /.well-known/security.txt, status: 401}
+      - {path: /.well-known/openid-configuration, status: 401}
+      - {path: /.well-known/oauth-authorization-server, status: 401}
+      - {path: /.well-known/api-catalog, status: 401}
+      - {path: /.well-known/ai-plugin.json, status: 401}
+      - {path: /.well-known/agent-card.json, status: 401}
+      - {path: /.well-known/agent.json, status: 401}
+
+  - host: https://dataforseo.com
+    role: marketing site / llms.txt host
+    note: >-
+      nginx returns 403 Forbidden (not 404) for every /.well-known/* path,
+      including with a browser User-Agent — the directory is blocked at the
+      edge. /llms.txt on the same host returns 200 text/plain, so this is a
+      path-specific block rather than a bot challenge.
+    documents:
+      - {path: /.well-known/security.txt, status: 403}
+      - {path: /.well-known/openid-configuration, status: 403}
+      - {path: /.well-known/oauth-authorization-server, status: 403}
+      - {path: /.well-known/api-catalog, status: 403}
+      - {path: /.well-known/ai-plugin.json, status: 403}
+      - {path: /.well-known/agent-card.json, status: 403}
+      - {path: /.well-known/agent.json, status: 403}
+
+  - host: https://docs.dataforseo.com
+    role: documentation host
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+      - {path: /.well-known/agent-card.json, status: 404}
+      - {path: /.well-known/agent.json, status: 404}
+
+  - host: https://sandbox.dataforseo.com
+    role: free sandbox API host
+    note: >-
+      Connection timed out on every /.well-known/* probe (curl exit 28, no
+      status). The host answers on the documented /v3/* API paths and presents a
+      valid TLS certificate (see security/dataforseo-domain-security.yml), so
+      this is a probe timeout, not a determination of absence.
+    documents:
+      - {path: /.well-known/security.txt, status: null}
+      - {path: /.well-known/agent-card.json, status: null}
+
+security_txt:
+  served: false
+  note: >-
+    No /.well-known/security.txt on any host. dataforseo.com blocks the whole
+    /.well-known/ directory with a 403 and no alternate disclosure page was
+    found (see the negative result in probe-security-programs.py).
+
+agent_card:
+  found: false
+  note: >-
+    /.well-known/agent-card.json and the legacy /.well-known/agent.json were
+    probed on all six hosts. Nothing returned a 200 JSON object with AgentCard
+    shape, so no a2a/ artifact was written.

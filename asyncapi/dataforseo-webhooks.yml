@@ -1,0 +1,110 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://docs.dataforseo.com/v3/appendix/webhook_resend/,
+  https://docs.dataforseo.com/v3/appendix/sandbox/, task_post request schemas in
+  openapi/*.yml
+spec_type: webhook-catalog
+asyncapi_published: false
+asyncapi_note: >-
+  DataForSEO publishes no AsyncAPI document. It does ship a real, first-class
+  webhook surface: every Standard/Priority task can nominate a callback, and
+  there is a dedicated resend endpoint. This artifact captures that surface so
+  the event contract is recorded even though no AsyncAPI exists. Nothing here is
+  fabricated — the mechanisms below are documented by DataForSEO and are visible
+  as request-body properties in the harvested specs.
+
+model:
+  style: per-task callback URLs (not a subscription registry)
+  detail: >-
+    There is no webhook subscription/endpoint management API. A callback is
+    nominated per task, inside the task_post body, which means delivery targets
+    are chosen by the caller at request time rather than configured once.
+  applies_to: Standard and Priority queue tasks (Live mode returns inline and fires no callback)
+  sandbox_supported: true
+
+mechanisms:
+
+  - id: pingback
+    field: pingback_url
+    direction: outbound (DataForSEO -> customer)
+    payload: none (notification only)
+    detail: >-
+      DataForSEO calls the URL when the task completes. The caller then fetches
+      the result with task_get. Supports $id and $tag placeholders in the URL,
+      which DataForSEO substitutes on call.
+    example_url: https://your-server.com/pingscript?id=$id&tag=$tag
+    placeholders: ['$id', '$tag']
+
+  - id: postback
+    field: postback_url
+    direction: outbound (DataForSEO -> customer)
+    payload: the full task result, POSTed to the URL
+    detail: >-
+      DataForSEO delivers the result body directly, removing the polling step.
+      Used together with postback_data to select the result format.
+    example_url: https://your-server.com/postbackscript
+
+  - id: postback_data
+    field: postback_data
+    direction: request parameter
+    detail: >-
+      Selects which result variant is delivered to postback_url. Values mirror
+      the task_get variants for the endpoint family — e.g. `regular`, `advanced`,
+      `html` for SERP endpoints.
+
+polling_alternative:
+  detail: >-
+    When no postback_url is set, completed-but-uncollected tasks are discovered
+    with the tasks_ready endpoints, and re-parsed tasks with tasks_fixed.
+  operations:
+    - {operationId: TasksReady, path: GET /v3/serp/tasks_ready, spec: openapi/dataforseo-serp-api-openapi.yml}
+    - {operationId: GoogleOrganicTasksReady, path: GET /v3/serp/google/organic/tasks_ready, spec: openapi/dataforseo-serp-api-openapi.yml}
+    - {operationId: GoogleOrganicTasksFixed, path: GET /v3/serp/google/organic/tasks_fixed, spec: openapi/dataforseo-serp-api-openapi.yml}
+    - {operationId: OnPageTasksReady, path: GET /v3/on_page/tasks_ready, spec: openapi/dataforseo-onpage-api-openapi.yml}
+    - {operationId: MerchantTasksReady, path: GET /v3/merchant/tasks_ready, spec: openapi/dataforseo-merchant-api-openapi.yml}
+
+resend:
+  operationId: WebhookResend
+  path: POST /v3/appendix/webhook_resend
+  spec: openapi/dataforseo-appendix-api-openapi.yml
+  docs: https://docs.dataforseo.com/v3/appendix/webhook_resend/
+  batch_limit: 100
+  input_field: {name: id, type: string, format: UUID, note: one object per identifier in the task array}
+  cost: free
+  billing_note: The account is not double-charged for resending a webhook.
+  detail: >-
+    Replays pingbacks and postbacks for up to 100 named task ids. In the resend
+    response the per-task `result` array is always null — the payload arrives via
+    the original delivery method.
+
+coverage:
+  webhook_capable_request_schemas: 67
+  by_api:
+    - {spec: openapi/dataforseo-serp-api-openapi.yml, schemas: 27}
+    - {spec: openapi/dataforseo-businessdata-api-openapi.yml, schemas: 11}
+    - {spec: openapi/dataforseo-keywordsdata-api-openapi.yml, schemas: 10}
+    - {spec: openapi/dataforseo-appdata-api-openapi.yml, schemas: 8}
+    - {spec: openapi/dataforseo-merchant-api-openapi.yml, schemas: 6}
+    - {spec: openapi/dataforseo-aioptimization-api-openapi.yml, schemas: 5}
+  note: >-
+    Count of components.schemas carrying a postback_url property across the 12
+    harvested specs. OnPage, Backlinks, Domain Analytics, Content Analysis, Labs
+    and Appendix request schemas do not expose callback fields — those families
+    are predominantly live/synchronous.
+
+security:
+  signing: none documented
+  authentication_of_callback: none documented
+  note: >-
+    No webhook signature, shared secret or HMAC header is documented. A receiver
+    cannot cryptographically verify that a postback came from DataForSEO; the
+    only correlation handles are the task `id` (UUID) and the caller-supplied
+    `tag`. Receivers should treat the callback as a trigger and re-fetch with
+    task_get over authenticated HTTPS rather than trusting the delivered body.
+
+retry_policy:
+  documented: false
+  note: >-
+    No automatic retry schedule is published. The manual /v3/appendix/webhook_resend
+    endpoint is the documented recovery path.

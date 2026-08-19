@@ -1,0 +1,270 @@
+generated: '2026-08-13'
+method: searched
+source: https://docs.dataforseo.com/v3/appendix/errors/
+format: proprietary-status-code
+envelope:
+  note: >-
+    DataForSEO does NOT use RFC 9457 problem+json. Responses are
+    application/json and, per the provider's own documentation, "DataForSEO API
+    servers always return the 200 HTTP response code, except for" the four HTTP
+    codes below. The real error signal is the numeric `status_code` /
+    `status_message` pair, which appears twice: once at the top level of the
+    response envelope (the request-level result) and once inside each object of
+    the `tasks[]` array (the task-level result). An agent that branches on HTTP
+    status alone will read almost every DataForSEO failure as a success.
+  top_level_fields: [version, status_code, status_message, time, cost, tasks_count, tasks_error, tasks]
+  task_level_fields: [id, status_code, status_message, time, cost, result_count, path, data, result]
+  code_range: 10000-60000
+  retrieval_endpoints:
+    - operation: Errors
+      path: GET /v3/appendix/errors
+      spec: openapi/dataforseo-appendix-api-openapi.yml
+      note: Returns the canonical list of possible errors and general status codes.
+    - operation: Errors
+      path: POST /v3/serp/errors
+      spec: openapi/dataforseo-serp-api-openapi.yml
+      note: >-
+        Per-API "errors" endpoints (also BacklinksErrors, OnPageErrors,
+        KeywordsDataErrors, DataforseoLabsErrors, MerchantErrors and siblings)
+        return the tasks that errored in the past 7 days.
+
+http_status_codes:
+  - status: 401
+    title: Unauthorized
+    detail: >-
+      You are not authorized to access this resource. See your login details
+      here: https://app.dataforseo.com/api-access
+    note: >-
+      Observed live on an unauthenticated POST to /v3/appendix/user_data
+      (2026-08-13): the body is still the standard envelope with
+      status_code 40100, and the response carries
+      WWW-Authenticate: Basic realm="DataForSEO REST API".
+  - status: 402
+    title: Payment Required
+    detail: We had a problem billing your account. Please, check your account's balance.
+  - status: 404
+    title: Not Found
+    detail: Requested endpoint not found
+  - status: 500
+    title: Internal Server Error
+    detail: >-
+      Sorry, we could not process your request due to the internal server error.
+      Please, try again later.
+
+classes:
+  - prefix: '2xxxx'
+    meaning: success
+  - prefix: '4xxxx'
+    meaning: client-side / account / request error
+  - prefix: '406xx'
+    meaning: task accepted but not yet ready (poll again)
+  - prefix: '5xxxx'
+    meaning: DataForSEO-side or third-party data-source failure
+
+rate_limit_signal:
+  code: 40202
+  message: the rate-limit per minute has been exceeded.
+  http_status: 200
+  note: >-
+    Rate-limit exhaustion is signalled by internal status_code 40202 inside a
+    HTTP 200 response, not by HTTP 429. See rate-limits/dataforseo-rate-limits.yml.
+
+concurrency_signal:
+  code: 40209
+  message: too many simultaneous queries.
+  limit: 30
+  scope: per user
+
+problems:
+  - code: 20000
+    title: "ok."
+    detail: "the request has been successfully completed"
+    class: success
+  - code: 20100
+    title: "task created."
+    detail: "as a result of the successful request, the task has been created"
+    class: success
+  - code: 40000
+    title: "you can set only one task at a time."
+    detail: "you cannot specify more than one task in the POST array"
+    class: client
+  - code: 40001
+    title: "this id is used by another client, check the id."
+    detail: "the task identifier id is unique to the client used to send the request"
+    class: client
+  - code: 40002
+    title: "this id is used by another search engine, check the path."
+    detail: "the task identifier id is unique to the search engine used in the URL path of the request"
+    class: client
+  - code: 40003
+    title: "this id is used by another search type, check the path."
+    detail: "the task identifier id is unique to the search type used in the URL path of the request"
+    class: client
+  - code: 40004
+    title: "this id is used by another function, check the id."
+    detail: "the task identifier id is unique to the function used in the URL path of the request"
+    class: client
+  - code: 40006
+    title: "you can set no more than 100 tasks at a time."
+    detail: "each POST request can contain up to 100 tasks"
+    class: client
+  - code: 40100
+    title: "you are not authorized to access this resource. see your login details here: https://app.dataforseo.com/api-dashboard ."
+    detail: "check if the specified credentials match those in your account dashboard"
+    class: client
+  - code: 40101
+    title: "internal se server error."
+    detail: "the requested search engine was unable to process your request and responded with an error; learn more on our help center"
+    class: client
+  - code: 40102
+    title: "no search results."
+    detail: "no results matching the details of your request have been found"
+    class: client
+  - code: 40103
+    title: "task execution failed, please try to resubmit the task."
+    detail: "the task could not be executed, try posting another task with similar parameters"
+    class: client
+  - code: 40104
+    title: "please verify your account before using the api. you can complete the verification in the user panel: https://app.dataforseo.com/ ."
+    detail: "email and/or phone verification is required for new users; to use DataForSEO APIs, you have to complete the account verification process in the User Panel"
+    class: client
+  - code: 40200
+    title: "payment required."
+    detail: "the request cannot be completed until the balance is recharged; check your balance in the account dashboard"
+    class: client
+  - code: 40201
+    title: "we noticed some unusual activity in your dataforseo account, so we’ve temporarily paused access as a precaution. please, reach out to our support team at support@dataforseo.com for more details, and we’ll work with you to resolve this quickly."
+    detail: "unusual activity detected in your account may result from the creation of several trial accounts or violation of the DataForSEO Terms of Service in some other way; therefore, your account access and DataForSEO API access have been temporarily paused; contact our support team to resolve the issue"
+    class: client
+  - code: 40202
+    title: "the rate-limit per minute has been exceeded."
+    detail: "you can make up to 2000 requests per minute; contact our support team if you need to increase the limit"
+    class: client
+  - code: 40203
+    title: "the cost limit has been exceeded. you can modify your cost limit in the user panel https://app.dataforseo.com/api-settings."
+    detail: "you can modify daily cost limits for APIs and endpoints in your account dashboard"
+    class: client
+  - code: 40204
+    title: "access denied. visit plans and subscriptions to activate your subscription and get access to this api: https://app.dataforseo.com/users/getrows ."
+    detail: "the access to Backlinks API is limited by a minimal commitment. Learn more."
+    class: client
+  - code: 40205
+    title: "the duplicate task limit per hour has been exceeded. you can modify your limits in the user panel https://app.dataforseo.com/api-settings."
+    detail: "you can modify the duplicate task limit in your account dashboard. Learn more."
+    class: client
+  - code: 40206
+    title: "the duplicate task limit per day has been exceeded. you can modify your limits in the user panel https://app.dataforseo.com/api-settings ."
+    detail: "you can modify the duplicate task limit in your account dashboard. Learn more."
+    class: client
+  - code: 40207
+    title: "access denied. your ip is not whitelisted. you can modify your ip whitelist in the user panel https://app.dataforseo.com/api-access ."
+    detail: "you can whitelist all the necessary IPs in the account dashboard. Learn more."
+    class: client
+  - code: 40209
+    title: "too many simultaneous queries."
+    detail: "the limit for simultaneous requests made by a single user is 30"
+    class: client
+  - code: 40210
+    title: "insufficient funds. your account's balance is too low to complete this request."
+    detail: "visit your account dashboard to add funds; learn more about making payments"
+    class: client
+  - code: 40400
+    title: "not found."
+    detail: "the requested resource doesn’t exist; check the URL of the request"
+    class: client
+  - code: 40401
+    title: "task not found."
+    detail: "the requested task does not exist"
+    class: client
+  - code: 40402
+    title: "invalid path."
+    detail: "the URL path of your request is invalid"
+    class: client
+  - code: 40403
+    title: "results expired."
+    detail: "it’s not possible to retrieve the results of a task that was created more than a month ago"
+    class: client
+  - code: 40404
+    title: "no prepared data found.please contact our support team."
+    detail: "the Sandbox does not contain prepared data for the task you set"
+    class: client
+  - code: 40405
+    title: "textual content on the target page is insufficient."
+    detail: "target page does not have enough textual data, please try specifying a different page"
+    class: client
+  - code: 40406
+    title: "requested page was not submitted for crawling."
+    detail: "the page was not submitted for crawling in Task POST"
+    class: client
+  - code: 40407
+    title: "duplicate host."
+    detail: "duplicate hosts detected in request"
+    class: client
+  - code: 40408
+    title: "target url is invalid."
+    detail: "website resource at the target URL returned a 404 status code or is invalid"
+    class: client
+  - code: 40501
+    title: "invalid field."
+    detail: "one of the fields in the POST request is invalid"
+    class: client
+  - code: 40502
+    title: "post data is empty."
+    detail: "the body of your POST request is empty, please check the body structure and validity"
+    class: client
+  - code: 40503
+    title: "post data is invalid."
+    detail: "the structure of the POST request is invalid"
+    class: client
+  - code: 40504
+    title: "the number of intersecting keywords for the specified domains exceeds 10 million. try specifying different domains."
+    detail: "there are too many intersecting keywords for the specified domains, please try again with different domain names"
+    class: client
+  - code: 40505
+    title: "you are using old data."
+    detail: "location parameters you are using are outdated, please check our documentation or call the relevant locations endpoint for up-tp-date parameters"
+    class: client
+  - code: 40506
+    title: "unknown fields in post data."
+    detail: "the body of your POST request contains unknown fields, please consult the documentation of the requested endpoint and use available fields"
+    class: client
+  - code: 40601
+    title: "task handed."
+    detail: "the task has been received but has not yet been enqueued for processing"
+    class: pending
+  - code: 40602
+    title: "task in queue."
+    detail: "the task has been enqueued for processing"
+    class: pending
+  - code: 50000
+    title: "internal error."
+    detail: "our system encountered an unexpected condition; please contact our support team"
+    class: server
+  - code: 50001
+    title: "error while checking the balance."
+    detail: "our system failed to check your account balance; please contact our support team"
+    class: server
+  - code: 50100
+    title: "not implemented."
+    detail: "you specified a non-existing task or parameter, please check the body of your POST request"
+    class: server
+  - code: 50301
+    title: "3rd party api service unavailable."
+    detail: "one of our external data sources is currently unavailable or responded with an error; the error can be triggered by Google Ads API or other third-party services used by DataForSEO API; message of the error may vary depending on the third-party service status; corresponding message examples: Too many requests Could not connect to host 3rd Party API Service Unavailable"
+    class: server
+  - code: 50303
+    title: "update is in progress. please try after a few minutes"
+    detail: "the API you’re requesting is being updated; this can take a few minutes"
+    class: server
+  - code: 50304
+    title: "this function is temporarily unavailable. please contact support for more information."
+    detail: "the function you’re requesting failed to respond; please contact our support team for more information"
+    class: server
+  - code: 50401
+    title: "internal error - timeout."
+    detail: "our system failed to process a live-mode task in 120 seconds; please try setting a task one more time"
+    class: server
+  - code: 50402
+    title: "target page took too long to respond."
+    detail: "target page took longer than 50 seconds to respond, please try again later or specify a different page"
+    class: server

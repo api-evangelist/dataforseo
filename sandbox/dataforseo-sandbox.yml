@@ -1,0 +1,86 @@
+generated: '2026-08-13'
+method: searched
+source: https://docs.dataforseo.com/v3/appendix/sandbox/
+docs:
+  - https://docs.dataforseo.com/v3/appendix/sandbox/
+  - https://dataforseo.com/help-center/dataforseo-sandbox-best-practises
+
+summary: >-
+  DataForSEO runs a full-surface free sandbox on a separate hostname. There are
+  no test keys and no test-mode prefixes: the SAME production credentials are
+  used, and the only change is the hostname. Every v3 path is available and the
+  response shape is byte-for-byte the production shape — only the values are
+  dummy data. This is a notably low-friction sandbox model for an agent to
+  target: nothing about a request has to change except the host.
+
+separation:
+  model: separate-host
+  live_host: https://api.dataforseo.com
+  test_host: https://sandbox.dataforseo.com
+  credential_separation: false
+  credential_note: >-
+    The same API login/password from https://app.dataforseo.com/api-access work
+    against both hosts. There are no test-vs-live key prefixes.
+  cost: free
+  cost_note: Your account is not charged for Sandbox endpoints; available to any registered user.
+
+usage:
+  rule: >-
+    Change the hostname in the request URL from api.dataforseo.com/v3/ to
+    sandbox.dataforseo.com/v3/. No code, path or POST-body changes are required.
+  pattern: POST https://sandbox.dataforseo.com/v3/$path
+  path_field:
+    name: path
+    description: The API path of the endpoint you want to test
+    example: serp/google/maps/task_post
+
+magic_values:
+  - value: 00000000-0000-0000-0000-000000000000
+    used_as: task id in a task_get request
+    example: https://sandbox.dataforseo.com/v3/serp/google/organic/task_get/advanced/00000000-0000-0000-0000-000000000000
+    effect: >-
+      Returns a response containing EVERY available item type / SERP feature for
+      that endpoint, with dummy field values. This is the documented way to see
+      the full response schema of an endpoint without paying for a real call.
+
+examples:
+  - api: SERP
+    task_post: https://sandbox.dataforseo.com/v3/serp/google/organic/task_post
+    task_get: https://sandbox.dataforseo.com/v3/serp/google/organic/task_get/advanced/$id
+  - api: Keywords Data
+    task_post: https://sandbox.dataforseo.com/v3/keywords_data/google_ads/search_volume/task_post
+    task_get: https://sandbox.dataforseo.com/v3/keywords_data/google_ads/search_volume/task_get/$id
+  - api: Domain Analytics
+    live: https://sandbox.dataforseo.com/v3/domain_analytics/technologies/aggregation_technologies/live
+    note: Domain Analytics endpoints are live-only, so no separate GET is needed.
+
+behaviour:
+  data: >-
+    Generic dummy data. The structure and fields of a sandbox response are
+    identical to the production response; only the values are synthetic.
+  webhooks: >-
+    postback_url and pingback_url work in the Sandbox environment, so the full
+    asynchronous task flow can be rehearsed end to end.
+  rate_limits:
+    same_as_production: true
+    calls_per_minute: 2000
+    tasks_per_post: 100
+    live_tasks_per_post: 1
+  error_when_unprepared:
+    code: 40404
+    message: no prepared data found. please contact our support team.
+    detail: The Sandbox has no prepared response for the specific task you set.
+
+api_playground:
+  url: https://app.dataforseo.com/api-playground/
+  note: >-
+    Browser API Explorer for live requests. Rate-limited; a free account is
+    required for unlimited access.
+
+not_applicable:
+  items:
+    - test_cards
+    - test_bank_accounts
+    - test_clocks
+    - decline_simulation
+  reason: DataForSEO is a data API, not a payments or authorization provider.

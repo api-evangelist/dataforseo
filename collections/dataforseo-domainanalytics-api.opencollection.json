@@ -1,0 +1,278 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DataForSEO AiOptimization DomainAnalytics API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DomainAnalytics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "DomainAnalyticsIdList",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/domain_analytics/id_list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint is designed to provide you with a list of IDs and metadata for all Domain Analytics tasks created within the specified time period, including both successful and uncompleted tasks.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/id_list/?bash'"
+        },
+        {
+          "info": {
+            "name": "DomainAnalyticsErrors",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/domain_analytics/errors",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "By calling this endpoint you will receive information about the Domain Analytics API tasks that returned an error within the past 7 days.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/errors/?bash'"
+        },
+        {
+          "info": {
+            "name": "TechnologiesAvailableFilters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/domain_analytics/technologies/available_filters",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Here you will find all the necessary information about filters that can be used with Domain Analytics Technologies API endpoints.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/technologies/filters/?bash'"
+        },
+        {
+          "info": {
+            "name": "TechnologiesLocations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/domain_analytics/technologies/locations",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You will receive the list of locations by this API call.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/technologies/locations/?bash'"
+        },
+        {
+          "info": {
+            "name": "TechnologiesLanguages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/domain_analytics/technologies/languages",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "You will receive the list of languages by calling this API.\n \nAs a response of the API server, you will receive JSON-encoded data containing a tasks array with the information specific to the set tasks.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/technologies/languages/?bash'"
+        },
+        {
+          "info": {
+            "name": "TechnologiesTechnologies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/domain_analytics/technologies/technologies",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with the full list of available technologies structured by technology groups and categories each particular technology belongs to.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/technologies/technologies/?bash'"
+        },
+        {
+          "info": {
+            "name": "TechnologiesAggregationTechnologiesLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/domain_analytics/technologies/aggregation_technologies/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "The Aggregation Technologies endpoint will provide you with a list of the most popular technologies websites use alongside the technologies you specify. Alternatively, you can specify technology categories or groups to obtain wider stats.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/technologies/aggregation_technologies/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "TechnologiesTechnologiesSummaryLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/domain_analytics/technologies/technologies_summary/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "The Technologies Summary endpoint will provide you with the number of domains across different countries and languages that use the specified technology names, technology groups, or technology categories.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/technologies/technologies_summary/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "TechnologiesTechnologyStatsLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/domain_analytics/technologies/technology_stats/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "The Technology Stats endpoint will provide you with historical data on the number of domains across different countries and languages that use the specified technology.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/technologies/technology_stats/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "TechnologiesDomainsByTechnologyLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/domain_analytics/technologies/domains_by_technology/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint provides domains based on the technology they use. In addition to the list of domains, you will also get their technology profiles, the country and language they belong to, and other related data.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/technologies/domains_by_technology/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "TechnologiesDomainsByHtmlTermsLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/domain_analytics/technologies/domains_by_html_terms/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint provides domains based on the HTML terms they use on their homepage. In addition to the list of domains, you will also get their technology profiles, the country and language they belong to, and other related data.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/technologies/domains_by_html_terms/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "TechnologiesDomainTechnologiesLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/domain_analytics/technologies/domain_technologies/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Using this endpoint you will get a list of technologies used in a particular domain.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/technologies/domain_technologies/live/?bash'"
+        },
+        {
+          "info": {
+            "name": "WhoisAvailableFilters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.dataforseo.com/v3/domain_analytics/whois/available_filters",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Here you will find all the necessary information about filters that can be used with Domain Analytics Whois API.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/whois/filters/?bash'"
+        },
+        {
+          "info": {
+            "name": "WhoisOverviewLive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.dataforseo.com/v3/domain_analytics/whois/overview/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "This endpoint will provide you with Whois data enriched with backlink stats, and ranking and traffic info from organic and paid search results. Using this endpoint you will be able to get all these data for the domains matching the parameters you specify in the request.\nfor more info please visit 'https://docs.dataforseo.com/v3/domain_analytics/whois/overview/live/?bash'"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

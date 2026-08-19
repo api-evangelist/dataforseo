@@ -1,0 +1,77 @@
+generated: '2026-08-13'
+method: probed
+source: https://data.dataforseo.com/.well-known/oauth-authorization-server
+docs: null
+docs_note: >-
+  DataForSEO publishes no scopes/permissions reference page. The scope set below
+  was read from the live RFC 8414 authorization-server metadata document, not
+  from documentation. The MCP server README describes OAuth as "works out of the
+  box" and never names a scope.
+
+applies_to:
+  surface: MCP
+  resource: https://mcp.dataforseo.com
+  note: >-
+    OAuth 2.0 applies ONLY to the hosted MCP server. The v3 REST API at
+    api.dataforseo.com is HTTP Basic only and has no OAuth surface and no
+    scopes — the 12 OpenAPI documents in openapi/ declare a single `basicAuth`
+    securityScheme and nothing else.
+
+schemes:
+  - name: oauth2
+    source: https://data.dataforseo.com/.well-known/oauth-authorization-server
+    issuer: https://data.dataforseo.com
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://data.dataforseo.com/oauth/authorize
+        tokenUrl: https://data.dataforseo.com/oauth/token
+        refresh: true
+    pkce_methods: [S256]
+    response_types: [code]
+    grant_types: [authorization_code, refresh_token]
+    token_endpoint_auth_methods: [none]
+    registration_endpoint: https://data.dataforseo.com/oauth/clients/register
+    revocation_endpoint: https://data.dataforseo.com/oauth/tokens/revoke
+    dynamic_client_registration: true
+    dynamic_client_registration_spec: RFC 7591
+
+scopes:
+  - scope: api
+    description: >-
+      Access to the DataForSEO API through the authorized surface. Advertised in
+      `scopes_supported`; no further definition is published, so the exact
+      privilege boundary is not documented.
+    flows: [authorizationCode]
+    sources: [https://data.dataforseo.com/.well-known/oauth-authorization-server]
+  - scope: profile
+    description: >-
+      Access to the authenticated user's account profile. Advertised in
+      `scopes_supported`; no further definition is published.
+    flows: [authorizationCode]
+    sources: [https://data.dataforseo.com/.well-known/oauth-authorization-server]
+
+protected_resource:
+  spec: RFC 9728
+  metadata:
+    - url: https://mcp.dataforseo.com/.well-known/oauth-protected-resource
+      resource: https://mcp.dataforseo.com
+    - url: https://mcp.dataforseo.com/.well-known/oauth-protected-resource/mcp
+      resource: https://mcp.dataforseo.com/mcp
+  authorization_servers: [https://data.dataforseo.com]
+  bearer_methods_supported: [header]
+
+granularity_note: >-
+  Two coarse scopes for an API with 554 operations spanning SERP scraping,
+  keyword data, backlinks, on-page crawling and paid AI-optimization endpoints.
+  A token bearing `api` can spend account balance on any of them; there is no
+  read-only scope, no per-product scope and no spend-bounded scope. An agent
+  operator should rely on the account-level cost limits and IP whitelisting in
+  the DataForSEO dashboard (status codes 40203 and 40207) rather than on scope
+  restriction.
+
+x-evidence:
+  fetched: '2026-08-13'
+  url: https://data.dataforseo.com/.well-known/oauth-authorization-server
+  http_status: 200
+  content_type: application/json
+  file: well-known/dataforseo-oauth-authorization-server.json

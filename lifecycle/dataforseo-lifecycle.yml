@@ -1,0 +1,103 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://docs.dataforseo.com/v3/, https://dataforseo.com/updates,
+  https://status.dataforseo.com, https://docs.dataforseo.com/v3/appendix/status/,
+  https://github.com/dataforseo/mcp-server-typescript, and openapi/*.yml
+
+versioning:
+  scheme: uri-path
+  current: v3
+  docs: https://docs.dataforseo.com/v3/
+  detail: >-
+    Every operation in all 12 harvested specs is prefixed /v3/. The response
+    envelope also carries a `version` string. v2 is referenced only historically
+    (the deprecated MCP server is described as "v2+"); no v2 REST documentation
+    is published alongside v3.
+
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: false
+  detail: >-
+    No deprecation policy, sunset schedule or RFC 8594 Sunset/Deprecation header
+    support is documented anywhere on docs.dataforseo.com or dataforseo.com.
+    Breaking-ish changes are announced as prose entries on the Updates feed
+    instead — e.g. the 2026-06-30 change of the App Store Reviews API default
+    `depth` from 50 to 25, and the 2026-07-01 pricing change that cancelled
+    monthly subscriptions and moved all endpoints to pay-as-you-go. Neither
+    carried a machine-readable deprecation signal.
+  deprecated_operations: []
+  deprecated_operations_note: >-
+    No operation in openapi/*.yml carries `deprecated: true`.
+  observed_deprecations:
+    - subject: DataForSEO MCP server v2
+      evidence: >-
+        github.com/dataforseo/mcp-server-typescript-deprecated — the v2 server
+        was renamed to a *-deprecated repo and replaced by a v3 server with a
+        different tool surface. The repo is not archived and no sunset date is
+        published.
+      date_observed: '2026-08-13'
+
+status_page:
+  url: https://status.dataforseo.com
+  linked_from: https://dataforseo.com (header + footer, "Status Page")
+  http_status: 200
+  machine_readable_endpoint:
+    operation: AppendixStatus
+    path: GET /v3/appendix/status
+    spec: openapi/dataforseo-appendix-api-openapi.yml
+    docs: https://docs.dataforseo.com/v3/appendix/status/
+    detail: >-
+      An API-callable status endpoint returning current status for all APIs and
+      endpoints, with a full issue description when a problem occurs. This is a
+      stronger operational signal than a status page alone — an agent can check
+      health in-band before spending on a task.
+  per_api_error_feeds:
+    detail: >-
+      Each API family exposes an `errors` endpoint returning that API's failed
+      tasks from the past 7 days (SERP Errors, BacklinksErrors, OnPageErrors,
+      KeywordsDataErrors, DataforseoLabsErrors, MerchantErrors, and siblings).
+
+sla:
+  url: null
+  uptime_target: null
+  detail: >-
+    No public SLA or uptime commitment was found. The Terms of Service
+    (https://dataforseo.com/terms-of-service/) is the only published service
+    commitment.
+
+changelog:
+  url: https://dataforseo.com/updates
+  artifact: changelog/dataforseo-changelog.yml
+
+data_freshness:
+  detail: >-
+    Two published "last updated" endpoints let a consumer reason about data
+    recency: DataForSEO Labs Status
+    (https://docs.dataforseo.com/v3/dataforseo_labs/status/) reports separate
+    update dates for the Google, Bing and Amazon Labs endpoints, and Google Ads
+    Status (https://docs.dataforseo.com/v3/keywords_data/google_ads/status/)
+    reports whether Google has refreshed keyword data for the previous month.
+
+retention:
+  standard_and_priority_results: 30 days
+  html_results: 7 days
+  live_results: not stored
+  expired_code: 40403
+
+spec_drift:
+  observed: '2026-08-13'
+  detail: >-
+    DataForSEO publishes a single combined OpenAPI at
+    https://github.com/dataforseo/OpenApiDocumentation/blob/master/openapi_specification.yaml
+    (4.9 MB, 570 operations, openapi 3.0.1, servers api.dataforseo.com +
+    sandbox.dataforseo.com). The 12 refined specs under openapi/ in this repo
+    total 554 operations, so the catalog snapshot is ~16 operations behind
+    upstream. Confirmed missing: the Amazon Merchant Live endpoints announced in
+    the Updates feed (`/v3/merchant/amazon/products/live/...` appears 3x in the
+    upstream spec and 0x in openapi/). Flagged for a re-harvest + refine pass;
+    not re-harvested here to avoid disturbing the existing refined per-tag set.
+  upstream_spec: https://raw.githubusercontent.com/dataforseo/OpenApiDocumentation/master/openapi_specification.yaml
+  upstream_operations: 570
+  local_operations: 554

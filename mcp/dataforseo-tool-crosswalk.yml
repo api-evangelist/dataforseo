@@ -1,0 +1,148 @@
+generated: '2026-08-13'
+method: derived
+source: >-
+  mcp/dataforseo-mcp.yml (tool list from the provider README, live tools/list is
+  auth-gated) bound against the 554 operations in openapi/*.yml
+
+summary: >-
+  DataForSEO's v3 MCP server is deliberately NOT a one-tool-per-endpoint
+  projection. It ships four tools: three documentation-navigation tools that
+  have no REST equivalent, and one generic `api_request` passthrough that can
+  reach any of the 554 REST operations by path. That means the crosswalk is
+  unusual — coverage is nominally total but the binding is generic, so an agent
+  gets no per-operation inputSchema from the MCP surface. The schema an agent
+  needs still lives in the OpenAPI, which is why the crosswalk matters here.
+
+surfaces:
+  openapi:
+    files: 12
+    operations: 554
+    path: openapi/
+    gated: false
+  mcp:
+    url: https://mcp.dataforseo.com/mcp
+    tools: 4
+    gated: true
+    note: >-
+      POST tools/list returns 401 invalid auth. Tool names and descriptions come
+      from the provider README; per-tool inputSchema requires authenticated
+      introspection and is not recorded.
+  graphql:
+    present: false
+
+crosswalk:
+
+  - tool: api_request
+    category: passthrough
+    rest: ['*']
+    binding: rest-generic
+    confidence: high
+    note: >-
+      Takes an HTTP method plus a DataForSEO API path (`.ai` paths by default)
+      and a `data` body, so it can invoke ANY of the 554 operations in
+      openapi/*.yml. It carries no operation-specific parameter schema of its
+      own: the real input contract for any given call is the requestBody schema
+      of the matching OpenAPI operation. Treat openapi/ as the inputSchema
+      source for this tool.
+
+  - tool: docs_index
+    category: documentation
+    rest: []
+    binding: none
+    confidence: high
+    note: >-
+      Serves the DataForSEO documentation index (optionally filtered by API
+      section). No REST operation exposes this; the nearest public analogue is
+      the llms.txt index at https://dataforseo.com/llms.txt (mirrored in llms/).
+
+  - tool: docs_list_sections
+    category: documentation
+    rest: []
+    binding: none
+    confidence: high
+
+  - tool: docs_search
+    category: documentation
+    rest: []
+    binding: none
+    confidence: high
+    note: >-
+      Fetches a documentation page by URL or path and can return PHP, Node.js,
+      Python and C# code examples. Documentation retrieval, not data retrieval.
+
+mcp_only:
+  - tool: docs_index
+    reason: Documentation navigation; no public REST endpoint returns the docs index.
+  - tool: docs_list_sections
+    reason: Documentation navigation; no public REST endpoint.
+  - tool: docs_search
+    reason: >-
+      Documentation retrieval with code-example generation; the .md docs pages it
+      reads are public but are not part of the v3 REST contract.
+
+rest_only:
+  - capability: SERP data collection
+    spec: openapi/dataforseo-serp-api-openapi.yml
+    operations: 181
+    note: >-
+      Reachable only through the generic api_request passthrough; no dedicated
+      MCP tool. Includes the whole task lifecycle (task_post / tasks_ready /
+      tasks_fixed / task_get) across Google, Bing, Yahoo, Baidu, Naver, Seznam
+      and YouTube.
+  - capability: Keywords Data
+    spec: openapi/dataforseo-keywordsdata-api-openapi.yml
+    operations: 70
+  - capability: Business Data
+    spec: openapi/dataforseo-businessdata-api-openapi.yml
+    operations: 55
+  - capability: DataForSEO Labs
+    spec: openapi/dataforseo-dataforseolabs-api-openapi.yml
+    operations: 47
+  - capability: AI Optimization
+    spec: openapi/dataforseo-aioptimization-api-openapi.yml
+    operations: 44
+  - capability: App Data
+    spec: openapi/dataforseo-appdata-api-openapi.yml
+    operations: 42
+  - capability: Merchant (Amazon / Google Shopping)
+    spec: openapi/dataforseo-merchant-api-openapi.yml
+    operations: 32
+  - capability: OnPage
+    spec: openapi/dataforseo-onpage-api-openapi.yml
+    operations: 30
+  - capability: Backlinks
+    spec: openapi/dataforseo-backlinks-api-openapi.yml
+    operations: 24
+  - capability: Domain Analytics
+    spec: openapi/dataforseo-domainanalytics-api-openapi.yml
+    operations: 14
+  - capability: Content Analysis
+    spec: openapi/dataforseo-contentanalysis-api-openapi.yml
+    operations: 11
+  - capability: Appendix (user_data, errors, status, webhook_resend)
+    spec: openapi/dataforseo-appendix-api-openapi.yml
+    operations: 4
+
+deprecated_surface:
+  server: https://github.com/dataforseo/mcp-server-typescript-deprecated
+  note: >-
+    The deprecated v2 MCP server exposed per-endpoint tools. DataForSEO's own
+    published Claude skills (skills/dataforseo-amazon-competitor-auditor.md,
+    skills/dataforseo-pricing-strategy.md) still call those v2 names —
+    merchant_amazon_products_live_advanced, merchant_amazon_asin_live_advanced,
+    merchant_amazon_sellers_live_advanced, merchant_amazon_locations. Of those,
+    only merchant_amazon_locations has a matching operation in the harvested
+    OpenAPI (AmazonLocations, GET /v3/merchant/amazon/locations); the three
+    *_live_advanced tools correspond to Amazon Merchant Live endpoints that
+    DataForSEO announced in mid-2026 and that are present in the current
+    official spec but not in the snapshot under openapi/ (see
+    lifecycle/dataforseo-lifecycle.yml spec_drift).
+
+coverage:
+  tools_named: 4
+  tools_bound_to_rest: 1
+  tools_bound_generically: 1
+  mcp_only: 3
+  rest_operations_total: 554
+  rest_operations_with_a_dedicated_tool: 0
+  rest_operations_reachable_via_passthrough: 554
