@@ -36,6 +36,21 @@ tags:
 - App Store
 - Business Data
 - AI Optimization
+- Social-Media
+tags_raw:
+- SEO
+- SERP
+- Keywords
+- Backlinks
+- Domain Analytics
+- On-Page SEO
+- Competitor Research
+- Search Engines
+- Content Analysis
+- E-Commerce
+- App Store
+- Business Data
+- AI Optimization
 - Social Media
 apis:
 - aid: dataforseo:dataforseo-aioptimization-api
@@ -44,6 +59,8 @@ apis:
   humanURL: https://dataforseo.com/apis/ai-optimization-api
   baseURL: https://api.dataforseo.com
   tags:
+  - AI Optimization
+  tags_raw:
   - AiOptimization
   properties:
   - type: OpenAPI
@@ -64,6 +81,8 @@ apis:
   humanURL: https://dataforseo.com/apis/app-data-api
   baseURL: https://api.dataforseo.com
   tags:
+  - App Data
+  tags_raw:
   - AppData
   properties:
   - type: OpenAPI
@@ -124,6 +143,8 @@ apis:
   humanURL: https://dataforseo.com/apis/business-data-api
   baseURL: https://api.dataforseo.com
   tags:
+  - Business Data
+  tags_raw:
   - BusinessData
   properties:
   - type: OpenAPI
@@ -144,6 +165,8 @@ apis:
   humanURL: https://dataforseo.com/apis/content-analysis-api
   baseURL: https://api.dataforseo.com
   tags:
+  - Content Analysis
+  tags_raw:
   - ContentAnalysis
   properties:
   - type: OpenAPI
@@ -184,6 +207,8 @@ apis:
   humanURL: https://dataforseo.com/apis/domain-analytics-api
   baseURL: https://api.dataforseo.com
   tags:
+  - Domain Analytics
+  tags_raw:
   - DomainAnalytics
   properties:
   - type: OpenAPI
@@ -264,6 +289,8 @@ apis:
   humanURL: https://dataforseo.com/apis/serp-api
   baseURL: https://api.dataforseo.com
   tags:
+  - SERP
+  tags_raw:
   - Serp
   properties:
   - type: OpenAPI
