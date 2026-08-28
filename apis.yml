@@ -5,6 +5,18 @@ description: DataForSEO is an SEO data platform offering REST APIs for SERP resu
   pay-as-you-go access to structured SEO and digital marketing data for software developers, agencies,
   and enterprise teams.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
