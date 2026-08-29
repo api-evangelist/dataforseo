@@ -318,6 +318,9 @@ apis:
   - type: JSONSchema
     url: json-schema/dataforseo-serp-schema.json
 common:
+- type: CapabilityMap
+  url: capabilities/dataforseo-capability-edges.yml
+  name: DataForSEO Business Capability Map
 - type: AgenticAccess
   url: agentic-access/dataforseo-agentic-access.yml
 - type: DomainSecurity

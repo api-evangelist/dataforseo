@@ -1,0 +1,66 @@
+slug: dataforseo
+provider: DataForSEO
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Media, Entertainment & Telecom Content
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 5
+edges:
+- tag: KeywordsData
+  spec_file: dataforseo-keywordsdata-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.8
+  evidence: POST /v3/keywords_data/google_ads/search_volume/live GoogleAdsSearchVolumeLive; KeywordsDataGoogleAdsAdTrafficByKeywordsLiveResponseInfo;
+    KeywordsDataBingAudienceEstimationLiveRequestInfo
+  reason: Search volume, Google Ads/Bing keyword performance and ad traffic estimation directly serve
+    paid media and SEO planning — Digital Marketing Management.
+- tag: DataforseoLabs
+  spec_file: dataforseo-dataforseolabs-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.75
+  evidence: POST /v3/dataforseo_labs/google/keyword_suggestions/live; POST /v3/dataforseo_labs/google/bulk_keyword_difficulty/live;
+    schema DataforseoLabsGoogleSerpCompetitorsLiveItem
+  reason: Keyword ideas, keyword difficulty, domain rank overview and SERP competitor data are core SEO
+    research inputs, which sits under Digital Marketing Management (web, SEO, paid media).
+- tag: Serp
+  spec_file: dataforseo-serp-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.75
+  evidence: POST /v3/serp/google/organic/task_post GoogleOrganicTaskPost; schemas SerpBingOrganicTaskPostRequestInfo,
+    SerpYoutubeOrganicTasksReadyResultInfo
+  reason: Retrieves search engine results pages (Google, Bing, YouTube organic) for rank tracking and
+    SEO analysis — the SEO element of Digital Marketing Management.
+- tag: Backlinks
+  spec_file: dataforseo-backlinks-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.72
+  evidence: POST /v3/backlinks/referring_domains/live ReferringDomainsLive; POST /v3/backlinks/anchors/live
+    AnchorsLive; BacklinksBulkSpamScoreLiveItem
+  reason: Backlink profile, referring domain, anchor and spam-score analysis — canonical SEO link-analysis
+    data, which sits under Digital Marketing Management (explicitly includes SEO). Confidence tempered
+    because the endpoints deliver raw data rather than executing the marketing activity itself.
+- tag: OnPage
+  spec_file: dataforseo-onpage-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.7
+  evidence: GET /v3/on_page/summary/{id} Summary; POST /v3/on_page/duplicate_tags DuplicateTags; OnPageLighthouseAuditsTaskInfo
+  reason: Crawls a site and reports on-page technical SEO issues (duplicate tags/content, Lighthouse audits),
+    which is website/SEO optimisation work under Digital Marketing Management rather than IT application
+    management.
