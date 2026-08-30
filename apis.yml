@@ -71,7 +71,7 @@ apis:
   humanURL: https://dataforseo.com/apis/ai-optimization-api
   baseURL: https://api.dataforseo.com
   tags:
-  - AI Optimization
+  - AiOptimization
   tags_raw:
   - AiOptimization
   properties:
@@ -93,7 +93,7 @@ apis:
   humanURL: https://dataforseo.com/apis/app-data-api
   baseURL: https://api.dataforseo.com
   tags:
-  - App Data
+  - AppData
   tags_raw:
   - AppData
   properties:
@@ -155,7 +155,7 @@ apis:
   humanURL: https://dataforseo.com/apis/business-data-api
   baseURL: https://api.dataforseo.com
   tags:
-  - Business Data
+  - BusinessData
   tags_raw:
   - BusinessData
   properties:
@@ -177,7 +177,7 @@ apis:
   humanURL: https://dataforseo.com/apis/content-analysis-api
   baseURL: https://api.dataforseo.com
   tags:
-  - Content Analysis
+  - ContentAnalysis
   tags_raw:
   - ContentAnalysis
   properties:
@@ -219,7 +219,7 @@ apis:
   humanURL: https://dataforseo.com/apis/domain-analytics-api
   baseURL: https://api.dataforseo.com
   tags:
-  - Domain Analytics
+  - DomainAnalytics
   tags_raw:
   - DomainAnalytics
   properties:
@@ -301,7 +301,7 @@ apis:
   humanURL: https://dataforseo.com/apis/serp-api
   baseURL: https://api.dataforseo.com
   tags:
-  - SERP
+  - Serp
   tags_raw:
   - Serp
   properties:
