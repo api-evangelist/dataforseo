@@ -3,14 +3,11 @@
   "feeds": [
     {
       "source": "https://www.linkedin.com/company/dataforseo",
-      "feed_url": "https://www.linkedin.com/company/dataforseo",
-      "title": "",
-      "saved": 0,
-      "method": "none"
+      "error": "HTTPError"
     }
   ],
   "post_count": 3,
-  "fetched": "2026-09-06T19:17:18Z",
+  "fetched": "2026-09-13T13:00:00Z",
   "agent_pulled": "2026-06-27",
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "path_blog",
