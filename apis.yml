@@ -87,28 +87,6 @@ apis:
     url: examples/dataforseo-ai-optimization-examples.json
   - type: JSONSchema
     url: json-schema/dataforseo-ai-optimization-schema.json
-- aid: dataforseo:dataforseo-appdata-api
-  name: DataForSEO AppData API
-  description: The AppData API from DataForSEO — 42 operation(s) for appdata.
-  humanURL: https://dataforseo.com/apis/app-data-api
-  baseURL: https://api.dataforseo.com
-  tags:
-  - App Data
-  tags_raw:
-  - AppData
-  properties:
-  - type: OpenAPI
-    url: openapi/dataforseo-appdata-api-openapi.yml
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/app_data/overview/
-  - type: APIReference
-    url: https://docs.dataforseo.com/v3/app_data/overview/
-  - type: Overlay
-    url: overlays/dataforseo-appdata-overlay.yaml
-  - type: Examples
-    url: examples/dataforseo-app-data-examples.json
-  - type: JSONSchema
-    url: json-schema/dataforseo-app-data-schema.json
 - aid: dataforseo:dataforseo-appendix-api
   name: DataForSEO Appendix API
   description: The Appendix API from DataForSEO — 4 operation(s) for appendix.
@@ -171,28 +149,6 @@ apis:
     url: examples/dataforseo-business-data-examples.json
   - type: JSONSchema
     url: json-schema/dataforseo-business-data-schema.json
-- aid: dataforseo:dataforseo-contentanalysis-api
-  name: DataForSEO ContentAnalysis API
-  description: The ContentAnalysis API from DataForSEO — 11 operation(s) for contentanalysis.
-  humanURL: https://dataforseo.com/apis/content-analysis-api
-  baseURL: https://api.dataforseo.com
-  tags:
-  - Content Analysis
-  tags_raw:
-  - ContentAnalysis
-  properties:
-  - type: OpenAPI
-    url: openapi/dataforseo-contentanalysis-api-openapi.yml
-  - type: Documentation
-    url: https://docs.dataforseo.com/v3/content_analysis/overview/
-  - type: APIReference
-    url: https://docs.dataforseo.com/v3/content_analysis/overview/
-  - type: Overlay
-    url: overlays/dataforseo-contentanalysis-overlay.yaml
-  - type: Examples
-    url: examples/dataforseo-content-analysis-examples.json
-  - type: JSONSchema
-    url: json-schema/dataforseo-content-analysis-schema.json
 - aid: dataforseo:dataforseo-dataforseolabs-api
   name: DataForSEO DataforseoLabs API
   description: The DataforseoLabs API from DataForSEO — 47 operation(s) for dataforseolabs.
@@ -317,7 +273,63 @@ apis:
     url: examples/dataforseo-serp-examples.json
   - type: JSONSchema
     url: json-schema/dataforseo-serp-schema.json
+- aid: dataforseo:dataforseo-app-data-api
+  name: DataForSEO App Data API
+  description: The App Data API from DataForSEO — 42 operation(s) for app data.
+  humanURL: https://dataforseo.com/apis/ai-optimization-api
+  baseURL: https://api.dataforseo.com
+  tags:
+  - App Data
+  properties:
+  - type: OpenAPI
+    url: openapi/dataforseo-app-data-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dataforseo.com/v3/app_data/overview/
+  - type: APIReference
+    url: https://docs.dataforseo.com/v3/app_data/overview/
+  - type: Examples
+    url: examples/dataforseo-app-data-examples.json
+  - type: JSONSchema
+    url: json-schema/dataforseo-app-data-schema.json
+  - type: Documentation
+    url: https://docs.dataforseo.com/v3/content_analysis/overview/
+  - type: APIReference
+    url: https://docs.dataforseo.com/v3/content_analysis/overview/
+  - type: Examples
+    url: examples/dataforseo-content-analysis-examples.json
+  - type: JSONSchema
+    url: json-schema/dataforseo-content-analysis-schema.json
+- aid: dataforseo:dataforseo-content-analysis-api
+  name: DataForSEO Content Analysis API
+  description: The Content Analysis API from DataForSEO — 11 operation(s) for content analysis.
+  humanURL: https://dataforseo.com/apis/ai-optimization-api
+  baseURL: https://api.dataforseo.com
+  tags:
+  - Content Analysis
+  properties:
+  - type: OpenAPI
+    url: openapi/dataforseo-content-analysis-api-openapi.yml
+  - type: Documentation
+    url: https://docs.dataforseo.com/v3/app_data/overview/
+  - type: APIReference
+    url: https://docs.dataforseo.com/v3/app_data/overview/
+  - type: Examples
+    url: examples/dataforseo-app-data-examples.json
+  - type: JSONSchema
+    url: json-schema/dataforseo-app-data-schema.json
+  - type: Documentation
+    url: https://docs.dataforseo.com/v3/content_analysis/overview/
+  - type: APIReference
+    url: https://docs.dataforseo.com/v3/content_analysis/overview/
+  - type: Examples
+    url: examples/dataforseo-content-analysis-examples.json
+  - type: JSONSchema
+    url: json-schema/dataforseo-content-analysis-schema.json
 common:
+- type: Overlay
+  url: overlays/dataforseo-appdata-overlay.yaml
+- type: Overlay
+  url: overlays/dataforseo-contentanalysis-overlay.yaml
 - type: CapabilityMap
   url: capabilities/dataforseo-capability-edges.yml
   name: DataForSEO Business Capability Map
