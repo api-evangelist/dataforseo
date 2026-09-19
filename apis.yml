@@ -217,6 +217,8 @@ apis:
   humanURL: https://dataforseo.com/apis/merchant-api
   baseURL: https://api.dataforseo.com
   tags:
+  - Merchants
+  tags_raw:
   - Merchant
   properties:
   - type: OpenAPI
