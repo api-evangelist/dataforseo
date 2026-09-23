@@ -1,18 +1,18 @@
 {
   "provider": "dataforseo",
   "sources": [
-    "dataforseo-aioptimization-api-openapi.yml",
-    "dataforseo-appdata-api-openapi.yml",
-    "dataforseo-appendix-api-openapi.yml",
-    "dataforseo-backlinks-openapi.yml",
-    "dataforseo-businessdata-api-openapi.yml",
-    "dataforseo-content-analysis-openapi.yml",
-    "dataforseo-dataforseolabs-api-openapi.yml",
-    "dataforseo-domain-analytics-openapi.yml",
-    "dataforseo-keywordsdata-api-openapi.yml",
-    "dataforseo-merchant-api-openapi.yml",
-    "dataforseo-on-page-openapi.yml",
-    "dataforseo-serp-api-openapi.yml"
+    "_original/dataforseo-ai-optimization-openapi.yml",
+    "_original/dataforseo-app-data-openapi.yml",
+    "_original/dataforseo-appendix-openapi.yml",
+    "_original/dataforseo-backlinks-openapi.yml",
+    "_original/dataforseo-business-data-openapi.yml",
+    "_original/dataforseo-content-analysis-openapi.yml",
+    "_original/dataforseo-domain-analytics-openapi.yml",
+    "_original/dataforseo-keywords-data-openapi.yml",
+    "_original/dataforseo-labs-openapi.yml",
+    "_original/dataforseo-merchant-openapi.yml",
+    "_original/dataforseo-on-page-openapi.yml",
+    "_original/dataforseo-serp-openapi.yml"
   ],
   "outputs": [
     "dataforseo-aioptimization-api-openapi.yml",
@@ -21,26 +21,59 @@
     "dataforseo-backlinks-api-openapi.yml",
     "dataforseo-businessdata-api-openapi.yml",
     "dataforseo-contentanalysis-api-openapi.yml",
-    "dataforseo-dataforseolabs-api-openapi.yml",
     "dataforseo-domainanalytics-api-openapi.yml",
     "dataforseo-keywordsdata-api-openapi.yml",
+    "dataforseo-dataforseolabs-api-openapi.yml",
     "dataforseo-merchant-api-openapi.yml",
     "dataforseo-onpage-api-openapi.yml",
     "dataforseo-serp-api-openapi.yml"
   ],
   "archived": [
-    "archived openapi/dataforseo-backlinks-openapi.yml",
-    "archived openapi/dataforseo-content-analysis-openapi.yml",
-    "archived openapi/dataforseo-domain-analytics-openapi.yml",
-    "archived openapi/dataforseo-on-page-openapi.yml"
+    "deleted 2 superseded output(s) from the previous generation"
   ],
   "errors": [],
   "warnings": [],
   "notes": [
+    "sourced from openapi/_original/ (12 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "dataforseo-ai-optimization-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "dataforseo-ai-optimization-openapi.yml: declared missing tag: AiOptimization",
+    "dataforseo-app-data-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "dataforseo-app-data-openapi.yml: declared missing tag: AppData",
+    "dataforseo-appendix-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "dataforseo-appendix-openapi.yml: declared missing tag: Appendix",
+    "dataforseo-backlinks-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
     "dataforseo-backlinks-openapi.yml: declared missing tag: Backlinks",
+    "dataforseo-business-data-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "dataforseo-business-data-openapi.yml: declared missing tag: BusinessData",
+    "dataforseo-content-analysis-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
     "dataforseo-content-analysis-openapi.yml: declared missing tag: ContentAnalysis",
+    "dataforseo-domain-analytics-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
     "dataforseo-domain-analytics-openapi.yml: declared missing tag: DomainAnalytics",
-    "dataforseo-on-page-openapi.yml: declared missing tag: OnPage"
+    "dataforseo-keywords-data-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "dataforseo-keywords-data-openapi.yml: declared missing tag: KeywordsData",
+    "dataforseo-labs-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "dataforseo-labs-openapi.yml: declared missing tag: DataforseoLabs",
+    "dataforseo-merchant-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "dataforseo-merchant-openapi.yml: declared missing tag: Merchant",
+    "dataforseo-on-page-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "dataforseo-on-page-openapi.yml: declared missing tag: OnPage",
+    "dataforseo-serp-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "dataforseo-serp-openapi.yml: declared missing tag: Serp",
+    "superseded outputs removed: dataforseo-app-data-api-openapi.yml, dataforseo-content-analysis-api-openapi.yml",
+    "apis.yml register: written (+2 apis, 12 total)"
   ],
-  "skipped": []
+  "skipped": [
+    "dataforseo-aioptimization-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dataforseo-app-data-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dataforseo-appendix-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dataforseo-backlinks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dataforseo-businessdata-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dataforseo-content-analysis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dataforseo-dataforseolabs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dataforseo-domainanalytics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dataforseo-keywordsdata-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dataforseo-merchant-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dataforseo-onpage-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dataforseo-serp-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

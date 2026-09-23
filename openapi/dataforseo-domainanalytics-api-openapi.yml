@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: DataForSEO AiOptimization DomainAnalytics API
+  title: DataForSEO Domain Analytics API
   description: DataForSEO API is the starting point on your journey towards building powerful SEO software. With DataForSEO you can get all the data you need to build an efficient application while also saving your time and budget. DataForSEO API is using the REST technology for interchanging data between your application and our service. The data exchange is made through the widely used HTTP protocol, which allows applying our API to almost all programming languages.
   version: 1.0.0
 servers:
@@ -23,10 +23,11 @@ paths:
             schema:
               type: array
               items:
-                type: object
+                type:
+                - object
+                - 'null'
                 oneOf:
                 - $ref: '#/components/schemas/DomainAnalyticsIdListRequestInfo'
-                nullable: true
               example:
               - datetime_from: '2026-04-12 04:39:39 +00:00'
                 datetime_to: '2026-04-14 04:39:39 +00:00'
@@ -40,12 +41,15 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                type:
+                - object
+                - 'null'
                 oneOf:
                 - $ref: '#/components/schemas/DomainAnalyticsIdListResponseInfo'
-                nullable: true
       security:
       - basicAuth: []
+      summary: Domain analytics id list
+      x-summary-source: derived
   /v3/domain_analytics/errors:
     post:
       tags:
@@ -60,10 +64,11 @@ paths:
             schema:
               type: array
               items:
-                type: object
+                type:
+                - object
+                - 'null'
                 oneOf:
                 - $ref: '#/components/schemas/DomainAnalyticsErrorsRequestInfo'
-                nullable: true
               example:
               - limit: 10
                 offset: 0
@@ -74,12 +79,15 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                type:
+                - object
+                - 'null'
                 oneOf:
                 - $ref: '#/components/schemas/DomainAnalyticsErrorsResponseInfo'
-                nullable: true
       security:
       - basicAuth: []
+      summary: Domain analytics errors
+      x-summary-source: derived
   /v3/domain_analytics/technologies/available_filters:
     get:
       tags:
@@ -94,12 +102,15 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                type:
+                - object
+                - 'null'
                 oneOf:
                 - $ref: '#/components/schemas/DomainAnalyticsTechnologiesAvailableFiltersResponseInfo'
-                nullable: true
       security:
       - basicAuth: []
+      summary: Technologies available filters
+      x-summary-source: derived
   /v3/domain_analytics/technologies/locations:
     get:
       tags:
@@ -114,19 +125,21 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                type:
+                - object
+                - 'null'
                 oneOf:
                 - $ref: '#/components/schemas/DomainAnalyticsTechnologiesLocationsResponseInfo'
-                nullable: true
       security:
       - basicAuth: []
+      summary: Technologies locations
+      x-summary-source: derived
   /v3/domain_analytics/technologies/languages:
     get:
       tags:
       - DomainAnalytics
       description: 'You will receive the list of languages by calling this API.
 
-         
 
         As a response of the API server, you will receive JSON-encoded data containing a tasks array with the information specific to the set tasks.
 
@@ -138,12 +151,15 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                type:
+                - object
+                - 'null'
                 oneOf:
                 - $ref: '#/components/schemas/DomainAnalyticsTechnologiesLanguagesResponseInfo'
-                nullable: true
       security:
       - basicAuth: []
+      summary: Technologies languages
+      x-summary-source: derived
   /v3/domain_analytics/technologies/technologies:
     get:
       tags:
@@ -158,12 +174,15 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                type:
+                - object
+                - 'null'
                 oneOf:
                 - $ref: '#/components/schemas/DomainAnalyticsTechnologiesTechnologiesResponseInfo'
-                nullable: true
       security:
       - basicAuth: []
+      summary: Technologies technologies
+      x-summary-source: derived
   /v3/domain_analytics/technologies/aggregation_technologies/live:
     post:
       tags:
@@ -178,10 +197,11 @@ paths:
             schema:
               type: array
               items:
-                type: object
+                type:
+                - object
+                - 'null'
                 oneOf:
                 - $ref: '#/components/schemas/DomainAnalyticsTechnologiesAggregationTechnologiesLiveRequestInfo'
-                nullable: true
               example:
               - mode: entry
                 technology: Nginx
@@ -203,12 +223,15 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                type:
+                - object
+                - 'null'
                 oneOf:
                 - $ref: '#/components/schemas/DomainAnalyticsTechnologiesAggregationTechnologiesLiveResponseInfo'
-                nullable: true
       security:
       - basicAuth: []
+      summary: Technologies aggregation technologies live
+      x-summary-source: derived
   /v3/domain_analytics/technologies/technologies_summary/live:
     post:
       tags:
@@ -223,10 +246,11 @@ paths:
             schema:
               type: array
               items:
-                type: object
+                type:
+                - object
+                - 'null'
                 oneOf:
                 - $ref: '#/components/schemas/DomainAnalyticsTechnologiesTechnologiesSummaryLiveRequestInfo'
-                nullable: true
               example:
               - mode: entry
                 technologies:
@@ -247,12 +271,15 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                type:
+                - object
+                - 'null'
                 oneOf:
                 - $ref: '#/components/schemas/DomainAnalyticsTechnologiesTechnologiesSummaryLiveResponseInfo'
-                nullable: true
       security:
       - basicAuth: []
+      summary: Technologies technologies summary live
+      x-summary-source: derived
   /v3/domain_analytics/technologies/technology_stats/live:
     post:
       tags:
@@ -267,10 +294,11 @@ paths:
             schema:
               type: array
               items:
-                type: object
+                type:
+                - object
+                - 'null'
                 oneOf:
                 - $ref: '#/components/schemas/DomainAnalyticsTechnologiesTechnologyStatsLiveRequestInfo'
-                nullable: true
               example:
               - technology: jQuery
                 date_from: '2026-01-15'
@@ -281,12 +309,15 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                type:
+                - object
+                - 'null'
                 oneOf:
                 - $ref: '#/components/schemas/DomainAnalyticsTechnologiesTechnologyStatsLiveResponseInfo'
-                nullable: true
       security:
       - basicAuth: []
+      summary: Technologies technology stats live
+      x-summary-source: derived
   /v3/domain_analytics/technologies/domains_by_technology/live:
     post:
       tags:
@@ -301,10 +332,11 @@ paths:
             schema:
               type: array
               items:
-                type: object
+                type:
+                - object
+                - 'null'
                 oneOf:
                 - $ref: '#/components/schemas/DomainAnalyticsTechnologiesDomainsByTechnologyLiveRequestInfo'
-                nullable: true
               example:
               - technologies:
                 - Nginx
@@ -325,12 +357,15 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                type:
+                - object
+                - 'null'
                 oneOf:
                 - $ref: '#/components/schemas/DomainAnalyticsTechnologiesDomainsByTechnologyLiveResponseInfo'
-                nullable: true
       security:
       - basicAuth: []
+      summary: Technologies domains by technology live
+      x-summary-source: derived
   /v3/domain_analytics/technologies/domains_by_html_terms/live:
     post:
       tags:
@@ -345,10 +380,11 @@ paths:
             schema:
               type: array
               items:
-                type: object
+                type:
+                - object
+                - 'null'
                 oneOf:
                 - $ref: '#/components/schemas/DomainAnalyticsTechnologiesDomainsByHtmlTermsLiveRequestInfo'
-                nullable: true
               example:
               - search_terms:
                 - data-attrid
@@ -362,12 +398,15 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                type:
+                - object
+                - 'null'
                 oneOf:
                 - $ref: '#/components/schemas/DomainAnalyticsTechnologiesDomainsByHtmlTermsLiveResponseInfo'
-                nullable: true
       security:
       - basicAuth: []
+      summary: Technologies domains by html terms live
+      x-summary-source: derived
   /v3/domain_analytics/technologies/domain_technologies/live:
     post:
       tags:
@@ -382,10 +421,11 @@ paths:
             schema:
               type: array
               items:
-                type: object
+                type:
+                - object
+                - 'null'
                 oneOf:
                 - $ref: '#/components/schemas/DomainAnalyticsTechnologiesDomainTechnologiesLiveRequestInfo'
-                nullable: true
               example:
               - target: dataforseo.com
       responses:
@@ -394,12 +434,15 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                type:
+                - object
+                - 'null'
                 oneOf:
                 - $ref: '#/components/schemas/DomainAnalyticsTechnologiesDomainTechnologiesLiveResponseInfo'
-                nullable: true
       security:
       - basicAuth: []
+      summary: Technologies domain technologies live
+      x-summary-source: derived
   /v3/domain_analytics/whois/available_filters:
     get:
       tags:
@@ -414,12 +457,15 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                type:
+                - object
+                - 'null'
                 oneOf:
                 - $ref: '#/components/schemas/DomainAnalyticsWhoisAvailableFiltersResponseInfo'
-                nullable: true
       security:
       - basicAuth: []
+      summary: Whois available filters
+      x-summary-source: derived
   /v3/domain_analytics/whois/overview/live:
     post:
       tags:
@@ -434,10 +480,11 @@ paths:
             schema:
               type: array
               items:
-                type: object
+                type:
+                - object
+                - 'null'
                 oneOf:
                 - $ref: '#/components/schemas/DomainAnalyticsWhoisOverviewLiveRequestInfo'
-                nullable: true
               example:
               - limit: 2
                 filters:
@@ -451,64 +498,747 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                type:
+                - object
+                - 'null'
                 oneOf:
                 - $ref: '#/components/schemas/DomainAnalyticsWhoisOverviewLiveResponseInfo'
-                nullable: true
       security:
       - basicAuth: []
+      summary: Whois overview live
+      x-summary-source: derived
 components:
   schemas:
-    BaseResponseTaskInfo:
+    DomainAnalyticsTechnologiesDomainsByTechnologyLiveTaskInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseTaskInfo'
+      - type: object
+        properties:
+          result:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesDomainsByTechnologyLiveResultInfo'
+            description: array of results
+    BaseResponseInfo:
       properties:
-        id:
-          type: string
-          description: 'task identifier
-
-            unique task identifier in our system in the UUID format'
-          nullable: true
+        version:
+          type:
+          - string
+          - 'null'
+          description: the current version of the API
         status_code:
-          type: integer
-          description: 'status code of the task
-
-            generated by DataForSEO, can be within the following range: 10000-60000
+          type:
+          - integer
+          - 'null'
+          description: 'general status code
 
             you can find the full list of the response codes here'
-          nullable: true
         status_message:
-          type: string
+          type:
+          - string
+          - 'null'
+          description: 'general informational message
+
+            you can find the full list of general informational messages here'
+        time:
+          type:
+          - string
+          - 'null'
+          description: total execution time, seconds
+        cost:
+          type:
+          - number
+          - 'null'
+          description: total tasks cost, USD
+          format: double
+        tasks_count:
+          type:
+          - integer
+          - 'null'
+          description: the number of tasks in the tasks array
+          format: int64
+        tasks_error:
+          type:
+          - integer
+          - 'null'
+          description: the number of tasks in the tasks array returned with an error
+          format: int64
+    DomainAnalyticsTechnologiesTechnologiesResponseInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseInfo'
+      - type: object
+        properties:
+          tasks:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesTechnologiesTaskInfo'
+            description: array of tasks
+    TechnologiesInfo:
+      type: object
+      properties:
+        add_ons:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - string
+              - 'null'
+        analytics:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - string
+              - 'null'
+        web_development:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - string
+              - 'null'
+        security:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - string
+              - 'null'
+        business_tools:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - string
+              - 'null'
+        sales:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - string
+              - 'null'
+        other:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - string
+              - 'null'
+        user_generated_content:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - string
+              - 'null'
+        booking:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - string
+              - 'null'
+        privacy:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - string
+              - 'null'
+        servers:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - string
+              - 'null'
+        location:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - string
+              - 'null'
+        content:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - string
+              - 'null'
+        media:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - string
+              - 'null'
+        marketing:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - string
+              - 'null'
+        communication:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - string
+              - 'null'
+        utilities:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - string
+              - 'null'
+    DomainAnalyticsTechnologiesDomainsByHtmlTermsLiveResultInfo:
+      type: object
+      properties:
+        total_count:
+          type:
+          - integer
+          - 'null'
+          description: total number of relevant items in the database
+          format: int64
+        items_count:
+          type:
+          - integer
+          - 'null'
+          description: number of items in the results array
+          format: int64
+        offset:
+          type:
+          - integer
+          - 'null'
+          description: specified offset value
+        offset_token:
+          type:
+          - string
+          - 'null'
+          description: 'token for subsequent requests
+
+            by specifying the unique offset_token when setting a new task, you will get the subsequent results of the initial task;
+
+            offset_token values are unique for each subsequent task'
+        items:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+            oneOf:
+            - $ref: '#/components/schemas/DomainAnalyticsTechnologiesDomainsByLiveItem'
+          description: items array
+    BacklinksInfo:
+      type: object
+      properties:
+        referring_domains:
+          type:
+          - integer
+          - 'null'
+          description: 'number of referring domains
+
+            referring domains include subdomains that are counted as separate domains for this metric'
+          format: int64
+        referring_main_domains:
+          type:
+          - integer
+          - 'null'
+          description: number of referring main domains
+          format: int64
+        referring_pages:
+          type:
+          - integer
+          - 'null'
+          description: number of pages pointing to the target website
+          format: int64
+        dofollow:
+          type:
+          - integer
+          - 'null'
+          description: number of dofollow links
+          format: int64
+        backlinks:
+          type:
+          - integer
+          - 'null'
+          description: 'total number of backlinks
+
+            the total number of backlinks, including dofollow and nofollow links'
+          format: int64
+        time_update:
+          type:
+          - string
+          - 'null'
+          description: 'date and time when backlink data was updated
+
+            in the UTC format: “yyyy-mm-dd hh-mm-ss +00:00”;
+
+            example:
+
+            2019-11-15 12:57:46 +00:00'
+    DomainAnalyticsTechnologiesLanguagesTaskInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseTaskInfo'
+      - type: object
+        properties:
+          result:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesLanguagesResultInfo'
+            description: array of results
+    DomainAnalyticsTechnologiesTechnologiesSummaryLiveTaskInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseTaskInfo'
+      - type: object
+        properties:
+          result:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesTechnologiesSummaryLiveResultInfo'
+            description: array of results
+    DomainAnalyticsTechnologiesDomainsByTechnologyLiveRequestInfo:
+      type: object
+      properties:
+        technology_paths:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: 'target technology paths
+
+            required field if you don’t specify groups, technologies, keywords or categories
+
+            at least one field (technology_paths, groups, technologies, keywords or categories) must be set;
+
+            each technology path should be specified as a separate object containing “path” and “name”, where “path” is specified as “$group_id.$category_id” and “name” – as the name of the target technology;
+
+            each object with a technology path should be separated with a comma
+
+            you can find the full list of technology group ids, category ids and technology names on this page
+
+            note: you can specify up to 10 technology paths in this array
+
+            example:
+
+            [{"path": "content.cms","name": "wordpress"}, {"path": "marketing.crm","name": "salesforce"}]'
+        groups:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: 'ids of the target technology groups
+
+            required field if you don’t specify technologies, technology_paths, keywords or categories
+
+            you can find the full list of technology group ids on this page
+
+            note: you can specify up to 10 technology groups in this array
+
+            example:
+
+            ["sales", "marketing"]'
+        categories:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: 'ids of the target technology categories
+
+            required field if you don’t specify groups, technology_paths, keywords or technologies
+
+            you can find the full list of technology category ids on this page
+
+            note: you can specify up to 10 technology categories in this array
+
+            example:
+
+            ["payment_processors","crm"]'
+        technologies:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: 'target technologies
+
+            required field if you don’t specify groups, technology_paths, keywords or categories
+
+            you can find the full list of technologies you can specify here on this page
+
+            note: you can specify up to 10 technologies in this array
+
+            example:
+
+            ["Google Pay","Salesforce"]'
+        keywords:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: 'target keywords in the domain’s title, description or meta keywords
+
+            required field if you don’t specify groups, technology_paths, technologies or categories
+
+            optional field
+
+            you can specify the maximum of 10 keywords;
+
+            UTF-8 encoding;
+
+            example:
+
+            ["seo","software"]
+
+            learn more about rules and limitations of keyword and keywords fields in DataForSEO APIs in this Help Center article'
+        mode:
+          type:
+          - string
+          - 'null'
+          description: 'search mode
+
+            optional field
+
+            possible search mode types:
+
+            as_is – search for results exactly matching the specified group ids, category ids, or technology names
+
+            entry – search for results matching a part of the specified group ids, category ids, or technology names
+
+            default value: as_is'
+        filters:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+          description: 'array of results filtering parameters
+
+            optional field
+
+            you can add several filters at once (8 filters maximum)
+
+            you should set a logical operator and, or between the conditions
+
+            the following operators are supported:
+
+            <, <=, >, >=, =, <>, in, not_in, like, not_like
+
+            you can use the % operator with like and not_like to match any string of zero or more characters
+
+            example:
+
+            ["country_iso_code","=","US"]
+
+            [["country_iso_code","=","US"],
+
+            "and",
+
+            ["domain_rank",">",100]]
+
+            [["domain_rank",">",100],
+
+            "and",
+
+            [["country_iso_code","=","US"],"or",["country_iso_code","=","CA"]]]
+
+            for more information about filters, please refer to Domain Analytics Technologies API – Filters'
+        order_by:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: 'results sorting rules
+
+            optional field
+
+            available fields:
+
+            domain_rank, domain, last_visited, country_iso_code, language_code, content_language_code
+
+            possible sorting types:
+
+            asc – results will be sorted in the ascending order
+
+            desc – results will be sorted in the descending order
+
+            you should use a comma to set up a sorting type
+
+            example:
+
+            ["last_visited,desc"]
+
+            default rule:
+
+            ["domain_rank,desc"]
+
+            note that you can set no more than three sorting rules in a single request
+
+            you should use a comma to separate several sorting rules
+
+            example:
+
+            ["last_visited,desc","domain_rank,desc"]'
+        limit:
+          type:
+          - integer
+          - 'null'
+          description: 'the maximum number of returned domains
+
+            optional field
+
+            default value: 100
+
+            maximum value: 10000'
+        offset:
+          type:
+          - integer
+          - 'null'
+          description: 'offset in the results array of returned domains
+
+            optional field
+
+            default value: 0
+
+            if you specify the 10 value, the first ten domains in the results array will be omitted and the data will be provided for the successive domains;
+
+            Note: the maximum value is 9999, the sum of limit and offset must not exceed 10000;
+
+            use the offset_token if you would like to offset more results'
+        offset_token:
+          type:
+          - string
+          - 'null'
+          description: 'token for subsequent requests
+
+            optional field
+
+            provided in the identical filed of the response to each request;
+
+            use this parameter to avoid timeouts while trying to obtain over 100,000 results in a single request;
+
+            by specifying the unique offset_token value from the response array, you will get the subsequent results of the initial task;
+
+            offset_token values are unique for each subsequent task
+
+            Note: if the offset_token is specified in the request, all other parameters should be identical to the previous request
+
+            learn more about this parameter on our Help Center'
+      example:
+      - technologies:
+        - Nginx
+        filters:
+        - - country_iso_code
+          - '='
+          - US
+        - and
+        - - domain_rank
+          - '>'
+          - 800
+        order_by:
+        - last_visited,desc
+        limit: 10
+    DomainAnalyticsErrorsTaskInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseTaskInfo'
+      - type: object
+        properties:
+          result:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/DomainAnalyticsErrorsResultInfo'
+            description: array of results
+    DomainAnalyticsIdListResultInfo:
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          description: id of the task
+        url:
+          type:
+          - string
+          - 'null'
+          description: 'URL of the task
+
+            URL you used for making an API call'
+        datetime_posted:
+          type:
+          - string
+          - 'null'
+          description: 'date and time when the task was made
+
+            in the UTC format: “yyyy-mm-dd hh-mm-ss +00:00”
+
+            example:
+
+            2023-01-15 12:57:46 +00:00'
+        datetime_done:
+          type:
+          - string
+          - 'null'
+          description: 'date and time when the task was completed
+
+            in the UTC format: “yyyy-mm-dd hh-mm-ss +00:00”
+
+            example:
+
+            2023-01-15 12:57:46 +00:00'
+        status:
+          type:
+          - string
+          - 'null'
           description: 'informational message of the task
 
             you can find the full list of general informational messages here'
-          nullable: true
-        time:
-          type: string
-          description: execution time, seconds
-          nullable: true
         cost:
-          type: number
-          description: total tasks cost, USD
-          format: double
-          nullable: true
-        result_count:
-          type: integer
-          description: number of elements in the result array
-          format: int64
-          nullable: true
-        path:
-          type: array
-          items:
-            type: string
-            nullable: true
-          description: URL path
-          nullable: true
-        data:
-          type: object
+          type:
+          - number
+          - 'null'
+          description: cost of the task, USD
+        metadata:
+          type:
+          - object
+          - 'null'
           additionalProperties:
-            type: object
-            nullable: true
-          description: contains the same parameters that you specified in the POST request
-          nullable: true
+            type:
+            - object
+            - 'null'
+          description: contains parameters you specified in the POST request
     DomainAnalyticsIdListRequestInfo:
       type: object
       properties:
@@ -541,7 +1271,9 @@ components:
 
             2023-01-31 13:57:46 +00:00'
         limit:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: 'the maximum number of returned task IDs
 
             optional field
@@ -549,9 +1281,10 @@ components:
             default value: 1000
 
             maximum value: 1000'
-          nullable: true
         offset:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: 'offset in the results array of returned task IDs
 
             optional field
@@ -559,9 +1292,10 @@ components:
             default value: 0
 
             if you specify the 10 value, the first ten tasks in the results array will be omitted'
-          nullable: true
         sort:
-          type: string
+          type:
+          - string
+          - 'null'
           description: 'sorting by task execution time
 
             optional field
@@ -569,15 +1303,15 @@ components:
             possible values: "asc", "desc"
 
             default value: "asc"'
-          nullable: true
         include_metadata:
-          type: boolean
+          type:
+          - boolean
+          - 'null'
           description: 'include task metadata in the respond
 
             optional field
 
             default value: false'
-          nullable: true
       example:
       - datetime_from: '2026-04-12 04:39:39 +00:00'
         datetime_to: '2026-04-14 04:39:39 +00:00'
@@ -585,189 +1319,301 @@ components:
         offset: 0
         sort: desc
         include_metadata: true
-    DomainAnalyticsErrorsRequestInfo:
-      type: object
-      properties:
-        limit:
-          type: integer
-          description: 'the maximum number of returned tasks that responded with an error
-
-            optional field
-
-            default value: 1000
-
-            maximum value: 1000'
-          nullable: true
-        offset:
-          type: integer
-          description: 'offset in the results array of returned tasks
-
-            optional field
-
-            default value: 0
-
-            if you specify the 10 value, the first ten tasks in the results array will be omitted and the data will be provided for the successive tasks'
-          nullable: true
-        filtered_function:
-          type: string
-          description: 'return tasks with a certain function
-
-            use this field to obtain a list of tasks that returned an error filtered by a certain function
-
-            you can filter the results by the values you receive in the function fields of the API response
-
-            i.e., once you receive unfiltered results, you can call this API again to filter them by function
-
-            example: domain_analytics/task_get, postback_url, pingback_url'
-          nullable: true
-        datetime_from:
-          type: string
-          description: 'start time for filtering results
-
-            optional field
-
-            allows filtering results by the datetime parameter within the range of the last 7 days;
-
-            must be specified in the UTC format: “yyyy-mm-dd hh-mm-ss +00:00”
-
-            example:
-
-            2021-11-15 12:57:46 +00:00'
-          nullable: true
-        datetime_to:
-          type: string
-          description: 'finish time for filtering results
-
-            optional field
-
-            allows filtering results by the datetime parameter within the range of the last 7 days;
-
-            must be specified in the UTC format: “yyyy-mm-dd hh-mm-ss +00:00”
-
-            example:
-
-            2021-11-15 13:57:46 +00:00'
-          nullable: true
-      example:
-      - limit: 10
-        offset: 0
-        filtered_function: pingback_url
-    DomainAnalyticsTechnologiesAvailableFiltersResponseInfo:
+    DomainAnalyticsTechnologiesTechnologyStatsLiveResponseInfo:
       type: object
       allOf:
       - $ref: '#/components/schemas/BaseResponseInfo'
       - type: object
         properties:
           tasks:
-            type: array
+            type:
+            - array
+            - 'null'
             items:
-              type: object
+              type:
+              - object
+              - 'null'
               oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesAvailableFiltersTaskInfo'
-              nullable: true
-            nullable: true
-    DomainAnalyticsTechnologiesTechnologyStatsLiveRequestInfo:
-      type: object
-      properties:
-        technology:
-          type: string
-          description: 'target technology
-
-            required field
-
-            you can find the full list of technologies you can specify here on this page
-
-            example:
-
-            "Salesforce"'
-        date_from:
-          type: string
-          description: 'starting date of the time range
-
-            optional field
-
-            minimum value: 2022-10-31
-
-            if you don’t specify this field, the minimum value will be used by default
-
-            date format: "yyyy-mm-dd"
-
-            example:
-
-            "2023-06-01"'
-          nullable: true
-        date_to:
-          type: string
-          description: 'ending date of the time range
-
-            optional field
-
-            if you don’t specify this field, the today’s date will be used by default
-
-            date format: "yyyy-mm-dd"
-
-            example:
-
-            "2023-01-15"'
-          nullable: true
-        tag:
-          type: string
-          description: 'user-defined task identifier
-
-            optional field
-
-            the character limit is 255
-
-            you can use this parameter to identify the task and match it with the result
-
-            you will find the specified tag value in the data object of the response'
-          nullable: true
-      example:
-      - technology: jQuery
-        date_from: '2026-01-15'
-        date_to: '2026-03-15'
-    DomainAnalyticsTechnologiesLanguagesResponseInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseInfo'
-      - type: object
-        properties:
-          tasks:
-            type: array
-            items:
-              type: object
-              oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesLanguagesTaskInfo'
-              nullable: true
+              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesTechnologyStatsLiveTaskInfo'
             description: array of tasks
-            nullable: true
-    DomainAnalyticsTechnologiesTechnologiesSummaryLiveTaskInfo:
+    DomainAnalyticsTechnologiesLocationsTaskInfo:
       type: object
       allOf:
       - $ref: '#/components/schemas/BaseResponseTaskInfo'
       - type: object
         properties:
           result:
-            type: array
+            type:
+            - array
+            - 'null'
             items:
-              type: object
+              type:
+              - object
+              - 'null'
               oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesTechnologiesSummaryLiveResultInfo'
-              nullable: true
+              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesLocationsResultInfo'
             description: array of results
-            nullable: true
-    DomainAnalyticsTechnologiesDomainsByTechnologyLiveRequestInfo:
+    MetricsBundleInfo:
+      type: object
+      properties:
+        organic:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/MetricsInfo'
+          properties:
+            is_new:
+              type:
+              - integer
+              - 'null'
+              description: 'number of new ranked elements
+
+                indicates how many new ranked elements were found for this domain'
+              format: int64
+            is_up:
+              type:
+              - integer
+              - 'null'
+              description: 'rank went up
+
+                indicates how many ranked elements of this domain went up in Google Search'
+              format: int64
+            is_down:
+              type:
+              - integer
+              - 'null'
+              description: 'rank went down
+
+                indicates how many ranked elements of this domain went down in Google Search'
+              format: int64
+            is_lost:
+              type:
+              - integer
+              - 'null'
+              description: 'lost ranked elements
+
+                indicates how many ranked elements of this domain were previously presented in SERPs, but weren’t found during the last check'
+              format: int64
+          description: ranking and traffic data from organic search
+        paid:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/MetricsInfo'
+          description: ranking and traffic data from paid search
+    DomainAnalyticsTechnologiesDomainsByHtmlTermsLiveTaskInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseTaskInfo'
+      - type: object
+        properties:
+          result:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesDomainsByHtmlTermsLiveResultInfo'
+            description: array of results
+    DomainAnalyticsIdListResponseInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseInfo'
+      - type: object
+        properties:
+          tasks:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/DomainAnalyticsIdListTaskInfo'
+            description: array of tasks
+    DomainAnalyticsTechnologiesDomainTechnologiesLiveTaskInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseTaskInfo'
+      - type: object
+        properties:
+          result:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesDomainTechnologiesLiveResultInfo'
+            description: array of results
+    DomainAnalyticsTechnologiesTechnologiesSummaryLiveResponseInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseInfo'
+      - type: object
+        properties:
+          tasks:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesTechnologiesSummaryLiveTaskInfo'
+            description: array of tasks
+    DomainAnalyticsTechnologiesTechnologyStatsLiveItem:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+          description: type of element
+        date:
+          type:
+          - string
+          - 'null'
+          description: date for which the data is provided
+        domains_count:
+          type:
+          - integer
+          - 'null'
+          description: number of domains that use the specified technology
+          format: int64
+        countries:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - integer
+            - 'null'
+            format: int64
+          description: 'distribution of websites by country
+
+            contains country codes and number of websites per country'
+        languages:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - integer
+            - 'null'
+            format: int64
+          description: 'distribution of websites by language
+
+            contains language codes and number of websites per language'
+        domains_rank:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - integer
+            - 'null'
+            format: int64
+          description: 'distribution of websites by backlink rank
+
+            contains domain rank ranges and number of websites per range
+
+            learn more about rank and how it is calculated in this help center article'
+      description: items array
+    TechnologyCategoryInfo:
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          description: 'id of the technology category
+
+            example:
+
+            crm, cart_abandonment'
+        path:
+          type:
+          - string
+          - 'null'
+          description: 'path to the technology category
+
+            example:
+
+            user_generated_content.content_curation'
+        title:
+          type:
+          - string
+          - 'null'
+          description: title of the technology category
+        technologies:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+          description: 'list of technologies in this category
+
+            example:
+
+            "Salesforce", "CareCart"'
+    DomainAnalyticsTechnologiesTechnologiesTaskInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseTaskInfo'
+      - type: object
+        properties:
+          result:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesTechnologiesResultInfo'
+            description: array of results
+    DomainAnalyticsWhoisOverviewLiveResponseInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseInfo'
+      - type: object
+        properties:
+          tasks:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/DomainAnalyticsWhoisOverviewLiveTaskInfo'
+            description: array of tasks
+    DomainAnalyticsTechnologiesTechnologiesSummaryLiveRequestInfo:
       type: object
       properties:
         technology_paths:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: string
           description: 'target technology paths
 
-            required field if you don’t specify groups, technologies, keywords or categories
-
-            at least one field (technology_paths, groups, technologies, keywords or categories) must be set;
+            required field if you don’t specify groups, technologies and categories
 
             each technology path should be specified as a separate object containing “path” and “name”, where “path” is specified as “$group_id.$category_id” and “name” – as the name of the target technology;
 
@@ -780,14 +1626,15 @@ components:
             example:
 
             [{"path": "content.cms","name": "wordpress"}, {"path": "marketing.crm","name": "salesforce"}]'
-          nullable: true
         groups:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: string
           description: 'ids of the target technology groups
 
-            required field if you don’t specify technologies, technology_paths, keywords or categories
+            required field if you don’t specify technologies, technology_paths, categories, or keywords
 
             you can find the full list of technology group ids on this page
 
@@ -796,14 +1643,15 @@ components:
             example:
 
             ["sales", "marketing"]'
-          nullable: true
         categories:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: string
           description: 'ids of the target technology categories
 
-            required field if you don’t specify groups, technology_paths, keywords or technologies
+            required field if you don’t specify groups, technology_paths, technologies, or keywords
 
             you can find the full list of technology category ids on this page
 
@@ -812,14 +1660,15 @@ components:
             example:
 
             ["payment_processors","crm"]'
-          nullable: true
         technologies:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: string
           description: 'target technologies
 
-            required field if you don’t specify groups, technology_paths, keywords or categories
+            required field if you don’t specify groups, technology_paths, categories, or keywords
 
             you can find the full list of technologies you can specify here on this page
 
@@ -828,16 +1677,15 @@ components:
             example:
 
             ["Google Pay","Salesforce"]'
-          nullable: true
         keywords:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: string
           description: 'target keywords in the domain’s title, description or meta keywords
 
-            required field if you don’t specify groups, technology_paths, technologies or categories
-
-            optional field
+            required field if you don’t specify groups, technology_paths, categories, or technologies
 
             you can specify the maximum of 10 keywords;
 
@@ -848,9 +1696,10 @@ components:
             ["seo","software"]
 
             learn more about rules and limitations of keyword and keywords fields in DataForSEO APIs in this Help Center article'
-          nullable: true
         mode:
-          type: string
+          type:
+          - string
+          - 'null'
           description: 'search mode
 
             optional field
@@ -862,12 +1711,14 @@ components:
             entry – search for results matching a part of the specified group ids, category ids, or technology names
 
             default value: as_is'
-          nullable: true
         filters:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
-            type: object
-            nullable: true
+            type:
+            - object
+            - 'null'
           description: 'array of results filtering parameters
 
             optional field
@@ -878,109 +1729,57 @@ components:
 
             the following operators are supported:
 
-            <, <=, >, >=, =, <>, in, not_in, like, not_like
+            <, <=, >, >=, =, <>, in, not_in, like,not_like
 
             you can use the % operator with like and not_like to match any string of zero or more characters
 
-            example:
+            you can use the following parameters to filter the results: domain_rank, last_visited, country_iso_code, language_code, content_language_code
 
-            ["country_iso_code","=","US"]
+            example:
 
             [["country_iso_code","=","US"],
 
             "and",
 
-            ["domain_rank",">",100]]
-
-            [["domain_rank",">",100],
-
-            "and",
-
-            [["country_iso_code","=","US"],"or",["country_iso_code","=","CA"]]]
+            ["domain_rank",">",800]]
 
             for more information about filters, please refer to Domain Analytics Technologies API – Filters'
-          nullable: true
-        order_by:
-          type: array
-          items:
-            type: string
-          description: 'results sorting rules
+        internal_list_limit:
+          type:
+          - integer
+          - 'null'
+          description: 'maximum number of elements within internal arrays
 
             optional field
 
-            available fields:
+            you can use this field to limit the number of elements within the following arrays:
 
-            domain_rank, domain, last_visited, country_iso_code, language_code, content_language_code
+            countries, languages, content_languages, keywords
 
-            possible sorting types:
+            default value: 10
 
-            asc – results will be sorted in the ascending order
-
-            desc – results will be sorted in the descending order
-
-            you should use a comma to set up a sorting type
-
-            example:
-
-            ["last_visited,desc"]
-
-            default rule:
-
-            ["domain_rank,desc"]
-
-            note that you can set no more than three sorting rules in a single request
-
-            you should use a comma to separate several sorting rules
-
-            example:
-
-            ["last_visited,desc","domain_rank,desc"]'
-          nullable: true
-        limit:
-          type: integer
-          description: 'the maximum number of returned domains
-
-            optional field
-
-            default value: 100
+            minimum value: 1
 
             maximum value: 10000'
-          nullable: true
-        offset:
-          type: integer
-          description: 'offset in the results array of returned domains
+        tag:
+          type:
+          - string
+          - 'null'
+          description: 'user-defined task identifier
 
             optional field
 
-            default value: 0
+            the character limit is 255
 
-            if you specify the 10 value, the first ten domains in the results array will be omitted and the data will be provided for the successive domains;
+            you can use this parameter to identify the task and match it with the result
 
-            Note: the maximum value is 9999, the sum of limit and offset must not exceed 10000;
-
-            use the offset_token if you would like to offset more results'
-          nullable: true
-        offset_token:
-          type: string
-          description: 'token for subsequent requests
-
-            optional field
-
-            provided in the identical filed of the response to each request;
-
-            use this parameter to avoid timeouts while trying to obtain over 100,000 results in a single request;
-
-            by specifying the unique offset_token value from the response array, you will get the subsequent results of the initial task;
-
-            offset_token values are unique for each subsequent task
-
-            Note: if the offset_token is specified in the request, all other parameters should be identical to the previous request
-
-            learn more about this parameter on our Help Center'
-          nullable: true
+            you will find the specified tag value in the data object of the response'
       example:
-      - technologies:
-        - Nginx
+      - mode: entry
+        technologies:
+        - Ngi
+        keywords:
+        - WordPress
         filters:
         - - country_iso_code
           - '='
@@ -989,228 +1788,205 @@ components:
         - - domain_rank
           - '>'
           - 800
-        order_by:
-        - last_visited,desc
-        limit: 10
-    DomainAnalyticsTechnologiesDomainsByHtmlTermsLiveTaskInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseTaskInfo'
-      - type: object
-        properties:
-          result:
-            type: array
-            items:
-              type: object
-              oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesDomainsByHtmlTermsLiveResultInfo'
-              nullable: true
-            description: array of results
-            nullable: true
-    DomainAnalyticsWhoisOverviewLiveRequestInfo:
-      type: object
-      properties:
-        limit:
-          type: integer
-          description: 'the maximum number of returned domainsoptional fielddefault value: 100maximum value: 1000'
-          nullable: true
-        offset:
-          type: integer
-          description: 'offset in the results array of returned itemsoptional fielddefault value: 0if you specify the 10 value, the first ten items in the results array will be omitted and the data will be provided for the successive items;Note: we recommend using this parameter only when retrieving up to 10,000 results for retrieving over 10,000 results, use the offset_token instead'
-          nullable: true
-        offset_token:
-          type: string
-          description: 'token for subsequent requestsoptional fieldprovided in the identical filed of the response to each request;use this parameter to avoid timeouts while trying to obtain over 100,000 results in a single request;by specifying the unique offset_token value from the response array, you will get the subsequent results of the initial task;offset_token values are unique for each subsequent taskNote: if the offset_token is specified in the request, all other parameters should be identical to the previous requestlearn more about this parameter on our Help Center'
-          nullable: true
-        filters:
-          type: array
-          items:
-            type: object
-            nullable: true
-          description: array of results filtering parametersoptional fieldyou can add several filters at once (8 filters maximum)you should set a logical operator and, or between the conditionsthe following operators are supported:regex, <, <=, >, >=, =, <>, in, not_in, like, not_likeyou can use the % operator with like and not_like to match any string of zero or more characters
-          nullable: true
-        order_by:
-          type: array
-          items:
-            type: string
-          description: results sorting rulesoptional fieldyou can use the same values as in the filters array to sort the resultspossible sorting types:asc - results will be sorted in the ascending orderdesc - results will be sorted in the descending orderthe comma is used as a separatorexample:["metrics.organic.pos_1,desc"]default rule:["metrics.organic.count,desc"]note that you can set no more than three sorting rules in a single requestyou should use a comma to separate several sorting rulesexample:["expiration_datetime,asc","metrics.organic.etv,desc","metrics.organic.pos_1,desc"]
-          nullable: true
-        tag:
-          type: string
-          description: user-defined task identifieroptional fieldthe character limit is 255you can use this parameter to identify the task and match it with the resultyou will find the specified tag value in the data object of the response
-          nullable: true
-      example:
-      - limit: 2
-        filters:
-        - - epp_status_codes
-          - in
-          - - client_transfer_prohibited
-            - client_update_prohibited
-    DomainAnalyticsWhoisAvailableFiltersResultInfo:
-      type: object
-      properties:
-        overview:
-          type: object
-          additionalProperties:
-            type: string
-            nullable: true
-          nullable: true
-    Groups:
-      type: object
-      properties:
-        id:
-          type: string
-          description: 'id of the technology group
-
-            example:
-
-            marketing, sales'
-          nullable: true
-        title:
-          type: string
-          description: title of the technology group
-          nullable: true
-        categories:
-          type: array
-          items:
-            type: object
-            oneOf:
-            - $ref: '#/components/schemas/TechnologyCategoryInfo'
-            nullable: true
-          description: technology categories in this group
-          nullable: true
-    DomainAnalyticsTechnologiesDomainTechnologiesLiveResponseInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseInfo'
-      - type: object
-        properties:
-          tasks:
-            type: array
-            items:
-              type: object
-              oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesDomainTechnologiesLiveTaskInfo'
-              nullable: true
-            description: array of tasks
-            nullable: true
-    DomainAnalyticsTechnologiesLanguagesResultInfo:
-      type: object
-      properties:
-        language_name:
-          type: string
-          description: language name
-          nullable: true
-        language_code:
-          type: string
-          description: language code according to ISO 639-1
-          nullable: true
-    DomainAnalyticsTechnologiesTechnologyStatsLiveItem:
+    DomainAnalyticsTechnologiesDomainsByLiveItem:
       type: object
       properties:
         type:
-          type: string
+          type:
+          - string
+          - 'null'
           description: type of element
-          nullable: true
-        date:
-          type: string
-          description: date for which the data is provided
-          nullable: true
-        domains_count:
-          type: integer
-          description: number of domains that use the specified technology
-          format: int64
-          nullable: true
-        countries:
-          type: object
-          additionalProperties:
-            type: integer
-            format: int64
-            nullable: true
-          description: 'distribution of websites by country
+        domain:
+          type:
+          - string
+          - 'null'
+          description: specified domain name
+        title:
+          type:
+          - string
+          - 'null'
+          description: domain meta title
+        description:
+          type:
+          - string
+          - 'null'
+          description: domain meta description
+        meta_keywords:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+          description: domain meta keywords
+        domain_rank:
+          type:
+          - integer
+          - 'null'
+          description: 'backlink rank of the target domain
 
-            contains country codes and number of websites per country'
-          nullable: true
-        languages:
-          type: object
-          additionalProperties:
-            type: integer
-            format: int64
-            nullable: true
-          description: 'distribution of websites by language
-
-            contains language codes and number of websites per language'
-          nullable: true
-        domains_rank:
-          type: object
-          additionalProperties:
-            type: integer
-            format: int64
-            nullable: true
-          description: 'distribution of websites by backlink rank
-
-            contains domain rank ranges and number of websites per range
-
-            learn more about rank and how it is calculated in this help center article'
-          nullable: true
-      description: items array
-    DomainAnalyticsErrorsResultInfo:
-      type: object
-      properties:
-        id:
-          type: string
-          description: id of the task
-          nullable: true
-        datetime:
-          type: string
-          description: 'date and time when an error occurred
+            learn more about the metric and how it is calculated in this help center article'
+        last_visited:
+          type:
+          - string
+          - 'null'
+          description: 'most recent date when our crawler visited the domain
 
             in the UTC format: “yyyy-mm-dd hh-mm-ss +00:00”
 
             example:
 
-            2019-11-15 12:57:46 +00:00'
-          nullable: true
-        function:
-          type: string
-          description: corresponding API function
-          nullable: true
-        error_code:
-          type: integer
-          description: error code
-          nullable: true
-        error_message:
-          type: string
-          description: 'error message or error URL
+            2022-10-10 12:57:46 +00:00'
+        country_iso_code:
+          type:
+          - string
+          - 'null'
+          description: 'domain ISO code
 
-            error message (see full list) or URL that caused an error'
-          nullable: true
-        http_url:
-          type: string
-          description: 'URL that caused an error
+            ISO code of the country that target domain is determined to belong to'
+        language_code:
+          type:
+          - string
+          - 'null'
+          description: 'domain language
 
-            URL you used for making an API call or pingback/postback URL'
-          nullable: true
-        http_method:
-          type: string
-          description: HTTP method
-          nullable: true
-        http_code:
-          type: integer
-          description: HTTP status code
-          nullable: true
-        http_time:
-          type: number
-          description: 'time taken by HTTP request
+            code of the language that target domain is determined to be associated with'
+        content_language_code:
+          type:
+          - string
+          - 'null'
+          description: 'content language
 
-            for tasks set with a pingback/postback, this field will show the time it took your server to respond'
-          nullable: true
-        http_response:
-          type: string
-          description: 'HTTP response
+            code of the language that content on the target domain is written with'
+        phone_numbers:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+          description: 'phone numbers of the target
 
-            server response'
-          nullable: true
+            contact phone numbers indicated on the target website'
+        emails:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+          description: 'emails of the target
+
+            emails indicated on the target website'
+        social_graph_urls:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+          description: 'social media links and handles
+
+            social media URLs detected in the social graphs of the target website'
+        technologies:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/TechnologiesInfo'
+          description: 'technologies used by target domain
+
+            contains objects with the names of technologies used on the website;
+
+            to get a full list of technologies and their structure, refer to the technologies endpoint'
+      description: items array
+    DomainAnalyticsWhoisAvailableFiltersResultInfo:
+      type: object
+      properties:
+        overview:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - string
+            - 'null'
+    DomainAnalyticsErrorsRequestInfo:
+      type: object
+      properties:
+        limit:
+          type:
+          - integer
+          - 'null'
+          description: 'the maximum number of returned tasks that responded with an error
+
+            optional field
+
+            default value: 1000
+
+            maximum value: 1000'
+        offset:
+          type:
+          - integer
+          - 'null'
+          description: 'offset in the results array of returned tasks
+
+            optional field
+
+            default value: 0
+
+            if you specify the 10 value, the first ten tasks in the results array will be omitted and the data will be provided for the successive tasks'
+        filtered_function:
+          type:
+          - string
+          - 'null'
+          description: 'return tasks with a certain function
+
+            use this field to obtain a list of tasks that returned an error filtered by a certain function
+
+            you can filter the results by the values you receive in the function fields of the API response
+
+            i.e., once you receive unfiltered results, you can call this API again to filter them by function
+
+            example: domain_analytics/task_get, postback_url, pingback_url'
+        datetime_from:
+          type:
+          - string
+          - 'null'
+          description: 'start time for filtering results
+
+            optional field
+
+            allows filtering results by the datetime parameter within the range of the last 7 days;
+
+            must be specified in the UTC format: “yyyy-mm-dd hh-mm-ss +00:00”
+
+            example:
+
+            2021-11-15 12:57:46 +00:00'
+        datetime_to:
+          type:
+          - string
+          - 'null'
+          description: 'finish time for filtering results
+
+            optional field
+
+            allows filtering results by the datetime parameter within the range of the last 7 days;
+
+            must be specified in the UTC format: “yyyy-mm-dd hh-mm-ss +00:00”
+
+            example:
+
+            2021-11-15 13:57:46 +00:00'
+      example:
+      - limit: 10
+        offset: 0
+        filtered_function: pingback_url
     DomainAnalyticsTechnologiesTechnologyStatsLiveTaskInfo:
       type: object
       allOf:
@@ -1218,69 +1994,76 @@ components:
       - type: object
         properties:
           result:
-            type: array
+            type:
+            - array
+            - 'null'
             items:
-              type: object
+              type:
+              - object
+              - 'null'
               oneOf:
               - $ref: '#/components/schemas/DomainAnalyticsTechnologiesTechnologyStatsLiveResultInfo'
-              nullable: true
             description: array of results
-            nullable: true
-    DomainAnalyticsTechnologiesTechnologyStatsLiveResultInfo:
-      type: object
+    BaseResponseTaskInfo:
       properties:
-        technology:
-          type: string
-          description: target technology
-          nullable: true
-        date_from:
-          type: string
-          description: starting date of the time range
-          nullable: true
-        date_to:
-          type: string
-          description: ending date of the time range
-          nullable: true
-        items_count:
-          type: integer
-          description: number of items in the results array
+        id:
+          type:
+          - string
+          - 'null'
+          description: 'task identifier
+
+            unique task identifier in our system in the UUID format'
+        status_code:
+          type:
+          - integer
+          - 'null'
+          description: 'status code of the task
+
+            generated by DataForSEO, can be within the following range: 10000-60000
+
+            you can find the full list of the response codes here'
+        status_message:
+          type:
+          - string
+          - 'null'
+          description: 'informational message of the task
+
+            you can find the full list of general informational messages here'
+        time:
+          type:
+          - string
+          - 'null'
+          description: execution time, seconds
+        cost:
+          type:
+          - number
+          - 'null'
+          description: total tasks cost, USD
+          format: double
+        result_count:
+          type:
+          - integer
+          - 'null'
+          description: number of elements in the result array
           format: int64
-          nullable: true
-        items:
-          type: array
+        path:
+          type:
+          - array
+          - 'null'
           items:
-            type: object
-            oneOf:
-            - $ref: '#/components/schemas/DomainAnalyticsTechnologiesTechnologyStatsLiveItem'
-            nullable: true
-          description: items array
-          nullable: true
-    DomainAnalyticsTechnologiesLocationsResultInfo:
-      type: object
-      properties:
-        location_name:
-          type: string
-          description: full name of the location
-          nullable: true
-        country_iso_code:
-          type: string
-          description: ISO country code of the location
-          nullable: true
-    DomainAnalyticsTechnologiesTechnologiesResponseInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseInfo'
-      - type: object
-        properties:
-          tasks:
-            type: array
-            items:
-              type: object
-              oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesTechnologiesTaskInfo'
-              nullable: true
-            description: array of tasks
-            nullable: true
+            type:
+            - string
+            - 'null'
+          description: URL path
+        data:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - object
+            - 'null'
+          description: contains the same parameters that you specified in the POST request
     DomainAnalyticsTechnologiesDomainsByHtmlTermsLiveResponseInfo:
       type: object
       allOf:
@@ -1288,14 +2071,234 @@ components:
       - type: object
         properties:
           tasks:
-            type: array
+            type:
+            - array
+            - 'null'
             items:
-              type: object
+              type:
+              - object
+              - 'null'
               oneOf:
               - $ref: '#/components/schemas/DomainAnalyticsTechnologiesDomainsByHtmlTermsLiveTaskInfo'
-              nullable: true
             description: array of tasks
-            nullable: true
+    DomainAnalyticsTechnologiesLanguagesResponseInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseInfo'
+      - type: object
+        properties:
+          tasks:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesLanguagesTaskInfo'
+            description: array of tasks
+    DomainAnalyticsWhoisAvailableFiltersResponseInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseInfo'
+      - type: object
+        properties:
+          tasks:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/DomainAnalyticsWhoisAvailableFiltersTaskInfo'
+    DomainAnalyticsTechnologiesAggregationTechnologiesLiveItem:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+          description: type of element
+        group:
+          type:
+          - string
+          - 'null'
+          description: technology group id
+        category:
+          type:
+          - string
+          - 'null'
+          description: technology category id
+        technology:
+          type:
+          - string
+          - 'null'
+          description: technology name
+        groups_count:
+          type:
+          - integer
+          - 'null'
+          description: 'technology groups count
+
+            number of domains that match the parameters you specified and are using technologies from the indicated group'
+          format: int64
+        categories_count:
+          type:
+          - integer
+          - 'null'
+          description: 'technology categories count
+
+            number of domains that match the parameters you specified and are using technologies from the indicated category'
+          format: int64
+        technologies_count:
+          type:
+          - integer
+          - 'null'
+          description: 'technologies count
+
+            number of domains that match the parameters you specified and are using the indicated technology'
+          format: int64
+      description: items array
+    DomainAnalyticsTechnologiesDomainsByTechnologyLiveResponseInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseInfo'
+      - type: object
+        properties:
+          tasks:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesDomainsByTechnologyLiveTaskInfo'
+            description: array of tasks
+    DomainAnalyticsTechnologiesAvailableFiltersTaskInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseTaskInfo'
+      - type: object
+        properties:
+          result:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesAvailableFiltersResultInfo'
+    DomainAnalyticsTechnologiesDomainTechnologiesLiveRequestInfo:
+      type: object
+      properties:
+        target:
+          type: string
+          description: 'target domain
+
+            required field
+
+            domain name of the website to analyze
+
+            Note: results will be returned for the specified domain only'
+      example:
+      - target: dataforseo.com
+    DomainAnalyticsTechnologiesAggregationTechnologiesLiveResponseInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseInfo'
+      - type: object
+        properties:
+          tasks:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesAggregationTechnologiesLiveTaskInfo'
+            description: array of tasks
+    DomainAnalyticsErrorsResponseInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseInfo'
+      - type: object
+        properties:
+          tasks:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/DomainAnalyticsErrorsTaskInfo'
+            description: array of tasks
+    DomainAnalyticsTechnologiesDomainsByTechnologyLiveResultInfo:
+      type: object
+      properties:
+        total_count:
+          type:
+          - integer
+          - 'null'
+          description: total number of relevant items in the database
+          format: int64
+        items_count:
+          type:
+          - integer
+          - 'null'
+          description: number of items in the results array
+          format: int64
+        offset:
+          type:
+          - integer
+          - 'null'
+          description: specified offset value
+        offset_token:
+          type:
+          - string
+          - 'null'
+          description: 'token for subsequent requests
+
+            by specifying the unique offset_token when setting a new task, you will get the subsequent results of the initial task;
+
+            offset_token values are unique for each subsequent task'
+        items:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+            oneOf:
+            - $ref: '#/components/schemas/DomainAnalyticsTechnologiesDomainsByLiveItem'
+          description: items array
+    DomainAnalyticsWhoisAvailableFiltersTaskInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseTaskInfo'
+      - type: object
+        properties:
+          result:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/DomainAnalyticsWhoisAvailableFiltersResultInfo'
     DomainAnalyticsTechnologiesDomainsByHtmlTermsLiveRequestInfo:
       type: object
       properties:
@@ -1317,7 +2320,9 @@ components:
 
             ["data-attrid"]'
         keywords:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: string
           description: 'target keywords in the domain’s title, description or meta keywords
@@ -1333,9 +2338,10 @@ components:
             ["seo","software"]
 
             learn more about rules and limitations of keyword and keywords fields in DataForSEO APIs in this Help Center article'
-          nullable: true
         mode:
-          type: string
+          type:
+          - string
+          - 'null'
           description: 'search mode
 
             optional field
@@ -1347,12 +2353,14 @@ components:
             entry – search for results ignoring the order, intervals and separators in the specified search terms
 
             default value: entry'
-          nullable: true
         filters:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
-            type: object
-            nullable: true
+            type:
+            - object
+            - 'null'
           description: 'array of results filtering parameters
 
             optional field
@@ -1384,9 +2392,10 @@ components:
             [["country_iso_code","=","US"],"or",["country_iso_code","=","CA"]]]
 
             for more information about filters, please refer to Domain Analytics Technologies API – Filters'
-          nullable: true
         order_by:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: string
           description: 'results sorting rules
@@ -1420,9 +2429,10 @@ components:
             example:
 
             ["last_visited,desc","domain_rank,desc"]'
-          nullable: true
         limit:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: 'the maximum number of returned domains
 
             optional field
@@ -1430,9 +2440,10 @@ components:
             default value: 100
 
             maximum value: 10000'
-          nullable: true
         offset:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: 'offset in the results array of returned domains
 
             optional field
@@ -1444,9 +2455,10 @@ components:
             Note: the maximum value is 9999, the sum of limit and offset must not exceed 10000;
 
             use the offset_token if you would like to offset more results'
-          nullable: true
         offset_token:
-          type: string
+          type:
+          - string
+          - 'null'
           description: 'token for subsequent requests
 
             optional field
@@ -1462,7 +2474,6 @@ components:
             Note: if the offset_token is specified in the request, all other parameters should be identical to the previous request
 
             learn more about this parameter on our Help Center'
-          nullable: true
       example:
       - search_terms:
         - data-attrid
@@ -1470,401 +2481,121 @@ components:
         - last_visited,desc
         limit: 10
         offset: 0
-    DomainAnalyticsTechnologiesAggregationTechnologiesLiveItem:
+    DomainAnalyticsTechnologiesDomainTechnologiesLiveResultInfo:
       type: object
       properties:
         type:
-          type: string
+          type:
+          - string
+          - 'null'
           description: type of element
-          nullable: true
-        group:
-          type: string
-          description: technology group id
-          nullable: true
-        category:
-          type: string
-          description: technology category id
-          nullable: true
-        technology:
-          type: string
-          description: technology name
-          nullable: true
-        groups_count:
-          type: integer
-          description: 'technology groups count
-
-            number of domains that match the parameters you specified and are using technologies from the indicated group'
-          format: int64
-          nullable: true
-        categories_count:
-          type: integer
-          description: 'technology categories count
-
-            number of domains that match the parameters you specified and are using technologies from the indicated category'
-          format: int64
-          nullable: true
-        technologies_count:
-          type: integer
-          description: 'technologies count
-
-            number of domains that match the parameters you specified and are using the indicated technology'
-          format: int64
-          nullable: true
-      description: items array
-    DomainAnalyticsTechnologiesDomainTechnologiesLiveTaskInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseTaskInfo'
-      - type: object
-        properties:
-          result:
-            type: array
-            items:
-              type: object
-              oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesDomainTechnologiesLiveResultInfo'
-              nullable: true
-            description: array of results
-            nullable: true
-    DomainAnalyticsIdListResultInfo:
-      type: object
-      properties:
-        id:
-          type: string
-          description: id of the task
-          nullable: true
-        url:
-          type: string
-          description: 'URL of the task
-
-            URL you used for making an API call'
-          nullable: true
-        datetime_posted:
-          type: string
-          description: 'date and time when the task was made
-
-            in the UTC format: “yyyy-mm-dd hh-mm-ss +00:00”
-
-            example:
-
-            2023-01-15 12:57:46 +00:00'
-          nullable: true
-        datetime_done:
-          type: string
-          description: 'date and time when the task was completed
-
-            in the UTC format: “yyyy-mm-dd hh-mm-ss +00:00”
-
-            example:
-
-            2023-01-15 12:57:46 +00:00'
-          nullable: true
-        status:
-          type: string
-          description: 'informational message of the task
-
-            you can find the full list of general informational messages here'
-          nullable: true
-        cost:
-          type: number
-          description: cost of the task, USD
-          nullable: true
-        metadata:
-          type: object
-          additionalProperties:
-            type: object
-            nullable: true
-          description: contains parameters you specified in the POST request
-          nullable: true
-    DomainAnalyticsTechnologiesAggregationTechnologiesLiveResultInfo:
-      type: object
-      properties:
-        total_count:
-          type: integer
-          description: total amount of results in our database relevant to your request
-          format: int64
-          nullable: true
-        items_count:
-          type: integer
-          description: the number of results returned in the items array
-          format: int64
-          nullable: true
-        offset:
-          type: integer
-          description: offset in the results array of returned domains
-          nullable: true
-        items:
-          type: array
+        domain:
+          type:
+          - string
+          - 'null'
+          description: specified domain name
+        title:
+          type:
+          - string
+          - 'null'
+          description: domain meta title
+        description:
+          type:
+          - string
+          - 'null'
+          description: domain meta description
+        meta_keywords:
+          type:
+          - array
+          - 'null'
           items:
-            type: object
-            oneOf:
-            - $ref: '#/components/schemas/DomainAnalyticsTechnologiesAggregationTechnologiesLiveItem'
-            nullable: true
-          description: items array
-          nullable: true
-    MetricsInfo:
-      type: object
-      properties:
-        pos_1:
-          type: integer
-          description: 'number of organic SERPs where the domain ranks #1'
-          nullable: true
-        pos_2_3:
-          type: integer
-          description: 'number of organic SERPs where the domain ranks #2-3'
-          nullable: true
-        pos_4_10:
-          type: integer
-          description: 'number of organic SERPs where the domain ranks #4-10'
-          nullable: true
-        pos_11_20:
-          type: integer
-          description: 'number of organic SERPs where the domain ranks #11-20'
-          nullable: true
-        pos_21_30:
-          type: integer
-          description: 'number of organic SERPs where the domain ranks #21-30'
-          nullable: true
-        pos_31_40:
-          type: integer
-          description: 'number of organic SERPs where the domain ranks #31-40'
-          nullable: true
-        pos_41_50:
-          type: integer
-          description: 'number of organic SERPs where the domain ranks #41-50'
-          nullable: true
-        pos_51_60:
-          type: integer
-          description: 'number of organic SERPs where the domain ranks #51-60'
-          nullable: true
-        pos_61_70:
-          type: integer
-          description: 'number of organic SERPs where the domain ranks #61-70'
-          nullable: true
-        pos_71_80:
-          type: integer
-          description: 'number of organic SERPs where the domain ranks #71-80'
-          nullable: true
-        pos_81_90:
-          type: integer
-          description: 'number of organic SERPs where the domain ranks #81-90'
-          nullable: true
-        pos_91_100:
-          type: integer
-          description: 'number of organic SERPs where the domain ranks #91-100'
-          nullable: true
-        etv:
-          type: number
-          description: estimated traffic volumeestimated organic monthly traffic to the domaincalculated as the product of CTR (click-through-rate) and search volume values of all keywords the domain ranks forlearn more about how the metric is calculated in this help center article
-          nullable: true
-        count:
-          type: integer
-          description: total count of organic SERPs that contain the domain
-          format: int64
-          nullable: true
-        estimated_paid_traffic_cost:
-          type: number
-          description: estimated cost of converting organic search traffic into paidrepresents the estimated monthly cost of running ads (USD) for all keywords a domain ranks forthe metric is calculated as the product of organic etv and paid cpc values and indicates the cost of driving the estimated volume of monthly organic traffic through PPC advertising in Google Searchlearn more about how the metric is calculated in this help center article
-          nullable: true
-        is_new:
-          type: integer
-          description: 'number of new ranked elements
+            type:
+            - string
+            - 'null'
+          description: domain meta keywords
+        domain_rank:
+          type:
+          - integer
+          - 'null'
+          description: 'backlink rank of the target domain
 
-            indicates how many new ranked elements were found for this domain'
-          format: int64
-          nullable: true
-        is_up:
-          type: integer
-          description: 'rank went up
+            learn more about the metric and how it is calculated in this help center article'
+        last_visited:
+          type:
+          - string
+          - 'null'
+          description: 'most recent date when our crawler visited the domain
 
-            indicates how many ranked elements of this domain went up in Google Search'
-          format: int64
-          nullable: true
-        is_down:
-          type: integer
-          description: 'rank went down
+            in the UTC format: “yyyy-mm-dd hh-mm-ss +00:00”
 
-            indicates how many ranked elements of this domain went down in Google Search'
-          format: int64
-          nullable: true
-        is_lost:
-          type: integer
-          description: 'lost ranked elements
+            example:
 
-            indicates how many ranked elements of this domain were previously presented in SERPs, but weren’t found during the last check'
-          format: int64
-          nullable: true
-    TechnologiesInfo:
-      type: object
-      properties:
-        add_ons:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-              nullable: true
-            nullable: true
-          nullable: true
-        analytics:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-              nullable: true
-            nullable: true
-          nullable: true
-        web_development:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-              nullable: true
-            nullable: true
-          nullable: true
-        security:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-              nullable: true
-            nullable: true
-          nullable: true
-        business_tools:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-              nullable: true
-            nullable: true
-          nullable: true
-        sales:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-              nullable: true
-            nullable: true
-          nullable: true
-        other:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-              nullable: true
-            nullable: true
-          nullable: true
-        user_generated_content:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-              nullable: true
-            nullable: true
-          nullable: true
-        booking:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-              nullable: true
-            nullable: true
-          nullable: true
-        privacy:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-              nullable: true
-            nullable: true
-          nullable: true
-        servers:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-              nullable: true
-            nullable: true
-          nullable: true
-        location:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-              nullable: true
-            nullable: true
-          nullable: true
-        content:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-              nullable: true
-            nullable: true
-          nullable: true
-        media:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-              nullable: true
-            nullable: true
-          nullable: true
-        marketing:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-              nullable: true
-            nullable: true
-          nullable: true
-        communication:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-              nullable: true
-            nullable: true
-          nullable: true
-        utilities:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-              nullable: true
-            nullable: true
-          nullable: true
-    DomainAnalyticsTechnologiesLocationsResponseInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseInfo'
-      - type: object
-        properties:
-          tasks:
-            type: array
-            items:
-              type: object
-              oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesLocationsTaskInfo'
-              nullable: true
-            description: array of tasks
-            nullable: true
+            2022-10-10 12:57:46 +00:00'
+        country_iso_code:
+          type:
+          - string
+          - 'null'
+          description: 'domain ISO code
+
+            ISO code of the country that the target domain is determined to belong to'
+        language_code:
+          type:
+          - string
+          - 'null'
+          description: 'domain language
+
+            code of the language that the target domain is determined to be associated with'
+        content_language_code:
+          type:
+          - string
+          - 'null'
+          description: 'content language
+
+            code of the language that content on the target domain is written in'
+        phone_numbers:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+          description: 'phone numbers of the target
+
+            contact phone numbers indicated on the target website'
+        emails:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+          description: 'emails of the target
+
+            emails indicated on the target website'
+        social_graph_urls:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+          description: 'social media links and handles
+
+            social media URLs detected in the social graphs of the target website'
+        technologies:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/TechnologiesInfo'
+          description: 'technologies used by target domain
+
+            contains objects with the names of technologies used on the website
+
+            see the full list of available technologies structured by groups and categories'
     DomainAnalyticsTechnologiesAggregationTechnologiesLiveTaskInfo:
       type: object
       allOf:
@@ -1872,202 +2603,23 @@ components:
       - type: object
         properties:
           result:
-            type: array
+            type:
+            - array
+            - 'null'
             items:
-              type: object
+              type:
+              - object
+              - 'null'
               oneOf:
               - $ref: '#/components/schemas/DomainAnalyticsTechnologiesAggregationTechnologiesLiveResultInfo'
-              nullable: true
             description: array of results
-            nullable: true
-    DomainAnalyticsWhoisOverviewLiveTaskInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseTaskInfo'
-      - type: object
-        properties:
-          result:
-            type: array
-            items:
-              type: object
-              oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsWhoisOverviewLiveResultInfo'
-              nullable: true
-            description: array of results
-            nullable: true
-    DomainAnalyticsTechnologiesDomainTechnologiesLiveRequestInfo:
-      type: object
-      properties:
-        target:
-          type: string
-          description: 'target domain
-
-            required field
-
-            domain name of the website to analyze
-
-            Note: results will be returned for the specified domain only'
-      example:
-      - target: dataforseo.com
-    DomainAnalyticsIdListTaskInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseTaskInfo'
-      - type: object
-        properties:
-          result:
-            type: array
-            items:
-              type: object
-              oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsIdListResultInfo'
-              nullable: true
-            description: array of results
-            nullable: true
-    DomainAnalyticsWhoisOverviewLiveResultInfo:
-      type: object
-      properties:
-        total_count:
-          type: integer
-          description: total amount of results in our database relevant to your request
-          format: int64
-          nullable: true
-        items_count:
-          type: integer
-          description: the number of results returned in the items array
-          format: int64
-          nullable: true
-        offset:
-          type: integer
-          description: results offset value specified in POST request
-          nullable: true
-        offset_token:
-          type: string
-          nullable: true
-        items:
-          type: array
-          items:
-            type: object
-            oneOf:
-            - $ref: '#/components/schemas/DomainAnalyticsWhoisOverviewLiveItem'
-            nullable: true
-          description: contains ranking and traffic data
-          nullable: true
-    TechnologyCategoryInfo:
-      type: object
-      properties:
-        id:
-          type: string
-          description: 'id of the technology category
-
-            example:
-
-            crm, cart_abandonment'
-          nullable: true
-        path:
-          type: string
-          description: 'path to the technology category
-
-            example:
-
-            user_generated_content.content_curation'
-          nullable: true
-        title:
-          type: string
-          description: title of the technology category
-          nullable: true
-        technologies:
-          type: array
-          items:
-            type: string
-            nullable: true
-          description: 'list of technologies in this category
-
-            example:
-
-            "Salesforce", "CareCart"'
-          nullable: true
-    DomainAnalyticsTechnologiesDomainsByTechnologyLiveResponseInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseInfo'
-      - type: object
-        properties:
-          tasks:
-            type: array
-            items:
-              type: object
-              oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesDomainsByTechnologyLiveTaskInfo'
-              nullable: true
-            description: array of tasks
-            nullable: true
-    DomainAnalyticsTechnologiesLocationsTaskInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseTaskInfo'
-      - type: object
-        properties:
-          result:
-            type: array
-            items:
-              type: object
-              oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesLocationsResultInfo'
-              nullable: true
-            description: array of results
-            nullable: true
-    DomainAnalyticsTechnologiesTechnologiesResultInfo:
-      type: object
-      properties:
-        groups:
-          type: array
-          items:
-            type: object
-            oneOf:
-            - $ref: '#/components/schemas/Groups'
-            nullable: true
-          description: array of technology groups
-          nullable: true
-    DomainAnalyticsTechnologiesDomainsByHtmlTermsLiveResultInfo:
-      type: object
-      properties:
-        total_count:
-          type: integer
-          description: total number of relevant items in the database
-          format: int64
-          nullable: true
-        items_count:
-          type: integer
-          description: number of items in the results array
-          format: int64
-          nullable: true
-        offset:
-          type: integer
-          description: specified offset value
-          nullable: true
-        offset_token:
-          type: string
-          description: 'token for subsequent requests
-
-            by specifying the unique offset_token when setting a new task, you will get the subsequent results of the initial task;
-
-            offset_token values are unique for each subsequent task'
-          nullable: true
-        items:
-          type: array
-          items:
-            type: object
-            oneOf:
-            - $ref: '#/components/schemas/DomainAnalyticsTechnologiesDomainsByLiveItem'
-            nullable: true
-          description: items array
-          nullable: true
     DomainAnalyticsTechnologiesAggregationTechnologiesLiveRequestInfo:
       type: object
       properties:
         group:
-          type: string
+          type:
+          - string
+          - 'null'
           description: 'id of the target technology group
 
             required field if you don’t specify technology, category or keyword
@@ -2079,9 +2631,10 @@ components:
             example:
 
             "marketing"'
-          nullable: true
         category:
-          type: string
+          type:
+          - string
+          - 'null'
           description: 'id of the target technology category
 
             required field if you don’t specify group, keyword or technology
@@ -2093,9 +2646,10 @@ components:
             example:
 
             "crm"'
-          nullable: true
         technology:
-          type: string
+          type:
+          - string
+          - 'null'
           description: 'target technology
 
             required field if you don’t specify group, keyword or category
@@ -2107,9 +2661,10 @@ components:
             example:
 
             "Salesforce"'
-          nullable: true
         keyword:
-          type: string
+          type:
+          - string
+          - 'null'
           description: 'target keyword in the domain’s meta keywords
 
             required field if you don’t specify group, category or technology
@@ -2121,9 +2676,10 @@ components:
             example:
 
             "seo"learn more about rules and limitations of keyword and keywords fields in DataForSEO APIs in this Help Center article'
-          nullable: true
         mode:
-          type: string
+          type:
+          - string
+          - 'null'
           description: 'search mode
 
             optional field
@@ -2135,12 +2691,14 @@ components:
             entry – search for results matching a part of the specified group ids, category ids, or technology names
 
             default value: as_is'
-          nullable: true
         filters:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
-            type: object
-            nullable: true
+            type:
+            - object
+            - 'null'
           description: 'array of results filtering parameters
 
             optional field
@@ -2166,9 +2724,10 @@ components:
             "and",
 
             ["domain_rank",">",800]]for more information about filters, please refer to Domain Analytics Technologies API – Filters'
-          nullable: true
         order_by:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             type: string
           description: 'results sorting rules
@@ -2200,9 +2759,10 @@ components:
             default value:
 
             ["groups_count,desc","categories_count,desc","technologies_count,desc"]'
-          nullable: true
         internal_groups_list_limit:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: 'maximum number of returned technology groups
 
             optional field
@@ -2214,9 +2774,10 @@ components:
             minimum value: 1
 
             maximum value: 10000'
-          nullable: true
         internal_categories_list_limit:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: 'maximum number of returned technology categories within the same group
 
             optional field
@@ -2228,9 +2789,10 @@ components:
             minimum value: 1
 
             maximum value: 10000'
-          nullable: true
         internal_technologies_list_limit:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: 'maximum number of returned technologies within the same category
 
             optional field
@@ -2242,9 +2804,10 @@ components:
             minimum value: 1
 
             maximum value: 10000'
-          nullable: true
         internal_list_limit:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: 'maximum number of items with identical "category", "group", and "technology"
 
             optional field
@@ -2258,9 +2821,10 @@ components:
             minimum value: 1
 
             maximum value: 10000'
-          nullable: true
         limit:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: 'the maximum number of returned technologies
 
             optional field
@@ -2268,9 +2832,10 @@ components:
             default value: 100
 
             maximum value: 10000'
-          nullable: true
         offset:
-          type: integer
+          type:
+          - integer
+          - 'null'
           description: 'offset in the results array of returned domains
 
             optional field
@@ -2280,9 +2845,10 @@ components:
             maximum value: 9999
 
             if you specify the 10 value, the first ten technologies in the results array will be omitted and the data will be provided for the successive technologies'
-          nullable: true
         tag:
-          type: string
+          type:
+          - string
+          - 'null'
           description: 'user-defined task identifier
 
             optional field
@@ -2292,7 +2858,6 @@ components:
             you can use this parameter to identify the task and match it with the result
 
             you will find the specified tag value in the data object of the response'
-          nullable: true
       example:
       - mode: entry
         technology: Nginx
@@ -2308,372 +2873,228 @@ components:
         order_by:
         - groups_count,desc
         limit: 10
-    DomainAnalyticsTechnologiesDomainsByTechnologyLiveResultInfo:
+    DomainAnalyticsTechnologiesLocationsResultInfo:
+      type: object
+      properties:
+        location_name:
+          type:
+          - string
+          - 'null'
+          description: full name of the location
+        country_iso_code:
+          type:
+          - string
+          - 'null'
+          description: ISO country code of the location
+    DomainAnalyticsWhoisOverviewLiveItem:
+      type: object
+      properties:
+        domain:
+          type:
+          - string
+          - 'null'
+          description: domain name
+        created_datetime:
+          type:
+          - string
+          - 'null'
+          description: 'date and time of registrationdate and time (in the ISO 8601 format) when the domain was first registered example: "1997-03-29 03:00:00 +00:00"'
+        changed_datetime:
+          type:
+          - string
+          - 'null'
+          description: 'date and time when the domain entry was changeddate and time (in the ISO 8601 format) when the domain entry was last modifiedexample: "2021-01-14 08:36:28 +00:00"'
+        expiration_datetime:
+          type:
+          - string
+          - 'null'
+          description: 'date and time when the domain will expiredate and time (in the ISO 8601 format) when the domain is due to expire example: "2022-11-26 17:21:23 +00:00"'
+        updated_datetime:
+          type:
+          - string
+          - 'null'
+          description: 'date and time when the domain was updateddate and time (in the ISO 8601 format) when the domain was last updated example: "2021-01-29 13:59:38 +00:00"'
+        first_seen:
+          type:
+          - string
+          - 'null'
+          description: 'date and time when our crawler found the domain for the first timein the UTC format: “yyyy-mm-dd hh-mm-ss +00:00”example: "2019-11-15 12:57:46 +00:00"'
+        epp_status_codes:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+          description: extensive provisioning protocol status codesthe status of a domain name registration as defined by ICANN
+        tld:
+          type:
+          - string
+          - 'null'
+          description: top-level domaintop-level domain in the DNS root zone
+        registered:
+          type:
+          - boolean
+          - 'null'
+          description: 'domain registration statusif false, the domain name registration has expiredNote: expired domains will remain in the database for only a short period of time'
+        registrar:
+          type:
+          - string
+          - 'null'
+          description: domain registrarif null, the domain registrar is unknownexample:NameCheap, Inc.
+        metrics:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/MetricsBundleInfo'
+          description: ranking data relevant to the specified domain
+        backlinks_info:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/BacklinksInfo'
+          description: backlink data for the returned domain
+      description: items array
+    DomainAnalyticsTechnologiesTechnologyStatsLiveResultInfo:
+      type: object
+      properties:
+        technology:
+          type:
+          - string
+          - 'null'
+          description: target technology
+        date_from:
+          type:
+          - string
+          - 'null'
+          description: starting date of the time range
+        date_to:
+          type:
+          - string
+          - 'null'
+          description: ending date of the time range
+        items_count:
+          type:
+          - integer
+          - 'null'
+          description: number of items in the results array
+          format: int64
+        items:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+            oneOf:
+            - $ref: '#/components/schemas/DomainAnalyticsTechnologiesTechnologyStatsLiveItem'
+          description: items array
+    DomainAnalyticsWhoisOverviewLiveResultInfo:
       type: object
       properties:
         total_count:
-          type: integer
-          description: total number of relevant items in the database
+          type:
+          - integer
+          - 'null'
+          description: total amount of results in our database relevant to your request
           format: int64
-          nullable: true
         items_count:
-          type: integer
-          description: number of items in the results array
+          type:
+          - integer
+          - 'null'
+          description: the number of results returned in the items array
           format: int64
-          nullable: true
         offset:
-          type: integer
-          description: specified offset value
-          nullable: true
+          type:
+          - integer
+          - 'null'
+          description: results offset value specified in POST request
         offset_token:
-          type: string
-          description: 'token for subsequent requests
-
-            by specifying the unique offset_token when setting a new task, you will get the subsequent results of the initial task;
-
-            offset_token values are unique for each subsequent task'
-          nullable: true
+          type:
+          - string
+          - 'null'
         items:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
-            type: object
+            type:
+            - object
+            - 'null'
             oneOf:
-            - $ref: '#/components/schemas/DomainAnalyticsTechnologiesDomainsByLiveItem'
-            nullable: true
-          description: items array
-          nullable: true
-    DomainAnalyticsTechnologiesTechnologiesSummaryLiveResultInfo:
-      type: object
-      properties:
-        countries:
-          type: object
-          additionalProperties:
-            type: integer
-            format: int64
-            nullable: true
-          description: 'distribution of websites by country
-
-            contains country codes and number of websites per country'
-          nullable: true
-        languages:
-          type: object
-          additionalProperties:
-            type: integer
-            format: int64
-            nullable: true
-          description: 'distribution of websites by language
-
-            contains language codes and number of websites per language'
-          nullable: true
-        content_languages:
-          type: object
-          additionalProperties:
-            type: integer
-            format: int64
-            nullable: true
-          description: 'distribution of websites by content language
-
-            contains content language codes and number of websites per language'
-          nullable: true
-        keywords:
-          type: object
-          additionalProperties:
-            type: integer
-            format: int64
-            nullable: true
-          description: 'distribution of websites by keywords
-
-            contains keywords found in the websites’ titles, descriptions or meta keywords, and number of websites using each keyword'
-          nullable: true
-    MetricsBundleInfo:
-      type: object
-      properties:
-        organic:
-          type: object
-          oneOf:
-          - $ref: '#/components/schemas/MetricsInfo'
-          properties:
-            is_new:
-              type: integer
-              description: 'number of new ranked elements
-
-                indicates how many new ranked elements were found for this domain'
-              format: int64
-              nullable: true
-            is_up:
-              type: integer
-              description: 'rank went up
-
-                indicates how many ranked elements of this domain went up in Google Search'
-              format: int64
-              nullable: true
-            is_down:
-              type: integer
-              description: 'rank went down
-
-                indicates how many ranked elements of this domain went down in Google Search'
-              format: int64
-              nullable: true
-            is_lost:
-              type: integer
-              description: 'lost ranked elements
-
-                indicates how many ranked elements of this domain were previously presented in SERPs, but weren’t found during the last check'
-              format: int64
-              nullable: true
-          description: ranking and traffic data from organic search
-          nullable: true
-        paid:
-          type: object
-          oneOf:
-          - $ref: '#/components/schemas/MetricsInfo'
-          description: ranking and traffic data from paid search
-          nullable: true
-    BaseResponseInfo:
-      properties:
-        version:
-          type: string
-          description: the current version of the API
-          nullable: true
-        status_code:
-          type: integer
-          description: 'general status code
-
-            you can find the full list of the response codes here'
-          nullable: true
-        status_message:
-          type: string
-          description: 'general informational message
-
-            you can find the full list of general informational messages here'
-          nullable: true
-        time:
-          type: string
-          description: total execution time, seconds
-          nullable: true
-        cost:
-          type: number
-          description: total tasks cost, USD
-          format: double
-          nullable: true
-        tasks_count:
-          type: integer
-          description: the number of tasks in the tasks array
-          format: int64
-          nullable: true
-        tasks_error:
-          type: integer
-          description: the number of tasks in the tasks array returned with an error
-          format: int64
-          nullable: true
-    BacklinksInfo:
-      type: object
-      properties:
-        referring_domains:
-          type: integer
-          description: 'number of referring domains
-
-            referring domains include subdomains that are counted as separate domains for this metric'
-          format: int64
-          nullable: true
-        referring_main_domains:
-          type: integer
-          description: number of referring main domains
-          format: int64
-          nullable: true
-        referring_pages:
-          type: integer
-          description: number of pages pointing to the target website
-          format: int64
-          nullable: true
-        dofollow:
-          type: integer
-          description: number of dofollow links
-          format: int64
-          nullable: true
-        backlinks:
-          type: integer
-          description: 'total number of backlinks
-
-            the total number of backlinks, including dofollow and nofollow links'
-          format: int64
-          nullable: true
-        time_update:
-          type: string
-          description: 'date and time when backlink data was updated
-
-            in the UTC format: “yyyy-mm-dd hh-mm-ss +00:00”;
-
-            example:
-
-            2019-11-15 12:57:46 +00:00'
-          nullable: true
-    DomainAnalyticsWhoisAvailableFiltersTaskInfo:
+            - $ref: '#/components/schemas/DomainAnalyticsWhoisOverviewLiveItem'
+          description: contains ranking and traffic data
+    DomainAnalyticsIdListTaskInfo:
       type: object
       allOf:
       - $ref: '#/components/schemas/BaseResponseTaskInfo'
       - type: object
         properties:
           result:
-            type: array
+            type:
+            - array
+            - 'null'
             items:
-              type: object
+              type:
+              - object
+              - 'null'
               oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsWhoisAvailableFiltersResultInfo'
-              nullable: true
-            nullable: true
-    DomainAnalyticsTechnologiesTechnologiesSummaryLiveRequestInfo:
+              - $ref: '#/components/schemas/DomainAnalyticsIdListResultInfo'
+            description: array of results
+    DomainAnalyticsTechnologiesTechnologyStatsLiveRequestInfo:
       type: object
       properties:
-        technology_paths:
-          type: array
-          items:
-            type: string
-          description: 'target technology paths
+        technology:
+          type: string
+          description: 'target technology
 
-            required field if you don’t specify groups, technologies and categories
-
-            each technology path should be specified as a separate object containing “path” and “name”, where “path” is specified as “$group_id.$category_id” and “name” – as the name of the target technology;
-
-            each object with a technology path should be separated with a comma
-
-            you can find the full list of technology group ids, category ids and technology names on this page
-
-            note: you can specify up to 10 technology paths in this array
-
-            example:
-
-            [{"path": "content.cms","name": "wordpress"}, {"path": "marketing.crm","name": "salesforce"}]'
-          nullable: true
-        groups:
-          type: array
-          items:
-            type: string
-          description: 'ids of the target technology groups
-
-            required field if you don’t specify technologies, technology_paths, categories, or keywords
-
-            you can find the full list of technology group ids on this page
-
-            note: you can specify up to 10 technology groups in this array
-
-            example:
-
-            ["sales", "marketing"]'
-          nullable: true
-        categories:
-          type: array
-          items:
-            type: string
-          description: 'ids of the target technology categories
-
-            required field if you don’t specify groups, technology_paths, technologies, or keywords
-
-            you can find the full list of technology category ids on this page
-
-            note: you can specify up to 10 technology categories in this array
-
-            example:
-
-            ["payment_processors","crm"]'
-          nullable: true
-        technologies:
-          type: array
-          items:
-            type: string
-          description: 'target technologies
-
-            required field if you don’t specify groups, technology_paths, categories, or keywords
+            required field
 
             you can find the full list of technologies you can specify here on this page
 
-            note: you can specify up to 10 technologies in this array
-
             example:
 
-            ["Google Pay","Salesforce"]'
-          nullable: true
-        keywords:
-          type: array
-          items:
-            type: string
-          description: 'target keywords in the domain’s title, description or meta keywords
-
-            required field if you don’t specify groups, technology_paths, categories, or technologies
-
-            you can specify the maximum of 10 keywords;
-
-            UTF-8 encoding;
-
-            example:
-
-            ["seo","software"]
-
-            learn more about rules and limitations of keyword and keywords fields in DataForSEO APIs in this Help Center article'
-          nullable: true
-        mode:
-          type: string
-          description: 'search mode
+            "Salesforce"'
+        date_from:
+          type:
+          - string
+          - 'null'
+          description: 'starting date of the time range
 
             optional field
 
-            possible search mode types:
+            minimum value: 2022-10-31
 
-            as_is – search for results exactly matching the specified group ids, category ids, or technology names
+            if you don’t specify this field, the minimum value will be used by default
 
-            entry – search for results matching a part of the specified group ids, category ids, or technology names
-
-            default value: as_is'
-          nullable: true
-        filters:
-          type: array
-          items:
-            type: object
-            nullable: true
-          description: 'array of results filtering parameters
-
-            optional field
-
-            you can add several filters at once (8 filters maximum)
-
-            you should set a logical operator and, or between the conditions
-
-            the following operators are supported:
-
-            <, <=, >, >=, =, <>, in, not_in, like,not_like
-
-            you can use the % operator with like and not_like to match any string of zero or more characters
-
-            you can use the following parameters to filter the results: domain_rank, last_visited, country_iso_code, language_code, content_language_code
+            date format: "yyyy-mm-dd"
 
             example:
 
-            [["country_iso_code","=","US"],
-
-            "and",
-
-            ["domain_rank",">",800]]
-
-            for more information about filters, please refer to Domain Analytics Technologies API – Filters'
-          nullable: true
-        internal_list_limit:
-          type: integer
-          description: 'maximum number of elements within internal arrays
+            "2023-06-01"'
+        date_to:
+          type:
+          - string
+          - 'null'
+          description: 'ending date of the time range
 
             optional field
 
-            you can use this field to limit the number of elements within the following arrays:
+            if you don’t specify this field, the today’s date will be used by default
 
-            countries, languages, content_languages, keywords
+            date format: "yyyy-mm-dd"
 
-            default value: 10
+            example:
 
-            minimum value: 1
-
-            maximum value: 10000'
-          nullable: true
+            "2023-01-15"'
         tag:
-          type: string
+          type:
+          - string
+          - 'null'
           description: 'user-defined task identifier
 
             optional field
@@ -2683,288 +3104,21 @@ components:
             you can use this parameter to identify the task and match it with the result
 
             you will find the specified tag value in the data object of the response'
-          nullable: true
       example:
-      - mode: entry
-        technologies:
-        - Ngi
-        keywords:
-        - WordPress
-        filters:
-        - - country_iso_code
-          - '='
-          - US
-        - and
-        - - domain_rank
-          - '>'
-          - 800
-    DomainAnalyticsWhoisAvailableFiltersResponseInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseInfo'
-      - type: object
-        properties:
-          tasks:
-            type: array
-            items:
-              type: object
-              oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsWhoisAvailableFiltersTaskInfo'
-              nullable: true
-            nullable: true
-    DomainAnalyticsTechnologiesTechnologyStatsLiveResponseInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseInfo'
-      - type: object
-        properties:
-          tasks:
-            type: array
-            items:
-              type: object
-              oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesTechnologyStatsLiveTaskInfo'
-              nullable: true
-            description: array of tasks
-            nullable: true
-    DomainAnalyticsWhoisOverviewLiveResponseInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseInfo'
-      - type: object
-        properties:
-          tasks:
-            type: array
-            items:
-              type: object
-              oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsWhoisOverviewLiveTaskInfo'
-              nullable: true
-            description: array of tasks
-            nullable: true
-    DomainAnalyticsTechnologiesAvailableFiltersTaskInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseTaskInfo'
-      - type: object
-        properties:
-          result:
-            type: array
-            items:
-              type: object
-              oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesAvailableFiltersResultInfo'
-              nullable: true
-            nullable: true
-    DomainAnalyticsWhoisOverviewLiveItem:
-      type: object
-      properties:
-        domain:
-          type: string
-          description: domain name
-          nullable: true
-        created_datetime:
-          type: string
-          description: 'date and time of registrationdate and time (in the ISO 8601 format) when the domain was first registered example: "1997-03-29 03:00:00 +00:00"'
-          nullable: true
-        changed_datetime:
-          type: string
-          description: 'date and time when the domain entry was changeddate and time (in the ISO 8601 format) when the domain entry was last modifiedexample: "2021-01-14 08:36:28 +00:00"'
-          nullable: true
-        expiration_datetime:
-          type: string
-          description: 'date and time when the domain will expiredate and time (in the ISO 8601 format) when the domain is due to expire example: "2022-11-26 17:21:23 +00:00"'
-          nullable: true
-        updated_datetime:
-          type: string
-          description: 'date and time when the domain was updateddate and time (in the ISO 8601 format) when the domain was last updated example: "2021-01-29 13:59:38 +00:00"'
-          nullable: true
-        first_seen:
-          type: string
-          description: 'date and time when our crawler found the domain for the first timein the UTC format: “yyyy-mm-dd hh-mm-ss +00:00”example: "2019-11-15 12:57:46 +00:00"'
-          nullable: true
-        epp_status_codes:
-          type: array
-          items:
-            type: string
-            nullable: true
-          description: extensive provisioning protocol status codesthe status of a domain name registration as defined by ICANN
-          nullable: true
-        tld:
-          type: string
-          description: top-level domaintop-level domain in the DNS root zone
-          nullable: true
-        registered:
-          type: boolean
-          description: 'domain registration statusif false, the domain name registration has expiredNote: expired domains will remain in the database for only a short period of time'
-          nullable: true
-        registrar:
-          type: string
-          description: domain registrarif null, the domain registrar is unknownexample:NameCheap, Inc.
-          nullable: true
-        metrics:
-          type: object
-          oneOf:
-          - $ref: '#/components/schemas/MetricsBundleInfo'
-          description: ranking data relevant to the specified domain
-          nullable: true
-        backlinks_info:
-          type: object
-          oneOf:
-          - $ref: '#/components/schemas/BacklinksInfo'
-          description: backlink data for the returned domain
-          nullable: true
-      description: items array
-    DomainAnalyticsErrorsTaskInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseTaskInfo'
-      - type: object
-        properties:
-          result:
-            type: array
-            items:
-              type: object
-              oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsErrorsResultInfo'
-              nullable: true
-            description: array of results
-            nullable: true
-    DomainAnalyticsTechnologiesDomainsByTechnologyLiveTaskInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseTaskInfo'
-      - type: object
-        properties:
-          result:
-            type: array
-            items:
-              type: object
-              oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesDomainsByTechnologyLiveResultInfo'
-              nullable: true
-            description: array of results
-            nullable: true
-    DomainAnalyticsTechnologiesDomainsByLiveItem:
-      type: object
-      properties:
-        type:
-          type: string
-          description: type of element
-          nullable: true
-        domain:
-          type: string
-          description: specified domain name
-          nullable: true
-        title:
-          type: string
-          description: domain meta title
-          nullable: true
-        description:
-          type: string
-          description: domain meta description
-          nullable: true
-        meta_keywords:
-          type: array
-          items:
-            type: string
-            nullable: true
-          description: domain meta keywords
-          nullable: true
-        domain_rank:
-          type: integer
-          description: 'backlink rank of the target domain
-
-            learn more about the metric and how it is calculated in this help center article'
-          nullable: true
-        last_visited:
-          type: string
-          description: 'most recent date when our crawler visited the domain
-
-            in the UTC format: “yyyy-mm-dd hh-mm-ss +00:00”
-
-            example:
-
-            2022-10-10 12:57:46 +00:00'
-          nullable: true
-        country_iso_code:
-          type: string
-          description: 'domain ISO code
-
-            ISO code of the country that target domain is determined to belong to'
-          nullable: true
-        language_code:
-          type: string
-          description: 'domain language
-
-            code of the language that target domain is determined to be associated with'
-          nullable: true
-        content_language_code:
-          type: string
-          description: 'content language
-
-            code of the language that content on the target domain is written with'
-          nullable: true
-        phone_numbers:
-          type: array
-          items:
-            type: string
-            nullable: true
-          description: 'phone numbers of the target
-
-            contact phone numbers indicated on the target website'
-          nullable: true
-        emails:
-          type: array
-          items:
-            type: string
-            nullable: true
-          description: 'emails of the target
-
-            emails indicated on the target website'
-          nullable: true
-        social_graph_urls:
-          type: array
-          items:
-            type: string
-            nullable: true
-          description: 'social media links and handles
-
-            social media URLs detected in the social graphs of the target website'
-          nullable: true
-        technologies:
-          type: object
-          oneOf:
-          - $ref: '#/components/schemas/TechnologiesInfo'
-          description: 'technologies used by target domain
-
-            contains objects with the names of technologies used on the website;
-
-            to get a full list of technologies and their structure, refer to the technologies endpoint'
-          nullable: true
-      description: items array
-    DomainAnalyticsTechnologiesLanguagesTaskInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseTaskInfo'
-      - type: object
-        properties:
-          result:
-            type: array
-            items:
-              type: object
-              oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesLanguagesResultInfo'
-              nullable: true
-            description: array of results
-            nullable: true
+      - technology: jQuery
+        date_from: '2026-01-15'
+        date_to: '2026-03-15'
     DomainAnalyticsTechnologiesAvailableFiltersResultInfo:
       type: object
       properties:
         domains_by_technology:
-          type: object
+          type:
+          - object
+          - 'null'
           additionalProperties:
-            type: string
+            type:
+            - string
+            - 'null'
             description: 'backlink rank of the domain
 
               the following operators are supported: <, <=, >, >=, =, <>, in, not_in
@@ -2972,12 +3126,14 @@ components:
               example:
 
               "filters": ["domain_rank","in",[100,500]]'
-            nullable: true
-          nullable: true
         aggregation_technologies:
-          type: object
+          type:
+          - object
+          - 'null'
           additionalProperties:
-            type: string
+            type:
+            - string
+            - 'null'
             description: 'backlink rank of the domain
 
               the following operators are supported: <, <=, >, >=, =, <>, in, not_in
@@ -2985,12 +3141,14 @@ components:
               example:
 
               "filters": ["domain_rank","in",[100,500]]'
-            nullable: true
-          nullable: true
         technologies_summary:
-          type: object
+          type:
+          - object
+          - 'null'
           additionalProperties:
-            type: string
+            type:
+            - string
+            - 'null'
             description: 'backlink rank of the domain
 
               the following operators are supported: <, <=, >, >=, =, <>, in, not_in
@@ -2998,12 +3156,14 @@ components:
               example:
 
               "filters": ["domain_rank","in",[100,500]]'
-            nullable: true
-          nullable: true
         domains_by_html_terms:
-          type: object
+          type:
+          - object
+          - 'null'
           additionalProperties:
-            type: string
+            type:
+            - string
+            - 'null'
             description: 'backlink rank of the domain
 
               the following operators are supported: <, <=, >, >=, =, <>, in, not_in
@@ -3011,180 +3171,434 @@ components:
               example:
 
               "filters": ["domain_rank","in",[100,500]]'
-            nullable: true
-          nullable: true
-    DomainAnalyticsTechnologiesAggregationTechnologiesLiveResponseInfo:
+    DomainAnalyticsErrorsResultInfo:
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          description: id of the task
+        datetime:
+          type:
+          - string
+          - 'null'
+          description: 'date and time when an error occurred
+
+            in the UTC format: “yyyy-mm-dd hh-mm-ss +00:00”
+
+            example:
+
+            2019-11-15 12:57:46 +00:00'
+        function:
+          type:
+          - string
+          - 'null'
+          description: corresponding API function
+        error_code:
+          type:
+          - integer
+          - 'null'
+          description: error code
+        error_message:
+          type:
+          - string
+          - 'null'
+          description: 'error message or error URL
+
+            error message (see full list) or URL that caused an error'
+        http_url:
+          type:
+          - string
+          - 'null'
+          description: 'URL that caused an error
+
+            URL you used for making an API call or pingback/postback URL'
+        http_method:
+          type:
+          - string
+          - 'null'
+          description: HTTP method
+        http_code:
+          type:
+          - integer
+          - 'null'
+          description: HTTP status code
+        http_time:
+          type:
+          - number
+          - 'null'
+          description: 'time taken by HTTP request
+
+            for tasks set with a pingback/postback, this field will show the time it took your server to respond'
+        http_response:
+          type:
+          - string
+          - 'null'
+          description: 'HTTP response
+
+            server response'
+    DomainAnalyticsTechnologiesLocationsResponseInfo:
       type: object
       allOf:
       - $ref: '#/components/schemas/BaseResponseInfo'
       - type: object
         properties:
           tasks:
-            type: array
+            type:
+            - array
+            - 'null'
             items:
-              type: object
+              type:
+              - object
+              - 'null'
               oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesAggregationTechnologiesLiveTaskInfo'
-              nullable: true
+              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesLocationsTaskInfo'
             description: array of tasks
-            nullable: true
-    DomainAnalyticsIdListResponseInfo:
+    DomainAnalyticsTechnologiesAggregationTechnologiesLiveResultInfo:
+      type: object
+      properties:
+        total_count:
+          type:
+          - integer
+          - 'null'
+          description: total amount of results in our database relevant to your request
+          format: int64
+        items_count:
+          type:
+          - integer
+          - 'null'
+          description: the number of results returned in the items array
+          format: int64
+        offset:
+          type:
+          - integer
+          - 'null'
+          description: offset in the results array of returned domains
+        items:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+            oneOf:
+            - $ref: '#/components/schemas/DomainAnalyticsTechnologiesAggregationTechnologiesLiveItem'
+          description: items array
+    MetricsInfo:
+      type: object
+      properties:
+        pos_1:
+          type:
+          - integer
+          - 'null'
+          description: 'number of organic SERPs where the domain ranks #1'
+        pos_2_3:
+          type:
+          - integer
+          - 'null'
+          description: 'number of organic SERPs where the domain ranks #2-3'
+        pos_4_10:
+          type:
+          - integer
+          - 'null'
+          description: 'number of organic SERPs where the domain ranks #4-10'
+        pos_11_20:
+          type:
+          - integer
+          - 'null'
+          description: 'number of organic SERPs where the domain ranks #11-20'
+        pos_21_30:
+          type:
+          - integer
+          - 'null'
+          description: 'number of organic SERPs where the domain ranks #21-30'
+        pos_31_40:
+          type:
+          - integer
+          - 'null'
+          description: 'number of organic SERPs where the domain ranks #31-40'
+        pos_41_50:
+          type:
+          - integer
+          - 'null'
+          description: 'number of organic SERPs where the domain ranks #41-50'
+        pos_51_60:
+          type:
+          - integer
+          - 'null'
+          description: 'number of organic SERPs where the domain ranks #51-60'
+        pos_61_70:
+          type:
+          - integer
+          - 'null'
+          description: 'number of organic SERPs where the domain ranks #61-70'
+        pos_71_80:
+          type:
+          - integer
+          - 'null'
+          description: 'number of organic SERPs where the domain ranks #71-80'
+        pos_81_90:
+          type:
+          - integer
+          - 'null'
+          description: 'number of organic SERPs where the domain ranks #81-90'
+        pos_91_100:
+          type:
+          - integer
+          - 'null'
+          description: 'number of organic SERPs where the domain ranks #91-100'
+        etv:
+          type:
+          - number
+          - 'null'
+          description: estimated traffic volumeestimated organic monthly traffic to the domaincalculated as the product of CTR (click-through-rate) and search volume values of all keywords the domain ranks forlearn more about how the metric is calculated in this help center article
+        count:
+          type:
+          - integer
+          - 'null'
+          description: total count of organic SERPs that contain the domain
+          format: int64
+        estimated_paid_traffic_cost:
+          type:
+          - number
+          - 'null'
+          description: estimated cost of converting organic search traffic into paidrepresents the estimated monthly cost of running ads (USD) for all keywords a domain ranks forthe metric is calculated as the product of organic etv and paid cpc values and indicates the cost of driving the estimated volume of monthly organic traffic through PPC advertising in Google Searchlearn more about how the metric is calculated in this help center article
+        is_new:
+          type:
+          - integer
+          - 'null'
+          description: 'number of new ranked elements
+
+            indicates how many new ranked elements were found for this domain'
+          format: int64
+        is_up:
+          type:
+          - integer
+          - 'null'
+          description: 'rank went up
+
+            indicates how many ranked elements of this domain went up in Google Search'
+          format: int64
+        is_down:
+          type:
+          - integer
+          - 'null'
+          description: 'rank went down
+
+            indicates how many ranked elements of this domain went down in Google Search'
+          format: int64
+        is_lost:
+          type:
+          - integer
+          - 'null'
+          description: 'lost ranked elements
+
+            indicates how many ranked elements of this domain were previously presented in SERPs, but weren’t found during the last check'
+          format: int64
+    DomainAnalyticsTechnologiesDomainTechnologiesLiveResponseInfo:
       type: object
       allOf:
       - $ref: '#/components/schemas/BaseResponseInfo'
       - type: object
         properties:
           tasks:
-            type: array
+            type:
+            - array
+            - 'null'
             items:
-              type: object
+              type:
+              - object
+              - 'null'
               oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsIdListTaskInfo'
-              nullable: true
+              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesDomainTechnologiesLiveTaskInfo'
             description: array of tasks
-            nullable: true
-    DomainAnalyticsErrorsResponseInfo:
+    DomainAnalyticsTechnologiesLanguagesResultInfo:
       type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseInfo'
-      - type: object
-        properties:
-          tasks:
-            type: array
-            items:
-              type: object
-              oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsErrorsTaskInfo'
-              nullable: true
-            description: array of tasks
-            nullable: true
-    DomainAnalyticsTechnologiesTechnologiesTaskInfo:
+      properties:
+        language_name:
+          type:
+          - string
+          - 'null'
+          description: language name
+        language_code:
+          type:
+          - string
+          - 'null'
+          description: language code according to ISO 639-1
+    DomainAnalyticsTechnologiesTechnologiesResultInfo:
+      type: object
+      properties:
+        groups:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+            oneOf:
+            - $ref: '#/components/schemas/Groups'
+          description: array of technology groups
+    DomainAnalyticsWhoisOverviewLiveTaskInfo:
       type: object
       allOf:
       - $ref: '#/components/schemas/BaseResponseTaskInfo'
       - type: object
         properties:
           result:
-            type: array
+            type:
+            - array
+            - 'null'
             items:
-              type: object
+              type:
+              - object
+              - 'null'
               oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesTechnologiesResultInfo'
-              nullable: true
+              - $ref: '#/components/schemas/DomainAnalyticsWhoisOverviewLiveResultInfo'
             description: array of results
-            nullable: true
-    DomainAnalyticsTechnologiesDomainTechnologiesLiveResultInfo:
+    DomainAnalyticsWhoisOverviewLiveRequestInfo:
       type: object
       properties:
-        type:
-          type: string
-          description: type of element
-          nullable: true
-        domain:
-          type: string
-          description: specified domain name
-          nullable: true
-        title:
-          type: string
-          description: domain meta title
-          nullable: true
-        description:
-          type: string
-          description: domain meta description
-          nullable: true
-        meta_keywords:
-          type: array
+        limit:
+          type:
+          - integer
+          - 'null'
+          description: 'the maximum number of returned domainsoptional fielddefault value: 100maximum value: 1000'
+        offset:
+          type:
+          - integer
+          - 'null'
+          description: 'offset in the results array of returned itemsoptional fielddefault value: 0if you specify the 10 value, the first ten items in the results array will be omitted and the data will be provided for the successive items;Note: we recommend using this parameter only when retrieving up to 10,000 results for retrieving over 10,000 results, use the offset_token instead'
+        offset_token:
+          type:
+          - string
+          - 'null'
+          description: 'token for subsequent requestsoptional fieldprovided in the identical filed of the response to each request;use this parameter to avoid timeouts while trying to obtain over 100,000 results in a single request;by specifying the unique offset_token value from the response array, you will get the subsequent results of the initial task;offset_token values are unique for each subsequent taskNote: if the offset_token is specified in the request, all other parameters should be identical to the previous requestlearn more about this parameter on our Help Center'
+        filters:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+          description: array of results filtering parametersoptional fieldyou can add several filters at once (8 filters maximum)you should set a logical operator and, or between the conditionsthe following operators are supported:regex, <, <=, >, >=, =, <>, in, not_in, like, not_likeyou can use the % operator with like and not_like to match any string of zero or more characters
+        order_by:
+          type:
+          - array
+          - 'null'
           items:
             type: string
-            nullable: true
-          description: domain meta keywords
-          nullable: true
-        domain_rank:
-          type: integer
-          description: 'backlink rank of the target domain
-
-            learn more about the metric and how it is calculated in this help center article'
-          nullable: true
-        last_visited:
-          type: string
-          description: 'most recent date when our crawler visited the domain
-
-            in the UTC format: “yyyy-mm-dd hh-mm-ss +00:00”
+          description: results sorting rulesoptional fieldyou can use the same values as in the filters array to sort the resultspossible sorting types:asc - results will be sorted in the ascending orderdesc - results will be sorted in the descending orderthe comma is used as a separatorexample:["metrics.organic.pos_1,desc"]default rule:["metrics.organic.count,desc"]note that you can set no more than three sorting rules in a single requestyou should use a comma to separate several sorting rulesexample:["expiration_datetime,asc","metrics.organic.etv,desc","metrics.organic.pos_1,desc"]
+        tag:
+          type:
+          - string
+          - 'null'
+          description: user-defined task identifieroptional fieldthe character limit is 255you can use this parameter to identify the task and match it with the resultyou will find the specified tag value in the data object of the response
+      example:
+      - limit: 2
+        filters:
+        - - epp_status_codes
+          - in
+          - - client_transfer_prohibited
+            - client_update_prohibited
+    Groups:
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          description: 'id of the technology group
 
             example:
 
-            2022-10-10 12:57:46 +00:00'
-          nullable: true
-        country_iso_code:
-          type: string
-          description: 'domain ISO code
-
-            ISO code of the country that the target domain is determined to belong to'
-          nullable: true
-        language_code:
-          type: string
-          description: 'domain language
-
-            code of the language that the target domain is determined to be associated with'
-          nullable: true
-        content_language_code:
-          type: string
-          description: 'content language
-
-            code of the language that content on the target domain is written in'
-          nullable: true
-        phone_numbers:
-          type: array
+            marketing, sales'
+        title:
+          type:
+          - string
+          - 'null'
+          description: title of the technology group
+        categories:
+          type:
+          - array
+          - 'null'
           items:
-            type: string
-            nullable: true
-          description: 'phone numbers of the target
-
-            contact phone numbers indicated on the target website'
-          nullable: true
-        emails:
-          type: array
-          items:
-            type: string
-            nullable: true
-          description: 'emails of the target
-
-            emails indicated on the target website'
-          nullable: true
-        social_graph_urls:
-          type: array
-          items:
-            type: string
-            nullable: true
-          description: 'social media links and handles
-
-            social media URLs detected in the social graphs of the target website'
-          nullable: true
-        technologies:
-          type: object
-          oneOf:
-          - $ref: '#/components/schemas/TechnologiesInfo'
-          description: 'technologies used by target domain
-
-            contains objects with the names of technologies used on the website
-
-            see the full list of available technologies structured by groups and categories'
-          nullable: true
-    DomainAnalyticsTechnologiesTechnologiesSummaryLiveResponseInfo:
+            type:
+            - object
+            - 'null'
+            oneOf:
+            - $ref: '#/components/schemas/TechnologyCategoryInfo'
+          description: technology categories in this group
+    DomainAnalyticsTechnologiesAvailableFiltersResponseInfo:
       type: object
       allOf:
       - $ref: '#/components/schemas/BaseResponseInfo'
       - type: object
         properties:
           tasks:
-            type: array
+            type:
+            - array
+            - 'null'
             items:
-              type: object
+              type:
+              - object
+              - 'null'
               oneOf:
-              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesTechnologiesSummaryLiveTaskInfo'
-              nullable: true
-            description: array of tasks
-            nullable: true
+              - $ref: '#/components/schemas/DomainAnalyticsTechnologiesAvailableFiltersTaskInfo'
+    DomainAnalyticsTechnologiesTechnologiesSummaryLiveResultInfo:
+      type: object
+      properties:
+        countries:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - integer
+            - 'null'
+            format: int64
+          description: 'distribution of websites by country
+
+            contains country codes and number of websites per country'
+        languages:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - integer
+            - 'null'
+            format: int64
+          description: 'distribution of websites by language
+
+            contains language codes and number of websites per language'
+        content_languages:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - integer
+            - 'null'
+            format: int64
+          description: 'distribution of websites by content language
+
+            contains content language codes and number of websites per language'
+        keywords:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - integer
+            - 'null'
+            format: int64
+          description: 'distribution of websites by keywords
+
+            contains keywords found in the websites’ titles, descriptions or meta keywords, and number of websites using each keyword'
   securitySchemes:
     basicAuth:
       type: http

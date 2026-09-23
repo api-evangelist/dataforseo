@@ -1,0 +1,3178 @@
+openapi: 3.2.0
+info:
+  title: DataForSEO Content Analysis API
+  description: DataForSEO API is the starting point on your journey towards building powerful SEO software. With DataForSEO you can get all the data you need to build an efficient application while also saving your time and budget. DataForSEO API is using the REST technology for interchanging data between your application and our service. The data exchange is made through the widely used HTTP protocol, which allows applying our API to almost all programming languages.
+  version: 1.0.0
+servers:
+- url: https://api.dataforseo.com
+- url: https://sandbox.dataforseo.com
+tags:
+- name: Content Analysis
+paths:
+  /v3/content_analysis/id_list:
+    post:
+      tags:
+      - Content Analysis
+      description: 'This endpoint is designed to provide you with a list of IDs and metadata for all Content Analysis tasks created within the specified time period, including both successful and uncompleted tasks.
+
+        for more info please visit ''https://docs.dataforseo.com/v3/content_analysis/id_list/?bash'''
+      operationId: ContentAnalysisIdList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type:
+                - object
+                - 'null'
+                oneOf:
+                - $ref: '#/components/schemas/ContentAnalysisIdListRequestInfo'
+              example:
+              - datetime_from: '2026-04-12 04:39:39 +00:00'
+                datetime_to: '2026-04-14 04:39:39 +00:00'
+                limit: 100
+                offset: 0
+                sort: desc
+                include_metadata: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - 'null'
+                oneOf:
+                - $ref: '#/components/schemas/ContentAnalysisIdListResponseInfo'
+      security:
+      - basicAuth: []
+      summary: Content analysis id list
+      x-summary-source: derived
+  /v3/content_analysis/available_filters:
+    get:
+      tags:
+      - Content Analysis
+      description: 'Here you will find all the necessary information about filters that can be used with Content Analysis API endpoints.
+
+        for more info please visit ''https://docs.dataforseo.com/v3/content_analysis/filters/?bash'''
+      operationId: ContentAnalysisAvailableFilters
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - 'null'
+                oneOf:
+                - $ref: '#/components/schemas/ContentAnalysisAvailableFiltersResponseInfo'
+      security:
+      - basicAuth: []
+      summary: Content analysis available filters
+      x-summary-source: derived
+  /v3/content_analysis/locations:
+    get:
+      tags:
+      - Content Analysis
+      description: 'You will receive the list of locations by this API call.
+
+        for more info please visit ''https://docs.dataforseo.com/v3/content_analysis/locations/?bash'''
+      operationId: Locations
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - 'null'
+                oneOf:
+                - $ref: '#/components/schemas/ContentAnalysisLocationsResponseInfo'
+      security:
+      - basicAuth: []
+      summary: Locations
+      x-summary-source: derived
+  /v3/content_analysis/languages:
+    get:
+      tags:
+      - Content Analysis
+      description: 'You will receive the list of languages by calling this API.
+
+
+        As a response of the API server, you will receive JSON-encoded data containing a tasks array with the information specific to the set tasks.
+
+        for more info please visit ''https://docs.dataforseo.com/v3/content_analysis/languages/?bash'''
+      operationId: Languages
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - 'null'
+                oneOf:
+                - $ref: '#/components/schemas/ContentAnalysisLanguagesResponseInfo'
+      security:
+      - basicAuth: []
+      summary: Languages
+      x-summary-source: derived
+  /v3/content_analysis/categories:
+    get:
+      tags:
+      - Content Analysis
+      description: 'We use Google product and service categories. This endpoint will provide you with the full list of available categories.
+
+        You can also download the CSV file by this link.
+
+        for more info please visit ''https://docs.dataforseo.com/v3/content_analysis/categories/?bash'''
+      operationId: ContentAnalysisCategories
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - 'null'
+                oneOf:
+                - $ref: '#/components/schemas/ContentAnalysisCategoriesResponseInfo'
+      security:
+      - basicAuth: []
+      summary: Content analysis categories
+      x-summary-source: derived
+  /v3/content_analysis/search/live:
+    post:
+      tags:
+      - Content Analysis
+      description: 'This endpoint will provide you with detailed citation data available for the target keyword.
+
+        for more info please visit ''https://docs.dataforseo.com/v3/content_analysis/search/live/?bash'''
+      operationId: SearchLive
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type:
+                - object
+                - 'null'
+                oneOf:
+                - $ref: '#/components/schemas/ContentAnalysisSearchLiveRequestInfo'
+              example:
+              - keyword_fields:
+                  snippet: logitech
+                keyword: logitech
+                page_type:
+                - ecommerce
+                - news
+                - blogs
+                - message-boards
+                - organization
+                search_mode: as_is
+                filters:
+                - main_domain
+                - '='
+                - reviewfinder.ca
+                order_by:
+                - content_info.sentiment_connotations.anger,desc
+                limit: 10
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - 'null'
+                oneOf:
+                - $ref: '#/components/schemas/ContentAnalysisSearchLiveResponseInfo'
+      security:
+      - basicAuth: []
+      summary: Search live
+      x-summary-source: derived
+  /v3/content_analysis/summary/live:
+    post:
+      tags:
+      - Content Analysis
+      description: 'This endpoint will provide you with an overview of citation data available for the target keyword.
+
+        for more info please visit ''https://docs.dataforseo.com/v3/content_analysis/summary/live/?bash'''
+      operationId: ContentAnalysisSummaryLive
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type:
+                - object
+                - 'null'
+                oneOf:
+                - $ref: '#/components/schemas/ContentAnalysisSummaryLiveRequestInfo'
+              example:
+              - keyword: logitech
+                page_type:
+                - ecommerce
+                - news
+                - blogs
+                - message-boards
+                - organization
+                internal_list_limit: 8
+                positive_connotation_threshold: 0.5
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - 'null'
+                oneOf:
+                - $ref: '#/components/schemas/ContentAnalysisSummaryLiveResponseInfo'
+      security:
+      - basicAuth: []
+      summary: Content analysis summary live
+      x-summary-source: derived
+  /v3/content_analysis/sentiment_analysis/live:
+    post:
+      tags:
+      - Content Analysis
+      description: 'This endpoint will provide you with sentiment analysis data for the citations available for the target keyword.
+
+        for more info please visit ''https://docs.dataforseo.com/v3/content_analysis/sentiment_analysis/live/?bash'''
+      operationId: SentimentAnalysisLive
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type:
+                - object
+                - 'null'
+                oneOf:
+                - $ref: '#/components/schemas/ContentAnalysisSentimentAnalysisLiveRequestInfo'
+              example:
+              - keyword: logitech
+                internal_list_limit: 1
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - 'null'
+                oneOf:
+                - $ref: '#/components/schemas/ContentAnalysisSentimentAnalysisLiveResponseInfo'
+      security:
+      - basicAuth: []
+      summary: Sentiment analysis live
+      x-summary-source: derived
+  /v3/content_analysis/rating_distribution/live:
+    post:
+      tags:
+      - Content Analysis
+      description: 'This endpoint will provide you with rating distribution data for the keyword and other parameters specified in the request.
+
+        for more info please visit ''https://docs.dataforseo.com/v3/content_analysis/rating_distribution/live/?bash'''
+      operationId: RatingDistributionLive
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type:
+                - object
+                - 'null'
+                oneOf:
+                - $ref: '#/components/schemas/ContentAnalysisRatingDistributionLiveRequestInfo'
+              example:
+              - keyword: logitech
+                search_mode: as_is
+                internal_list_limit: 10
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - 'null'
+                oneOf:
+                - $ref: '#/components/schemas/ContentAnalysisRatingDistributionLiveResponseInfo'
+      security:
+      - basicAuth: []
+      summary: Rating distribution live
+      x-summary-source: derived
+  /v3/content_analysis/phrase_trends/live:
+    post:
+      tags:
+      - Content Analysis
+      description: 'This endpoint will provide you with data on all citations of the target keyword for the indicated date range.
+
+        for more info please visit ''https://docs.dataforseo.com/v3/content_analysis/phrase_trends/live/?bash'''
+      operationId: PhraseTrendsLive
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type:
+                - object
+                - 'null'
+                oneOf:
+                - $ref: '#/components/schemas/ContentAnalysisPhraseTrendsLiveRequestInfo'
+              example:
+              - keyword: logitech
+                search_mode: as_is
+                date_from: '2026-01-15'
+                date_group: month
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - 'null'
+                oneOf:
+                - $ref: '#/components/schemas/ContentAnalysisPhraseTrendsLiveResponseInfo'
+      security:
+      - basicAuth: []
+      summary: Phrase trends live
+      x-summary-source: derived
+  /v3/content_analysis/category_trends/live:
+    post:
+      tags:
+      - Content Analysis
+      description: 'This endpoint will provide you with data on all citations in the target category for the indicated date range.
+
+        for more info please visit ''https://docs.dataforseo.com/v3/content_analysis/category_trends/live/?bash'''
+      operationId: CategoryTrendsLive
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type:
+                - object
+                - 'null'
+                oneOf:
+                - $ref: '#/components/schemas/ContentAnalysisCategoryTrendsLiveRequestInfo'
+              example:
+              - category_code: 10994
+                search_mode: as_is
+                date_from: '2026-01-15'
+                date_group: month
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - 'null'
+                oneOf:
+                - $ref: '#/components/schemas/ContentAnalysisCategoryTrendsLiveResponseInfo'
+      security:
+      - basicAuth: []
+      summary: Category trends live
+      x-summary-source: derived
+components:
+  schemas:
+    ContentAnalysisLanguagesTaskInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseTaskInfo'
+      - type: object
+        properties:
+          result:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/ContentAnalysisLanguagesResultInfo'
+            description: array of results
+    BaseResponseInfo:
+      properties:
+        version:
+          type:
+          - string
+          - 'null'
+          description: the current version of the API
+        status_code:
+          type:
+          - integer
+          - 'null'
+          description: 'general status code
+
+            you can find the full list of the response codes here'
+        status_message:
+          type:
+          - string
+          - 'null'
+          description: 'general informational message
+
+            you can find the full list of general informational messages here'
+        time:
+          type:
+          - string
+          - 'null'
+          description: total execution time, seconds
+        cost:
+          type:
+          - number
+          - 'null'
+          description: total tasks cost, USD
+          format: double
+        tasks_count:
+          type:
+          - integer
+          - 'null'
+          description: the number of tasks in the tasks array
+          format: int64
+        tasks_error:
+          type:
+          - integer
+          - 'null'
+          description: the number of tasks in the tasks array returned with an error
+          format: int64
+    ContentAnalysisAvailableFiltersResultInfo:
+      type: object
+      properties:
+        search:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - string
+            - 'null'
+    ContentAnalysisCategoryTrendsLiveResultInfo:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+          description: type of element
+        date:
+          type:
+          - string
+          - 'null'
+          description: date for which the data is provided
+        total_count:
+          type:
+          - integer
+          - 'null'
+          description: total number of results in our database relevant to your request
+          format: int64
+        rank:
+          type:
+          - integer
+          - 'null'
+          description: 'rank of all URLs citing the keyword
+
+            normalized sum of ranks of all URLs citing the target keyword for the given date'
+        top_domains:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+            oneOf:
+            - $ref: '#/components/schemas/TopDomainInfo'
+          description: 'top domains citing the target keyword
+
+            contains objects with top domains citing the target category and citation count per each domain'
+        sentiment_connotations:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - integer
+            - 'null'
+            format: int64
+          description: 'sentiment connotations
+
+            contains sentiments (emotional reactions) related to the target category citation and the number of citations per each sentiment
+
+            possible connotations: "anger", "fear", "happiness", "love", "sadness", "share", "neutral", "fun"'
+        connotation_types:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - integer
+            - 'null'
+            format: int64
+          description: 'connotation types
+
+            contains types of sentiments (sentiment polarity) related to the category citation and citation count per each sentiment type
+
+            possible connotation types: "positive", "negative", "neutral"'
+        text_categories:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+            oneOf:
+            - $ref: '#/components/schemas/ContentAnalysisCategoriesInfo'
+          description: 'text categories
+
+            contains objects with text categories and citation count in each text category
+
+            to obtain a full list of available categories, refer to the Categories endpoint'
+        page_categories:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+            oneOf:
+            - $ref: '#/components/schemas/ContentAnalysisCategoriesInfo'
+          description: 'page categories
+
+            contains objects with page categories and citation count in each page category
+
+            to obtain a full list of available categories, refer to the Categories endpoint'
+        page_types:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - integer
+            - 'null'
+            format: int64
+          description: 'page types
+
+            contains page types and citation count per each page type'
+        countries:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - integer
+            - 'null'
+            format: int64
+          description: 'countries
+
+            contains countries and citation count in each country
+
+            to obtain a full list of available countries, refer to the Locations endpoint'
+        languages:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - integer
+            - 'null'
+            format: int64
+          description: 'languages
+
+            contains languages and citation count in each language
+
+            to obtain a full list of available languages, refer to the Languages endpoint'
+    ContentAnalysisLanguagesResponseInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseInfo'
+      - type: object
+        properties:
+          tasks:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/ContentAnalysisLanguagesTaskInfo'
+            description: array of tasks
+    ContentAnalysisSummaryLiveTaskInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseTaskInfo'
+      - type: object
+        properties:
+          result:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/ContentAnalysisSummaryInfo'
+            description: array of results
+    ContentAnalysisPhraseTrendsLiveTaskInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseTaskInfo'
+      - type: object
+        properties:
+          result:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/ContentAnalysisPhraseTrendsLiveResultInfo'
+            description: array of results
+    ContentAnalysisRatingDistributionLiveResponseInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseInfo'
+      - type: object
+        properties:
+          tasks:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/ContentAnalysisRatingDistributionLiveTaskInfo'
+            description: array of tasks
+    ContentAnalysisIdListResponseInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseInfo'
+      - type: object
+        properties:
+          tasks:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/ContentAnalysisIdListTaskInfo'
+            description: array of tasks
+    ContentAnalysisLanguagesResultInfo:
+      type: object
+      properties:
+        location_code:
+          type:
+          - integer
+          - 'null'
+        location_name:
+          type:
+          - string
+          - 'null'
+        location_code_parent:
+          type:
+          - integer
+          - 'null'
+        country_iso_code:
+          type:
+          - string
+          - 'null'
+        location_type:
+          type:
+          - string
+          - 'null'
+    ContentAnalysisCategoriesResultInfo:
+      type: object
+      properties:
+        category_code:
+          type:
+          - integer
+          - 'null'
+          description: category code
+        category_name:
+          type:
+          - string
+          - 'null'
+          description: full name of the category
+        category_code_parent:
+          type:
+          - integer
+          - 'null'
+          description: 'the code of the superordinate category
+
+            example:
+
+            "category_code": 10178,
+
+            "category_name": "Apparel Accessories",
+
+            "category_code_parent": 10021
+
+            where category_code_parent
+
+            corresponds to:
+
+            "category_code": 10178,
+
+            "category_name": "Apparel Accessories"'
+    ContentAnalysisPhraseTrendsLiveRequestInfo:
+      type: object
+      properties:
+        keyword:
+          type: string
+          description: 'target keyword
+
+            required field
+
+            UTF-8 encoding
+
+            the keywords will be converted to a lowercase format;
+
+            Note: to match an exact phrase instead of a stand-alone keyword, use double quotes and backslashes;
+
+            example:
+
+            "keyword": "\"tesla palo alto\""
+
+            learn more about rules and limitations of keyword and keywords fields in DataForSEO APIs in this Help Center article'
+        keyword_fields:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - string
+            - 'null'
+          description: "target keyword fields and target keywords\noptional field\nuse this parameter to filter the dataset by keywords that certain fields should contain;\nfields you can specify: title, main_title, previous_title, snippet\nyou can indicate several fields;\nNote: to match an exact phrase instead of a stand-alone keyword, use double quotes and backslashes;\nexample:\n\"keyword_fields\": {\n    \"snippet\": \"\\\"logitech mouse\\\"\",\n    \"main_title\": \"sale\"\n}"
+        page_type:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: 'target page types
+
+            optional field
+
+            use this parameter to filter the dataset by page types
+
+            possible values:
+
+            "ecommerce", "news", "blogs", "message-boards", "organization"'
+        search_mode:
+          type:
+          - string
+          - 'null'
+          description: 'results grouping type
+
+            optional field
+
+            possible grouping types:
+
+            as_is – returns data on all citations for the target keyword
+
+            one_per_domain – returns data on one citation of the keyword per domain
+
+            default value: as_is'
+        internal_list_limit:
+          type:
+          - integer
+          - 'null'
+          description: 'maximum number of elements within internal arrays
+
+            optional field
+
+            you can use this field to limit the number of elements within the following arrays:
+
+            top_domains
+
+            text_categories
+
+            page_categories
+
+            countries
+
+            languages
+
+            default value: 1
+
+            maximum value: 20'
+        date_from:
+          type: string
+          description: 'starting date of the time range
+
+            required field
+
+            date format: "yyyy-mm-dd"
+
+            example:
+
+            "2019-01-15"'
+        date_to:
+          type:
+          - string
+          - 'null'
+          description: 'ending date of the time range
+
+            optional field
+
+            if you don’t specify this field, today’s date will be used by default
+
+            date format: "yyyy-mm-dd"
+
+            example:
+
+            "2019-01-15"'
+        date_group:
+          type:
+          - string
+          - 'null'
+          description: 'time range which will be used to group the results
+
+            optional field
+
+            default value: month
+
+            possible values: day, week, month'
+        initial_dataset_filters:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+          description: 'initial dataset filtering parameters
+
+            optional field
+
+            initial filtering parameters that apply to fields in the Search endpoint;
+
+            you can add several filters at once (8 filters maximum);
+
+            you should set a logical operator and, or between the conditions;
+
+            the following operators are supported:
+
+            regex, not_regex, <, <=, >, >=, =, <>, in, not_in, like,not_like, has, has_not, match, not_match
+
+            you can use the % operator with like and not_like to match any string of zero or more characters;
+
+            example:
+
+            ["domain","<>", "logitech.com"]
+
+            [["domain","<>","logitech.com"],"and",["content_info.connotation_types.negative",">",1000]]
+
+            [["domain","<>","logitech.com"]],
+
+            "and",
+
+            [["content_info.connotation_types.negative",">",1000],
+
+            "or",
+
+            ["content_info.text_category","has",10994]]]
+
+            for more information about filters, please refer to Content Analysis API – Filters'
+        rank_scale:
+          type:
+          - string
+          - 'null'
+          description: 'defines the scale used for calculating and displaying the rank values
+
+            optional field
+
+            you can use this parameter to choose whether rank values are presented on a 0–100 or 0–1000 scale
+
+            possible values:
+
+            one_hundred — rank values are displayed on a 0–100 scale
+
+            one_thousand — rank values are displayed on a 0–1000 scale
+
+            default value: one_thousand
+
+            learn more about how this parameter works in this Help Center article'
+        tag:
+          type:
+          - string
+          - 'null'
+          description: 'user-defined task identifier
+
+            optional field
+
+            the character limit is 255
+
+            you can use this parameter to identify the task and match it with the result
+
+            you will find the specified tag value in the data object of the response'
+      example:
+      - keyword: logitech
+        search_mode: as_is
+        date_from: '2026-01-15'
+        date_group: month
+    ContentAnalysisSentimentAnalysisLiveTaskInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseTaskInfo'
+      - type: object
+        properties:
+          result:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/ContentAnalysisSentimentAnalysisLiveResultInfo'
+            description: array of results
+    ContentAnalysisSearchLiveResponseInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseInfo'
+      - type: object
+        properties:
+          tasks:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/ContentAnalysisSearchLiveTaskInfo'
+            description: array of tasks
+    ContentAnalysisSentimentAnalysisLiveResultInfo:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+          description: type of element
+        positive_connotation_distribution:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/PositiveConnotationDistribution'
+          description: 'citation distribution by sentiment connotation types
+
+            contains objects with citation counts and relevant data distributed by types of sentiments (sentiment polarity);
+
+            possible sentiment connotation types: positive, negative, neutral'
+        sentiment_connotation_distribution:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/SentimentConnotationDistribution'
+          description: 'citation distribution by sentiment connotations
+
+            contains objects with citation counts and relevant data distributed by sentiments (emotional reactions);
+
+            possible sentiment connotation types: anger, happiness, love, sadness, share, fun'
+    ContentAnalysisLocationsResponseInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseInfo'
+      - type: object
+        properties:
+          tasks:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/ContentAnalysisLocationsTaskInfo'
+            description: array of tasks
+    ContentAnalysisSearchLiveTaskInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseTaskInfo'
+      - type: object
+        properties:
+          result:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/ContentAnalysisSearchLiveResultInfo'
+            description: array of results
+    TopDomainInfo:
+      properties:
+        domain:
+          type:
+          - string
+          - 'null'
+        count:
+          type:
+          - integer
+          - 'null'
+          format: int64
+    ContentAnalysisLocationsResultInfo:
+      type: object
+      properties:
+        location_name:
+          type:
+          - string
+          - 'null'
+          description: full name of the location
+        country_iso_code:
+          type:
+          - string
+          - 'null'
+          description: ISO country code of the location
+    ContentAnalysisSummaryLiveResponseInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseInfo'
+      - type: object
+        properties:
+          tasks:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/ContentAnalysisSummaryLiveTaskInfo'
+            description: array of tasks
+    BaseResponseTaskInfo:
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          description: 'task identifier
+
+            unique task identifier in our system in the UUID format'
+        status_code:
+          type:
+          - integer
+          - 'null'
+          description: 'status code of the task
+
+            generated by DataForSEO, can be within the following range: 10000-60000
+
+            you can find the full list of the response codes here'
+        status_message:
+          type:
+          - string
+          - 'null'
+          description: 'informational message of the task
+
+            you can find the full list of general informational messages here'
+        time:
+          type:
+          - string
+          - 'null'
+          description: execution time, seconds
+        cost:
+          type:
+          - number
+          - 'null'
+          description: total tasks cost, USD
+          format: double
+        result_count:
+          type:
+          - integer
+          - 'null'
+          description: number of elements in the result array
+          format: int64
+        path:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+          description: URL path
+        data:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - object
+            - 'null'
+          description: contains the same parameters that you specified in the POST request
+    ContentAnalysisPhraseTrendsLiveResponseInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseInfo'
+      - type: object
+        properties:
+          tasks:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/ContentAnalysisPhraseTrendsLiveTaskInfo'
+            description: array of tasks
+    ContentAnalysisSummaryInfo:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+          description: type of element
+        total_count:
+          type:
+          - integer
+          - 'null'
+          description: total amount of results in our database relevant to your request
+          format: int64
+        rank:
+          type:
+          - integer
+          - 'null'
+          description: 'rank of all URLs citing the keyword
+
+            normalized sum of ranks of all URLs citing the target keyword'
+        top_domains:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+            oneOf:
+            - $ref: '#/components/schemas/TopDomainInfo'
+          description: 'top domains citing the target keyword
+
+            contains objects with top domains citing the target keword and citation count per each domain'
+        sentiment_connotations:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - integer
+            - 'null'
+            format: int64
+          description: 'sentiment connotations
+
+            contains sentiments (emotional reactions) related to the target keyword citation and the number of citations per each sentiment
+
+            possible sentiment connotations: anger, happiness, love, sadness, share, fun'
+        connotation_types:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - integer
+            - 'null'
+            format: int64
+          description: 'connotation types
+
+            contains types of sentiments (sentiment polarity) related to the keyword citation and citation count per each sentiment type
+
+            possible sentiment connotation types: positive, negative, neutral'
+        text_categories:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+            oneOf:
+            - $ref: '#/components/schemas/ContentAnalysisCategoriesInfo'
+          description: 'text categories
+
+            contains objects with text categories and citation count in each text category
+
+            to obtain a full list of available categories, refer to the Categories endpoint'
+        page_categories:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+            oneOf:
+            - $ref: '#/components/schemas/ContentAnalysisCategoriesInfo'
+          description: 'page categories
+
+            contains objects with page categories and citation count in each page category
+
+            to obtain a full list of available categories, refer to the Categories endpoint'
+        page_types:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - integer
+            - 'null'
+            format: int64
+          description: 'page types
+
+            contains page types and citation count per each page type'
+        countries:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - integer
+            - 'null'
+            format: int64
+          description: 'countries
+
+            contains countries and citation count in each country
+
+            to obtain a full list of available countries, refer to the Locations endpoint'
+        languages:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - integer
+            - 'null'
+            format: int64
+          description: 'languages
+
+            contains languages and citation count in each language
+
+            to obtain a full list of available languages, refer to the Languages endpoint'
+    ContentAnalysisIdListResultInfo:
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          description: id of the task
+        url:
+          type:
+          - string
+          - 'null'
+          description: 'URL of the task
+
+            URL you used for making an API call'
+        datetime_posted:
+          type:
+          - string
+          - 'null'
+          description: 'date and time when the task was made
+
+            in the UTC format: “yyyy-mm-dd hh-mm-ss +00:00”
+
+            example:
+
+            2023-01-15 12:57:46 +00:00'
+        datetime_done:
+          type:
+          - string
+          - 'null'
+          description: 'date and time when the task was completed
+
+            in the UTC format: “yyyy-mm-dd hh-mm-ss +00:00”
+
+            example:
+
+            2023-01-15 12:57:46 +00:00'
+        status:
+          type:
+          - string
+          - 'null'
+          description: 'informational message of the task
+
+            you can find the full list of general informational messages here'
+        cost:
+          type:
+          - number
+          - 'null'
+          description: cost of the task, USD
+        metadata:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - object
+            - 'null'
+          description: contains parameters you specified in the POST request
+    ContentAnalysisSentimentAnalysisLiveRequestInfo:
+      type: object
+      properties:
+        keyword:
+          type: string
+          description: 'target keyword
+
+            required field
+
+            UTF-8 encoding
+
+            the keywords will be converted to a lowercase format;
+
+            Note: to match an exact phrase instead of a stand-alone keyword, use double quotes and backslashes;
+
+            example:
+
+            "keyword": "\"tesla palo alto\""
+
+            learn more about rules and limitations of keyword and keywords fields in DataForSEO APIs in this Help Center article'
+        keyword_fields:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - string
+            - 'null'
+          description: "target keyword fields and target keywords\noptional field\nuse this parameter to filter the dataset by keywords that certain fields should contain;\nfields you can specify: title, main_title, previous_title, snippet\nyou can indicate several fields;\nNote: to match an exact phrase instead of a stand-alone keyword, use double quotes and backslashes;\nexample:\n\"keyword_fields\": {\n    \"snippet\": \"\\\"logitech mouse\\\"\",\n    \"main_title\": \"sale\"\n}"
+        page_type:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: 'target page types
+
+            optional field
+
+            use this parameter to filter the dataset by page types
+
+            possible values:
+
+            "ecommerce", "news", "blogs", "message-boards", "organization"'
+        internal_list_limit:
+          type:
+          - integer
+          - 'null'
+          description: 'maximum number of elements within internal arrays
+
+            optional field
+
+            you can use this field to limit the number of elements within the following arrays:
+
+            top_domains
+
+            text_categories
+
+            page_categories
+
+            countries
+
+            languages
+
+            default value: 1
+
+            maximum value: 20'
+        positive_connotation_threshold:
+          type:
+          - number
+          - 'null'
+          description: 'positive connotation threshold
+
+            optional field
+
+            specified as the probability index threshold for positive sentiment related to the citation content
+
+            if you specify this field, connotation_types object in the response will only contain data on citations with positive sentiment probability more than or equal to the specified value
+
+            possible values: from 0 to 1
+
+            default value: 0.4'
+        sentiments_connotation_threshold:
+          type:
+          - number
+          - 'null'
+          description: 'sentiment connotation threshold
+
+            optional field
+
+            specified as the probability index threshold for sentiment connotations related to the citation content
+
+            if you specify this field, sentiment_connotations object in the response will only contain data on citations where the probability per each sentiment is more than or equal to the specified value
+
+            possible values: from 0 to 1
+
+            default value: 0.4'
+        initial_dataset_filters:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+          description: 'initial dataset filtering parameters
+
+            optional field
+
+            initial filtering parameters that apply to fields in the Search endpoint
+
+            you can add several filters at once (8 filters maximum)
+
+            you should set a logical operator and, or between the conditions
+
+            the following operators are supported:
+
+            regex, not_regex, <, <=, >, >=, =, <>, in, not_in, like,not_like, has, has_not, match, not_match
+
+            you can use the % operator with like and not_like to match any string of zero or more characters
+
+            example:
+
+            ["domain","<>", "logitech.com"]
+
+            [["domain","<>","logitech.com"],"and",["content_info.connotation_types.negative",">",1000]]
+
+            [["domain","<>","logitech.com"]],
+
+            "and",
+
+            [["content_info.connotation_types.negative",">",1000],
+
+            "or",
+
+            ["content_info.text_category","has",10994]]]
+
+            for more information about filters, please refer to Content Analysis API – Filters'
+        rank_scale:
+          type:
+          - string
+          - 'null'
+          description: 'defines the scale used for calculating and displaying the rank values
+
+            optional field
+
+            you can use this parameter to choose whether rank values are presented on a 0–100 or 0–1000 scale
+
+            possible values:
+
+            one_hundred — rank values are displayed on a 0–100 scale
+
+            one_thousand — rank values are displayed on a 0–1000 scale
+
+            default value: one_thousand
+
+            learn more about how this parameter works in this Help Center article'
+        tag:
+          type:
+          - string
+          - 'null'
+          description: 'user-defined task identifier
+
+            optional field
+
+            the character limit is 255
+
+            you can use this parameter to identify the task and match it with the result
+
+            you will find the specified tag value in the data object of the response'
+      example:
+      - keyword: logitech
+        internal_list_limit: 1
+    ContentAnalysisCategoryTrendsLiveResponseInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseInfo'
+      - type: object
+        properties:
+          tasks:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/ContentAnalysisCategoryTrendsLiveTaskInfo'
+            description: array of tasks
+    ContentAnalysisAvailableFiltersTaskInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseTaskInfo'
+      - type: object
+        properties:
+          result:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/ContentAnalysisAvailableFiltersResultInfo'
+    ContentAnalysisCategoryTrendsLiveRequestInfo:
+      type: object
+      properties:
+        category_code:
+          type:
+          - integer
+          - 'null'
+          description: 'target category code
+
+            required field
+
+            to obtain a full list of available categories, refer to the Categories endpoint'
+        page_type:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: 'target page types
+
+            optional field
+
+            use this parameter to filter the dataset by page types
+
+            possible values:
+
+            "ecommerce", "news", "blogs", "message-boards", "organization"'
+        search_mode:
+          type:
+          - string
+          - 'null'
+          description: 'results grouping type
+
+            optional field
+
+            possible grouping types:
+
+            as_is – returns data on all citations for the target category_code
+
+            one_per_domain – returns data on one citation of the category_code per domain
+
+            default value: as_is'
+        internal_list_limit:
+          type:
+          - integer
+          - 'null'
+          description: 'maximum number of elements within internal arrays
+
+            optional field
+
+            you can use this field to limit the number of elements within the following arrays:
+
+            top_domains
+
+            text_categories
+
+            page_categories
+
+            countries
+
+            languages
+
+            default value: 1
+
+            maximum value: 20'
+        date_from:
+          type: string
+          description: 'starting date of the time range
+
+            required field
+
+            minimum value: 2022-10-31
+
+            date format: "yyyy-mm-dd"
+
+            example:
+
+            "2019-01-15"'
+        date_to:
+          type:
+          - string
+          - 'null'
+          description: 'ending date of the time range
+
+            optional field
+
+            if you don’t specify this field, today’s date will be used by default
+
+            date format: "yyyy-mm-dd"
+
+            example:
+
+            "2019-01-15"'
+        date_group:
+          type:
+          - string
+          - 'null'
+          description: 'time range which will be used to group the results
+
+            optional field
+
+            default value: month
+
+            possible values: day, week, month'
+        initial_dataset_filters:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+          description: 'initial dataset filtering parameters
+
+            optional field
+
+            initial filtering parameters that apply to fields in the Search endpoint;
+
+            you can add several filters at once (8 filters maximum)
+
+            you should set a logical operator and, or between the conditions
+
+            the following operators are supported:
+
+            regex, not_regex, <, <=, >, >=, =, <>, in, not_in, like,not_like, has, has_not, match, not_match
+
+            you can use the % operator with like and not_like to match any string of zero or more characters
+
+            example:
+
+            ["domain","<>", "logitech.com"]
+
+            [["domain","<>","logitech.com"],"and",["content_info.connotation_types.negative",">",1000]]
+
+            [["domain","<>","logitech.com"]],
+
+            "and",
+
+            [["content_info.connotation_types.negative",">",1000],
+
+            "or",
+
+            ["content_info.text_category","has",10994]]]
+
+            for more information about filters, please refer to Content Analysis API – Filters'
+        rank_scale:
+          type:
+          - string
+          - 'null'
+          description: 'defines the scale used for calculating and displaying the rank values
+
+            optional field
+
+            you can use this parameter to choose whether rank values are presented on a 0–100 or 0–1000 scale
+
+            possible values:
+
+            one_hundred — rank values are displayed on a 0–100 scale
+
+            one_thousand — rank values are displayed on a 0–1000 scale
+
+            default value: one_thousand
+
+            learn more about how this parameter works in this Help Center article'
+        tag:
+          type:
+          - string
+          - 'null'
+          description: 'user-defined task identifier
+
+            optional field
+
+            the character limit is 255
+
+            you can use this parameter to identify the task and match it with the result
+
+            you will find the specified tag value in the data object of the response'
+      example:
+      - category_code: 10994
+        search_mode: as_is
+        date_from: '2026-01-15'
+        date_group: month
+    ContentAnalysisCategoriesResponseInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseInfo'
+      - type: object
+        properties:
+          tasks:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/ContentAnalysisCategoriesTaskInfo'
+            description: array of tasks
+    ContentAnalysisRatingDistributionLiveRequestInfo:
+      type: object
+      properties:
+        keyword:
+          type: string
+          description: 'target keyword
+
+            required field
+
+            UTF-8 encoding
+
+            the keywords will be converted to a lowercase format;
+
+            Note: to match an exact phrase instead of a stand-alone keyword, use double quotes and backslashes;
+
+            example:
+
+            "keyword": "\"tesla palo alto\""
+
+            learn more about rules and limitations of keyword and keywords fields in DataForSEO APIs in this Help Center article'
+        keyword_fields:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - string
+            - 'null'
+          description: "target keyword fields and target keywords\noptional field\nuse this parameter to filter the dataset by keywords that certain fields should contain;\nfields you can specify: title, main_title, previous_title, snippet\nyou can indicate several fields;\nNote: to match an exact phrase instead of a stand-alone keyword, use double quotes and backslashes;\nexample:\n\"keyword_fields\": {\n    \"snippet\": \"\\\"logitech mouse\\\"\",\n    \"main_title\": \"sale\"\n}"
+        page_type:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: 'target page types
+
+            optional field
+
+            use this parameter to filter the dataset by page types
+
+            possible values:
+
+            "ecommerce", "news", "blogs", "message-boards", "organization"'
+        internal_list_limit:
+          type:
+          - integer
+          - 'null'
+          description: 'maximum number of elements within internal arrays
+
+            optional field
+
+            you can use this field to limit the number of elements within the following arrays:
+
+            top_domains
+
+            text_categories
+
+            page_categories
+
+            countries
+
+            languages
+
+            default value: 1
+
+            maximum value: 20'
+        search_mode:
+          type:
+          - string
+          - 'null'
+          description: 'results grouping type
+
+            optional field
+
+            possible grouping types:
+
+            as_is – returns all citations for the target keyword
+
+            one_per_domain – returns one citation of the keyword per domain
+
+            default value: as_is'
+        positive_connotation_threshold:
+          type:
+          - number
+          - 'null'
+          description: 'positive connotation threshold
+
+            optional field
+
+            specified as the probability index threshold for positive sentiment related to the citation content
+
+            if you specify this field, connotation_types object in the response will only contain data on citations with positive sentiment probability more than or equal to the specified value
+
+            possible values: from 0 to 1
+
+            default value: 0.4'
+        sentiments_connotation_threshold:
+          type:
+          - number
+          - 'null'
+          description: 'sentiment connotation threshold
+
+            optional field
+
+            specified as the probability index threshold for sentiment connotations related to the citation content
+
+            if you specify this field, sentiment_connotations object in the response will only contain data on citations where the probability per each sentiment is more than or equal to the specified value
+
+            possible values: from 0 to 1
+
+            default value: 0.4'
+        initial_dataset_filters:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+          description: 'initial dataset filtering parameters
+
+            optional field
+
+            initial filtering parameters that apply to fields in the Search endpoint
+
+            you can add several filters at once (8 filters maximum)
+
+            you should set a logical operator and, or between the conditions
+
+            the following operators are supported:
+
+            regex, not_regex, <, <=, >, >=, =, <>, in, not_in, like,not_like, has, has_not, match, not_match
+
+            you can use the % operator with like and not_like to match any string of zero or more characters
+
+            example:
+
+            ["domain","<>", "logitech.com"]
+
+            [["domain","<>","logitech.com"],"and",["content_info.connotation_types.negative",">",1000]]
+
+            [["domain","<>","logitech.com"]],
+
+            "and",
+
+            [["content_info.connotation_types.negative",">",1000],
+
+            "or",
+
+            ["content_info.text_category","has",10994]]]
+
+            for more information about filters, please refer to Content Analysis API – Filters'
+        rank_scale:
+          type:
+          - string
+          - 'null'
+          description: 'defines the scale used for calculating and displaying the rank values
+
+            optional field
+
+            you can use this parameter to choose whether rank values are presented on a 0–100 or 0–1000 scale
+
+            possible values:
+
+            one_hundred — rank values are displayed on a 0–100 scale
+
+            one_thousand — rank values are displayed on a 0–1000 scale
+
+            default value: one_thousand
+
+            learn more about how this parameter works in this Help Center article'
+        tag:
+          type:
+          - string
+          - 'null'
+          description: 'user-defined task identifier
+
+            optional field
+
+            the character limit is 255
+
+            you can use this parameter to identify the task and match it with the result
+
+            you will find the specified tag value in the data object of the response'
+      example:
+      - keyword: logitech
+        search_mode: as_is
+        internal_list_limit: 10
+    SocialMetricsInfo:
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+          description: type of element
+        like_count:
+          type:
+          - integer
+          - 'null'
+          description: likes count
+          format: int64
+    ContentAnalysisCategoriesInfo:
+      properties:
+        category:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - integer
+            - 'null'
+        count:
+          type:
+          - integer
+          - 'null'
+          format: int64
+    PositiveConnotationDistribution:
+      type: object
+      properties:
+        positive:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/ContentAnalysisSummaryInfo'
+        negative:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/ContentAnalysisSummaryInfo'
+        neutral:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/ContentAnalysisSummaryInfo'
+    ContentAnalysisCategoryTrendsLiveTaskInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseTaskInfo'
+      - type: object
+        properties:
+          result:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/ContentAnalysisCategoryTrendsLiveResultInfo'
+            description: array of results
+    ContentAnalysisIdListRequestInfo:
+      type: object
+      properties:
+        datetime_from:
+          type: string
+          description: 'start time for filtering results
+
+            required field
+
+            if include_metadata is set to true, maximum value: a month from current datetime;
+
+            if include_metadata is set to false, maximum value: six months from current datetime;
+
+            must be specified in the UTC format: “yyyy-mm-dd hh-mm-ss +00:00”
+
+            example:
+
+            2023-01-15 12:57:46 +00:00'
+        datetime_to:
+          type: string
+          description: 'finish time for filtering results
+
+            required field
+
+            maximum value: current datetime;
+
+            must be specified in the UTC format: “yyyy-mm-dd hh-mm-ss +00:00”
+
+            example:
+
+            2023-01-31 13:57:46 +00:00'
+        limit:
+          type:
+          - integer
+          - 'null'
+          description: 'the maximum number of returned task IDs
+
+            optional field
+
+            default value: 1000
+
+            maximum value: 1000'
+        offset:
+          type:
+          - integer
+          - 'null'
+          description: 'offset in the results array of returned task IDs
+
+            optional field
+
+            default value: 0
+
+            if you specify the 10 value, the first ten tasks in the results array will be omitted'
+        sort:
+          type:
+          - string
+          - 'null'
+          description: 'sorting by task execution time
+
+            optional field
+
+            possible values: "asc", "desc"
+
+            default value: "asc"'
+        include_metadata:
+          type:
+          - boolean
+          - 'null'
+          description: 'include task metadata in the respond
+
+            optional field
+
+            default value: false'
+      example:
+      - datetime_from: '2026-04-12 04:39:39 +00:00'
+        datetime_to: '2026-04-14 04:39:39 +00:00'
+        limit: 100
+        offset: 0
+        sort: desc
+        include_metadata: true
+    ContentRatingInfo:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+          description: 'rating name
+
+            here you can find the following elements: Max5, Percents, CustomMax'
+        rating_value:
+          type:
+          - string
+          - 'null'
+          description: the value of the rating
+        rating_count:
+          type:
+          - string
+          - 'null'
+          description: number of votes
+        max_rating_value:
+          type:
+          - string
+          - 'null'
+          description: maximum value for the rating name
+        relative_rating:
+          type:
+          - string
+          - 'null'
+          description: relative rating
+    SentimentConnotationDistribution:
+      type: object
+      properties:
+        anger:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/ContentAnalysisSummaryInfo'
+        happiness:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/ContentAnalysisSummaryInfo'
+        love:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/ContentAnalysisSummaryInfo'
+        sadness:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/ContentAnalysisSummaryInfo'
+        share:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/ContentAnalysisSummaryInfo'
+        fun:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/ContentAnalysisSummaryInfo'
+    ContentAnalysisPhraseTrendsLiveResultInfo:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+          description: type of element
+        date:
+          type:
+          - string
+          - 'null'
+          description: date for which the data is provided
+        total_count:
+          type:
+          - integer
+          - 'null'
+          description: total number of results in our database relevant to your request
+          format: int64
+        rank:
+          type:
+          - integer
+          - 'null'
+          description: 'rank of all URLs citing the keyword
+
+            normalized sum of ranks of all URLs citing the target keyword for the given date'
+        top_domains:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+            oneOf:
+            - $ref: '#/components/schemas/TopDomainInfo'
+          description: 'top domains citing the target keyword
+
+            contains objects with top domains citing the target keyword and citation count per each domain'
+        sentiment_connotations:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - integer
+            - 'null'
+            format: int64
+          description: 'sentiment connotations
+
+            contains sentiments (emotional reactions) related to the target keyword citation and the number of citations per each sentiment
+
+            possible connotations: "anger", "happiness", "love", "sadness", "share", "fun"'
+        connotation_types:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - integer
+            - 'null'
+            format: int64
+          description: 'connotation types
+
+            contains types of sentiments (sentiment polarity) related to the keyword citation and citation count per each sentiment type
+
+            possible connotation types: "positive", "negative", "neutral"'
+        text_categories:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+            oneOf:
+            - $ref: '#/components/schemas/ContentAnalysisCategoriesInfo'
+          description: 'text categories
+
+            contains objects with text categories and citation count in each text category
+
+            to obtain a full list of available categories, refer to the Categories endpoint'
+        page_categories:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+            oneOf:
+            - $ref: '#/components/schemas/ContentAnalysisCategoriesInfo'
+          description: 'page categories
+
+            contains objects with page categories and citation count in each page category
+
+            to obtain a full list of available categories, refer to the Categories endpoint'
+        page_types:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - integer
+            - 'null'
+            format: int64
+          description: 'page types
+
+            contains page types and citation count per each page type'
+        countries:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - integer
+            - 'null'
+            format: int64
+          description: 'countries
+
+            contains countries and citation count in each country
+
+            to obtain a full list of available countries, refer to the Locations endpoint'
+        languages:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - integer
+            - 'null'
+            format: int64
+          description: 'languages
+
+            contains languages and citation count in each language
+
+            to obtain a full list of available languages, refer to the Languages endpoint'
+    ContentAnalysisSummaryLiveRequestInfo:
+      type: object
+      properties:
+        keyword:
+          type: string
+          description: 'target keyword
+
+            required field
+
+            UTF-8 encoding
+
+            the keywords will be converted to a lowercase format;
+
+            Note: to match an exact phrase instead of a stand-alone keyword, use double quotes and backslashes;
+
+            example:
+
+            "keyword": "\"tesla palo alto\""
+
+            learn more about rules and limitations of keyword and keywords fields in DataForSEO APIs in this Help Center article'
+        keyword_fields:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - string
+            - 'null'
+          description: "target keyword fields and target keywords\noptional field\nuse this parameter to filter the dataset by keywords that certain fields should contain;\nfields you can specify: title, main_title, previous_title, snippet\nyou can indicate several fields;\nNote: to match an exact phrase instead of a stand-alone keyword, use double quotes and backslashes;\nexample:\n\"keyword_fields\": {\n    \"snippet\": \"\\\"logitech mouse\\\"\",\n    \"main_title\": \"sale\"\n}"
+        page_type:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: 'target page types
+
+            optional field
+
+            use this parameter to filter the dataset by page types
+
+            possible values:
+
+            "ecommerce", "news", "blogs", "message-boards", "organization"'
+        internal_list_limit:
+          type:
+          - integer
+          - 'null'
+          description: 'maximum number of elements within internal arrays
+
+            optional field
+
+            you can use this field to limit the number of elements within the following arrays:
+
+            top_domains
+
+            text_categories
+
+            page_categories
+
+            countries
+
+            languages
+
+            default value: 1
+
+            maximum value: 20'
+        positive_connotation_threshold:
+          type:
+          - number
+          - 'null'
+          description: 'positive connotation threshold
+
+            optional field
+
+            specified as the probability index threshold for positive sentiment related to the citation content
+
+            if you specify this field, connotation_types object in the response will only contain data on citations with positive sentiment probability more than or equal to the specified value
+
+            possible values: from 0 to 1
+
+            default value: 0.4'
+        sentiments_connotation_threshold:
+          type:
+          - number
+          - 'null'
+          description: 'sentiment connotation threshold
+
+            optional field
+
+            specified as the probability index threshold for sentiment connotations related to the citation content
+
+            if you specify this field, sentiment_connotations object in the response will only contain data on citations where the
+
+            probability per each sentiment is more than or equal to the specified value
+
+            possible values: from 0 to 1
+
+            default value: 0.4'
+        initial_dataset_filters:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+          description: 'initial dataset filtering parameters
+
+            optional field
+
+            initial filtering parameters that apply to fields in the Search endpoint
+
+            you can add several filters at once (8 filters maximum)
+
+            you should set a logical operator and, or between the conditions
+
+            the following operators are supported:
+
+            regex, not_regex, <, <=, >, >=, =, <>, in, not_in, like,not_like, has, has_not
+
+            you can use the % operator with like and not_like to match any string of zero or more characters
+
+            example:
+
+            ["domain","<>", "logitech.com"]
+
+            [["domain","<>","logitech.com"],"and",["content_info.connotation_types.negative",">",1000]]
+
+            [["domain","<>","logitech.com"]],
+
+            "and",
+
+            [["content_info.connotation_types.negative",">",1000],
+
+            "or",
+
+            ["content_info.text_category","has",10994]]]
+
+            for more information about filters, please refer to Content Analysis API – Filters'
+        rank_scale:
+          type:
+          - string
+          - 'null'
+          description: 'defines the scale used for calculating and displaying the rank values
+
+            optional field
+
+            you can use this parameter to choose whether rank values are presented on a 0–100 or 0–1000 scale
+
+            possible values:
+
+            one_hundred — rank values are displayed on a 0–100 scale
+
+            one_thousand — rank values are displayed on a 0–1000 scale
+
+            default value: one_thousand
+
+            learn more about how this parameter works in this Help Center article'
+        tag:
+          type:
+          - string
+          - 'null'
+          description: 'user-defined task identifier
+
+            optional field
+
+            the character limit is 255
+
+            you can use this parameter to identify the task and match it with the result
+
+            you will find the specified tag value in the data object of the response'
+      example:
+      - keyword: logitech
+        page_type:
+        - ecommerce
+        - news
+        - blogs
+        - message-boards
+        - organization
+        internal_list_limit: 8
+        positive_connotation_threshold: 0.5
+    ContentAnalysisIdListTaskInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseTaskInfo'
+      - type: object
+        properties:
+          result:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/ContentAnalysisIdListResultInfo'
+            description: array of results
+    ContentAnalysisLocationsTaskInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseTaskInfo'
+      - type: object
+        properties:
+          result:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/ContentAnalysisLocationsResultInfo'
+            description: array of results
+    ContentAnalysisSearchLiveItem:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+          description: type of element
+        url:
+          type:
+          - string
+          - 'null'
+          description: URL where the citation was found
+        domain:
+          type:
+          - string
+          - 'null'
+          description: domain name
+        main_domain:
+          type:
+          - string
+          - 'null'
+          description: main domain
+        url_rank:
+          type:
+          - integer
+          - 'null'
+          description: 'rank of the url
+
+            this value is based on backlink data for the given URL from DataForSEO Backlink Index;
+
+            url_rank is calculated based on the method for node ranking in a linked database – a principle used in the original Google PageRank algorithm
+
+            learn more about the metric and how it is calculated in this help center article'
+        spam_score:
+          type:
+          - integer
+          - 'null'
+          description: 'backlink spam score of the url
+
+            this value is based on backlink data for the given URL from DataForSEO Backlink Index;
+
+            learn more about how the metric is calculated on this help center page'
+        domain_rank:
+          type:
+          - integer
+          - 'null'
+          description: 'rank of the domain
+
+            this value is based on backlink data for the given domain from DataForSEO Backlink Index;
+
+            domain_rank is calculated based on the method for node ranking in a linked database – a principle used in the original Google PageRank algorithm
+
+            learn more about the metric and how it is calculated in this help center article'
+        fetch_time:
+          type:
+          - string
+          - 'null'
+          description: 'date and time when our crawler visited the page
+
+            in the UTC format: “yyyy-mm-dd hh-mm-ss +00:00”
+
+            example:
+
+            2017-01-24 13:20:59 +00:00'
+        country:
+          type:
+          - string
+          - 'null'
+          description: 'country code of the domain registration
+
+            to obtain a full list of available countries, refer to the Locations endpoint'
+        language:
+          type:
+          - string
+          - 'null'
+          description: 'main language of the domain
+
+            to obtain a full list of available languages, refer to the Languages endpoint'
+        score:
+          type:
+          - number
+          - 'null'
+          description: 'citation prominence score
+
+            this value is based on url_rank, domain_rank, keyword presence in title, main_title, url, snippet
+
+            the higher the score, the more value the related citation has'
+        page_category:
+          type:
+          - array
+          - 'null'
+          items:
+            type: integer
+          description: 'contains all relevant page categories
+
+            product and service categories relevant for the page
+
+            to obtain a full list of available categories, refer to the Categories endpoint'
+        page_types:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: page types
+        ratings:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+            oneOf:
+            - $ref: '#/components/schemas/ContentRatingInfo'
+          description: 'ratings found on the page
+
+            all ratings found on the page based on microdata'
+        social_metrics:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+            oneOf:
+            - $ref: '#/components/schemas/SocialMetricsInfo'
+          description: 'social media engagement metrics
+
+            data on social media interactions associated with the content based on website embeds developed and supported by social media platforms'
+        content_info:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AnalysisContentInfo'
+          description: contains data on citations from the given url
+    ContentAnalysisCategoriesTaskInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseTaskInfo'
+      - type: object
+        properties:
+          result:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/ContentAnalysisCategoriesResultInfo'
+            description: array of results
+    ContentAnalysisRatingDistributionLiveResultInfo:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+          description: type of element
+        min:
+          type:
+          - number
+          - 'null'
+          description: min rating on a distribution scale
+        max:
+          type:
+          - number
+          - 'null'
+          description: max rating on a distribution scale
+        metrics:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/ContentAnalysisSummaryInfo'
+          description: contains rating distribution metrics
+    ContentAnalysisRatingDistributionLiveTaskInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseTaskInfo'
+      - type: object
+        properties:
+          result:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/ContentAnalysisRatingDistributionLiveResultInfo'
+            description: array of results
+    ContentAnalysisAvailableFiltersResponseInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseInfo'
+      - type: object
+        properties:
+          tasks:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/ContentAnalysisAvailableFiltersTaskInfo'
+    ContentAnalysisSearchLiveResultInfo:
+      type: object
+      properties:
+        offset_token:
+          type:
+          - string
+          - 'null'
+          description: 'offset token for subsequent requests
+
+            you can use the string provided in this field to get the subsequent results of the initial task;
+
+            note: offset_token values are unique for each subsequent task'
+        total_count:
+          type:
+          - integer
+          - 'null'
+          description: total amount of results in our database relevant to your request
+          format: int64
+        items_count:
+          type:
+          - integer
+          - 'null'
+          description: the number of results returned in the items array
+          format: int64
+        items:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+            oneOf:
+            - $ref: '#/components/schemas/ContentAnalysisSearchLiveItem'
+          description: contains citations and related data
+    ContentAnalysisSearchLiveRequestInfo:
+      type: object
+      properties:
+        keyword:
+          type: string
+          description: 'target keyword
+
+            required field
+
+            UTF-8 encoding
+
+            the keywords will be converted to a lowercase format;
+
+            Note: to match an exact phrase instead of a stand-alone keyword, use double quotes and backslashes;
+
+            example:
+
+            "keyword": "\"tesla palo alto\""
+
+            learn more about rules and limitations of keyword and keywords fields in DataForSEO APIs in this Help Center article'
+        keyword_fields:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - string
+            - 'null'
+          description: "target keyword fields and target keywords\noptional field\nuse this parameter to filter the dataset by keywords that certain fields should contain;\nfields you can specify: title, main_title, previous_title, snippet\nyou can indicate several fields;\nNote: to match an exact phrase instead of a stand-alone keyword, use double quotes and backslashes;\nexample:\n\"keyword_fields\": {\n    \"snippet\": \"\\\"logitech mouse\\\"\",\n    \"main_title\": \"sale\"\n}"
+        page_type:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: 'target page types
+
+            optional field
+
+            use this parameter to filter the dataset by page types
+
+            possible values:
+
+            "ecommerce", "news", "blogs", "message-boards", "organization"'
+        search_mode:
+          type:
+          - string
+          - 'null'
+          description: 'results grouping type
+
+            optional field
+
+            possible grouping types:
+
+            as_is – returns all citations for the target keyword
+
+            one_per_domain – returns one citation of the keyword per domain
+
+            default value: as_is'
+        limit:
+          type:
+          - integer
+          - 'null'
+          description: 'the maximum number of returned citations
+
+            optional field
+
+            default value: 100
+
+            maximum value: 1000'
+        filters:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+          description: 'array of results filtering parameters
+
+            optional field
+
+            you can add several filters at once (8 filters maximum)
+
+            you should set a logical operator and, or between the conditions
+
+            the following operators are supported:
+
+            regex, not_regex, <, <=, >, >=, =, <>, in, not_in, like,not_like, match, not_match
+
+            you can use the % operator with like and not_like to match any string of zero or more characters
+
+            example:
+
+            ["country","=", "US"]
+
+            [["domain_rank",">",800],"and",["content_info.connotation_types.negative",">",0.9]]
+
+            [["domain_rank",">",800],
+
+            "and",
+
+            [["page_types","has","ecommerce"],
+
+            "or",
+
+            ["content_info.text_category","has",10994]]]
+
+            for more information about filters, please refer to Content Analysis API – Filters'
+        order_by:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+          description: 'results sorting rules
+
+            optional field
+
+            you can use the same values as in the filters array to sort the results
+
+            possible sorting types:
+
+            asc – results will be sorted in the ascending order
+
+            desc – results will be sorted in the descending order
+
+            you should use a comma to set up a sorting type
+
+            example:
+
+            ["content_info.sentiment_connotations.anger,desc"]
+
+            default rule:
+
+            ["content_info.sentiment_connotations.anger,desc"]
+
+            note that you can set no more than three sorting rules in a single request
+
+            you should use a comma to separate several sorting rules
+
+            example:
+
+            ["content_info.sentiment_connotations.anger,desc","keyword_data.keyword_info.cpc,desc"]'
+        offset:
+          type:
+          - integer
+          - 'null'
+          description: 'offset in the results array of returned citations
+
+            optional field
+
+            default value: 0
+
+            if you specify the 10 value, the first ten citations in the results array will be omitted and the data will be provided for the successive citations
+
+            Note: we recommend using this parameter only when retrieving up to 10,000 results
+
+            for retrieving over 10,000 results, use the offset_token instead.'
+        offset_token:
+          type:
+          - string
+          - 'null'
+          description: 'offset token for subsequent requests
+
+            optional field
+
+            provided in the identical field of the response to each request;
+
+            use this parameter to avoid timeouts while trying to obtain over 10,000 results in a single request;
+
+            by specifying the unique offset_token value from the response array, you will get the subsequent results of the initial task;
+
+            offset_token values are unique for each subsequent task
+
+            Note: if the offset_token is specified in the request, all other parameters except limit will not be taken into account when processing a task
+
+            learn more about this parameter on our Help Center'
+        rank_scale:
+          type:
+          - string
+          - 'null'
+          description: 'defines the scale used for calculating and displaying the domain_rank, and url_rank values
+
+            optional field
+
+            you can use this parameter to choose whether rank values are presented on a 0–100 or 0–1000 scale
+
+            possible values:
+
+            one_hundred — rank values are displayed on a 0–100 scale
+
+            one_thousand — rank values are displayed on a 0–1000 scale
+
+            default value: one_thousand
+
+            learn more about how this parameter works in this Help Center article'
+        tag:
+          type:
+          - string
+          - 'null'
+          description: 'user-defined task identifier
+
+            optional field
+
+            the character limit is 255
+
+            you can use this parameter to identify the task and match it with the result
+
+            you will find the specified tag value in the data object of the response'
+      example:
+      - keyword_fields:
+          snippet: logitech
+        keyword: logitech
+        page_type:
+        - ecommerce
+        - news
+        - blogs
+        - message-boards
+        - organization
+        search_mode: as_is
+        filters:
+        - main_domain
+        - '='
+        - reviewfinder.ca
+        order_by:
+        - content_info.sentiment_connotations.anger,desc
+        limit: 10
+    AnalysisContentInfo:
+      type: object
+      properties:
+        content_type:
+          type:
+          - string
+          - 'null'
+          description: 'type of content
+
+            example:
+
+            page_content, comment'
+        title:
+          type:
+          - string
+          - 'null'
+          description: title of the result
+        main_title:
+          type:
+          - string
+          - 'null'
+          description: page title
+        previous_title:
+          type:
+          - string
+          - 'null'
+          description: title of the previous content block
+        level:
+          type:
+          - integer
+          - 'null'
+          description: 'title heading level
+
+            indicates h-tag level from 1 (top) to 6 (bottom)'
+        author:
+          type:
+          - string
+          - 'null'
+          description: author of the content
+        snippet:
+          type:
+          - string
+          - 'null'
+          description: content snippet
+        snippet_length:
+          type:
+          - integer
+          - 'null'
+          description: character length of the snippet
+        social_metrics:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+            oneOf:
+            - $ref: '#/components/schemas/SocialMetricsInfo'
+          description: 'social media engagement metrics
+
+            data on social media interactions associated with the content based on website embeds developed and supported by social media platforms'
+        highlighted_text:
+          type:
+          - string
+          - 'null'
+          description: highlighted text from the snippet
+        language:
+          type:
+          - string
+          - 'null'
+          description: 'content language
+
+            to obtain a full list of available languages, refer to the Languages endpoint'
+        sentiment_connotations:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - integer
+            - 'null'
+            format: int64
+          description: 'sentiment connotations
+
+            contains sentiments (emotional reactions) related to the given citation and probability index per each sentiment
+
+            possible sentiment connotations: anger, happiness, love, sadness, share, fun'
+        connotation_types:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - integer
+            - 'null'
+            format: int64
+          description: 'connotation types
+
+            contains types of sentiments (sentiment polarity) related to the given citation and probability index per each sentiment type
+
+            possible sentiment connotation types: positive, negative, neutral'
+        text_category:
+          type:
+          - array
+          - 'null'
+          items:
+            type: integer
+          description: 'text category
+
+            to obtain a full list of available categories, refer to the Categories endpoint'
+        date_published:
+          type:
+          - string
+          - 'null'
+          description: 'date and time when the content was published
+
+            in the UTC format: “yyyy-mm-dd hh-mm-ss +00:00”
+
+            example:
+
+            2017-01-24 13:20:59 +00:00'
+        content_quality_score:
+          type:
+          - integer
+          - 'null'
+          description: 'content quality score
+
+            this value is calculated based on the number of words, sentences and characters the content contains'
+        semantic_location:
+          type:
+          - string
+          - 'null'
+          description: 'semantic location
+
+            indicates semantic element in HTML where the target keyword citation is located
+
+            example:
+
+            article, header'
+        rating:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/ContentRatingInfo'
+          description: 'content rating
+
+            rating related to content_info'
+        group_date:
+          type:
+          - string
+          - 'null'
+          description: 'citation group date and time
+
+            indicates content publication date or date and time when our crawler visited the page for the first time;
+
+            this field can be used to group citations by date and display citation trends;
+
+            date and time are provided in the UTC format: “yyyy-mm-dd hh-mm-ss +00:00”
+
+            example:
+
+            2017-01-24 13:20:59 +00:00'
+    ContentAnalysisSentimentAnalysisLiveResponseInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseInfo'
+      - type: object
+        properties:
+          tasks:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/ContentAnalysisSentimentAnalysisLiveTaskInfo'
+            description: array of tasks
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
