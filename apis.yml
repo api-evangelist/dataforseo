@@ -48,7 +48,7 @@ tags:
 - App Store
 - Business Data
 - AI Optimization
-- Social-Media
+- Social Media
 tags_raw:
 - SEO
 - SERP
@@ -64,6 +64,7 @@ tags_raw:
 - Business Data
 - AI Optimization
 - Social Media
+- Social-Media
 apis:
 - aid: dataforseo:dataforseo-aioptimization-api
   name: DataForSEO AiOptimization API
