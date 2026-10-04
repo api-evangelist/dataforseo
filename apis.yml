@@ -240,6 +240,8 @@ apis:
   humanURL: https://dataforseo.com/apis/on-page-api
   baseURL: https://api.dataforseo.com
   tags:
+  - On-Page
+  tags_raw:
   - OnPage
   properties:
   - type: OpenAPI
