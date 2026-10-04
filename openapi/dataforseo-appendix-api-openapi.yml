@@ -118,169 +118,103 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    AppendixGoogleAdsKeywordsDataLimitsRatesDataInfo:
+    AppendixAppendixDaysRatesDataInfo:
       type: object
       properties:
-        status:
+        user_data:
           type:
           - number
           - 'null'
           format: double
-        search_volume:
+        errors:
           type:
-          - object
+          - number
           - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        keywords_for_keywords:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        keywords_for_site:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        ad_traffic_by_keywords:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-    AppendixBingKeywordsDataPriceData:
+          format: double
+    AppendixTechnologiesDomainAnalyticsPriceData:
       type: object
       properties:
-        audience_estimation:
+        languages:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        locations:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        technologies:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        aggregation_technologies:
           type:
           - object
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        keyword_performance:
+        domains_by_html_terms:
           type:
           - object
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        keywords_for_keywords:
+        domains_by_technology:
           type:
           - object
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        keywords_for_site:
+        domain_technologies:
           type:
           - object
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        keyword_suggestions_for_url:
+        technologies_summary:
           type:
           - object
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        search_volume:
+        technology_stats:
           type:
           - object
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-    AppendixStatusResultInfo:
+    AppendixSellersGoogleMerchantPriceData:
       type: object
       properties:
-        api:
-          type:
-          - string
-          - 'null'
-          description: 'name of the API
-
-            the list of APIs:
-
-            serp
-
-            keywords_data
-
-            appendix
-
-            dataforseo_labs
-
-            domain_analytics
-
-            merchant
-
-            on_page
-
-            business_data
-
-            backlinks
-
-            app_data
-
-            content_analysis
-
-            content_generation'
-        status:
-          type:
-          - string
-          - 'null'
-          description: 'current status
-
-            you can find all information about the statuses of our endpoints for the last 60 days here
-
-            the list of possible current statuses:
-
-            major_outage
-
-            partial_outage
-
-            long_response_time
-
-            long_execution_time
-
-            webhook_delay
-
-            send_delay'
-        endpoints:
-          type:
-          - array
-          - 'null'
-          items:
-            type:
-            - object
-            - 'null'
-            oneOf:
-            - $ref: '#/components/schemas/AppendixStatusEndpointsInfo'
-          description: array of objects that contain status information for API endpoints
-    AppendixStatusTaskInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseTaskInfo'
-      - type: object
-        properties:
-          result:
-            type:
-            - array
-            - 'null'
-            items:
-              type:
-              - object
-              - 'null'
-              oneOf:
-              - $ref: '#/components/schemas/AppendixStatusResultInfo'
-            description: array of results
-    AppendixWhoisDomainAnalyticsPriceData:
-      type: object
-      properties:
-        overview:
+        ad_url:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        task_get:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskGetProductGoogleMerchantPriceDataInfo'
+        task_post:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        tasks_ready:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
     AppendixBusinessDataGoogleInfo:
       type: object
       properties:
@@ -326,168 +260,129 @@ components:
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixInfo'
-    AppendixAppendixDataInfo:
+    AppendixFunctionTypeInfo:
       type: object
       properties:
-        user_data:
+        regular:
           type:
           - number
           - 'null'
           format: double
-        errors:
-          type:
-          - number
-          - 'null'
-          format: double
-        status:
-          type:
-          - number
-          - 'null'
-          format: double
-        test:
-          type:
-          - number
-          - 'null'
-          format: double
-    AppendixAppDataLimitsRatesDataInfo:
-      type: object
-      properties:
-        app_info:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
-        app_list:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
-        app_reviews:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
-        app_searches:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
-        errors:
-          type:
-          - number
-          - 'null'
-          format: double
-        languages:
-          type:
-          - number
-          - 'null'
-          format: double
-        locations:
-          type:
-          - number
-          - 'null'
-          format: double
-        categories:
-          type:
-          - number
-          - 'null'
-          format: double
-        app_listings:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBusinessListingsBusinessDataLimitsRatesDataInfo'
-        tasks_ready:
-          type:
-          - number
-          - 'null'
-          format: double
-    AppendixLimitsRatesData:
-      type: object
-      properties:
-        day:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixDayLimitsRatesData'
-        minute:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixDataInfo'
-    AppendixContentGenerationDayLimitsRatesDataInfo:
-      type: object
-      properties:
-        live:
-          type:
-          - number
-          - 'null'
-          format: double
-        languages:
-          type:
-          - number
-          - 'null'
-          format: double
-    AppendixTaskGetProductGoogleMerchantPriceDataInfo:
-      type: object
-      properties:
         advanced:
           type:
-          - object
+          - number
           - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+          format: double
         html:
           type:
+          - number
+          - 'null'
+          format: double
+    AppendixOnPagePriceData:
+      type: object
+      properties:
+        errors:
+          type:
           - object
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-    AppendixSocialMediaBusinessDataLimitsRatesDataInfo:
-      type: object
-      properties:
-        facebook:
+        lighthouse:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        pinterest:
+          - $ref: '#/components/schemas/AppendixGoogleBusinessDataPriceDataInfo'
+        content_parsing:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        reddit:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        content_parsing_live:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-    AppendixJobsSerpLimitsRatesDataInfo:
-      type: object
-      properties:
-        task_post:
-          type:
-          - number
-          - 'null'
-          format: double
-    AppendixProductGoogleMerchantPriceDataInfo:
-      type: object
-      properties:
-        task_get:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        duplicate_content:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixTaskGetProductGoogleMerchantPriceDataInfo'
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        duplicate_tags:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        instant_pages:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        keyword_density:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        links:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        non_indexable:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        pages:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        pages_by_resource:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        page_screenshot:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        raw_html:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        redirect_chains:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        resources:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        summary:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
         task_post:
           type:
           - object
@@ -500,116 +395,12 @@ components:
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-    AppendixUserDataTaskInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseTaskInfo'
-      - type: object
-        properties:
-          result:
-            type:
-            - array
-            - 'null'
-            items:
-              type:
-              - object
-              - 'null'
-              oneOf:
-              - $ref: '#/components/schemas/AppendixUserDataResultInfo'
-            description: array of results
-    AppendixWebhookResendResponseInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseInfo'
-      - type: object
-        properties:
-          tasks:
-            type:
-            - array
-            - 'null'
-            items:
-              type:
-              - object
-              - 'null'
-              oneOf:
-              - $ref: '#/components/schemas/AppendixWebhookResendTaskInfo'
-            description: array of tasks
-    AppendixSerpPriceData:
-      type: object
-      properties:
-        tasks_fixed:
+        waterfall:
           type:
           - object
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        errors:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        jobs:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixAKeywordsDataPriceDataInfo'
-        languages:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        live:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixSerpPriceDataInfo'
-        locations:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        screenshot:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        task_get:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixSerpPriceDataInfo'
-        task_post:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        tasks_ready:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-    AppendixAppendixDaysRatesDataInfo:
-      type: object
-      properties:
-        user_data:
-          type:
-          - number
-          - 'null'
-          format: double
-        errors:
-          type:
-          - number
-          - 'null'
-          format: double
     AppendixDayLimitsRatesData:
       type: object
       properties:
@@ -766,116 +557,77 @@ components:
           - number
           - 'null'
           format: double
-    AppendixContentAnalysisLimitsRatesDataInfo:
+    AppendixContentGenerationPriceDataInfo:
       type: object
       properties:
-        search:
+        live:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        summary:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        sentiment_analysis:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        rating_distribution:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        phrase_trends:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        category_trends:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        locations:
-          type:
-          - number
-          - 'null'
-          format: double
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
         languages:
           type:
-          - number
+          - object
           - 'null'
-          format: double
-        categories:
-          type:
-          - number
-          - 'null'
-          format: double
-        errors:
-          type:
-          - number
-          - 'null'
-          format: double
-    AppendixClickstreamDataKeywordsDataLimitsRatesDataInfo:
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+    AppendixWebhookResendTaskInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseTaskInfo'
+      - type: object
+        properties:
+          result:
+            type:
+            - object
+            - 'null'
+            description: 'array of results
+
+              the value of this array is always null;
+
+              you can get the results by the preferred method of results delivery (pingback or postback) you specified when setting a task'
+    AppendixStatusResultInfo:
       type: object
       properties:
-        dataforseo_search_volume:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        locations_and_languages:
-          type:
-          - number
-          - 'null'
-          format: double
-        bulk_search_volume:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        global_search_volume:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-    AppendixStatusEndpointsInfo:
-      type: object
-      properties:
-        endpoint:
+        api:
           type:
           - string
           - 'null'
-          description: 'name of the endpoint
+          description: 'name of the API
 
-            the list of possible endpoints:
+            the list of APIs:
 
-            task_get
+            serp
 
-            task_post
+            keywords_data
 
-            live
+            appendix
 
-            postback/pingback'
+            dataforseo_labs
+
+            domain_analytics
+
+            merchant
+
+            on_page
+
+            business_data
+
+            backlinks
+
+            app_data
+
+            content_analysis
+
+            content_generation'
         status:
           type:
           - string
           - 'null'
           description: 'current status
 
-            you can find all information about your API statuses for the last 60 days here
+            you can find all information about the statuses of our endpoints for the last 60 days here
 
             the list of possible current statuses:
 
@@ -890,259 +642,26 @@ components:
             webhook_delay
 
             send_delay'
-    AppendixBusinessDataPriceData:
+        endpoints:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - object
+            - 'null'
+            oneOf:
+            - $ref: '#/components/schemas/AppendixStatusEndpointsInfo'
+          description: array of objects that contain status information for API endpoints
+    AppendixWhoisDomainAnalyticsPriceData:
       type: object
       properties:
-        business_listings:
+        overview:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixBusinessListingsBusinessDataPriceData'
-        errors:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        google:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixGoogleBusinessDataPriceData'
-        social_media:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixSocialMediaBusinessDataPriceData'
-        languages:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        locations:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        tripadvisor:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTrBusinessDataPriceDataInfo'
-        trustpilot:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTrBusinessDataPriceDataInfo'
-        yelp:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTrBusinessDataPriceDataInfo'
-        tasks_ready:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-    AppendixMerchantLimitsRatesDataInfo:
-      type: object
-      properties:
-        google:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixMerchantGoogleInfo'
-        amazon:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixMerchantAmazonInfo'
-        locations:
-          type:
-          - number
-          - 'null'
-          format: double
-        languages:
-          type:
-          - number
-          - 'null'
-          format: double
-        errors:
-          type:
-          - number
-          - 'null'
-          format: double
-        reviews:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
-        tasks_ready:
-          type:
-          - number
-          - 'null'
-          format: double
-    AppendixPriorityTasksReadyKeywordsDataPriceDataInfo:
-      type: object
-      properties:
-        cost_type:
-          type:
-          - string
-          - 'null'
-          description: 'charge type
-
-            can take the following values:
-
-            per_result – charge for every row in the result array
-
-            per_request – charge for a GET or POST request'
-        cost:
-          type:
-          - number
-          - 'null'
-          description: cost, USD
-          format: double
-    AppendixSerpDaysRatesDataInfo:
-      type: object
-      properties:
-        task_post:
-          type:
-          - number
-          - 'null'
-          format: double
-        task_get:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixFunctionTypeInfo'
-        tasks_ready:
-          type:
-          - number
-          - 'null'
-          format: double
-        locations:
-          type:
-          - number
-          - 'null'
-          format: double
-        languages:
-          type:
-          - number
-          - 'null'
-          format: double
-        live:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixFunctionTypeInfo'
-          properties:
-            regular:
-              type: number
-              format: double
-            advanced:
-              type: number
-              format: double
-            html:
-              type: number
-              format: double
-        errors:
-          type:
-          - number
-          - 'null'
-          format: double
-        tasks_fixed:
-          type:
-          - number
-          - 'null'
-          format: double
-        jobs:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixJobsSerpLimitsRatesDataInfo'
-        screenshot:
-          type:
-          - number
-          - 'null'
-          format: double
-    AppendixStatisticsDataInfo:
-      type: object
-      properties:
-        day:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixStatisticsRatesDataInfo'
-        minute:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixStatisticsRatesDataInfo'
-    AppendixDataforseoTrendsKeywordsDataLimitsRatesDataInfo:
-      type: object
-      properties:
-        explore:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        subregion_interests:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        demography:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        merged_data:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-    AppendixAmazonMerchantPriceData:
-      type: object
-      properties:
-        asin:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixProductGoogleMerchantPriceDataInfo'
-        products:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixProductGoogleMerchantPriceDataInfo'
-        sellers:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixProductGoogleMerchantPriceDataInfo'
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
     AppendixSerpDataInfo:
       type: object
       properties:
@@ -1204,176 +723,117 @@ components:
           - number
           - 'null'
           format: double
-    AppendixContentGenerationLimitsRatesDataInfo:
+    AppendixDomainAnalyticsLimitsRatesDataInfo:
       type: object
       properties:
-        generate:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        generate_meta_tags:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        generate_text:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        paraphrase:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        check_grammar:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixContentGenerationDayLimitsRatesDataInfo'
-        text_summary:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixContentGenerationDayLimitsRatesDataInfo'
-        generate_sub_topics:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-    AppendixAppendixPriceData:
-      type: object
-      properties:
-        errors:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        user_data:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-    AppendixTaskGetPriceDataInfo:
-      type: object
-      properties:
-        advanced:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-    AppendixBingKeywordsDataPriceDataInfo:
-      type: object
-      properties:
-        live:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-    AppendixRatesData:
-      type: object
-      properties:
-        limits:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixLimitsRatesData'
-          description: rate limits for API calls per a certain period of time
-        statistics:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixStatisticsDataInfo'
-          description: statisctics for API calls
-    AppendixNaverKeywordsDataDataInfo:
-      type: object
-      properties:
-        keywords_for_category:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        search_volume:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-    BaseResponseTaskInfo:
-      properties:
-        id:
-          type:
-          - string
-          - 'null'
-          description: 'task identifier
-
-            unique task identifier in our system in the UUID format'
-        status_code:
-          type:
-          - integer
-          - 'null'
-          description: 'status code of the task
-
-            generated by DataForSEO, can be within the following range: 10000-60000
-
-            you can find the full list of the response codes here'
-        status_message:
-          type:
-          - string
-          - 'null'
-          description: 'informational message of the task
-
-            you can find the full list of general informational messages here'
-        time:
-          type:
-          - string
-          - 'null'
-          description: execution time, seconds
-        cost:
+        tasks_ready:
           type:
           - number
           - 'null'
-          description: total tasks cost, USD
           format: double
-        result_count:
+        errors:
           type:
-          - integer
+          - number
           - 'null'
-          description: number of elements in the result array
-          format: int64
-        path:
-          type:
-          - array
-          - 'null'
-          items:
-            type:
-            - string
-            - 'null'
-          description: URL path
-        data:
+          format: double
+        whois:
           type:
           - object
           - 'null'
-          additionalProperties:
-            type:
-            - object
-            - 'null'
-          description: contains the same parameters that you specified in the POST request
+          oneOf:
+          - $ref: '#/components/schemas/AppendixWhoisDomainAnalyticsLimitsRatesDataInfo'
+        technologies:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTechnologiesDomainAnalyticsLimitsRatesDataInfo'
+    AppendixBusinessDataLimitsRatesDataInfo:
+      type: object
+      properties:
+        google:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBusinessDataGoogleInfo'
+        locations:
+          type:
+          - number
+          - 'null'
+          format: double
+        languages:
+          type:
+          - number
+          - 'null'
+          format: double
+        errors:
+          type:
+          - number
+          - 'null'
+          format: double
+        yelp:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBusinessDataDayLimitsRatesDataInfo'
+        social_media:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixSocialMediaBusinessDataLimitsRatesDataInfo'
+        tripadvisor:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBusinessDataDayLimitsRatesDataInfo'
+        trustpilot:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBusinessDataDayLimitsRatesDataInfo'
+        business_listings:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBusinessListingsBusinessDataLimitsRatesDataInfo'
+        tasks_ready:
+          type:
+          - number
+          - 'null'
+          format: double
+    AppendixMerchantGoogleInfo:
+      type: object
+      properties:
+        products:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
+        sellers:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixSellersGoogleMerchantLimitsRatesDataInfo'
+        product_spec:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
+        product_info:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
     AppendixSellersGoogleMerchantLimitsRatesDataInfo:
       type: object
       properties:
@@ -1398,149 +858,245 @@ components:
           - number
           - 'null'
           format: double
-    AppendixOnPageLimitsRatesDataInfo:
+    AppendixContentAnalysisPriceData:
       type: object
       properties:
-        task_post:
+        categories:
           type:
-          - number
+          - object
           - 'null'
-          format: double
-        tasks_ready:
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        category_trends:
           type:
-          - number
+          - object
           - 'null'
-          format: double
-        summary:
-          type:
-          - number
-          - 'null'
-          format: double
-        resources:
-          type:
-          - number
-          - 'null'
-          format: double
-        pages:
-          type:
-          - number
-          - 'null'
-          format: double
-        non_indexable:
-          type:
-          - number
-          - 'null'
-          format: double
-        duplicate_tags:
-          type:
-          - number
-          - 'null'
-          format: double
-        links:
-          type:
-          - number
-          - 'null'
-          format: double
-        waterfall:
-          type:
-          - number
-          - 'null'
-          format: double
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
         errors:
           type:
-          - number
+          - object
           - 'null'
-          format: double
-        pages_by_resource:
-          type:
-          - number
-          - 'null'
-          format: double
-        duplicate_content:
-          type:
-          - number
-          - 'null'
-          format: double
-        raw_html:
-          type:
-          - number
-          - 'null'
-          format: double
-        instant_pages:
-          type:
-          - number
-          - 'null'
-          format: double
-        redirect_chains:
-          type:
-          - number
-          - 'null'
-          format: double
-        lighthouse:
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        languages:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        keyword_density:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        locations:
           type:
-          - number
+          - object
           - 'null'
-          format: double
-        page_screenshot:
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        phrase_trends:
           type:
-          - number
+          - object
           - 'null'
-          format: double
-        content_parsing:
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        rating_distribution:
           type:
-          - number
+          - object
           - 'null'
-          format: double
-        content_parsing_live:
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        search:
           type:
-          - number
+          - object
           - 'null'
-          format: double
-    AppendixBingKeywordsDataLimitsRatesDataInfo:
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        sentiment_analysis:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        summary:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+    AppendixGoogleMerchantPriceData:
       type: object
       properties:
-        keyword_performance:
+        product_info:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        search_volume:
+          - $ref: '#/components/schemas/AppendixPriceDataInfo'
+        product_spec:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        keywords_for_site:
+          - $ref: '#/components/schemas/AppendixProductGoogleMerchantPriceDataInfo'
+        products:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        keywords_for_keywords:
+          - $ref: '#/components/schemas/AppendixProductGoogleMerchantPriceDataInfo'
+        sellers:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        audience_estimation:
+          - $ref: '#/components/schemas/AppendixSellersGoogleMerchantPriceData'
+    AppendixProductGoogleMerchantPriceDataInfo:
+      type: object
+      properties:
+        task_get:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        keyword_suggestions_for_url:
+          - $ref: '#/components/schemas/AppendixTaskGetProductGoogleMerchantPriceDataInfo'
+        task_post:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        tasks_ready:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+    AppendixBusinessListingsBusinessDataPriceData:
+      type: object
+      properties:
+        categories:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        categories_aggregation:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        locations:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        search:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+    AppendixSocialMediaBusinessDataPriceData:
+      type: object
+      properties:
+        facebook:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        pinterest:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        reddit:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+    AppendixRatesData:
+      type: object
+      properties:
+        limits:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixLimitsRatesData'
+          description: rate limits for API calls per a certain period of time
+        statistics:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixStatisticsDataInfo'
+          description: statisctics for API calls
+    AppendixAppDataPriceData:
+      type: object
+      properties:
+        app_info:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixProductGoogleMerchantPriceDataInfo'
+        app_listings:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixAppListingsAppDataPriceData'
+        app_list:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixProductGoogleMerchantPriceDataInfo'
+        app_reviews:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixPriceDataInfo'
+        app_searches:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixProductGoogleMerchantPriceDataInfo'
+        categories:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        errors:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        languages:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        locations:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        tasks_ready:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
     AppendixUserDataResultInfo:
       type: object
       properties:
@@ -1607,6 +1163,185 @@ components:
             2026-02-28 14:01:38 +00:00
 
             Note: if there is no active subscription to LLM Mentions API, the value equals null'
+    AppendixInfo:
+      type: object
+      properties:
+        task_post:
+          type: number
+          format: double
+        task_get:
+          type: number
+          format: double
+        tasks_ready:
+          type: number
+          format: double
+        live:
+          type: number
+          format: double
+    AppendixMerchantLimitsRatesDataInfo:
+      type: object
+      properties:
+        google:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixMerchantGoogleInfo'
+        amazon:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixMerchantAmazonInfo'
+        locations:
+          type:
+          - number
+          - 'null'
+          format: double
+        languages:
+          type:
+          - number
+          - 'null'
+          format: double
+        errors:
+          type:
+          - number
+          - 'null'
+          format: double
+        reviews:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
+        tasks_ready:
+          type:
+          - number
+          - 'null'
+          format: double
+    AppendixWhoisDomainAnalyticsLimitsRatesDataInfo:
+      type: object
+      properties:
+        overview:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+    AppendixBusinessListingsBusinessDataLimitsRatesDataInfo:
+      type: object
+      properties:
+        search:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        categories_aggregation:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        categories:
+          type:
+          - number
+          - 'null'
+          format: double
+        locations:
+          type:
+          - number
+          - 'null'
+          format: double
+    AppendixPriorityTasksReadyKeywordsDataPriceDataInfo:
+      type: object
+      properties:
+        cost_type:
+          type:
+          - string
+          - 'null'
+          description: 'charge type
+
+            can take the following values:
+
+            per_result – charge for every row in the result array
+
+            per_request – charge for a GET or POST request'
+        cost:
+          type:
+          - number
+          - 'null'
+          description: cost, USD
+          format: double
+    AppendixTrBusinessDataPriceDataInfo:
+      type: object
+      properties:
+        reviews:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixGoogleBusinessDataPriceDataInfo'
+        search:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixGoogleBusinessDataPriceDataInfo'
+    AppendixContentGenerationDayLimitsRatesDataInfo:
+      type: object
+      properties:
+        live:
+          type:
+          - number
+          - 'null'
+          format: double
+        languages:
+          type:
+          - number
+          - 'null'
+          format: double
+    AppendixClickstreamDataKeywordsDataLimitsRatesDataInfo:
+      type: object
+      properties:
+        dataforseo_search_volume:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        locations_and_languages:
+          type:
+          - number
+          - 'null'
+          format: double
+        bulk_search_volume:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        global_search_volume:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+    AppendixBusinessDataDayLimitsRatesDataInfo:
+      type: object
+      properties:
+        reviews:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        search:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
     AppendixWebhookResendRequestInfo:
       type: object
       properties:
@@ -1623,43 +1358,39 @@ components:
             each identifier in the task array must be specified as a separate object'
       example:
       - id: 08161139-0001-0066-1000-06491d097ed5
-    AppendixMerchantGoogleInfo:
+    AppendixGoogleAdsKeywordsDataLimitsRatesDataInfo:
       type: object
       properties:
-        products:
+        status:
           type:
-          - object
+          - number
           - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
-        sellers:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixSellersGoogleMerchantLimitsRatesDataInfo'
-        product_spec:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
-        product_info:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
-    AppendixWhoisDomainAnalyticsLimitsRatesDataInfo:
-      type: object
-      properties:
-        overview:
+          format: double
+        search_volume:
           type:
           - object
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixInfo'
-    AppendixLimitsMoneyData:
+        keywords_for_keywords:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        keywords_for_site:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        ad_traffic_by_keywords:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+    AppendixStatisticsDataInfo:
       type: object
       properties:
         day:
@@ -1667,45 +1398,138 @@ components:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixDataInfo'
+          - $ref: '#/components/schemas/AppendixStatisticsRatesDataInfo'
         minute:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixDataInfo'
-    AppendixErrorsResponseInfo:
+          - $ref: '#/components/schemas/AppendixStatisticsRatesDataInfo'
+    AppendixAppDataLimitsRatesDataInfo:
       type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseInfo'
-      - type: object
-        properties:
-          tasks:
-            type:
-            - array
-            - 'null'
-            items:
-              type:
-              - object
-              - 'null'
-              oneOf:
-              - $ref: '#/components/schemas/AppendixErrorsTaskInfo'
-            description: array of tasks
-    AppendixWebhookResendTaskInfo:
+      properties:
+        app_info:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
+        app_list:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
+        app_reviews:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
+        app_searches:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
+        errors:
+          type:
+          - number
+          - 'null'
+          format: double
+        languages:
+          type:
+          - number
+          - 'null'
+          format: double
+        locations:
+          type:
+          - number
+          - 'null'
+          format: double
+        categories:
+          type:
+          - number
+          - 'null'
+          format: double
+        app_listings:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBusinessListingsBusinessDataLimitsRatesDataInfo'
+        tasks_ready:
+          type:
+          - number
+          - 'null'
+          format: double
+    AppendixBingKeywordsDataPriceDataInfo:
       type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseTaskInfo'
-      - type: object
-        properties:
-          result:
-            type:
-            - object
-            - 'null'
-            description: 'array of results
-
-              the value of this array is always null;
-
-              you can get the results by the preferred method of results delivery (pingback or postback) you specified when setting a task'
+      properties:
+        live:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+    AppendixErrorsResultInfo:
+      type: object
+      properties:
+        code:
+          type:
+          - integer
+          - 'null'
+          description: code
+        message:
+          type:
+          - string
+          - 'null'
+          description: message
+    AppendixContentGenerationLimitsRatesDataInfo:
+      type: object
+      properties:
+        generate:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        generate_meta_tags:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        generate_text:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        paraphrase:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        check_grammar:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixContentGenerationDayLimitsRatesDataInfo'
+        text_summary:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixContentGenerationDayLimitsRatesDataInfo'
+        generate_sub_topics:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
     AppendixTaskKeywordsDataPriceDataInfo:
       type: object
       properties:
@@ -1739,61 +1563,191 @@ components:
             - 'null'
             oneOf:
             - $ref: '#/components/schemas/AppendixPriorityTasksReadyKeywordsDataPriceDataInfo'
-    AppendixInfo:
+    AppendixSerpPriceData:
       type: object
       properties:
-        task_post:
-          type: number
-          format: double
-        task_get:
-          type: number
-          format: double
-        tasks_ready:
-          type: number
-          format: double
-        live:
-          type: number
-          format: double
-    AppendixDomainAnalyticsLimitsRatesDataInfo:
-      type: object
-      properties:
-        tasks_ready:
+        tasks_fixed:
           type:
-          - number
+          - object
           - 'null'
-          format: double
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
         errors:
           type:
-          - number
+          - object
           - 'null'
-          format: double
-        whois:
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        jobs:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixWhoisDomainAnalyticsLimitsRatesDataInfo'
-        technologies:
+          - $ref: '#/components/schemas/AppendixAKeywordsDataPriceDataInfo'
+        languages:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixTechnologiesDomainAnalyticsLimitsRatesDataInfo'
-    AppendixTrBusinessDataPriceDataInfo:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        live:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixSerpPriceDataInfo'
+        locations:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        screenshot:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        task_get:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixSerpPriceDataInfo'
+        task_post:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        tasks_ready:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+    AppendixContentGenerationPriceData:
       type: object
       properties:
+        check_grammar:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixContentGenerationPriceDataInfo'
+        generate:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        generate_meta_tags:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        generate_sub_topics:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        generate_text:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        paraphrase:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        text_summary:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixContentGenerationPriceDataInfo'
+    AppendixMerchantPriceData:
+      type: object
+      properties:
+        google:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixGoogleMerchantPriceData'
+        amazon:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixAmazonMerchantPriceData'
+        errors:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        languages:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        locations:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
         reviews:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixGoogleBusinessDataPriceDataInfo'
+          - $ref: '#/components/schemas/AppendixProductGoogleMerchantPriceDataInfo'
+        tasks_ready:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+    AppendixErrorsResponseInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseInfo'
+      - type: object
+        properties:
+          tasks:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/AppendixErrorsTaskInfo'
+            description: array of tasks
+    AppendixAppListingsAppDataPriceData:
+      type: object
+      properties:
+        categories_aggregation:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
         search:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixGoogleBusinessDataPriceDataInfo'
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
     AppendixKeywordsDataDaysRatesDataInfo:
       type: object
       properties:
@@ -1912,28 +1866,31 @@ components:
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixInfo'
-    AppendixKeywordsDataDataInfo:
+    AppendixAppendixPriceData:
       type: object
       properties:
-        keywords_for_keywords:
+        errors:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        user_data:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+    AppendixTechnologiesDomainAnalyticsLimitsRatesDataInfo:
+      type: object
+      properties:
+        domain_technologies:
           type:
           - object
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixInfo'
-        keywords_for_site:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        search_volume:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        ad_traffic_by_keywords:
+        domains_by_technology:
           type:
           - object
           - 'null'
@@ -1949,273 +1906,43 @@ components:
           - number
           - 'null'
           format: double
-        tasks_ready:
+        technologies:
           type:
           - number
           - 'null'
           format: double
-        explore:
+        aggregation_technologies:
           type:
           - object
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixInfo'
-        categories:
-          type:
-          - number
-          - 'null'
-          format: double
-        errors:
-          type:
-          - number
-          - 'null'
-          format: double
-        bing:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataLimitsRatesDataInfo'
-        keyword_performance:
+        technologies_summary:
           type:
           - object
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixInfo'
-        locations_and_languages:
-          type:
-          - number
-          - 'null'
-          format: double
-        google_ads:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixGoogleAdsKeywordsDataLimitsRatesDataInfo'
-        dataforseo_trends:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixDataforseoTrendsKeywordsDataLimitsRatesDataInfo'
-        clickstream_data:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixClickstreamDataKeywordsDataLimitsRatesDataInfo'
-        audience_estimation:
+        domains_by_html_terms:
           type:
           - object
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixInfo'
-        keyword_suggestions_for_url:
+        technology_stats:
           type:
           - object
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixInfo'
-        naver:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixNaverKeywordsDataDataInfo'
-        google:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataLimitsRatesDataInfo'
-        keyword_ideas_ads_api:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
-    AppendixBusinessListingsBusinessDataLimitsRatesDataInfo:
+    AppendixJobsSerpLimitsRatesDataInfo:
       type: object
       properties:
-        search:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        categories_aggregation:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        categories:
+        task_post:
           type:
           - number
           - 'null'
           format: double
-        locations:
-          type:
-          - number
-          - 'null'
-          format: double
-    AppendixKeywordsDataPriceData:
-      type: object
-      properties:
-        tasks_ready:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        ad_traffic_by_keywords:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixAKeywordsDataPriceDataInfo'
-        audience_estimation:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixAKeywordsDataPriceDataInfo'
-        bing:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceData'
-        categories:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        clickstream_data:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixClickstreamDataKeywordsDataPriceData'
-        errors:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        google_ads:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixGoogleAdsKeywordsDataPriceData'
-        keyword_performance:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixAKeywordsDataPriceDataInfo'
-        keywords_for_keywords:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixAKeywordsDataPriceDataInfo'
-        keywords_for_site:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixAKeywordsDataPriceDataInfo'
-        keyword_suggestions_for_url:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixAKeywordsDataPriceDataInfo'
-        languages:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        locations:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        locations_and_languages:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        search_volume:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixAKeywordsDataPriceDataInfo'
-        dataforseo_trends:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixDataforseoTrendsKeywordsDataPriceData'
-        explore:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixExploreKeywordsDataPriceData'
-    AppendixGoogleBusinessDataPriceData:
-      type: object
-      properties:
-        extended_reviews:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixAKeywordsDataPriceDataInfo'
-        hotel_info:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixHotelInfoGoogleBusinessDataPriceData'
-        hotel_searches:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixGoogleBusinessDataPriceDataInfo'
-        my_business_info:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixGoogleBusinessDataPriceDataInfo'
-        my_business_updates:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixGoogleBusinessDataPriceDataInfo'
-        questions_and_answers:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixGoogleBusinessDataPriceDataInfo'
-        reviews:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixGoogleBusinessDataPriceDataInfo'
     AppendixMoneyData:
       type: object
       properties:
@@ -2245,113 +1972,259 @@ components:
           oneOf:
           - $ref: '#/components/schemas/AppendixStatisticsDataInfo'
           description: statistics of your spending
-    BaseResponseInfo:
+    AppendixAppendixDataInfo:
+      type: object
       properties:
-        version:
-          type:
-          - string
-          - 'null'
-          description: the current version of the API
-        status_code:
-          type:
-          - integer
-          - 'null'
-          description: 'general status code
-
-            you can find the full list of the response codes here'
-        status_message:
-          type:
-          - string
-          - 'null'
-          description: 'general informational message
-
-            you can find the full list of general informational messages here'
-        time:
-          type:
-          - string
-          - 'null'
-          description: total execution time, seconds
-        cost:
+        user_data:
           type:
           - number
           - 'null'
-          description: total tasks cost, USD
           format: double
-        tasks_count:
-          type:
-          - integer
-          - 'null'
-          description: the number of tasks in the tasks array
-          format: int64
-        tasks_error:
-          type:
-          - integer
-          - 'null'
-          description: the number of tasks in the tasks array returned with an error
-          format: int64
-    AppendixAppDataPriceData:
-      type: object
-      properties:
-        app_info:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixProductGoogleMerchantPriceDataInfo'
-        app_listings:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixAppListingsAppDataPriceData'
-        app_list:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixProductGoogleMerchantPriceDataInfo'
-        app_reviews:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixPriceDataInfo'
-        app_searches:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixProductGoogleMerchantPriceDataInfo'
-        categories:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
         errors:
           type:
+          - number
+          - 'null'
+          format: double
+        status:
+          type:
+          - number
+          - 'null'
+          format: double
+        test:
+          type:
+          - number
+          - 'null'
+          format: double
+    AppendixLimitsMoneyData:
+      type: object
+      properties:
+        day:
+          type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        languages:
+          - $ref: '#/components/schemas/AppendixDataInfo'
+        minute:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixDataInfo'
+    AppendixTaskGetProductGoogleMerchantPriceDataInfo:
+      type: object
+      properties:
+        advanced:
           type:
           - object
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        html:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+    AppendixGoogleAdsKeywordsDataPriceData:
+      type: object
+      properties:
+        ad_traffic_by_keywords:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        keywords_for_keywords:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        keywords_for_site:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        search_volume:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        status:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+    AppendixContentAnalysisLimitsRatesDataInfo:
+      type: object
+      properties:
+        search:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        summary:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        sentiment_analysis:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        rating_distribution:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        phrase_trends:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        category_trends:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
         locations:
           type:
+          - number
+          - 'null'
+          format: double
+        languages:
+          type:
+          - number
+          - 'null'
+          format: double
+        categories:
+          type:
+          - number
+          - 'null'
+          format: double
+        errors:
+          type:
+          - number
+          - 'null'
+          format: double
+    AppendixDataforseoTrendsKeywordsDataPriceData:
+      type: object
+      properties:
+        demography:
+          type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        tasks_ready:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        explore:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        merged_data:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        subregion_interests:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+    AppendixDataforseoTrendsKeywordsDataLimitsRatesDataInfo:
+      type: object
+      properties:
+        explore:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        subregion_interests:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        demography:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        merged_data:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+    AppendixAKeywordsDataPriceDataInfo:
+      type: object
+      properties:
+        task_get:
           type:
           - object
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        task_post:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+    AppendixBingKeywordsDataPriceData:
+      type: object
+      properties:
+        audience_estimation:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        keyword_performance:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        keywords_for_keywords:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        keywords_for_site:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        keyword_suggestions_for_url:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        search_volume:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
     AppendixBacklinksPriceData:
       type: object
       properties:
@@ -2487,7 +2360,482 @@ components:
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-    AppendixExploreKeywordsDataPriceData:
+    AppendixKeywordsDataDataInfo:
+      type: object
+      properties:
+        keywords_for_keywords:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        keywords_for_site:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        search_volume:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        ad_traffic_by_keywords:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        languages:
+          type:
+          - number
+          - 'null'
+          format: double
+        locations:
+          type:
+          - number
+          - 'null'
+          format: double
+        tasks_ready:
+          type:
+          - number
+          - 'null'
+          format: double
+        explore:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        categories:
+          type:
+          - number
+          - 'null'
+          format: double
+        errors:
+          type:
+          - number
+          - 'null'
+          format: double
+        bing:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataLimitsRatesDataInfo'
+        keyword_performance:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        locations_and_languages:
+          type:
+          - number
+          - 'null'
+          format: double
+        google_ads:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixGoogleAdsKeywordsDataLimitsRatesDataInfo'
+        dataforseo_trends:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixDataforseoTrendsKeywordsDataLimitsRatesDataInfo'
+        clickstream_data:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixClickstreamDataKeywordsDataLimitsRatesDataInfo'
+        audience_estimation:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        keyword_suggestions_for_url:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        naver:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixNaverKeywordsDataDataInfo'
+        google:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataLimitsRatesDataInfo'
+        keyword_ideas_ads_api:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
+    BaseResponseInfo:
+      properties:
+        version:
+          type:
+          - string
+          - 'null'
+          description: the current version of the API
+        status_code:
+          type:
+          - integer
+          - 'null'
+          description: 'general status code
+
+            you can find the full list of the response codes here'
+        status_message:
+          type:
+          - string
+          - 'null'
+          description: 'general informational message
+
+            you can find the full list of general informational messages here'
+        time:
+          type:
+          - string
+          - 'null'
+          description: total execution time, seconds
+        cost:
+          type:
+          - number
+          - 'null'
+          description: total tasks cost, USD
+          format: double
+        tasks_count:
+          type:
+          - integer
+          - 'null'
+          description: the number of tasks in the tasks array
+          format: int64
+        tasks_error:
+          type:
+          - integer
+          - 'null'
+          description: the number of tasks in the tasks array returned with an error
+          format: int64
+    AppendixMerchantAmazonInfo:
+      type: object
+      properties:
+        asin:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
+        products:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
+        sellers:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
+    AppendixGoogleBusinessDataPriceData:
+      type: object
+      properties:
+        extended_reviews:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixAKeywordsDataPriceDataInfo'
+        hotel_info:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixHotelInfoGoogleBusinessDataPriceData'
+        hotel_searches:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixGoogleBusinessDataPriceDataInfo'
+        my_business_info:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixGoogleBusinessDataPriceDataInfo'
+        my_business_updates:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixGoogleBusinessDataPriceDataInfo'
+        questions_and_answers:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixGoogleBusinessDataPriceDataInfo'
+        reviews:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixGoogleBusinessDataPriceDataInfo'
+    AppendixPriceDataInfo:
+      type: object
+      properties:
+        task_get:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskGetPriceDataInfo'
+        tasks_ready:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        task_post:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+    AppendixClickstreamDataKeywordsDataPriceData:
+      type: object
+      properties:
+        bulk_search_volume:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        dataforseo_search_volume:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        global_search_volume:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+        locations_and_languages:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+    AppendixErrorsTaskInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseTaskInfo'
+      - type: object
+        properties:
+          result:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/AppendixErrorsResultInfo'
+            description: array of results
+    AppendixAmazonMerchantPriceData:
+      type: object
+      properties:
+        asin:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixProductGoogleMerchantPriceDataInfo'
+        products:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixProductGoogleMerchantPriceDataInfo'
+        sellers:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixProductGoogleMerchantPriceDataInfo'
+    AppendixBusinessDataPriceData:
+      type: object
+      properties:
+        business_listings:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBusinessListingsBusinessDataPriceData'
+        errors:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        google:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixGoogleBusinessDataPriceData'
+        social_media:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixSocialMediaBusinessDataPriceData'
+        languages:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        locations:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        tripadvisor:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTrBusinessDataPriceDataInfo'
+        trustpilot:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTrBusinessDataPriceDataInfo'
+        yelp:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTrBusinessDataPriceDataInfo'
+        tasks_ready:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+    AppendixHotelInfoGoogleBusinessDataPriceData:
+      type: object
+      properties:
+        live:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskGetProductGoogleMerchantPriceDataInfo'
+        task_get:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskGetProductGoogleMerchantPriceDataInfo'
+        task_post:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        tasks_ready:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+    AppendixLimitsRatesData:
+      type: object
+      properties:
+        day:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixDayLimitsRatesData'
+        minute:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixDataInfo'
+    AppendixStatusTaskInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseTaskInfo'
+      - type: object
+        properties:
+          result:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/AppendixStatusResultInfo'
+            description: array of results
+    AppendixStatusResponseInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseInfo'
+      - type: object
+        properties:
+          tasks:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/AppendixStatusTaskInfo'
+            description: array of tasks
+    AppendixWebhookResendResponseInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseInfo'
+      - type: object
+        properties:
+          tasks:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/AppendixWebhookResendTaskInfo'
+            description: array of tasks
+    AppendixGoogleBusinessDataPriceDataInfo:
       type: object
       properties:
         live:
@@ -2508,297 +2856,29 @@ components:
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-    AppendixDataforseoLabsLimitsRatesDataInfo:
+        tasks_ready:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+    AppendixUserDataTaskInfo:
       type: object
-      properties:
-        locations_and_languages:
-          type:
-          - number
-          - 'null'
-          format: double
-        categories:
-          type:
-          - number
-          - 'null'
-          format: double
-        errors:
-          type:
-          - number
-          - 'null'
-          format: double
-        product_competitors:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        product_keyword_intersections:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        product_rank_overview:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        ranked_keywords:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        serp_competitors:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        subdomains:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        relevant_pages:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        competitors_domain:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        related_keywords:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        domain_rank_overview:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        domain_intersection:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        page_intersection:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        bulk_traffic_estimation:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        bulk_keyword_difficulty:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        bulk_search_volume:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        keywords_for_site:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        keyword_suggestions:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        keyword_ideas:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        historical_search_volume:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        categories_for_domain:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        domain_metrics_by_categories:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        top_searches:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        domain_whois_overview:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        historical_rank_overview:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        keywords_for_categories:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        historical_serps:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        app_competitors:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        keywords_for_app:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        app_intersection:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        bulk_app_metrics:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        search_intent:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        historical_bulk_traffic_estimation:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        categories_for_keywords:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        keyword_overview:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        historical_keyword_data:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-    AppendixContentAnalysisPriceData:
-      type: object
-      properties:
-        categories:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        category_trends:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        errors:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        languages:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        locations:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        phrase_trends:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        rating_distribution:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        search:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        sentiment_analysis:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        summary:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseTaskInfo'
+      - type: object
+        properties:
+          result:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/AppendixUserDataResultInfo'
+            description: array of results
     AppendixDataforseoLabsPriceData:
       type: object
       properties:
@@ -3030,453 +3110,7 @@ components:
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-    AppendixGoogleMerchantPriceData:
-      type: object
-      properties:
-        product_info:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixPriceDataInfo'
-        product_spec:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixProductGoogleMerchantPriceDataInfo'
-        products:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixProductGoogleMerchantPriceDataInfo'
-        sellers:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixSellersGoogleMerchantPriceData'
-    AppendixBacklinksLimitsRatesDataInfo:
-      type: object
-      properties:
-        summary:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        history:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        content_duplicates:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        domain_intersection:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        backlinks:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        domain_pages:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        anchors:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        referring_domains:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        page_intersection:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        referring_networks:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        bulk_ranks:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        bulk_backlinks:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        bulk_new_lost_backlinks:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        bulk_new_lost_referring_domains:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        bulk_referring_domains:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        errors:
-          type:
-          - number
-          - 'null'
-          format: double
-        domain_pages_summary:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        timeseries_summary:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        timeseries_new_lost_summary:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        competitors:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        bulk_spam_score:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        bulk_pages_summary:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-    AppendixStatisticsRatesDataInfo:
-      type: object
-      properties:
-        serp:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
-        total:
-          type:
-          - number
-          - 'null'
-          description: total amount of money deposited to your account
-          format: double
-        total_serp:
-          type:
-          - number
-          - 'null'
-          format: double
-        keywords_data:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixKeywordsDataDaysRatesDataInfo'
-        total_keywords_data:
-          type:
-          - number
-          - 'null'
-          format: double
-        appendix:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixAppendixDaysRatesDataInfo'
-        total_appendix:
-          type:
-          - number
-          - 'null'
-          format: double
-        dataforseo_labs:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixDataforseoLabsLimitsRatesDataInfo'
-        total_dataforseo_labs:
-          type:
-          - number
-          - 'null'
-          format: double
-        domain_analytics:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixDomainAnalyticsLimitsRatesDataInfo'
-        total_domain_analytics:
-          type:
-          - number
-          - 'null'
-          format: double
-        merchant:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixMerchantLimitsRatesDataInfo'
-        total_merchant:
-          type:
-          - number
-          - 'null'
-          format: double
-        on_page:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixOnPageLimitsRatesDataInfo'
-        total_on_page:
-          type:
-          - number
-          - 'null'
-          format: double
-        business_data:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBusinessDataLimitsRatesDataInfo'
-        total_business_data:
-          type:
-          - number
-          - 'null'
-          format: double
-        backlinks:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBacklinksLimitsRatesDataInfo'
-        total_backlinks:
-          type:
-          - number
-          - 'null'
-          format: double
-        app_data:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixAppDataLimitsRatesDataInfo'
-        total_app_data:
-          type:
-          - number
-          - 'null'
-          format: double
-        content_analysis:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixContentAnalysisLimitsRatesDataInfo'
-        total_content_analysis:
-          type:
-          - number
-          - 'null'
-          format: double
-        content_generation:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixContentGenerationLimitsRatesDataInfo'
-        total_content_generation:
-          type:
-          - number
-          - 'null'
-          format: double
-        value:
-          type:
-          - string
-          - 'null'
-          description: 'time period for grouping
-
-            day in the yyyy-MM-dd format
-
-            minute in the yyyy-MM-dd HH:mm format'
-    AppendixClickstreamDataKeywordsDataPriceData:
-      type: object
-      properties:
-        bulk_search_volume:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        dataforseo_search_volume:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        global_search_volume:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        locations_and_languages:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-    AppendixPriceDataInfo:
-      type: object
-      properties:
-        task_get:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskGetPriceDataInfo'
-        tasks_ready:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        task_post:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-    AppendixSellersGoogleMerchantPriceData:
-      type: object
-      properties:
-        ad_url:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        task_get:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskGetProductGoogleMerchantPriceDataInfo'
-        task_post:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        tasks_ready:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-    AppendixMerchantPriceData:
-      type: object
-      properties:
-        google:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixGoogleMerchantPriceData'
-        amazon:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixAmazonMerchantPriceData'
-        errors:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        languages:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        locations:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        reviews:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixProductGoogleMerchantPriceDataInfo'
-        tasks_ready:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-    AppendixAppListingsAppDataPriceData:
-      type: object
-      properties:
-        categories_aggregation:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        search:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-    AppendixSocialMediaBusinessDataPriceData:
+    AppendixSocialMediaBusinessDataLimitsRatesDataInfo:
       type: object
       properties:
         facebook:
@@ -3484,283 +3118,14 @@ components:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+          - $ref: '#/components/schemas/AppendixInfo'
         pinterest:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+          - $ref: '#/components/schemas/AppendixInfo'
         reddit:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-    AppendixStatusResponseInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseInfo'
-      - type: object
-        properties:
-          tasks:
-            type:
-            - array
-            - 'null'
-            items:
-              type:
-              - object
-              - 'null'
-              oneOf:
-              - $ref: '#/components/schemas/AppendixStatusTaskInfo'
-            description: array of tasks
-    AppendixContentGenerationPriceData:
-      type: object
-      properties:
-        check_grammar:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixContentGenerationPriceDataInfo'
-        generate:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        generate_meta_tags:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        generate_sub_topics:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        generate_text:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        paraphrase:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        text_summary:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixContentGenerationPriceDataInfo'
-    AppendixUserDataResponseInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseInfo'
-      - type: object
-        properties:
-          tasks:
-            type:
-            - array
-            - 'null'
-            items:
-              type:
-              - object
-              - 'null'
-              oneOf:
-              - $ref: '#/components/schemas/AppendixUserDataTaskInfo'
-            description: array of tasks
-    AppendixOnPagePriceData:
-      type: object
-      properties:
-        errors:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        lighthouse:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixGoogleBusinessDataPriceDataInfo'
-        content_parsing:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        content_parsing_live:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        duplicate_content:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        duplicate_tags:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        instant_pages:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        keyword_density:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        links:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        non_indexable:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        pages:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        pages_by_resource:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        page_screenshot:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        raw_html:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        redirect_chains:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        resources:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        summary:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        task_post:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        tasks_ready:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        waterfall:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-    AppendixErrorsResultInfo:
-      type: object
-      properties:
-        code:
-          type:
-          - integer
-          - 'null'
-          description: code
-        message:
-          type:
-          - string
-          - 'null'
-          description: message
-    AppendixTechnologiesDomainAnalyticsLimitsRatesDataInfo:
-      type: object
-      properties:
-        domain_technologies:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        domains_by_technology:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        languages:
-          type:
-          - number
-          - 'null'
-          format: double
-        locations:
-          type:
-          - number
-          - 'null'
-          format: double
-        technologies:
-          type:
-          - number
-          - 'null'
-          format: double
-        aggregation_technologies:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        technologies_summary:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        domains_by_html_terms:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        technology_stats:
           type:
           - object
           - 'null'
@@ -3940,15 +3305,342 @@ components:
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
-    AppendixBusinessDataLimitsRatesDataInfo:
+    AppendixStatusEndpointsInfo:
       type: object
       properties:
-        google:
+        endpoint:
+          type:
+          - string
+          - 'null'
+          description: 'name of the endpoint
+
+            the list of possible endpoints:
+
+            task_get
+
+            task_post
+
+            live
+
+            postback/pingback'
+        status:
+          type:
+          - string
+          - 'null'
+          description: 'current status
+
+            you can find all information about your API statuses for the last 60 days here
+
+            the list of possible current statuses:
+
+            major_outage
+
+            partial_outage
+
+            long_response_time
+
+            long_execution_time
+
+            webhook_delay
+
+            send_delay'
+    BaseResponseTaskInfo:
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          description: 'task identifier
+
+            unique task identifier in our system in the UUID format'
+        status_code:
+          type:
+          - integer
+          - 'null'
+          description: 'status code of the task
+
+            generated by DataForSEO, can be within the following range: 10000-60000
+
+            you can find the full list of the response codes here'
+        status_message:
+          type:
+          - string
+          - 'null'
+          description: 'informational message of the task
+
+            you can find the full list of general informational messages here'
+        time:
+          type:
+          - string
+          - 'null'
+          description: execution time, seconds
+        cost:
+          type:
+          - number
+          - 'null'
+          description: total tasks cost, USD
+          format: double
+        result_count:
+          type:
+          - integer
+          - 'null'
+          description: number of elements in the result array
+          format: int64
+        path:
+          type:
+          - array
+          - 'null'
+          items:
+            type:
+            - string
+            - 'null'
+          description: URL path
+        data:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type:
+            - object
+            - 'null'
+          description: contains the same parameters that you specified in the POST request
+    AppendixStatisticsRatesDataInfo:
+      type: object
+      properties:
+        serp:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixBusinessDataGoogleInfo'
+          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
+        total:
+          type:
+          - number
+          - 'null'
+          description: total amount of money deposited to your account
+          format: double
+        total_serp:
+          type:
+          - number
+          - 'null'
+          format: double
+        keywords_data:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixKeywordsDataDaysRatesDataInfo'
+        total_keywords_data:
+          type:
+          - number
+          - 'null'
+          format: double
+        appendix:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixAppendixDaysRatesDataInfo'
+        total_appendix:
+          type:
+          - number
+          - 'null'
+          format: double
+        dataforseo_labs:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixDataforseoLabsLimitsRatesDataInfo'
+        total_dataforseo_labs:
+          type:
+          - number
+          - 'null'
+          format: double
+        domain_analytics:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixDomainAnalyticsLimitsRatesDataInfo'
+        total_domain_analytics:
+          type:
+          - number
+          - 'null'
+          format: double
+        merchant:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixMerchantLimitsRatesDataInfo'
+        total_merchant:
+          type:
+          - number
+          - 'null'
+          format: double
+        on_page:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixOnPageLimitsRatesDataInfo'
+        total_on_page:
+          type:
+          - number
+          - 'null'
+          format: double
+        business_data:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBusinessDataLimitsRatesDataInfo'
+        total_business_data:
+          type:
+          - number
+          - 'null'
+          format: double
+        backlinks:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBacklinksLimitsRatesDataInfo'
+        total_backlinks:
+          type:
+          - number
+          - 'null'
+          format: double
+        app_data:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixAppDataLimitsRatesDataInfo'
+        total_app_data:
+          type:
+          - number
+          - 'null'
+          format: double
+        content_analysis:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixContentAnalysisLimitsRatesDataInfo'
+        total_content_analysis:
+          type:
+          - number
+          - 'null'
+          format: double
+        content_generation:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixContentGenerationLimitsRatesDataInfo'
+        total_content_generation:
+          type:
+          - number
+          - 'null'
+          format: double
+        value:
+          type:
+          - string
+          - 'null'
+          description: 'time period for grouping
+
+            day in the yyyy-MM-dd format
+
+            minute in the yyyy-MM-dd HH:mm format'
+    AppendixUserDataResponseInfo:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/BaseResponseInfo'
+      - type: object
+        properties:
+          tasks:
+            type:
+            - array
+            - 'null'
+            items:
+              type:
+              - object
+              - 'null'
+              oneOf:
+              - $ref: '#/components/schemas/AppendixUserDataTaskInfo'
+            description: array of tasks
+    AppendixTaskGetPriceDataInfo:
+      type: object
+      properties:
+        advanced:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+    AppendixExploreKeywordsDataPriceData:
+      type: object
+      properties:
+        live:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        task_get:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        task_post:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+    AppendixSerpPriceDataInfo:
+      type: object
+      properties:
+        advanced:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        regular:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        html:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+    AppendixSerpDaysRatesDataInfo:
+      type: object
+      properties:
+        task_post:
+          type:
+          - number
+          - 'null'
+          format: double
+        task_get:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixFunctionTypeInfo'
+        tasks_ready:
+          type:
+          - number
+          - 'null'
+          format: double
         locations:
           type:
           - number
@@ -3959,172 +3651,43 @@ components:
           - number
           - 'null'
           format: double
+        live:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixFunctionTypeInfo'
+          properties:
+            regular:
+              type: number
+              format: double
+            advanced:
+              type: number
+              format: double
+            html:
+              type: number
+              format: double
         errors:
           type:
           - number
           - 'null'
           format: double
-        yelp:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBusinessDataDayLimitsRatesDataInfo'
-        social_media:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixSocialMediaBusinessDataLimitsRatesDataInfo'
-        tripadvisor:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBusinessDataDayLimitsRatesDataInfo'
-        trustpilot:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBusinessDataDayLimitsRatesDataInfo'
-        business_listings:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBusinessListingsBusinessDataLimitsRatesDataInfo'
-        tasks_ready:
+        tasks_fixed:
           type:
           - number
           - 'null'
           format: double
-    AppendixBusinessListingsBusinessDataPriceData:
-      type: object
-      properties:
-        categories:
+        jobs:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        categories_aggregation:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        locations:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        search:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-    AppendixFunctionTypeInfo:
-      type: object
-      properties:
-        regular:
+          - $ref: '#/components/schemas/AppendixJobsSerpLimitsRatesDataInfo'
+        screenshot:
           type:
           - number
           - 'null'
           format: double
-        advanced:
-          type:
-          - number
-          - 'null'
-          format: double
-        html:
-          type:
-          - number
-          - 'null'
-          format: double
-    AppendixDataforseoTrendsKeywordsDataPriceData:
-      type: object
-      properties:
-        demography:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        explore:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        merged_data:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        subregion_interests:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-    AppendixGoogleAdsKeywordsDataPriceData:
-      type: object
-      properties:
-        ad_traffic_by_keywords:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        keywords_for_keywords:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        keywords_for_site:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        search_volume:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        status:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-    AppendixMerchantAmazonInfo:
-      type: object
-      properties:
-        asin:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
-        products:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
-        sellers:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixSerpDaysRatesDataInfo'
     AppendixDomainAnalyticsPriceData:
       type: object
       properties:
@@ -4152,143 +3715,394 @@ components:
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-    AppendixErrorsTaskInfo:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/BaseResponseTaskInfo'
-      - type: object
-        properties:
-          result:
-            type:
-            - array
-            - 'null'
-            items:
-              type:
-              - object
-              - 'null'
-              oneOf:
-              - $ref: '#/components/schemas/AppendixErrorsResultInfo'
-            description: array of results
-    AppendixSerpPriceDataInfo:
+    AppendixKeywordsDataPriceData:
       type: object
       properties:
-        advanced:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        regular:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        html:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-    AppendixBusinessDataDayLimitsRatesDataInfo:
-      type: object
-      properties:
-        reviews:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-        search:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixInfo'
-    AppendixHotelInfoGoogleBusinessDataPriceData:
-      type: object
-      properties:
-        live:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskGetProductGoogleMerchantPriceDataInfo'
-        task_get:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskGetProductGoogleMerchantPriceDataInfo'
-        task_post:
-          type:
-          - object
-          - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
         tasks_ready:
           type:
           - object
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-    AppendixContentGenerationPriceDataInfo:
-      type: object
-      properties:
-        live:
+        ad_traffic_by_keywords:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixAKeywordsDataPriceDataInfo'
+        audience_estimation:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixAKeywordsDataPriceDataInfo'
+        bing:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceData'
+        categories:
           type:
           - object
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        clickstream_data:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixClickstreamDataKeywordsDataPriceData'
+        errors:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        google_ads:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixGoogleAdsKeywordsDataPriceData'
+        keyword_performance:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixAKeywordsDataPriceDataInfo'
+        keywords_for_keywords:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixAKeywordsDataPriceDataInfo'
+        keywords_for_site:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixAKeywordsDataPriceDataInfo'
+        keyword_suggestions_for_url:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixAKeywordsDataPriceDataInfo'
         languages:
           type:
           - object
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-    AppendixGoogleBusinessDataPriceDataInfo:
+        locations:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        locations_and_languages:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+        search_volume:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixAKeywordsDataPriceDataInfo'
+        dataforseo_trends:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixDataforseoTrendsKeywordsDataPriceData'
+        explore:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixExploreKeywordsDataPriceData'
+    AppendixBacklinksLimitsRatesDataInfo:
       type: object
       properties:
-        live:
+        summary:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        task_get:
+          - $ref: '#/components/schemas/AppendixInfo'
+        history:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+          - $ref: '#/components/schemas/AppendixInfo'
+        content_duplicates:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        domain_intersection:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        backlinks:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        domain_pages:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        anchors:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        referring_domains:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        page_intersection:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        referring_networks:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        bulk_ranks:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        bulk_backlinks:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        bulk_new_lost_backlinks:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        bulk_new_lost_referring_domains:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        bulk_referring_domains:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        errors:
+          type:
+          - number
+          - 'null'
+          format: double
+        domain_pages_summary:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        timeseries_summary:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        timeseries_new_lost_summary:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        competitors:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        bulk_spam_score:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        bulk_pages_summary:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+    AppendixOnPageLimitsRatesDataInfo:
+      type: object
+      properties:
         task_post:
           type:
-          - object
+          - number
           - 'null'
-          oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+          format: double
         tasks_ready:
           type:
+          - number
+          - 'null'
+          format: double
+        summary:
+          type:
+          - number
+          - 'null'
+          format: double
+        resources:
+          type:
+          - number
+          - 'null'
+          format: double
+        pages:
+          type:
+          - number
+          - 'null'
+          format: double
+        non_indexable:
+          type:
+          - number
+          - 'null'
+          format: double
+        duplicate_tags:
+          type:
+          - number
+          - 'null'
+          format: double
+        links:
+          type:
+          - number
+          - 'null'
+          format: double
+        waterfall:
+          type:
+          - number
+          - 'null'
+          format: double
+        errors:
+          type:
+          - number
+          - 'null'
+          format: double
+        pages_by_resource:
+          type:
+          - number
+          - 'null'
+          format: double
+        duplicate_content:
+          type:
+          - number
+          - 'null'
+          format: double
+        raw_html:
+          type:
+          - number
+          - 'null'
+          format: double
+        instant_pages:
+          type:
+          - number
+          - 'null'
+          format: double
+        redirect_chains:
+          type:
+          - number
+          - 'null'
+          format: double
+        lighthouse:
+          type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-    AppendixAKeywordsDataPriceDataInfo:
+          - $ref: '#/components/schemas/AppendixInfo'
+        keyword_density:
+          type:
+          - number
+          - 'null'
+          format: double
+        page_screenshot:
+          type:
+          - number
+          - 'null'
+          format: double
+        content_parsing:
+          type:
+          - number
+          - 'null'
+          format: double
+        content_parsing_live:
+          type:
+          - number
+          - 'null'
+          format: double
+    AppendixBingKeywordsDataLimitsRatesDataInfo:
       type: object
       properties:
-        task_get:
+        keyword_performance:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        task_post:
+          - $ref: '#/components/schemas/AppendixInfo'
+        search_volume:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
+          - $ref: '#/components/schemas/AppendixInfo'
+        keywords_for_site:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        keywords_for_keywords:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        audience_estimation:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        keyword_suggestions_for_url:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
     AppendixPriceData:
       type: object
       properties:
@@ -4364,63 +4178,249 @@ components:
           - 'null'
           oneOf:
           - $ref: '#/components/schemas/AppendixOnPagePriceData'
-    AppendixTechnologiesDomainAnalyticsPriceData:
+    AppendixNaverKeywordsDataDataInfo:
       type: object
       properties:
-        languages:
+        keywords_for_category:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        locations:
+          - $ref: '#/components/schemas/AppendixInfo'
+        search_volume:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        technologies:
+          - $ref: '#/components/schemas/AppendixInfo'
+    AppendixDataforseoLabsLimitsRatesDataInfo:
+      type: object
+      properties:
+        locations_and_languages:
+          type:
+          - number
+          - 'null'
+          format: double
+        categories:
+          type:
+          - number
+          - 'null'
+          format: double
+        errors:
+          type:
+          - number
+          - 'null'
+          format: double
+        product_competitors:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixTaskKeywordsDataPriceDataInfo'
-        aggregation_technologies:
+          - $ref: '#/components/schemas/AppendixInfo'
+        product_keyword_intersections:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        domains_by_html_terms:
+          - $ref: '#/components/schemas/AppendixInfo'
+        product_rank_overview:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        domains_by_technology:
+          - $ref: '#/components/schemas/AppendixInfo'
+        ranked_keywords:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        domain_technologies:
+          - $ref: '#/components/schemas/AppendixInfo'
+        serp_competitors:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        technologies_summary:
+          - $ref: '#/components/schemas/AppendixInfo'
+        subdomains:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
-        technology_stats:
+          - $ref: '#/components/schemas/AppendixInfo'
+        relevant_pages:
           type:
           - object
           - 'null'
           oneOf:
-          - $ref: '#/components/schemas/AppendixBingKeywordsDataPriceDataInfo'
+          - $ref: '#/components/schemas/AppendixInfo'
+        competitors_domain:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        related_keywords:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        domain_rank_overview:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        domain_intersection:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        page_intersection:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        bulk_traffic_estimation:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        bulk_keyword_difficulty:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        bulk_search_volume:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        keywords_for_site:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        keyword_suggestions:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        keyword_ideas:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        historical_search_volume:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        categories_for_domain:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        domain_metrics_by_categories:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        top_searches:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        domain_whois_overview:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        historical_rank_overview:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        keywords_for_categories:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        historical_serps:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        app_competitors:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        keywords_for_app:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        app_intersection:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        bulk_app_metrics:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        search_intent:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        historical_bulk_traffic_estimation:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        categories_for_keywords:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        keyword_overview:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
+        historical_keyword_data:
+          type:
+          - object
+          - 'null'
+          oneOf:
+          - $ref: '#/components/schemas/AppendixInfo'
   securitySchemes:
     basicAuth:
       type: http
