@@ -130,3 +130,16 @@ related:
   url: mcp/dataforseo-tool-crosswalk.yml
 - type: scopes
   url: scopes/dataforseo-scopes.yml
+rfc9728:
+  endpoint: https://mcp.dataforseo.com/mcp
+  metadata_url: https://mcp.dataforseo.com/.well-known/oauth-protected-resource
+  discovered_via: WWW-Authenticate resource_metadata on an anonymous POST initialize
+  fetched: '2026-09-25'
+  http_status: 200
+  content_type: application/json
+  document:
+    resource: https://mcp.dataforseo.com
+    authorization_servers:
+    - https://data.dataforseo.com
+    bearer_methods_supported:
+    - header
