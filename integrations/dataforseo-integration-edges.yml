@@ -1,0 +1,746 @@
+generated: '2026-10-12'
+method: searched
+source:
+- https://zapier.com/apps/dataforseo/integrations
+- https://n8n.io/integrations/dataforseo/
+- https://composio.dev/toolkits/dataforseo
+- https://monid.ai/tools/dataforseo
+checked:
+- https://composio.dev/toolkits/dataforseo
+- https://monid.ai/tools/dataforseo
+- https://n8n.io/integrations/dataforseo/
+- https://zapier.com/apps/dataforseo/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  channel: ipaas-listing
+  app: dataforseo
+  url: https://zapier.com/apps/dataforseo/integrations
+  external_url: https://dataforseo.com/
+  partner_tier: BRONZE
+  triggers: []
+  actions: []
+  searches:
+  - key: bulk_keyword_difficulty
+    label: Get Keyword Difficulty
+  - key: business_listing_categories_aggregation
+    label: Get Business Categories Aggregation
+  - key: business_listing_search
+    label: Get Business Listings
+  - key: domain_rank_overview
+    label: Get Domain Rank Overview
+  - key: get_ai_keyword_search_volume
+    label: Get AI Keyword Search Volume
+  - key: get_backlinks
+    label: Get Backlinks
+  - key: get_backlinks_pages_summary
+    label: Get Backlink Summary for Pages
+  - key: get_google_serp_organic
+    label: Get Parsed SERP
+  - key: get_live_chatgpt_llm_responses
+    label: Get Live ChatGPT LLM Responses
+  - key: get_live_chat_gpt_llm_search_results_advanced
+    label: Get Live ChatGPT LLM Results Advanced
+  - key: get_live_chat_gpt_llm_search_results_html
+    label: Get Live ChatGPT LLM Results HTML
+  - key: get_live_claude_llm_responses
+    label: Get Live Claude LLM Responses
+  - key: get_live_gemini_llm_responses
+    label: Get Live Gemini LLM Responses
+  - key: get_live_llm_mentions
+    label: Get Live LLM Mentions
+  - key: get_live_llm_mentions_aggregated_metrics
+    label: Get Live LLM Mentions Aggregated Metrics
+  - key: get_live_llm_mentions_cross_aggregated_metrics
+    label: Get Live LLM Mentions Cross Aggregated Metrics
+  - key: get_live_llm_mentions_top_domains
+    label: Get Live LLM Mentions Top Domains
+  - key: get_live_llm_mentions_top_pages
+    label: Get Live LLM Mentions Top Pages
+  - key: get_live_perplexity_llm_responses
+    label: Get Live Perplexity LLM Responses
+  - key: google_search_volume
+    label: Get Google Search Volume
+  - key: historical_traffic_stats
+    label: Get Historical Traffic Stats
+  - key: keyword_suggestion
+    label: Get Keyword Suggestions
+  - key: organic_traffic_stats
+    label: Get Organic Traffic Stats
+  - key: page_audit_check
+    label: Get Page Audit
+  - key: ranked_keywords
+    label: Get Ranked Keywords
+- marketplace: n8n
+  channel: open-source-node
+  app: dataforseo
+  url: https://n8n.io/integrations/dataforseo/
+  identity: title
+  pair_pages: 0
+  pairs: []
+- marketplace: composio
+  channel: agent-gateway
+  app: dataforseo
+  url: https://composio.dev/toolkits/dataforseo
+  identity: action-prefix
+  actions:
+  - key: DATAFORSEO_CREATE_APP_DATA_APPLE_APP_REVIEWS_TASK
+  - key: DATAFORSEO_CREATE_APP_DATA_APPLE_APP_SEARCHES_TASK
+  - key: DATAFORSEO_CREATE_APP_DATA_GOOGLE_APP_LIST_TASK
+  - key: DATAFORSEO_CREATE_APP_DATA_GOOGLE_APP_REVIEWS_TASK
+  - key: DATAFORSEO_CREATE_BUSINESS_DATA_TRUSTPILOT_SEARCH_TASK
+  - key: DATAFORSEO_CREATE_KEYWORDS_DATA_GOOGLE_TRENDS_EXPLORE_TASK
+  - key: DATAFORSEO_CREATE_KW_BING_AUDIENCE_EST_TASK
+  - key: DATAFORSEO_CREATE_KW_GOOGLE_KW_FOR_KW_TASK
+  - key: DATAFORSEO_CREATE_MERCHANT_AMAZON_SELLERS_TASK
+  - key: DATAFORSEO_CREATE_ON_PAGE_LIGHTHOUSE_TASK_POST
+  - key: DATAFORSEO_CREATE_ON_PAGE_TASK_POST
+  - key: DATAFORSEO_CREATE_SERP_GOOGLE_AUTOCOMPLETE_TASK
+  - key: DATAFORSEO_CREATE_SERP_GOOGLE_EVENTS_TASK
+  - key: DATAFORSEO_CREATE_SERP_GOOGLE_FINANCE_EXPLORE_TASK
+  - key: DATAFORSEO_CREATE_SERP_GOOGLE_LOCAL_FINDER_TASK
+  - key: DATAFORSEO_CREATE_SERP_GOOGLE_MAPS_TASK
+  - key: DATAFORSEO_CREATE_SERP_GOOGLE_ORGANIC_TASK_POST
+  - key: DATAFORSEO_CREATE_SERP_SEZNAM_ORGANIC_TASK
+  - key: DATAFORSEO_CREATE_SERP_YOUTUBE_VIDEO_COMMENTS_TASK
+  - key: DATAFORSEO_CREATE_SERP_YOUTUBE_VIDEO_SUBTITLES_TASK
+  - key: DATAFORSEO_FORCE_ON_PAGE_CRAWL
+  - key: DATAFORSEO_GET_AI_KEYWORD_DATA_AVAILABLE_FILTERS
+  - key: DATAFORSEO_GET_AI_KEYWORD_DATA_LOCATIONS_AND_LANGUAGES
+  - key: DATAFORSEO_GET_AI_OPTIMIZATION_CHAT_GPT_LLM_RESPONSES_LIVE
+  - key: DATAFORSEO_GET_AI_OPTIMIZATION_GEMINI_LLM_SCRAPER_HTML_BY_ID
+  - key: DATAFORSEO_GET_AI_OPTIMIZATION_LLM_MENTIONS_TOP_DOMAINS_LIVE
+  - key: DATAFORSEO_GET_AI_OPT_CHAT_GPT_LLM_SCRAPER_HTML_BY_ID
+  - key: DATAFORSEO_GET_AI_OPT_CHAT_GPT_LLM_SCRAPER_TASK_ADV_BY_ID
+  - key: DATAFORSEO_GET_AI_OPT_GEMINI_LLM_SCRAPER_TASK_ADV
+  - key: DATAFORSEO_GET_APPENDIX_ERRORS
+  - key: DATAFORSEO_GET_APPENDIX_STATUS
+  - key: DATAFORSEO_GET_APPENDIX_USER_DATA
+  - key: DATAFORSEO_GET_APPLE_APP_INFO_TASK_ADVANCED
+  - key: DATAFORSEO_GET_APP_DATA_APPLE_APP_LIST_TASK_ADVANCED
+  - key: DATAFORSEO_GET_APP_DATA_APPLE_APP_SEARCHES_TASK_ADVANCED
+  - key: DATAFORSEO_GET_APP_DATA_GOOGLE_APP_INFO_TASK_HTML_BY_ID
+  - key: DATAFORSEO_GET_APP_DATA_GOOGLE_APP_LIST_TASK_ADVANCED_BY_ID
+  - key: DATAFORSEO_GET_APP_DATA_GOOGLE_APP_REVIEWS_TASK_HTML
+  - key: DATAFORSEO_GET_APP_DATA_GOOGLE_APP_SEARCHES_TASK_HTML_BY_ID
+  - key: DATAFORSEO_GET_APP_GOOGLE_APP_REVIEWS_TASK_GET_ADV_BY_ID
+  - key: DATAFORSEO_GET_APP_GOOGLE_APP_SEARCHES_TASK_ADV_BY_ID
+  - key: DATAFORSEO_GET_BACKLINKS_BULK_PAGES_SUMMARY_LIVE
+  - key: DATAFORSEO_GET_BACKLINKS_BULK_SPAM_SCORE_LIVE
+  - key: DATAFORSEO_GET_BACKLINKS_SUMMARY_LIVE
+  - key: DATAFORSEO_GET_BING_KW_PERFORMANCE_LOCATIONS_AND_LANGUAGES
+  - key: DATAFORSEO_GET_BIZ_BUSINESS_LISTINGS_AVAILABLE_FILTERS
+  - key: DATAFORSEO_GET_BIZ_GOOGLE_HOTEL_INFO_TASK_GET_ADV_BY_ID
+  - key: DATAFORSEO_GET_BIZ_GOOGLE_HOTEL_SEARCHES_TASK_BY_ID
+  - key: DATAFORSEO_GET_BIZ_GOOGLE_MY_BUSINESS_UPDATES_TASK_BY_ID
+  - key: DATAFORSEO_GET_BIZ_GOOGLE_QUESTIONS_AND_ANSWERS_TASK
+  - key: DATAFORSEO_GET_BUSINESS_DATA_GOOGLE_EXTENDED_REVIEWS_TASK
+  - key: DATAFORSEO_GET_BUSINESS_DATA_GOOGLE_MY_BUSINESS_INFO_TASK
+  - key: DATAFORSEO_GET_BUSINESS_DATA_GOOGLE_REVIEWS_TASK
+  - key: DATAFORSEO_GET_BUSINESS_DATA_TRIPADVISOR_REVIEWS_TASK_BY_ID
+  - key: DATAFORSEO_GET_BUSINESS_DATA_TRIPADVISOR_SEARCH_TASK_BY_ID
+  - key: DATAFORSEO_GET_BUSINESS_DATA_TRUSTPILOT_SEARCH_TASK_BY_ID
+  - key: DATAFORSEO_GET_CHAT_GPT_LLM_SCRAPER_LOCATIONS_BY_COUNTRY
+  - key: DATAFORSEO_GET_DATAFORSEO_LABS_AVAILABLE_FILTERS
+  - key: DATAFORSEO_GET_DATAFORSEO_LABS_BING_RELATED_KEYWORDS_LIVE
+  - key: DATAFORSEO_GET_DATAFORSEO_LABS_GOOGLE_AVAILABLE_HISTORY
+  - key: DATAFORSEO_GET_DATAFORSEO_LABS_GOOGLE_TOP_SEARCHES_LIVE
+  - key: DATAFORSEO_GET_DATAFORSEO_LABS_STATUS
+  - key: DATAFORSEO_GET_DATAFORSEO_TRENDS_LOCATIONS_BY_COUNTRY
+  - key: DATAFORSEO_GET_DOMAIN_ANALYTICS_TECH_TECHNOLOGY_STATS_LIVE
+  - key: DATAFORSEO_GET_GEMINI_LLM_RESPONSES_TASK_BY_ID
+  - key: DATAFORSEO_GET_GOOGLE_HIST_BULK_TRAFFIC_EST_LIVE
+  - key: DATAFORSEO_GET_KEYWORDS_DATA_BING_KEYWORDS_FOR_SITE_TASK
+  - key: DATAFORSEO_GET_KEYWORDS_DATA_BING_SEARCH_VOLUME_TASK_BY_ID
+  - key: DATAFORSEO_GET_KEYWORDS_DATA_GOOGLE_ADS_STATUS
+  - key: DATAFORSEO_GET_KEYWORDS_DATA_GOOGLE_SEARCH_VOLUME_TASK_BY_ID
+  - key: DATAFORSEO_GET_KW_BING_AUDIENCE_EST_INDUSTRIES
+  - key: DATAFORSEO_GET_KW_BING_KW_FOR_KW_TASK_BY_ID
+  - key: DATAFORSEO_GET_KW_BING_KW_SUGGESTIONS_FOR_URL_LIVE
+  - key: DATAFORSEO_GET_KW_BING_KW_SUGGESTIONS_FOR_URL_TASK
+  - key: DATAFORSEO_GET_KW_GOOGLE_ADS_AD_TRAFFIC_BY_KW_TASK_BY_ID
+  - key: DATAFORSEO_GET_KW_GOOGLE_ADS_KW_FOR_KW_LIVE
+  - key: DATAFORSEO_GET_KW_GOOGLE_ADS_KW_FOR_KW_TASK_BY_ID
+  - key: DATAFORSEO_GET_KW_GOOGLE_ADS_KW_FOR_SITE_TASK
+  - key: DATAFORSEO_GET_KW_GOOGLE_ADS_SEARCH_VOL_TASK_BY_ID
+  - key: DATAFORSEO_GET_KW_GOOGLE_KW_FOR_CATEGORY_LIVE
+  - key: DATAFORSEO_GET_KW_GOOGLE_KW_FOR_KW_TASK_BY_ID
+  - key: DATAFORSEO_GET_KW_GOOGLE_TRENDS_EXPLORE_TASK_BY_ID
+  - key: DATAFORSEO_GET_KW_GOOGLE_TRENDS_LOCATIONS_BY_COUNTRY
+  - key: DATAFORSEO_GET_LLM_MENTIONS_AVAILABLE_FILTERS
+  - key: DATAFORSEO_GET_MERCHANT_AMAZON_ASIN_TASK_ADVANCED_BY_ID
+  - key: DATAFORSEO_GET_MERCHANT_AMAZON_ASIN_TASK_HTML
+  - key: DATAFORSEO_GET_MERCHANT_AMAZON_PRODUCTS_TASK_ADVANCED_BY_ID
+  - key: DATAFORSEO_GET_MERCHANT_AMAZON_PRODUCTS_TASK_HTML_BY_ID
+  - key: DATAFORSEO_GET_MERCHANT_AMAZON_SELLERS_TASK_ADVANCED
+  - key: DATAFORSEO_GET_MERCHANT_AMAZON_SELLERS_TASK_HTML_BY_ID
+  - key: DATAFORSEO_GET_MERCHANT_GOOGLE_PRODUCTS_TASK_ADVANCED_BY_ID
+  - key: DATAFORSEO_GET_MERCHANT_GOOGLE_PRODUCTS_TASK_HTML
+  - key: DATAFORSEO_GET_MERCHANT_GOOGLE_SELLERS_TASK_ADVANCED_BY_ID
+  - key: DATAFORSEO_GET_MERCHANT_G_PRODUCT_INFO_TASK_ADV_BY_ID
+  - key: DATAFORSEO_GET_ON_PAGE_DUPLICATE_CONTENT
+  - key: DATAFORSEO_GET_ON_PAGE_DUPLICATE_TAGS
+  - key: DATAFORSEO_GET_ON_PAGE_KEYWORD_DENSITY
+  - key: DATAFORSEO_GET_ON_PAGE_LIGHTHOUSE_AUDITS
+  - key: DATAFORSEO_GET_ON_PAGE_LIGHTHOUSE_TASK_GET_JSON
+  - key: DATAFORSEO_GET_ON_PAGE_LINKS
+  - key: DATAFORSEO_GET_ON_PAGE_NON_INDEXABLE
+  - key: DATAFORSEO_GET_ON_PAGE_PAGES
+  - key: DATAFORSEO_GET_ON_PAGE_PAGES_BY_RESOURCE
+  - key: DATAFORSEO_GET_ON_PAGE_SUMMARY_BY_ID
+  - key: DATAFORSEO_GET_SERP_BAIDU_LOCATIONS_BY_COUNTRY
+  - key: DATAFORSEO_GET_SERP_BAIDU_ORGANIC_TASK_ADVANCED_BY_ID
+  - key: DATAFORSEO_GET_SERP_BING_ORGANIC_TASK_REGULAR_BY_ID
+  - key: DATAFORSEO_GET_SERP_GOOGLE_ADS_ADVERTISERS_LIVE_ADVANCED
+  - key: DATAFORSEO_GET_SERP_GOOGLE_ADS_ADVERTISERS_TASK_ADVANCED
+  - key: DATAFORSEO_GET_SERP_GOOGLE_ADS_SEARCH_LIVE_ADVANCED
+  - key: DATAFORSEO_GET_SERP_GOOGLE_AI_MODE_TASK_ADVANCED_BY_ID
+  - key: DATAFORSEO_GET_SERP_GOOGLE_AUTOCOMPLETE_TASK_ADVANCED_BY_ID
+  - key: DATAFORSEO_GET_SERP_GOOGLE_DATASET_INFO_TASK_ADVANCED
+  - key: DATAFORSEO_GET_SERP_GOOGLE_FINANCE_MARKETS_TASK_HTML_BY_ID
+  - key: DATAFORSEO_GET_SERP_GOOGLE_FINANCE_QUOTE_TASK_ADVANCED_BY_ID
+  - key: DATAFORSEO_GET_SERP_GOOGLE_FINANCE_QUOTE_TASK_HTML_BY_ID
+  - key: DATAFORSEO_GET_SERP_GOOGLE_IMAGES_TASK_GET_ADVANCED_BY_ID
+  - key: DATAFORSEO_GET_SERP_GOOGLE_IMAGES_TASK_HTML_BY_ID
+  - key: DATAFORSEO_GET_SERP_GOOGLE_JOBS_TASK_ADVANCED
+  - key: DATAFORSEO_GET_SERP_GOOGLE_MAPS_TASK_GET_ADVANCED_BY_ID
+  - key: DATAFORSEO_GET_SERP_GOOGLE_NEWS_TASK_GET_ADVANCED
+  - key: DATAFORSEO_GET_SERP_GOOGLE_ORGANIC_TASK_ADVANCED_BY_ID
+  - key: DATAFORSEO_GET_SERP_GOOGLE_ORGANIC_TASK_HTML_BY_ID
+  - key: DATAFORSEO_GET_SERP_GOOGLE_ORGANIC_TASK_REGULAR_BY_ID
+  - key: DATAFORSEO_GET_SERP_GOOGLE_SEARCH_BY_IMAGE_HTML_BY_ID
+  - key: DATAFORSEO_GET_SERP_G_DATASET_SEARCH_TASK_ADV_BY_ID
+  - key: DATAFORSEO_GET_SERP_G_FINANCE_EXPLORE_TASK_ADV_BY_ID
+  - key: DATAFORSEO_GET_SERP_G_FINANCE_TICKER_SEARCH_TASK_ADV_BY_ID
+  - key: DATAFORSEO_GET_SERP_G_LOCAL_FINDER_TASK_GET_ADV_BY_ID
+  - key: DATAFORSEO_GET_SERP_NAVER_ORGANIC_TASK_GET_ADVANCED
+  - key: DATAFORSEO_GET_SERP_NAVER_ORGANIC_TASK_REGULAR_BY_ID
+  - key: DATAFORSEO_GET_SERP_SEZNAM_ORGANIC_TASK_GET_ADVANCED_BY_ID
+  - key: DATAFORSEO_GET_SERP_SEZNAM_ORGANIC_TASK_GET_REGULAR_BY_ID
+  - key: DATAFORSEO_GET_SERP_YAHOO_ORGANIC_TASK_GET_ADVANCED_BY_ID
+  - key: DATAFORSEO_GET_SERP_YAHOO_ORGANIC_TASK_REGULAR_BY_ID
+  - key: DATAFORSEO_GET_SERP_YT_VIDEO_COMMENTS_TASK_ADV_BY_ID
+  - key: DATAFORSEO_GET_SERP_YT_VIDEO_SUBTITLES_TASK_ADV_BY_ID
+  - key: DATAFORSEO_LIST_AI_OPTIMIZATION_GEMINI_LLM_SCRAPER_LANGUAGES
+  - key: DATAFORSEO_LIST_AI_OPTIMIZATION_GEMINI_LLM_SCRAPER_LOCATIONS
+  - key: DATAFORSEO_LIST_AI_OPT_CHAT_GPT_LLM_RESPONSES_MODELS
+  - key: DATAFORSEO_LIST_AI_OPT_CHAT_GPT_LLM_RESPONSES_TASKS_READY
+  - key: DATAFORSEO_LIST_AI_OPT_CHAT_GPT_LLM_SCRAPER_LANGUAGES
+  - key: DATAFORSEO_LIST_AI_OPT_CHAT_GPT_LLM_SCRAPER_LOCATIONS
+  - key: DATAFORSEO_LIST_AI_OPT_CLAUDE_LLM_RESPONSES_TASKS_READY
+  - key: DATAFORSEO_LIST_AI_OPT_GEMINI_LLM_SCRAPER_TASKS_READY
+  - key: DATAFORSEO_LIST_AI_OPT_LLM_MENTIONS_LOCATIONS_AND_LANGUAGES
+  - key: DATAFORSEO_LIST_AI_OPT_PERPLEXITY_LLM_RESPONSES_MODELS
+  - key: DATAFORSEO_LIST_APPLE_APP_SEARCHES_TASKS_READY
+  - key: DATAFORSEO_LIST_APP_DATA_APPLE_APP_LIST_TASKS_READY
+  - key: DATAFORSEO_LIST_APP_DATA_APPLE_CATEGORIES
+  - key: DATAFORSEO_LIST_APP_DATA_APPLE_LANGUAGES
+  - key: DATAFORSEO_LIST_APP_DATA_APPLE_LOCATIONS
+  - key: DATAFORSEO_LIST_APP_DATA_ERRORS
+  - key: DATAFORSEO_LIST_APP_DATA_GOOGLE_APP_INFO_TASKS_READY
+  - key: DATAFORSEO_LIST_APP_DATA_GOOGLE_APP_LISTINGS_CATEGORIES
+  - key: DATAFORSEO_LIST_APP_DATA_GOOGLE_APP_LIST_TASKS_READY
+  - key: DATAFORSEO_LIST_APP_DATA_GOOGLE_APP_REVIEWS_TASKS_READY
+  - key: DATAFORSEO_LIST_APP_DATA_GOOGLE_APP_SEARCHES_TASKS_READY
+  - key: DATAFORSEO_LIST_APP_DATA_GOOGLE_CATEGORIES
+  - key: DATAFORSEO_LIST_APP_DATA_GOOGLE_LANGUAGES
+  - key: DATAFORSEO_LIST_APP_DATA_ID_LIST
+  - key: DATAFORSEO_LIST_APP_DATA_TASKS_READY
+  - key: DATAFORSEO_LIST_BACKLINKS_AVAILABLE_FILTERS
+  - key: DATAFORSEO_LIST_BACKLINKS_ERRORS
+  - key: DATAFORSEO_LIST_BING_SEARCH_VOLUME_HISTORY_LOCATIONS
+  - key: DATAFORSEO_LIST_BIZ_GOOGLE_EXTENDED_REVIEWS_TASKS_READY
+  - key: DATAFORSEO_LIST_BIZ_GOOGLE_HOTEL_SEARCHES_TASKS_READY
+  - key: DATAFORSEO_LIST_BIZ_GOOGLE_MY_BUSINESS_INFO_TASKS_READY
+  - key: DATAFORSEO_LIST_BIZ_GOOGLE_MY_BUSINESS_UPDATES_TASKS_READY
+  - key: DATAFORSEO_LIST_BIZ_GOOGLE_QUESTIONS_ANSWERS_TASKS_READY
+  - key: DATAFORSEO_LIST_BIZ_TRIPADVISOR_REVIEWS_TASKS_READY
+  - key: DATAFORSEO_LIST_BUSINESS_DATA_BUSINESS_LISTINGS_CATEGORIES
+  - key: DATAFORSEO_LIST_BUSINESS_DATA_BUSINESS_LISTINGS_LOCATIONS
+  - key: DATAFORSEO_LIST_BUSINESS_DATA_ERRORS
+  - key: DATAFORSEO_LIST_BUSINESS_DATA_GOOGLE_HOTEL_INFO_TASKS_READY
+  - key: DATAFORSEO_LIST_BUSINESS_DATA_GOOGLE_LANGUAGES
+  - key: DATAFORSEO_LIST_BUSINESS_DATA_GOOGLE_REVIEWS_TASKS_READY
+  - key: DATAFORSEO_LIST_BUSINESS_DATA_TASKS_READY
+  - key: DATAFORSEO_LIST_BUSINESS_DATA_TRIPADVISOR_LANGUAGES
+  - key: DATAFORSEO_LIST_BUSINESS_DATA_TRIPADVISOR_SEARCH_TASKS_READY
+  - key: DATAFORSEO_LIST_BUSINESS_DATA_TRUSTPILOT_REVIEWS_TASKS_READY
+  - key: DATAFORSEO_LIST_BUSINESS_DATA_TRUSTPILOT_SEARCH_TASKS_READY
+  - key: DATAFORSEO_LIST_CLAUDE_LLM_RESPONSE_MODELS
+  - key: DATAFORSEO_LIST_CONTENT_ANALYSIS_AVAILABLE_FILTERS
+  - key: DATAFORSEO_LIST_CONTENT_ANALYSIS_CATEGORIES
+  - key: DATAFORSEO_LIST_CONTENT_ANALYSIS_LANGUAGES
+  - key: DATAFORSEO_LIST_CONTENT_ANALYSIS_LOCATIONS
+  - key: DATAFORSEO_LIST_DATAFORSEO_LABS_CATEGORIES
+  - key: DATAFORSEO_LIST_DATAFORSEO_LABS_ERRORS
+  - key: DATAFORSEO_LIST_DATAFORSEO_LABS_LOCATIONS_AND_LANGUAGES
+  - key: DATAFORSEO_LIST_DOMAIN_ANALYTICS_ERRORS
+  - key: DATAFORSEO_LIST_DOMAIN_ANALYTICS_ID_LIST
+  - key: DATAFORSEO_LIST_DOMAIN_ANALYTICS_TECHNOLOGIES
+  - key: DATAFORSEO_LIST_DOMAIN_ANALYTICS_TECHNOLOGIES_FILTERS
+  - key: DATAFORSEO_LIST_DOMAIN_ANALYTICS_TECHNOLOGIES_LANGUAGES
+  - key: DATAFORSEO_LIST_DOMAIN_ANALYTICS_TECHNOLOGIES_LOCATIONS
+  - key: DATAFORSEO_LIST_DOMAIN_ANALYTICS_WHOIS_FILTERS
+  - key: DATAFORSEO_LIST_GEMINI_LLM_MODELS
+  - key: DATAFORSEO_LIST_GEMINI_LLM_RESPONSES_TASKS_READY
+  - key: DATAFORSEO_LIST_KEYWORDS_DATA_BING_LANGUAGES
+  - key: DATAFORSEO_LIST_KEYWORDS_DATA_BING_SEARCH_VOLUME_TASKS_READY
+  - key: DATAFORSEO_LIST_KEYWORDS_DATA_DATAFORSEO_TRENDS_LOCATIONS
+  - key: DATAFORSEO_LIST_KEYWORDS_DATA_ENDPOINTS
+  - key: DATAFORSEO_LIST_KEYWORDS_DATA_ERRORS
+  - key: DATAFORSEO_LIST_KEYWORDS_DATA_GOOGLE_ADS_LANGUAGES
+  - key: DATAFORSEO_LIST_KEYWORDS_DATA_GOOGLE_CATEGORIES
+  - key: DATAFORSEO_LIST_KEYWORDS_DATA_GOOGLE_LANGUAGES
+  - key: DATAFORSEO_LIST_KEYWORDS_DATA_GOOGLE_TRENDS_CATEGORIES
+  - key: DATAFORSEO_LIST_KEYWORDS_DATA_GOOGLE_TRENDS_LANGUAGES
+  - key: DATAFORSEO_LIST_KEYWORDS_DATA_GOOGLE_TRENDS_LOCATIONS
+  - key: DATAFORSEO_LIST_KW_BING_AUDIENCE_EST_JOB_FUNCTIONS
+  - key: DATAFORSEO_LIST_KW_BING_AUDIENCE_EST_TASKS_READY
+  - key: DATAFORSEO_LIST_KW_BING_KW_FOR_KW_TASKS_READY
+  - key: DATAFORSEO_LIST_KW_BING_KW_FOR_SITE_TASKS_READY
+  - key: DATAFORSEO_LIST_KW_BING_KW_PERFORMANCE_TASKS_READY
+  - key: DATAFORSEO_LIST_KW_BING_KW_SUGGESTIONS_FOR_URL_LANGUAGES
+  - key: DATAFORSEO_LIST_KW_BING_KW_SUGGESTIONS_FOR_URL_TASKS_READY
+  - key: DATAFORSEO_LIST_KW_BING_SEARCH_VOL_HISTORY_TASKS_READY
+  - key: DATAFORSEO_LIST_KW_CLICKSTREAM_LOCATIONS_AND_LANGUAGES
+  - key: DATAFORSEO_LIST_KW_GOOGLE_ADS_AD_TRAFFIC_BY_KW_TASKS_READY
+  - key: DATAFORSEO_LIST_KW_GOOGLE_ADS_KW_FOR_KW_TASKS_READY
+  - key: DATAFORSEO_LIST_KW_GOOGLE_ADS_KW_FOR_SITE_TASKS_READY
+  - key: DATAFORSEO_LIST_KW_GOOGLE_ADS_SEARCH_VOL_TASKS_READY
+  - key: DATAFORSEO_LIST_KW_GOOGLE_KW_FOR_KW_TASKS_READY
+  - key: DATAFORSEO_LIST_KW_GOOGLE_KW_FOR_SITE_TASKS_READY
+  - key: DATAFORSEO_LIST_KW_GOOGLE_SEARCH_VOL_TASKS_READY
+  - key: DATAFORSEO_LIST_KW_GOOGLE_TRENDS_EXPLORE_TASKS_READY
+  - key: DATAFORSEO_LIST_LABS_GOOGLE_CATEGORIES_FOR_KW_LANGUAGES
+  - key: DATAFORSEO_LIST_MERCHANT_AMAZON_ASIN_TASKS_READY
+  - key: DATAFORSEO_LIST_MERCHANT_AMAZON_LANGUAGES
+  - key: DATAFORSEO_LIST_MERCHANT_AMAZON_PRODUCTS_TASKS_READY
+  - key: DATAFORSEO_LIST_MERCHANT_AMAZON_SELLERS_TASKS_READY
+  - key: DATAFORSEO_LIST_MERCHANT_ERRORS
+  - key: DATAFORSEO_LIST_MERCHANT_GOOGLE_LANGUAGES
+  - key: DATAFORSEO_LIST_MERCHANT_GOOGLE_PRODUCTS_TASKS_READY
+  - key: DATAFORSEO_LIST_MERCHANT_GOOGLE_PRODUCT_INFO_TASKS_READY
+  - key: DATAFORSEO_LIST_MERCHANT_GOOGLE_REVIEWS_TASKS_READY
+  - key: DATAFORSEO_LIST_MERCHANT_GOOGLE_SELLERS_TASKS_READY
+  - key: DATAFORSEO_LIST_MERCHANT_TASKS_READY
+  - key: DATAFORSEO_LIST_ON_PAGE_AVAILABLE_FILTERS
+  - key: DATAFORSEO_LIST_ON_PAGE_ERRORS
+  - key: DATAFORSEO_LIST_ON_PAGE_LIGHTHOUSE_LANGUAGES
+  - key: DATAFORSEO_LIST_ON_PAGE_LIGHTHOUSE_TASKS_READY
+  - key: DATAFORSEO_LIST_ON_PAGE_LIGHTHOUSE_VERSIONS
+  - key: DATAFORSEO_LIST_ON_PAGE_RESOURCES
+  - key: DATAFORSEO_LIST_ON_PAGE_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_BAIDU_LANGUAGES
+  - key: DATAFORSEO_LIST_SERP_BAIDU_ORGANIC_TASKS_FIXED
+  - key: DATAFORSEO_LIST_SERP_BAIDU_ORGANIC_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_BING_LANGUAGES
+  - key: DATAFORSEO_LIST_SERP_BING_ORGANIC_TASKS_FIXED
+  - key: DATAFORSEO_LIST_SERP_BING_ORGANIC_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_ENDPOINTS
+  - key: DATAFORSEO_LIST_SERP_ERRORS
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_ADS_ADVERTISERS_LOCATIONS
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_ADS_ADVERTISERS_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_ADS_SEARCH_LOCATIONS
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_ADS_SEARCH_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_AI_MODE_LANGUAGES
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_AI_MODE_TASKS_FIXED
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_AI_MODE_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_AUTOCOMPLETE_TASKS_FIXED
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_AUTOCOMPLETE_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_DATASET_INFO_TASKS_FIXED
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_DATASET_INFO_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_DATASET_SEARCH_TASKS_FIXED
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_DATASET_SEARCH_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_EVENTS_TASKS_FIXED
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_EVENTS_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_FINANCE_EXPLORE_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_FINANCE_MARKETS_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_FINANCE_QUOTE_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_IMAGES_TASKS_FIXED
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_IMAGES_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_JOBS_TASKS_FIXED
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_JOBS_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_LANGUAGES
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_LOCAL_FINDER_TASKS_FIXED
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_LOCAL_FINDER_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_MAPS_TASKS_FIXED
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_MAPS_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_NEWS_TASKS_FIXED
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_NEWS_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_ORGANIC_TASKS_FIXED
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_ORGANIC_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_SEARCH_BY_IMAGE_TASKS_FIXED
+  - key: DATAFORSEO_LIST_SERP_GOOGLE_SEARCH_BY_IMAGE_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_G_FINANCE_TICKER_SEARCH_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_ID_LIST
+  - key: DATAFORSEO_LIST_SERP_NAVER_ORGANIC_TASKS_FIXED
+  - key: DATAFORSEO_LIST_SERP_NAVER_ORGANIC_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_SEZNAM_LANGUAGES
+  - key: DATAFORSEO_LIST_SERP_SEZNAM_ORGANIC_TASKS_FIXED
+  - key: DATAFORSEO_LIST_SERP_SEZNAM_ORGANIC_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_YAHOO_LANGUAGES
+  - key: DATAFORSEO_LIST_SERP_YAHOO_ORGANIC_TASKS_FIXED
+  - key: DATAFORSEO_LIST_SERP_YAHOO_ORGANIC_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_YOUTUBE_LANGUAGES
+  - key: DATAFORSEO_LIST_SERP_YOUTUBE_ORGANIC_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_YOUTUBE_VIDEO_COMMENTS_TASKS_FIXED
+  - key: DATAFORSEO_LIST_SERP_YOUTUBE_VIDEO_COMMENTS_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_YOUTUBE_VIDEO_INFO_TASKS_FIXED
+  - key: DATAFORSEO_LIST_SERP_YOUTUBE_VIDEO_INFO_TASKS_READY
+  - key: DATAFORSEO_LIST_SERP_YOUTUBE_VIDEO_SUBTITLES_TASKS_FIXED
+  - key: DATAFORSEO_LIST_SERP_YOUTUBE_VIDEO_SUBTITLES_TASKS_READY
+  - key: DATAFORSEO_POST_DATAFORSEO_LABS_BULK_KEYWORD_DIFFICULTY_LIVE
+  - key: DATAFORSEO_POST_KEYWORDS_DATA_BING_SEARCH_VOLUME_TASK
+  - key: DATAFORSEO_POST_KEYWORDS_DATA_GOOGLE_SEARCH_VOLUME_TASK
+  - key: DATAFORSEO_POST_KW_GOOGLE_KW_FOR_CATEGORY_TASK
+  - key: DATAFORSEO_POST_ON_PAGE_SUMMARY
+  - key: DATAFORSEO_RESEND_APPENDIX_WEBHOOKS
+- marketplace: monid
+  channel: agent-gateway
+  app: dataforseo
+  url: https://monid.ai/tools/dataforseo
+  identity: slug
+edges:
+- partner_name: Google Forms
+  partner: google-forms
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/google-forms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://google.com/
+- partner_name: HubSpot
+  partner: hubspot
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/hubspot
+  direction: third-party
+  category: Marketing Automation
+  partner_url: http://www.hubspot.com/
+- partner_name: Airtable
+  partner: airtable
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/airtable
+  direction: third-party
+  category: Databases
+  partner_url: https://airtable.com/
+- partner_name: Perspective
+  partner: perspective
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/perspective
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://perspective.co/
+- partner_name: Google Drive
+  partner: google-drive
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/google-drive
+  direction: third-party
+  category: File Management & Storage
+  partner_url: https://www.google.com/drive/
+- partner_name: Google Docs
+  partner: google-docs
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/google-docs
+  direction: third-party
+  category: Documents
+  partner_url: http://google.com/
+- partner_name: Jotform
+  partner: jotform
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/jotform
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://www.jotform.com/
+- partner_name: Tally
+  partner: tally
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/tally
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://try.tally.so/zapier
+- partner_name: Google Sheets
+  partner: google-sheets
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/google-sheets
+  direction: third-party
+  category: Google
+  partner_url: http://sheets.google.com/
+- partner_name: Smartsheet
+  partner: smartsheet
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/smartsheet
+  direction: third-party
+  category: Spreadsheets
+  partner_url: https://www.smartsheet.com/
+- partner_name: VideoAsk
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/videoask
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.videoask.com/
+- partner_name: Bubble
+  partner: bubble
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/bubble
+  direction: third-party
+  category: App Builder
+  partner_url: https://bubble.io/
+- partner_name: Jumpseller
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/jumpseller
+  direction: third-party
+  category: eCommerce
+  partner_url: https://jumpseller.com/
+- partner_name: Gmail
+  partner: gmail
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/gmail
+  direction: third-party
+  category: Email
+  partner_url: https://mail.google.com/
+- partner_name: Slack
+  partner: slack
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/slack
+  direction: third-party
+  category: Team Chat
+  partner_url: https://slack.com/
+- partner_name: Google Calendar
+  partner: google-calendar
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/google-calendar
+  direction: third-party
+  category: Calendar
+  partner_url: https://calendar.google.com/
+- partner_name: Notion
+  partner: notion
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/notion
+  direction: third-party
+  category: Task Management
+  partner_url: https://www.notion.so/
+- partner_name: Calendly
+  partner: calendly
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/calendly
+  direction: third-party
+  category: Scheduling & Booking
+  partner_url: https://calendly.com/?utm_medium=partner&utm_source=zapier&utm_campaign=main_partner_page&utm_content=main_inbound_link
+- partner_name: Typeform
+  partner: typeform
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/typeform
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.typeform.com/signup?utm_medium=referral&utm_source=zapier&utm_campaign=zapier_integration&utm_content=marketplace
+- partner_name: Trello
+  partner: trello
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/trello
+  direction: third-party
+  category: Project Management
+  partner_url: https://trello.com/
+- partner_name: monday.com
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/monday
+  direction: third-party
+  category: Project Management
+  partner_url: https://monday.com/
+- partner_name: ChatGPT (OpenAI)
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/chatgpt
+  direction: third-party
+  category: AI Assistants
+  partner_url: https://chat.openai.com/chat
+- partner_name: Shopify
+  partner: shopify
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/shopify
+  direction: third-party
+  category: eCommerce
+  partner_url: https://www.shopify.com/
+- partner_name: ActiveCampaign
+  partner: activecampaign
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/activecampaign
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.activecampaign.com/?utm_source=unpaid_syndication_website&utm_medium=referral&utm_campaign=zapier_listing
+- partner_name: Pipedrive
+  partner: pipedrive
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/pipedrive
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://pipedrive.com/
+- partner_name: Microsoft Excel
+  partner: null
+  partner_match: null
+  partner_candidate: zapier
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/excel
+  direction: third-party
+  category: Microsoft
+  partner_url: https://zapier.com/office.com
+- partner_name: Klaviyo
+  partner: klaviyo
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/klaviyo
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.klaviyo.com/
+- partner_name: YouTube
+  partner: youtube
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/youtube
+  direction: third-party
+  category: Google
+  partner_url: https://www.youtube.com/
+- partner_name: WordPress
+  partner: wordpress
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/wordpress
+  direction: third-party
+  category: Website Builders
+  partner_url: https://wordpress.org/
+- partner_name: GitHub
+  partner: github
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/dataforseo/integrations/github
+  direction: third-party
+  category: Developer Tools
+  partner_url: https://github.com/
+templates:
+- title: Get Google Ads metrics for new Google Sheets rows using DataForSEO
+  url: https://zapier.com/apps/google-sheets/integrations/google-sheets/1818711/get-google-ads-metrics-for-new-google-sheets-rows-using-dataforseo
+  apps:
+  - google-sheets
+  - dataforseo
+- title: Update new Airtable records with Google SERP positions from DataForSEO
+  url: https://zapier.com/apps/airtable/integrations/airtable/1818703/update-new-airtable-records-with-google-serp-positions-from-dataforseo
+  apps:
+  - airtable
+  - dataforseo
+template_total: 2
