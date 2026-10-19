@@ -6,10 +6,17 @@ source:
 - https://composio.dev/toolkits/dataforseo
 - https://monid.ai/tools/dataforseo
 checked:
+- https://api.nuget.org/v3
 - https://composio.dev/toolkits/dataforseo
+- https://crates.io/api/v1
 - https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/
 - https://monid.ai/tools/dataforseo
 - https://n8n.io/integrations/dataforseo/
+- https://proxy.golang.org
+- https://pypi.org/pypi
+- https://registry.npmjs.org
+- https://repo1.maven.org/maven2
+- https://rubygems.org/api/v1
 - https://zapier.com/api/v4/apps/
 - https://zapier.com/apps/dataforseo/integrations
 summary: null
@@ -785,6 +792,96 @@ edges:
     builder: Pipedream repo (component)
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
+- partner_name: npm registry
+  partner: npm
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (JavaScript/TypeScript)
+  evidence: https://www.npmjs.com/package/dataforseo-client
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: npm registry (public registry JSON)
+    spec_file: null
+    language: JavaScript/TypeScript
+    packages:
+    - name: dataforseo-client
+      version: 2.1.9
+      released: '2026-10-12'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/dataforseo-client
+      repo_leg: github-org:dataforseo
+      publisher_leg: email:dataforseo.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
+- partner_name: NuGet Gallery
+  partner: nuget
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (.NET)
+  evidence: https://www.nuget.org/packages/DataForSeo.Client
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: NuGet Gallery (public registry JSON)
+    spec_file: null
+    language: .NET
+    packages:
+    - name: DataForSeo.Client
+      version: 2.1.9
+      released: '2026-10-12'
+      released_field: published
+      lapsed: false
+      page: https://www.nuget.org/packages/DataForSeo.Client
+      repo_leg: github-org:dataforseo
+      publisher_leg: org:dataforseo
+      matched_by: github-org
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
+- partner_name: PyPI
+  partner: pypi
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (Python)
+  evidence: https://pypi.org/project/dataforseo-client/
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: PyPI (public registry JSON)
+    spec_file: null
+    language: Python
+    packages:
+    - name: dataforseo-client
+      version: 2.1.9
+      released: '2026-10-12'
+      released_field: upload_time
+      lapsed: false
+      page: https://pypi.org/project/dataforseo-client/
+      repo_leg: github-org:dataforseo
+      publisher_leg: email:dataforseo.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
 templates:
 - title: Get Google Ads metrics for new Google Sheets rows using DataForSEO
   url: https://zapier.com/apps/google-sheets/integrations/google-sheets/1818711/get-google-ads-metrics-for-new-google-sheets-rows-using-dataforseo
