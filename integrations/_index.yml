@@ -362,57 +362,6 @@
   source: edge
   status: pending-generation
   arazzo: null
-- slug: dataforseo-zapier
-  label: Zapier
-  partner: zapier
-  partner_name: Zapier
-  type: marketplace
-  marketplace: zapier-directory
-  channel: ipaas-listing
-  evidence: https://zapier.com/apps/dataforseo/integrations
-  source: edge
-  relationship: ipaas-bridge
-  contract_reference:
-    register: Zapier app directory (zapier.com/api/v4/apps)
-    spec_file: null
-    role: ipaas-connector:zapier
-    registered_name: DataForSEO
-    matched_domain: dataforseo.com
-    matched_by: domain
-    detected_by: sweep-workflow-automation.py
-    detected: '2026-10-15'
-    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
-    app_slug: dataforseo
-    beta: false
-    builder: unknown (not in the directory record)
-  status: not-a-workflow
-  arazzo: null
-- slug: dataforseo-pipedream
-  label: Pipedream
-  partner: pipedream
-  partner_name: Pipedream
-  type: marketplace
-  marketplace: pipedream-components
-  channel: open-source-node
-  evidence: https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/dataforseo
-  source: edge
-  relationship: ipaas-bridge
-  contract_reference:
-    register: Pipedream components (PipedreamHQ/pipedream components/)
-    spec_file: null
-    role: ipaas-connector:pipedream
-    registered_name: dataforseo
-    matched_domain: dataforseo.com
-    matched_by: domain
-    detected_by: sweep-workflow-automation.py
-    detected: '2026-10-15'
-    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
-    app_slug: dataforseo
-    actions: true
-    sources: false
-    builder: Pipedream repo (component)
-  status: not-a-workflow
-  arazzo: null
 - slug: dataforseo-npm-registry
   label: npm registry
   partner: npm
@@ -504,5 +453,56 @@
       24 months'
     detected_by: sweep-official-sdks.py
     detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: dataforseo-zapier
+  label: Zapier
+  partner: zapier
+  partner_name: Zapier
+  type: marketplace
+  marketplace: zapier-directory
+  channel: ipaas-listing
+  evidence: https://zapier.com/apps/dataforseo/integrations
+  source: edge
+  relationship: ipaas-bridge
+  contract_reference:
+    register: Zapier app directory (zapier.com/api/v4/apps)
+    spec_file: null
+    role: ipaas-connector:zapier
+    registered_name: DataForSEO
+    matched_domain: dataforseo.com
+    matched_by: domain
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: dataforseo
+    beta: false
+    builder: unknown (not in the directory record)
+  status: not-a-workflow
+  arazzo: null
+- slug: dataforseo-pipedream
+  label: Pipedream
+  partner: pipedream
+  partner_name: Pipedream
+  type: marketplace
+  marketplace: pipedream-components
+  channel: open-source-node
+  evidence: https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/dataforseo
+  source: edge
+  relationship: ipaas-bridge
+  contract_reference:
+    register: Pipedream components (PipedreamHQ/pipedream components/)
+    spec_file: null
+    role: ipaas-connector:pipedream
+    registered_name: dataforseo
+    matched_domain: dataforseo.com
+    matched_by: domain
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: dataforseo
+    actions: true
+    sources: false
+    builder: Pipedream repo (component)
   status: not-a-workflow
   arazzo: null

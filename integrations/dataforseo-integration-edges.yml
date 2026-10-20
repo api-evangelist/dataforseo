@@ -10,6 +10,7 @@ checked:
 - https://composio.dev/toolkits/dataforseo
 - https://crates.io/api/v1
 - https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/
+- https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/
 - https://monid.ai/tools/dataforseo
 - https://n8n.io/integrations/dataforseo/
 - https://proxy.golang.org
@@ -741,57 +742,6 @@ edges:
   direction: third-party
   category: Developer Tools
   partner_url: https://github.com/
-- partner_name: Zapier
-  partner: zapier
-  partner_match: aggregator
-  type: marketplace
-  marketplace: zapier-directory
-  channel: ipaas-listing
-  relationship: ipaas-bridge
-  direction: third-party
-  evidence: https://zapier.com/apps/dataforseo/integrations
-  category: null
-  contract_reference:
-    register: Zapier app directory (zapier.com/api/v4/apps)
-    spec_file: null
-    role: ipaas-connector:zapier
-    registered_name: DataForSEO
-    matched_domain: dataforseo.com
-    matched_by: domain
-    detected_by: sweep-workflow-automation.py
-    detected: '2026-10-15'
-    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
-    app_slug: dataforseo
-    beta: false
-    builder: unknown (not in the directory record)
-  detected_by: sweep-workflow-automation.py
-  first_seen: '2026-10-15'
-- partner_name: Pipedream
-  partner: pipedream
-  partner_match: aggregator
-  type: marketplace
-  marketplace: pipedream-components
-  channel: open-source-node
-  relationship: ipaas-bridge
-  direction: third-party
-  evidence: https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/dataforseo
-  category: null
-  contract_reference:
-    register: Pipedream components (PipedreamHQ/pipedream components/)
-    spec_file: null
-    role: ipaas-connector:pipedream
-    registered_name: dataforseo
-    matched_domain: dataforseo.com
-    matched_by: domain
-    detected_by: sweep-workflow-automation.py
-    detected: '2026-10-15'
-    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
-    app_slug: dataforseo
-    actions: true
-    sources: false
-    builder: Pipedream repo (component)
-  detected_by: sweep-workflow-automation.py
-  first_seen: '2026-10-15'
 - partner_name: npm registry
   partner: npm
   partner_match: register
@@ -882,6 +832,57 @@ edges:
     detected: '2026-10-18'
   detected_by: sweep-official-sdks.py
   first_seen: '2026-10-18'
+- partner_name: Zapier
+  partner: zapier
+  partner_match: aggregator
+  type: marketplace
+  marketplace: zapier-directory
+  channel: ipaas-listing
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://zapier.com/apps/dataforseo/integrations
+  category: null
+  contract_reference:
+    register: Zapier app directory (zapier.com/api/v4/apps)
+    spec_file: null
+    role: ipaas-connector:zapier
+    registered_name: DataForSEO
+    matched_domain: dataforseo.com
+    matched_by: domain
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: dataforseo
+    beta: false
+    builder: unknown (not in the directory record)
+  detected_by: sweep-workflow-automation.py
+  first_seen: '2026-10-15'
+- partner_name: Pipedream
+  partner: pipedream
+  partner_match: aggregator
+  type: marketplace
+  marketplace: pipedream-components
+  channel: open-source-node
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/dataforseo
+  category: null
+  contract_reference:
+    register: Pipedream components (PipedreamHQ/pipedream components/)
+    spec_file: null
+    role: ipaas-connector:pipedream
+    registered_name: dataforseo
+    matched_domain: dataforseo.com
+    matched_by: domain
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: dataforseo
+    actions: true
+    sources: false
+    builder: Pipedream repo (component)
+  detected_by: sweep-workflow-automation.py
+  first_seen: '2026-10-15'
 templates:
 - title: Get Google Ads metrics for new Google Sheets rows using DataForSEO
   url: https://zapier.com/apps/google-sheets/integrations/google-sheets/1818711/get-google-ads-metrics-for-new-google-sheets-rows-using-dataforseo
