@@ -26,6 +26,7 @@ checked:
 - https://officialskills.sh/sitemap.xml
 - https://skillsmp.com/sitemap.xml
 - https://www.skills.sh/sitemap.xml
+- airtable/integrations/airtable-integration-edges.yml
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -955,6 +956,23 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-agent-skills.py
   first_seen: '2026-10-20'
+- partner_name: Airtable (own)
+  partner: airtable
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://airtable.com/marketplace/blk5TpbCnrcUvTnpj/seo-toolkit-by-data-for-seo
+  mirror_of: airtable/integrations/airtable-integration-edges.yml
+  apps:
+  - SEO Toolkit by DataForSEO
+  listing_count: 1
+  detected: '2026-10-23'
+  detected_by: mirror-platform-listings.py
+  category: Airtable extension
 templates:
 - title: Get Google Ads metrics for new Google Sheets rows using DataForSEO
   url: https://zapier.com/apps/google-sheets/integrations/google-sheets/1818711/get-google-ads-metrics-for-new-google-sheets-rows-using-dataforseo

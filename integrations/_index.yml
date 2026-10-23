@@ -558,3 +558,16 @@
     detected: '2026-10-20'
   status: not-a-workflow
   arazzo: null
+- slug: dataforseo-airtable-own
+  label: Airtable (own)
+  partner: airtable
+  partner_name: Airtable (own)
+  category: Airtable extension
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://airtable.com/marketplace/blk5TpbCnrcUvTnpj/seo-toolkit-by-data-for-seo
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
