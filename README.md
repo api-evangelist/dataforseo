@@ -66,70 +66,231 @@
 
 DataForSEO is an SEO data platform offering REST APIs for SERP results, keyword data, backlink analysis, on-page audits, domain analytics, and competitor research across 100+ search engines. It provides pay-as-you-go access to structured SEO and digital marketing data for software developers, agencies, and enterprise teams.
 
-## APIs
+**Areas:** SEO · SERP · Keywords · Backlinks · Domain Analytics · On-Page SEO · Competitor Research · Search Engines · Content Analysis · E-Commerce · App Store · Business Data
 
-| API | Description |
-|-----|-------------|
-| SERP API | Search engine results pages across Google, Bing, YouTube, Yahoo, Baidu, Naver, and Seznam |
-| Keywords Data API | Search volume, CPC, and keyword metrics from Google Ads, Bing Ads, and Google Trends |
-| Backlinks API | Real-time structured backlink data for any domain, subdomain, or page |
-| DataForSEO Labs API | Advanced search analytics, keyword research, and competitor intelligence |
-| Domain Analytics API | Technology detection, traffic estimates, and WHOIS data for any domain |
-| On-Page API | 100+ on-page SEO parameters via website crawling and technical audit |
-| Content Analysis API | Brand monitoring, sentiment analysis, and citation tracking |
-| Business Data API | Customer reviews and business data from Google, Trustpilot, TripAdvisor |
-| App Data API | App rankings, reviews, and metadata from Google Play and Apple App Store |
-| Merchant API | Product and pricing data from Google Shopping and Amazon |
-| AI Optimization API | LLM mentions tracking and generative engine optimization data |
-| Social Media API | Social engagement data for Pinterest and Facebook |
+## DataForSEO on APIs.io
 
-## Authentication
+Everything profiled for DataForSEO is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/dataforseo/](https://apis.io/providers/dataforseo/)** — or go straight to one of the APIs or properties below.
 
-DataForSEO APIs use HTTP Basic Authentication. Credentials (login and password) are provided upon account registration at [app.dataforseo.com](https://app.dataforseo.com).
+### APIs (12)
 
-## Pricing
+- [DataForSEO AiOptimization API](https://apis.io/apis/dataforseo/dataforseo-aioptimization-api/) — The AiOptimization API from DataForSEO — 44 operation(s) for aioptimization.
+- [DataForSEO Appendix API](https://apis.io/apis/dataforseo/dataforseo-appendix-api/) — The Appendix API from DataForSEO — 4 operation(s) for appendix.
+- [DataForSEO Backlinks API](https://apis.io/apis/dataforseo/dataforseo-backlinks-api/) — The Backlinks API from DataForSEO — 24 operation(s) for backlinks.
+- [DataForSEO BusinessData API](https://apis.io/apis/dataforseo/dataforseo-businessdata-api/) — The BusinessData API from DataForSEO — 55 operation(s) for businessdata.
+- [DataForSEO DataforseoLabs API](https://apis.io/apis/dataforseo/dataforseo-dataforseolabs-api/) — The DataforseoLabs API from DataForSEO — 47 operation(s) for dataforseolabs.
+- [DataForSEO DomainAnalytics API](https://apis.io/apis/dataforseo/dataforseo-domainanalytics-api/) — The DomainAnalytics API from DataForSEO — 14 operation(s) for domainanalytics.
+- [DataForSEO KeywordsData API](https://apis.io/apis/dataforseo/dataforseo-keywordsdata-api/) — The KeywordsData API from DataForSEO — 70 operation(s) for keywordsdata.
+- [DataForSEO Merchant API](https://apis.io/apis/dataforseo/dataforseo-merchant-api/) — The Merchant API from DataForSEO — 32 operation(s) for merchant.
+- [DataForSEO OnPage API](https://apis.io/apis/dataforseo/dataforseo-onpage-api/) — The OnPage API from DataForSEO — 30 operation(s) for onpage.
+- [DataForSEO Serp API](https://apis.io/apis/dataforseo/dataforseo-serp-api/) — The Serp API from DataForSEO — 181 operation(s) for serp.
+- [DataForSEO App Data API](https://apis.io/apis/dataforseo/dataforseo-app-data-api/) — The App Data API from DataForSEO — 42 operation(s) for app data.
+- [DataForSEO Content Analysis API](https://apis.io/apis/dataforseo/dataforseo-content-analysis-api/) — The Content Analysis API from DataForSEO — 11 operation(s) for content analysis.
 
-DataForSEO operates on a **pay-as-you-go** model with no monthly subscription fees. A minimum prepaid deposit of $50 is required to activate an account.
+### Published properties
 
-| Queue | Price per SERP | Latency |
-|-------|---------------|---------|
-| Standard Queue | $0.0006 | ~5 minutes |
-| Priority Queue | $0.0012 | ~1 minute |
-| Live Mode | $0.0020 | ~6 seconds |
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-See [plans/dataforseo-plans-pricing.yml](plans/dataforseo-plans-pricing.yml) for full pricing details.
+#### AsyncAPI (1)
 
-## Rate Limits
+Event-driven and webhook contracts.
 
-- Maximum: **2,000 API calls per minute** per account
-- Rate limit status is returned via `X-RateLimit-Limit` and `X-RateLimit-Remaining` response headers
+- [Dataforseo Webhooks](https://apis.io/asyncapis/dataforseo/dataforseo-webhooks/)
 
-See [rate-limits/dataforseo-rate-limits.yml](rate-limits/dataforseo-rate-limits.yml) for details.
+#### MCP servers (1)
 
-## SDKs
+Model Context Protocol servers that expose the API to agents.
 
-- [Python](https://github.com/dataforseo/PythonClient)
-- [TypeScript](https://github.com/dataforseo/TypeScriptClient)
-- [Java](https://github.com/dataforseo/JavaClient)
-- [C#](https://github.com/dataforseo/CSharpClient)
-- [MCP Server (TypeScript)](https://github.com/dataforseo/mcp-server-typescript)
-- [n8n Node](https://github.com/dataforseo/n8n-nodes-dataforseo)
+- [dataforseo](https://apis.io/servers/dataforseo/dataforseo/)
 
-## OpenAPI
+#### Agentic access (1)
 
-Full OpenAPI documentation for all DataForSEO endpoints is available at [github.com/dataforseo/OpenApiDocumentation](https://github.com/dataforseo/OpenApiDocumentation).
+Which operations an agent can call, which act, and which need a human in the loop.
 
-## Links
+- [Dataforseo Agentic Access](https://apis.io/agentic-access/dataforseo/dataforseo-agentic-access/)
 
-- **Website:** https://dataforseo.com
-- **Documentation:** https://docs.dataforseo.com
-- **GitHub:** https://github.com/dataforseo
-- **Pricing:** https://dataforseo.com/pricing
-- **Status:** https://status.dataforseo.com
-- **Blog:** https://dataforseo.com/blog
-- **LinkedIn:** https://www.linkedin.com/company/dataforseo
-- **X:** https://x.com/dataforseo
+#### JSON Schema (12)
 
-## Maintainer
+The data models the API reads and writes.
 
-Kin Lane — kin@apievangelist.com
+- [DataForSEO Ai Optimization API Schemas](https://apis.io/schemas/dataforseo/dataforseo-ai-optimization/)
+- [DataForSEO App Data API Schemas](https://apis.io/schemas/dataforseo/dataforseo-app-data/)
+- [DataForSEO Appendix API Schemas](https://apis.io/schemas/dataforseo/dataforseo-appendix/)
+- [DataForSEO Backlinks API Schemas](https://apis.io/schemas/dataforseo/dataforseo-backlinks/)
+- [DataForSEO Business Data API Schemas](https://apis.io/schemas/dataforseo/dataforseo-business-data/)
+- [DataForSEO Content Analysis API Schemas](https://apis.io/schemas/dataforseo/dataforseo-content-analysis/)
+- [DataForSEO Domain Analytics API Schemas](https://apis.io/schemas/dataforseo/dataforseo-domain-analytics/)
+- [DataForSEO Keywords Data API Schemas](https://apis.io/schemas/dataforseo/dataforseo-keywords-data/)
+- [DataForSEO Labs API Schemas](https://apis.io/schemas/dataforseo/dataforseo-labs/)
+- [DataForSEO Merchant API Schemas](https://apis.io/schemas/dataforseo/dataforseo-merchant/)
+- [DataForSEO On Page API Schemas](https://apis.io/schemas/dataforseo/dataforseo-on-page/)
+- [DataForSEO Serp API Schemas](https://apis.io/schemas/dataforseo/dataforseo-serp/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Dataforseo Context](https://apis.io/jsonld/dataforseo/dataforseo-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [DataForSEO API Vocabulary](https://apis.io/vocabularies/dataforseo/dataforseo-vocabulary/)
+
+#### Collections (12)
+
+Postman and Open Collection request collections.
+
+- [DataForSEO AiOptimization API](https://apis.io/collections/dataforseo/open-dataforseo-aioptimization-api/)
+- [DataForSEO AiOptimization AppData API](https://apis.io/collections/dataforseo/open-dataforseo-appdata-api/)
+- [DataForSEO AiOptimization Appendix API](https://apis.io/collections/dataforseo/open-dataforseo-appendix-api/)
+- [DataForSEO AiOptimization Backlinks API](https://apis.io/collections/dataforseo/open-dataforseo-backlinks-api/)
+- [DataForSEO AiOptimization BusinessData API](https://apis.io/collections/dataforseo/open-dataforseo-businessdata-api/)
+- [DataForSEO AiOptimization ContentAnalysis API](https://apis.io/collections/dataforseo/open-dataforseo-contentanalysis-api/)
+- [DataForSEO AiOptimization DataforseoLabs API](https://apis.io/collections/dataforseo/open-dataforseo-dataforseolabs-api/)
+- [DataForSEO AiOptimization DomainAnalytics API](https://apis.io/collections/dataforseo/open-dataforseo-domainanalytics-api/)
+- [DataForSEO AiOptimization KeywordsData API](https://apis.io/collections/dataforseo/open-dataforseo-keywordsdata-api/)
+- [DataForSEO AiOptimization Merchant API](https://apis.io/collections/dataforseo/open-dataforseo-merchant-api/)
+- [DataForSEO AiOptimization OnPage API](https://apis.io/collections/dataforseo/open-dataforseo-onpage-api/)
+- [DataForSEO AiOptimization Serp API](https://apis.io/collections/dataforseo/open-dataforseo-serp-api/)
+
+#### Overlays (24)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Dataforseo Aioptimization Api Phrasing Overlay](https://apis.io/overlays/dataforseo/dataforseo-aioptimization-api-phrasing-overlay/)
+- [Dataforseo Aioptimization Overlay](https://apis.io/overlays/dataforseo/dataforseo-aioptimization-overlay/)
+- [Dataforseo App Data Api Phrasing Overlay](https://apis.io/overlays/dataforseo/dataforseo-app-data-api-phrasing-overlay/)
+- [Dataforseo Appdata Overlay](https://apis.io/overlays/dataforseo/dataforseo-appdata-overlay/)
+- [Dataforseo Appendix Api Phrasing Overlay](https://apis.io/overlays/dataforseo/dataforseo-appendix-api-phrasing-overlay/)
+- [Dataforseo Appendix Overlay](https://apis.io/overlays/dataforseo/dataforseo-appendix-overlay/)
+- [Dataforseo Backlinks Api Phrasing Overlay](https://apis.io/overlays/dataforseo/dataforseo-backlinks-api-phrasing-overlay/)
+- [Dataforseo Backlinks Overlay](https://apis.io/overlays/dataforseo/dataforseo-backlinks-overlay/)
+- [Dataforseo Businessdata Api Phrasing Overlay](https://apis.io/overlays/dataforseo/dataforseo-businessdata-api-phrasing-overlay/)
+- [Dataforseo Businessdata Overlay](https://apis.io/overlays/dataforseo/dataforseo-businessdata-overlay/)
+- [Dataforseo Content Analysis Api Phrasing Overlay](https://apis.io/overlays/dataforseo/dataforseo-content-analysis-api-phrasing-overlay/)
+- [Dataforseo Contentanalysis Overlay](https://apis.io/overlays/dataforseo/dataforseo-contentanalysis-overlay/)
+- [Dataforseo Dataforseolabs Api Phrasing Overlay](https://apis.io/overlays/dataforseo/dataforseo-dataforseolabs-api-phrasing-overlay/)
+- [Dataforseo Dataforseolabs Overlay](https://apis.io/overlays/dataforseo/dataforseo-dataforseolabs-overlay/)
+- [Dataforseo Domainanalytics Api Phrasing Overlay](https://apis.io/overlays/dataforseo/dataforseo-domainanalytics-api-phrasing-overlay/)
+- [Dataforseo Domainanalytics Overlay](https://apis.io/overlays/dataforseo/dataforseo-domainanalytics-overlay/)
+- [Dataforseo Keywordsdata Api Phrasing Overlay](https://apis.io/overlays/dataforseo/dataforseo-keywordsdata-api-phrasing-overlay/)
+- [Dataforseo Keywordsdata Overlay](https://apis.io/overlays/dataforseo/dataforseo-keywordsdata-overlay/)
+- [Dataforseo Merchant Api Phrasing Overlay](https://apis.io/overlays/dataforseo/dataforseo-merchant-api-phrasing-overlay/)
+- [Dataforseo Merchant Overlay](https://apis.io/overlays/dataforseo/dataforseo-merchant-overlay/)
+- [Dataforseo Onpage Api Phrasing Overlay](https://apis.io/overlays/dataforseo/dataforseo-onpage-api-phrasing-overlay/)
+- [Dataforseo Onpage Overlay](https://apis.io/overlays/dataforseo/dataforseo-onpage-overlay/)
+- [Dataforseo Serp Api Phrasing Overlay](https://apis.io/overlays/dataforseo/dataforseo-serp-api-phrasing-overlay/)
+- [Dataforseo Serp Overlay](https://apis.io/overlays/dataforseo/dataforseo-serp-overlay/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [DataForSEO — jsonschema rules](https://apis.io/rules/dataforseo/dataforseo-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Dataforseo Authentication](https://apis.io/security/dataforseo/dataforseo-authentication/)
+- [Dataforseo Domain Security](https://apis.io/security/dataforseo/dataforseo-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Dataforseo Scopes](https://apis.io/scopes/dataforseo/dataforseo-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Dataforseo Plans Pricing](https://apis.io/plans/dataforseo/dataforseo-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Dataforseo Rate Limits](https://apis.io/rate-limits/dataforseo/dataforseo-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Dataforseo Finops](https://apis.io/finops/dataforseo/dataforseo-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://dataforseo.com)
+- [Documentation](https://docs.dataforseo.com)
+- [Getting started](https://dataforseo.com/blog/a-kickstart-guide-to-using-dataforseo-apis)
+- [API reference](https://docs.dataforseo.com/v3/)
+- [Pricing](https://dataforseo.com/pricing)
+- [Sign up](https://app.dataforseo.com/register)
+- [Support](https://dataforseo.com/help-center)
+- [Changelog](https://dataforseo.com/updates)
+- [Blog](https://dataforseo.com/blog)
+- [Compliance](https://dataforseo.com/wp-content/uploads/2021/12/27001_DATAFORSEO-.pdf)
+- [Terms of service](https://dataforseo.com/terms-of-service/)
+- [Privacy policy](https://dataforseo.com/privacy-policy/)
+- [GitHub](https://github.com/dataforseo)
+- [Status](https://status.dataforseo.com)
+
+## API Evangelist rating
+
+**Kin Score 65.8** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 80.0 |
+| Contract quality | 72.3 |
+| Contract governance | 41.7 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 90.5 |
+| Access clarity | 46.1 |
+
+**Agent readiness 61.3** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | yes |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 39.2** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/dataforseo/](https://apis.io/providers/dataforseo/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for DataForSEO: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/dataforseo/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
